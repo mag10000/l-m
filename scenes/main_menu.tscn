@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsu1mcd1utghg"]
+
+[ext_resource type="Script" path="res://scripts/main menu.gd" id="1_gacp7"]
+[ext_resource type="FontFile" uid="uid://c5qhtgatl58i4" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_ak147"]
+[ext_resource type="Texture2D" uid="uid://bcn3eddm0pha4" path="res://brackeys_platformer_assets/sprites/l m superheroes.png" id="3_eq2fc"]
+[ext_resource type="Script" path="res://scenes/Button.gd" id="4_gykim"]
+[ext_resource type="AudioStream" uid="uid://couiho3aka6wn" path="res://music/lm scary.wav" id="5_dnm2d"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="6_xoitd"]
+
+[node name="main menu" type="Node2D"]
+script = ExtResource("1_gacp7")
+version = "18.0"
+
+[node name="LMSuperheroes" type="Sprite2D" parent="."]
+position = Vector2(91, 48)
+scale = Vector2(0.368285, 0.1845)
+texture = ExtResource("3_eq2fc")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 79.0
+offset_bottom = 52.0
+tooltip_text = "start the game"
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_right = NodePath("../Button2")
+theme_override_fonts/font = ExtResource("3_ak147")
+button_mask = 3
+text = "start"
+script = ExtResource("4_gykim")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 103.0
+offset_top = 20.0
+offset_right = 165.0
+offset_bottom = 52.0
+tooltip_text = "quit the game"
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_right = NodePath("../Button")
+theme_override_fonts/font = ExtResource("3_ak147")
+button_mask = 3
+text = "quit"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 51.0
+offset_top = 62.0
+offset_right = 129.0
+offset_bottom = 94.0
+tooltip_text = "quit the game"
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_right = NodePath("../Button")
+theme_override_fonts/font = ExtResource("3_ak147")
+disabled = true
+button_mask = 3
+text = "sound"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(94, 34)
+zoom = Vector2(4, 4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dnm2d")
+autoplay = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 228.0
+offset_top = 128.0
+offset_right = 296.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("6_xoitd")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_2_pressed"]

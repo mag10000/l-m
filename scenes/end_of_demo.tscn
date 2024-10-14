@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://fvjhy2xmkh4h"]
+
+[ext_resource type="Script" path="res://end of demo.gd" id="1_kyinx"]
+
+[node name="end of demo" type="Node2D"]
+script = ExtResource("1_kyinx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 251.0
+offset_top = 234.0
+offset_right = 1032.0
+offset_bottom = 518.0
+theme_override_font_sizes/font_size = 50
+text = "this is the end of the demo"
+clip_text = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 310.0
+offset_top = 360.0
+offset_right = 396.0
+offset_bottom = 452.0
+theme_override_font_sizes/font_size = 50
+text = "x"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 576.0
+offset_top = 369.0
+offset_right = 846.0
+offset_bottom = 449.0
+theme_override_font_sizes/font_size = 50
+text = "re-play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

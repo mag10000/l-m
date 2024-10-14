@@ -1,0 +1,132 @@
+[gd_scene load_steps=13 format=3 uid="uid://0o6fnljfog8d"]
+
+[ext_resource type="Script" path="res://scenes/jacob_dragon.gd" id="1_4dkai"]
+[ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="1_qgquq"]
+[ext_resource type="PackedScene" uid="uid://bmd505rvvtd88" path="res://scenes/menu_pop_up.tscn" id="3_2tehr"]
+[ext_resource type="AudioStream" uid="uid://coshb0s8p3hi0" path="res://assets/wing-flap-1-6434.mp3" id="4_g8lxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lynx2"]
+atlas = ExtResource("1_qgquq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u00uv"]
+atlas = ExtResource("1_qgquq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6feh"]
+atlas = ExtResource("1_qgquq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rstdi"]
+atlas = ExtResource("1_qgquq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y02wn"]
+atlas = ExtResource("1_qgquq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvho1"]
+atlas = ExtResource("1_qgquq")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gs7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lynx2")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u00uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6feh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rstdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y02wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvho1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70eb4"]
+size = Vector2(25, 14)
+
+[node name="Jacob_dragon" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_4dkai")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4gs7i")
+animation = &"death"
+autoplay = "default"
+frame_progress = 0.422047
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_70eb4")
+
+[node name="menu_pop_up" parent="." instance=ExtResource("3_2tehr")]
+visible = false
+
+[node name="quit" parent="menu_pop_up" index="1"]
+offset_left = 1094.0
+offset_top = 593.0
+offset_right = 1268.0
+offset_bottom = 695.0
+
+[node name="co-op" parent="menu_pop_up" index="2"]
+offset_left = 839.0
+offset_top = 593.0
+offset_right = 1013.0
+offset_bottom = 697.0
+
+[node name="back" parent="menu_pop_up" index="3"]
+offset_left = 615.0
+offset_top = 589.0
+offset_right = 787.0
+offset_bottom = 697.0
+
+[node name="Button" parent="menu_pop_up" index="4"]
+offset_left = 854.0
+offset_top = 510.0
+offset_right = 992.0
+offset_bottom = 564.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_g8lxi")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 10
+offset_left = -644.0
+offset_top = -784.0
+offset_right = 1317.0
+offset_bottom = 1058.0
+color = Color(0.784314, 0.784314, 0.784314, 0.760784)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -31.0
+offset_top = -28.0
+offset_right = 36.0
+offset_bottom = -5.0
+text = "no co-op"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="menu_pop_up"]

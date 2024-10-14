@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=3 uid="uid://dpltoevskcem8"]
+
+[ext_resource type="Script" path="res://scenes/shadow_kid.gd" id="1_5srko"]
+[ext_resource type="Script" path="res://scenes/killzone3.gd" id="2_nl1ig"]
+[ext_resource type="Script" path="res://scripts/killzone.gd" id="3_pilt1"]
+[ext_resource type="Texture2D" uid="uid://ccea340i1gqx2" path="res://assets/shadow_kid_lm.png" id="3_rvmnc"]
+[ext_resource type="AudioStream" uid="uid://d2cqihx6y04np" path="res://assets/You_Killed_a_Shadow_Kid.wav" id="4_l2343"]
+[ext_resource type="Script" path="res://scenes/killzone2.gd" id="5_sbu3v"]
+[ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="6_k5rq0"]
+[ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="7_4m2au"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn6e1"]
+atlas = ExtResource("3_rvmnc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd41v"]
+atlas = ExtResource("3_rvmnc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wbha"]
+atlas = ExtResource("3_rvmnc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pffaf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn6e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd41v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wbha")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xra62"]
+radius = 2.68967
+height = 12.692
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i58bn"]
+radius = 6.0
+height = 26.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kil80"]
+size = Vector2(16, 6.625)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwb0r"]
+radius = 6.0
+height = 26.0
+
+[node name="shadow_kid" type="Node2D"]
+script = ExtResource("1_5srko")
+
+[node name="RayCastright" type="RayCast2D" parent="."]
+position = Vector2(10, 21)
+target_position = Vector2(20, -14)
+
+[node name="RayCastleft" type="RayCast2D" parent="."]
+position = Vector2(10, 16)
+target_position = Vector2(-19, -8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, 11)
+sprite_frames = SubResource("SpriteFrames_pffaf")
+autoplay = "default"
+frame_progress = 0.431526
+
+[node name="killzone" type="Area2D" parent="."]
+position = Vector2(-3.75, -2.05)
+scale = Vector2(1.11538, 1.05)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_pilt1")
+
+[node name="Timer" type="Timer" parent="killzone"]
+wait_time = 0.9
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(12.3276, 18.1429)
+scale = Vector2(2.15173, 1.96)
+shape = SubResource("CapsuleShape2D_xra62")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone"]
+stream = ExtResource("6_k5rq0")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone/AudioStreamPlayer2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_l2343")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
+
+[node name="killzone2" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("5_sbu3v")
+
+[node name="Timer" type="Timer" parent="killzone2"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
+stream = ExtResource("6_k5rq0")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+position = Vector2(10, 17)
+shape = SubResource("CapsuleShape2D_i58bn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 208
+collision_mask = 208
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, 3.6875)
+shape = SubResource("RectangleShape2D_kil80")
+debug_color = Color(0.980528, 0, 0.378903, 0.42)
+
+[node name="killzone3" parent="." instance=ExtResource("7_4m2au")]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("2_nl1ig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+position = Vector2(10, 17)
+shape = SubResource("CapsuleShape2D_gwb0r")
+debug_color = Color(0.591883, 0.512922, 0.525306, 0.42)
+
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
+[connection signal="timeout" from="killzone/Timer" to="killzone" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
+[connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
