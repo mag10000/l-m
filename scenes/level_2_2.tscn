@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ojcokv7h5n8o"]
+[gd_scene load_steps=17 format=3 uid="uid://ojcokv7h5n8o"]
 
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="1_2jrld"]
 [ext_resource type="Texture2D" uid="uid://tuhjb4cjelwi" path="res://scenes/nyc-jpmorgan-tower-removebg-preview.png" id="2_sw0ml"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://byci1sdwg64pr" path="res://scenes/base_enter.tscn" id="9_an7sg"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="10_7m75a"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="10_bfc8u"]
+[ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="11_0ft48"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m2gxv"]
 distance = -64.0
@@ -136,3 +137,6 @@ shape = SubResource("RectangleShape2D_202e3")
 
 [node name="player2" parent="." instance=ExtResource("10_bfc8u")]
 position = Vector2(78, 331)
+
+[node name="ian" parent="." instance=ExtResource("11_0ft48")]
+position = Vector2(58, 331)

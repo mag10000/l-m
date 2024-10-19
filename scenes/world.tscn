@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgejl0kget50h"]
+[gd_scene load_steps=25 format=3 uid="uid://cgejl0kget50h"]
 
 [ext_resource type="AudioStream" uid="uid://4jgr8y1nu5uh" path="res://music/LM_Main_Soundtrack.wav" id="1_wdtrk"]
 [ext_resource type="Script" path="res://scenes/game maneger.gd" id="1_wew0o"]
@@ -27,6 +27,21 @@ distance = -64.0
 size = Vector2(207, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvsd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxutb"]
+atlas = ExtResource("5_8u7im")
+region = Rect2(0, 0, 100, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjhs7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxutb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4dnk"]
 size = Vector2(16, 15.5)
@@ -94,11 +109,6 @@ position = Vector2(-142, -170)
 scale = Vector2(0.63125, 0.433526)
 texture = ExtResource("11_iqgsf")
 
-[node name="Tree-removebg-preview" type="Sprite2D" parent="killzone"]
-position = Vector2(552.141, -183)
-scale = Vector2(1.55719, 1.70813)
-texture = ExtResource("5_8u7im")
-
 [node name="bridge" type="StaticBody2D" parent="killzone"]
 position = Vector2(0, -31.9999)
 
@@ -117,6 +127,10 @@ shape = SubResource("RectangleShape2D_kvsd0")
 position = Vector2(447, -152.923)
 scale = Vector2(0.999997, 1.13463)
 texture = ExtResource("7_ewyu5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="killzone"]
+position = Vector2(549, -180)
+sprite_frames = SubResource("SpriteFrames_hjhs7")
 
 [node name="smobeybobey" parent="." instance=ExtResource("6_yyife")]
 position = Vector2(1175, 453)
