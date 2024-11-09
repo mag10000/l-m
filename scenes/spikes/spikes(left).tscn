@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bk3xc1x3m8i8w"]
+[gd_scene load_steps=12 format=3 uid="uid://bk3xc1x3m8i8w"]
 
+[ext_resource type="Script" path="res://scenes/spikes/spikes(left).gd" id="1_2tgo3"]
 [ext_resource type="Texture2D" uid="uid://b0a7d47cx5gxl" path="res://assets/spikes_lm.png" id="1_nctac"]
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="2_mxkas"]
 [ext_resource type="Script" path="res://scenes/killzone2.gd" id="3_0tf38"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="4_n7gry"]
 [ext_resource type="Script" path="res://scenes/killzone3.gd" id="5_ado1i"]
+[ext_resource type="Script" path="res://scenes/killzone4.gd" id="6_cp8oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u8qe"]
 atlas = ExtResource("1_nctac")
@@ -24,7 +26,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6sbk"]
 size = Vector2(10, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcqn0"]
+size = Vector2(10, 16)
+
 [node name="spikes(down)" type="Node2D"]
+script = ExtResource("1_2tgo3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 6)
@@ -74,7 +80,29 @@ max_distance = 2e+07
 position = Vector2(3, 6)
 shape = SubResource("RectangleShape2D_y6sbk")
 
+[node name="killzone4" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("6_cp8oq")
+
+[node name="Timer" type="Timer" parent="killzone4"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
+stream = ExtResource("4_n7gry")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4"]
+position = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_lcqn0")
+debug_color = Color(0, 0.364998, 0.73823, 0.419608)
+
 [connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
 [connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzone3" to="killzone3" method="_on_body_entered"]
 [connection signal="timeout" from="killzone3/Timer" to="killzone3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone4" to="killzone4" method="_on_body_entered"]
+[connection signal="timeout" from="killzone4/Timer" to="killzone4" method="_on_timer_timeout"]

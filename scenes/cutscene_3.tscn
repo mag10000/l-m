@@ -667,4 +667,13 @@ position = Vector2(-61, -66)
 sprite_frames = SubResource("SpriteFrames_bycx6")
 autoplay = "default"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -5
+offset_left = -535.0
+offset_top = -215.0
+offset_right = 748.0
+offset_bottom = 309.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

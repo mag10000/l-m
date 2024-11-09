@@ -13,4 +13,10 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	pass # Replace with function body.
+	if State.strange_signal_level_done == false:
+		State.save_menu_scene = ("res://scenes/strange_signal_cutscene_2.tscn")
+		State.strange_signal_level_done = true
+		get_tree().change_scene_to_file("res://scenes/strange_signal_cutscene_2.tscn")
+	else:
+		State.save_menu_scene = ("res://scenes/base.tscn")
+		get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")

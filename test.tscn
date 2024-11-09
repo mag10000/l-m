@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://2wsefbbkqsjr"]
+[gd_scene load_steps=9 format=3 uid="uid://2wsefbbkqsjr"]
 
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_ormha"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="2_rgj8v"]
 [ext_resource type="PackedScene" uid="uid://dpltoevskcem8" path="res://scenes/shadow_kid.tscn" id="3_vvyd8"]
 [ext_resource type="Script" path="res://Button_test.gd" id="4_l5fxn"]
+[ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="5_8f8cd"]
+[ext_resource type="PackedScene" uid="uid://cdcrs0m1nrn83" path="res://scenes/terra_shadow.tscn" id="6_6xh6k"]
+[ext_resource type="PackedScene" uid="uid://7cl2btxbb7bk" path="res://scenes/power_crystal.tscn" id="7_ohpkg"]
+[ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="8_4n4wl"]
 
 [node name="test" type="Node2D"]
 
@@ -12,11 +16,12 @@ tile_set = ExtResource("1_ormha")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 65537, 0, 0, 65537, 0, 1, 65537, 0, 65534, 65537, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 131073, 1, 0, 131074, 1, 0, 65538, 1, 0, 65539, 1, 0, 65537, 1, 0, 131072, 1, 0, 196607, 1, 0, 196606, 1, 0, 196605, 1, 0, 131069, 1, 0, 65533, 65537, 0, 2, 65537, 0, 3, 65537, 0, 131075, 1, 0, 4, 1, 0, -65532, 1, 0, -131068, 65537, 0, 65540, 1, 0, 65541, 65537, 0, 65542, 65537, 0, 65543, 65537, 0, 65544, 65537, 0, 65545, 65537, 0, 65546, 65537, 0, 131082, 1, 0, 131081, 1, 0, 131080, 1, 0, 131079, 1, 0, 131078, 1, 0, 131077, 1, 0, 131076, 1, 0, 14, 65537, 0, 65547, 65537, 0, 65548, 65537, 0, 65549, 65537, 0, 65550, 1, 0, 65551, 65537, 0, 131085, 1, 0, 131084, 1, 0, 131083, 1, 0, 131087, 1, 0, 131086, 1, 0, 65552, 65537, 0, 65553, 65537, 0, 65554, 65537, 0, 131090, 1, 0, 131091, 1, 0, 131089, 1, 0, 131088, 1, 0, 65555, 65537, 0)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(135, -42)
+zoom = Vector2(4, 4)
+
 [node name="ian" parent="." instance=ExtResource("2_rgj8v")]
 position = Vector2(0, -45)
-
-[node name="Camera2D" type="Camera2D" parent="ian"]
-zoom = Vector2(6, 6)
 
 [node name="shadow_kid" parent="." instance=ExtResource("3_vvyd8")]
 position = Vector2(85, -11)
@@ -28,5 +33,17 @@ offset_right = 49.0
 offset_bottom = -53.0
 text = "test"
 script = ExtResource("4_l5fxn")
+
+[node name="tall_boi" parent="." instance=ExtResource("5_8f8cd")]
+position = Vector2(-26, -44)
+
+[node name="terra-shadow" parent="." instance=ExtResource("6_6xh6k")]
+position = Vector2(231, -10)
+
+[node name="power_crystal" parent="." instance=ExtResource("7_ohpkg")]
+position = Vector2(37, -9)
+
+[node name="main dude" parent="." instance=ExtResource("8_4n4wl")]
+position = Vector2(39, -48)
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

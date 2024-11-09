@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/water.gd" id="1_2nm76"]
 
 [node name="water" type="Area2D"]
-collision_mask = 130
+collision_mask = 2
 script = ExtResource("1_2nm76")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

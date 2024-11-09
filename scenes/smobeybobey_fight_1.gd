@@ -45,6 +45,7 @@ func _process(delta):
 		$death_player.play()
 		$death_timer.start()
 	if health <= 1:
+		State.boss_fight_1_done = true
 		State.save_menu_scene = ("res://scenes/base.tscn")
 		get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 	if smobeybobeys_turn == true && smobeybobeys_turn_started == false:

@@ -1,33 +1,45 @@
 extends CanvasLayer
 
-
-
+var main_menu_pressed = false
+var co_op_snch = true
 
 func _on_back_pressed():
 	State.escape = false
-	$"../ColorRect".visible = false
-	$".".visible = false
+	$Control/ColorRect.visible = false
+	self.visible = false
 
 func _on_quit_pressed():
 	get_tree().quit()
 
 func _process(delta):
 	if State.co_op_unlocked == true:
-		$"co-op".disabled = false
-		$"co-op_2".disabled = false
+		$"Control/co-op".disabled = false
+		$"Control/co-op_2".disabled = false
+		$"Control/co-op_3".disabled = false
+	if State.escape == false:
+		self.visible = false
+		$Control/ColorRect.visible = false
+	if State.escape == true:
+		self.visible = true
+		$Control/ColorRect.visible = true
+	if main_menu_pressed == false:
+		co_op_snch = State.co_op_unlocked
+
 
 func _on_coop_pressed():
 	State.player_2_in = !State.player_2_in
 	State.player_3_in = false
+	State.player_4_in = false
 	State.escape = !State.escape
-	$"../ColorRect".visible = !$"../ColorRect".visible
-	$".".visible = !$".".visible
+	$Control/ColorRect.visible = !$Control/ColorRect.visible
+	self.visible = !self.visible
 	get_tree().reload_current_scene()
 
 
 func _on_button_pressed():
 	get_tree().reload_current_scene()
 	State.escape = false
+	
 
 
 
@@ -39,7 +51,80 @@ func _on_button_pressed():
 func _on_coop_2_pressed():
 	State.player_3_in = !State.player_3_in
 	State.escape = !State.escape
-	$"../ColorRect".visible = !$"../ColorRect".visible
-	$".".visible = !$".".visible
+	$Control/ColorRect.visible = !$Control/ColorRect.visible
+	self.visible = !self.visible
 	State.player_2_in = true
+	State.player_4_in = false
 	get_tree().reload_current_scene()
+
+
+func _on_coop_3_pressed():
+	State.player_4_in = !State.player_4_in
+	State.escape = !State.escape
+	$Control/ColorRect.visible = !$Control/ColorRect.visible
+	self.visible = !self.visible
+	State.player_2_in = true
+	State.player_3_in = true
+	get_tree().reload_current_scene()
+
+
+func _on_map_pressed():
+	if State.tuturiol_level_done == true:
+		State.escape = false
+		State.save_menu_scene = ("res://scenes/base.tscn")
+		get_tree().change_scene_to_file("res://scenes/world_map.tscn")
+	else:
+		State.escape = false
+
+
+
+
+
+func _on_main_menu_pressed():
+	main_menu_pressed = true
+	$Control/VBoxContainer.visible = true
+	State.co_op_unlocked = false
+	$Control/quit.disabled = true
+	$"Control/co-op".disabled = true
+	$Control/back.disabled = true
+	$Control/Button.disabled = true
+	$Control/hats.disabled = true
+	$"Control/co-op_2".disabled = true
+	$"Control/co-op_3".disabled = true
+	$Control/map.disabled = true
+	$Control/main_menu.disabled = true
+	
+
+
+func _on_button_2_pressed():
+	main_menu_pressed = false
+	$Control/VBoxContainer.visible = false
+	State.co_op_unlocked = true
+	$Control/quit.disabled = false
+	$"Control/co-op".disabled = false
+	$Control/back.disabled = false
+	$Control/Button.disabled = false
+	$Control/hats.disabled = true
+	$"Control/co-op_2".disabled = false
+	$"Control/co-op_3".disabled = false
+	$Control/map.disabled = false
+	$Control/main_menu.disabled = false
+	State.co_op_unlocked = co_op_snch
+
+
+func _on_button_1_pressed():
+	main_menu_pressed = false
+	$Control/VBoxContainer.visible = false
+	State.co_op_unlocked = true
+	$Control/quit.disabled = false
+	$"Control/co-op".disabled = false
+	$Control/back.disabled = false
+	$Control/Button.disabled = false
+	$Control/hats.disabled = true
+	$"Control/co-op_2".disabled = false
+	$"Control/co-op_3".disabled = false
+	$Control/map.disabled = false
+	$Control/main_menu.disabled = false
+	State.co_op_unlocked = co_op_snch
+	State.escape = false
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

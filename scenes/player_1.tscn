@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dylqvfwv2nw85"]
+[gd_scene load_steps=57 format=3 uid="uid://dylqvfwv2nw85"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_u5eiu"]
 [ext_resource type="Texture2D" uid="uid://c5sr0lpo1un63" path="res://assets/Lucas_lm-1.png.png" id="2_f5mat"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bl36lfdhiohda" path="res://assets/lucas_hat.png" id="6_36t6d"]
 [ext_resource type="Texture2D" uid="uid://0wje83t8jbtk" path="res://assets/lucas_hat_idle.png" id="7_c4dy5"]
 [ext_resource type="Texture2D" uid="uid://c5b3esr0sol3q" path="res://assets/Bubules.png" id="8_b6tyq"]
+[ext_resource type="Texture2D" uid="uid://cpg4sto8tn2gy" path="res://assets/hat.png" id="9_opnrj"]
+[ext_resource type="Texture2D" uid="uid://dymi8pd0g04vn" path="res://assets/power_crystal_radiation.png" id="10_20dwk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5msjf"]
 size = Vector2(5.47414, 16.2938)
@@ -296,6 +298,69 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4q7h"]
 size = Vector2(23, 2)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqtvr"]
+atlas = ExtResource("9_opnrj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0q7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqtvr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs5dw"]
+atlas = ExtResource("10_20dwk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dflq0"]
+atlas = ExtResource("10_20dwk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xunc"]
+atlas = ExtResource("10_20dwk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1flt"]
+atlas = ExtResource("10_20dwk")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw6ne"]
+atlas = ExtResource("8_b6tyq")
+region = Rect2(48, 72, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aakpg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs5dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dflq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xunc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1flt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw6ne")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
 [node name="main dude" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_u5eiu")
@@ -332,54 +397,6 @@ volume_db = 8.99
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-z_index = 10
-offset_left = -644.0
-offset_top = -784.0
-offset_right = 1317.0
-offset_bottom = 1058.0
-color = Color(0.784314, 0.784314, 0.784314, 0.447059)
-
-[node name="menu_pop_up" parent="." instance=ExtResource("5_a7phq")]
-visible = false
-
-[node name="quit" parent="menu_pop_up" index="1"]
-offset_left = 1094.0
-offset_top = 593.0
-offset_right = 1268.0
-offset_bottom = 695.0
-
-[node name="co-op" parent="menu_pop_up" index="2"]
-offset_left = 853.0
-offset_top = 722.0
-offset_right = 1027.0
-offset_bottom = 826.0
-
-[node name="back" parent="menu_pop_up" index="3"]
-offset_left = 615.0
-offset_top = 589.0
-offset_right = 787.0
-offset_bottom = 697.0
-
-[node name="Button" parent="menu_pop_up" index="4"]
-offset_left = 854.0
-offset_top = 510.0
-offset_right = 992.0
-offset_bottom = 564.0
-
-[node name="hats" parent="menu_pop_up" index="5"]
-offset_left = 837.0
-offset_top = 589.0
-offset_right = 1046.0
-offset_bottom = 696.0
-
-[node name="co-op_2" parent="menu_pop_up" index="6"]
-offset_left = 615.0
-offset_top = 720.0
-offset_right = 791.0
-offset_bottom = 827.0
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16
 collision_mask = 16
@@ -408,13 +425,24 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bubles/StaticBody2D"]
 position = Vector2(-2.5, -11)
 shape = SubResource("RectangleShape2D_b4q7h")
+disabled = true
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.002
 one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="menu_pop_up/quit" to="." method="_on_quit_pressed"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-18, 4)
+sprite_frames = SubResource("SpriteFrames_d0q7x")
 
-[editable path="menu_pop_up"]
+[node name="radation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-18, 24)
+sprite_frames = SubResource("SpriteFrames_aakpg")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="menu_pop_up" parent="." instance=ExtResource("5_a7phq")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

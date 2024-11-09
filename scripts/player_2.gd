@@ -55,5 +55,8 @@ func _physics_process(delta):
 		SPEED = 300.0
 		JUMP_VELOCITY = -400.0
 		$bubbles_3.play("new_animation")
-
+	if State.powered_by_crystals == true:
+		$radation.play("default")
+	if State.powered_by_crystals == false:
+		$radation.play("new_animation")
 

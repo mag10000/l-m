@@ -318,4 +318,13 @@ collision_mask = 2
 position = Vector2(1407, -8.5)
 shape = SubResource("RectangleShape2D_654qv")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -6
+offset_left = -181.0
+offset_top = -176.0
+offset_right = 1677.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

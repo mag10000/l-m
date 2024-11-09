@@ -1,64 +1,168 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmd505rvvtd88"]
+[gd_scene load_steps=5 format=3 uid="uid://bmd505rvvtd88"]
 
 [ext_resource type="Script" path="res://scenes/menu_pop_up.gd" id="1_u1p0p"]
 [ext_resource type="Script" path="res://scenes/Button.gd" id="2_ihtkw"]
 [ext_resource type="Texture2D" uid="uid://bl36lfdhiohda" path="res://assets/lucas_hat.png" id="3_krgvu"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="4_iejtt"]
 
 [node name="menu_pop_up" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_u1p0p")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="quit" type="Button" parent="."]
-offset_right = 51.0
-offset_bottom = 374.0
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -2
+layout_mode = 0
+offset_left = -251.0
+offset_top = -280.0
+offset_right = 2173.0
+offset_bottom = 1467.0
+color = Color(0.784314, 0.784314, 0.784314, 0.447059)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -377.0
+offset_top = -309.0
+offset_right = -337.0
+offset_bottom = -269.0
+
+[node name="quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 489.0
+offset_right = 1251.0
+offset_bottom = 591.0
 text = "quit"
 
-[node name="co-op" type="Button" parent="."]
-offset_top = 35.0
-offset_right = 51.0
-offset_bottom = 409.0
+[node name="co-op" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 603.0
+offset_top = 618.0
+offset_right = 777.0
+offset_bottom = 722.0
 disabled = true
 text = "2 players"
 
-[node name="back" type="Button" parent="."]
-offset_left = -1.0
-offset_top = 449.0
-offset_right = 887.0
-offset_bottom = 823.0
+[node name="back" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 485.0
+offset_right = 770.0
+offset_bottom = 593.0
 text = "back"
 
-[node name="Button" type="Button" parent="."]
-offset_left = 316.0
-offset_top = 153.0
-offset_right = 712.0
-offset_bottom = 267.0
-focus_neighbor_left = NodePath("../back")
-focus_neighbor_top = NodePath("../co-op")
-focus_neighbor_right = NodePath("../quit")
-focus_neighbor_bottom = NodePath("../co-op")
-focus_next = NodePath("../quit")
-focus_previous = NodePath("../back")
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 841.0
+offset_top = 408.0
+offset_right = 979.0
+offset_bottom = 462.0
+scale = Vector2(0.955121, 1.03333)
 theme_override_colors/font_color = Color(0.839216, 0, 0, 1)
 text = "re-start level"
 script = ExtResource("2_ihtkw")
 
-[node name="hats" type="Button" parent="."]
-offset_right = 40.0
-offset_bottom = 8.0
+[node name="hats" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 485.0
+offset_right = 1013.0
+offset_bottom = 592.0
+disabled = true
 text = "hats"
 icon = ExtResource("3_krgvu")
 
-[node name="co-op_2" type="Button" parent="."]
-offset_right = 40.0
-offset_bottom = 8.0
+[node name="co-op_2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 615.0
+offset_right = 1014.0
+offset_bottom = 722.0
 disabled = true
 text = "3 players"
 
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="co-op" to="." method="_on_coop_pressed"]
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="co-op_2" to="." method="_on_coop_2_pressed"]
+[node name="co-op_3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1082.0
+offset_top = 620.0
+offset_right = 1256.0
+offset_bottom = 723.0
+disabled = true
+text = "4 players"
+
+[node name="map" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 868.0
+offset_top = 355.0
+offset_right = 937.0
+offset_bottom = 395.0
+text = "map"
+
+[node name="main_menu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 598.0
+offset_top = 435.0
+offset_right = 770.0
+offset_bottom = 468.0
+text = "main menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+visible = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 850.0
+offset_top = 493.0
+offset_right = 982.0
+offset_bottom = 589.0
+
+[node name="ColorRect2" type="ColorRect" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(10, 40)
+layout_mode = 2
+color = Color(0.371661, 9.98472e-05, 0.374341, 1)
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_right = 132.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 12
+text = "your progress on your
+ level will not be saved"
+horizontal_alignment = 1
+
+[node name="Button1" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button2")
+theme_override_fonts/font = ExtResource("4_iejtt")
+text = "   leave   "
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button1")
+focus_neighbor_top = NodePath("../Button1")
+focus_neighbor_right = NodePath("../Button1")
+focus_neighbor_bottom = NodePath("../Button1")
+focus_next = NodePath("../Button1")
+focus_previous = NodePath("../Button1")
+theme_override_fonts/font = ExtResource("4_iejtt")
+text = "stay"
+
+[connection signal="pressed" from="Control/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/co-op" to="." method="_on_coop_pressed"]
+[connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/co-op_2" to="." method="_on_coop_2_pressed"]
+[connection signal="pressed" from="Control/co-op_3" to="." method="_on_coop_3_pressed"]
+[connection signal="pressed" from="Control/map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="Control/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

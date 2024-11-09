@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cgejl0kget50h"]
+[gd_scene load_steps=26 format=3 uid="uid://cgejl0kget50h"]
 
 [ext_resource type="AudioStream" uid="uid://4jgr8y1nu5uh" path="res://music/LM_Main_Soundtrack.wav" id="1_wdtrk"]
 [ext_resource type="Script" path="res://scenes/game maneger.gd" id="1_wew0o"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="14_xwhyq"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="15_4kw02"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="15_sbfxs"]
+[ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="16_5fb52"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_onanh"]
 normal = Vector2(0.999893, -0.014597)
@@ -152,7 +153,9 @@ position = Vector2(1737, 437)
 position = Vector2(352, 426)
 
 [node name="end bus stop" parent="." instance=ExtResource("11_7sqfx")]
-position = Vector2(1861, 376)
+position = Vector2(1860, 374)
+collision_layer = 143
+collision_mask = 143
 
 [node name="main dude" parent="." instance=ExtResource("3_yiadm")]
 position = Vector2(564, 471)
@@ -164,9 +167,8 @@ limit_bottom = 530
 
 [node name="first talk" parent="." instance=ExtResource("14_lnyh3")]
 position = Vector2(541, 402)
-
-[node name="shadow kid talk" parent="." instance=ExtResource("14_wytub")]
-position = Vector2(1081, 274)
+collision_layer = 143
+collision_mask = 143
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gdj84")
@@ -183,5 +185,19 @@ position = Vector2(509, 494)
 [node name="ian" parent="." instance=ExtResource("15_sbfxs")]
 position = Vector2(528, 493)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+offset_left = 142.0
+offset_top = 197.0
+offset_right = 2427.0
+offset_bottom = 642.0
+color = Color(0, 0, 0, 1)
+
+[node name="tall_boi" parent="." instance=ExtResource("16_5fb52")]
+position = Vector2(569, 495)
+
+[node name="shadow kid talk" parent="." instance=ExtResource("14_wytub")]
+position = Vector2(1065, 244)
+
 [editable path="first talk"]
-[editable path="shadow kid talk"]

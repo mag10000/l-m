@@ -14,19 +14,7 @@ extends Node2D
 
 
 
-func _on_button_pressed():
-	label.visible = false
-	button.visible = false
-	button2.visible = true
-	button3.visible = true
 
-
-func _on_button_2_pressed():
-	label.visible = true
-	button.visible = true
-	button2.visible = false
-	button3.visible = false
-	audio_stream_player.play()
 
 
 func _on_button_3_pressed():

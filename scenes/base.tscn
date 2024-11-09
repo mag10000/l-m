@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsewof6ujrxtb"]
+[gd_scene load_steps=20 format=3 uid="uid://bsewof6ujrxtb"]
 
 [ext_resource type="Script" path="res://scenes/base1.gd" id="1_erkrv"]
 [ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_1cf1m"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scenes/Button.gd" id="4_youh5"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="7_hqtv1"]
 [ext_resource type="AudioStream" uid="uid://cnwftvi8osshj" path="res://brackeys_platformer_assets/fonts/map1.wav" id="7_kan1l"]
+[ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="8_d18yp"]
+[ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="9_hi1g0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6g3x"]
 atlas = ExtResource("2_2hhby")
@@ -106,16 +108,9 @@ collision_mask = 2
 position = Vector2(-36.2949, 414.456)
 shape = SubResource("RectangleShape2D_j2657")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 199.0
-offset_top = 557.0
-offset_right = 487.0
-offset_bottom = 580.0
-theme_override_fonts/font = ExtResource("2_1cf1m")
-theme_override_font_sizes/font_size = 8
-text = "hey I think you should check the map"
-
 [node name="Button" type="Button" parent="."]
+visible = false
+z_index = 11
 offset_left = 456.0
 offset_top = 551.0
 offset_right = 480.0
@@ -146,7 +141,6 @@ text = "talk"
 script = ExtResource("4_youh5")
 
 [node name="Button3" type="Button" parent="."]
-visible = false
 offset_left = 355.0
 offset_top = 539.0
 offset_right = 441.0
@@ -184,6 +178,12 @@ layer_0/tile_data = PackedInt32Array(2490378, 65536, 0, 2490379, 65536, 0, 24903
 [node name="CollisionShape2D" type="CollisionShape2D" parent="training center"]
 position = Vector2(552.031, 584)
 shape = SubResource("RectangleShape2D_4n4po")
+
+[node name="ian" parent="." instance=ExtResource("8_d18yp")]
+position = Vector2(166, 592)
+
+[node name="tall_boi" parent="." instance=ExtResource("9_hi1g0")]
+position = Vector2(200, 592)
 
 [connection signal="body_entered" from="AnimatedSprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -35,8 +35,14 @@ func _process(delta):
 		$"level 3".visible = true
 		$"source of strange signal".disabled = false
 		$"source of strange signal".text = ("source of strange signal")
-	
-
+	if State.strange_signal_level_done == true:
+		$"level 3".disabled = false
+		$level_4.visible = true
+	if State.level_three_done == true:
+		$"level 4".disabled = false
+		$level_5.visible = true
+	if State.level_four_done == true:
+		$level_5.disabled = false
 
 
 func _on_level_2_pressed():
@@ -56,3 +62,21 @@ func _on_source_of_strange_signal_pressed():
 func _on_level_3_pressed():
 	State.save_menu_scene = ("res://scenes/level_3.tscn")
 	get_tree().change_scene_to_file("res://scenes/level_3.tscn")
+
+
+
+
+func _on_level_4_pressed():
+	State.save_menu_scene = ("res://scenes/level_4.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_4.tscn")
+
+
+func _on_button_2_pressed():
+	if $Camera2D.zoom.x <= 6:
+		$Camera2D.zoom.y += 1
+		$Camera2D.zoom.x += 1
+
+
+func _on_button_3_pressed():
+	$Camera2D.zoom.y -= 1
+	$Camera2D.zoom.x -= 1

@@ -16,6 +16,8 @@ var fri_blast = false
 
 var death = false
 
+
+
 ##var player_2_in = false
 
 
@@ -30,6 +32,8 @@ var player_3_in = false
 var death2 = false
 
 var death3 = false
+
+var death4 = false
 
 var in_water = false
 
@@ -57,3 +61,15 @@ var level_two_done = false
 var cutscene_4 = false
 
 var cutscene_5_done = false
+
+var strange_signal_level_done = false
+
+var powered_by_crystals = false
+
+var player_4_in = false
+
+var in_water_4 = false
+
+var level_three_done = false
+
+var level_four_done = false

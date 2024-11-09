@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cdcrs0m1nrn83"]
+[gd_scene load_steps=16 format=3 uid="uid://cdcrs0m1nrn83"]
 
+[ext_resource type="Script" path="res://scenes/terra_shadow.gd" id="1_a8mrj"]
 [ext_resource type="Texture2D" uid="uid://bdc8sxfnr2lhv" path="res://assets/shadow-bird.png" id="1_x12u7"]
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="2_75cev"]
 [ext_resource type="AudioStream" uid="uid://balu11tvkmno7" path="res://assets/raven_caw.wav" id="3_ykc0t"]
 [ext_resource type="Script" path="res://scenes/killzone2.gd" id="4_2j3kb"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="5_1la8x"]
 [ext_resource type="Script" path="res://scenes/killzone3.gd" id="5_bmox6"]
+[ext_resource type="Script" path="res://scenes/killzone4.gd" id="8_jxnfp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wj1j"]
 atlas = ExtResource("1_x12u7")
@@ -47,7 +49,12 @@ animations = [{
 radius = 5.0
 height = 20.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kpwq"]
+radius = 5.0
+height = 20.0
+
 [node name="terra-shadow" type="Node2D"]
+script = ExtResource("1_a8mrj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o2d6u")
@@ -108,7 +115,29 @@ max_distance = 2e+07
 position = Vector2(23, -4)
 shape = SubResource("CapsuleShape2D_gw2l8")
 
+[node name="killzone4" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("8_jxnfp")
+
+[node name="Timer" type="Timer" parent="killzone4"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
+stream = ExtResource("5_1la8x")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_4kpwq")
+debug_color = Color(0.591883, 0.512922, 0.525306, 0.42)
+
 [connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
 [connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzone3" to="killzone3" method="_on_body_entered"]
 [connection signal="timeout" from="killzone3/Timer" to="killzone3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone4" to="killzone4" method="_on_body_entered"]
+[connection signal="timeout" from="killzone4/Timer" to="killzone4" method="_on_timer_timeout"]

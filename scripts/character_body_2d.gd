@@ -65,10 +65,13 @@ func _unhandled_input(event):
 		#$AnimatedSprite2D.play("walk")
 		#$AnimatedSprite2D.flip_h = true
 	if Input.is_action_just_pressed("escape") && State.death == false and is_on_floor ():
-		$ColorRect.visible = !$ColorRect.visible
 		State.escape = !State.escape
 		$menu_pop_up.visible = !$menu_pop_up.visible
 func _process(delta):
+	if State.powered_by_crystals == true:
+		$radation.play("default")
+	if State.powered_by_crystals == false:
+		$radation.play("new_animation")
 	if State.death == true:
 		$AnimatedSprite2D.play("death")
 		State.escape = false
