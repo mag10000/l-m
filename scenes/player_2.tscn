@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://btwcqs056xhvg"]
+[gd_scene load_steps=35 format=3 uid="uid://btwcqs056xhvg"]
 
 [ext_resource type="Script" path="res://scenes/player_2.gd" id="1_8ymj2"]
 [ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="2_2xdt7"]
@@ -167,9 +167,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_28e18"]
-size = Vector2(24, 2)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmqkr"]
 atlas = ExtResource("5_phoic")
 region = Rect2(16, 0, 16, 16)
@@ -265,13 +262,6 @@ position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_eel57")
 autoplay = "new_animation"
 frame_progress = 0.0409803
-
-[node name="StaticBody2D" type="StaticBody2D" parent="bubbles_2"]
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bubbles_2/StaticBody2D"]
-position = Vector2(-2, -15)
-shape = SubResource("RectangleShape2D_28e18")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 visible = false

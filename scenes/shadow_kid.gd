@@ -32,6 +32,12 @@ func _process(delta):
 	print ($killzone2/Timer.time_left)
 
 func _on_area_2d_body_entered(body):
+	State.death = false
+	State.you_just_killed_a_shadow_kid = true
+	$killzone.queue_free()
+	$killzone2.queue_free()
+	$killzone3.queue_free()
+	$killzone4.queue_free()
 	print("Area_2d")
 	Engine.time_scale = 1.0
 	$AudioStreamPlayer2D.play()

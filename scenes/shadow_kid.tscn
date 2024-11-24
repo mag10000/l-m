@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/shadow_kid.gd" id="1_5srko"]
 [ext_resource type="Script" path="res://scenes/killzone3.gd" id="2_nl1ig"]
-[ext_resource type="Script" path="res://scripts/killzone.gd" id="3_pilt1"]
+[ext_resource type="Script" path="res://scenes/scripts/killzone.gd" id="3_fbl1a"]
 [ext_resource type="Texture2D" uid="uid://ccea340i1gqx2" path="res://assets/shadow_kid_lm.png" id="3_rvmnc"]
 [ext_resource type="AudioStream" uid="uid://d2cqihx6y04np" path="res://assets/You_Killed_a_Shadow_Kid.wav" id="4_l2343"]
 [ext_resource type="Script" path="res://scenes/killzone2.gd" id="5_sbu3v"]
@@ -48,7 +48,7 @@ radius = 6.0
 height = 26.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kil80"]
-size = Vector2(16, 6.625)
+size = Vector2(20, 6.625)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwb0r"]
 radius = 6.0
@@ -76,7 +76,8 @@ position = Vector2(-3.75, -2.05)
 scale = Vector2(1.11538, 1.05)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_pilt1")
+script = ExtResource("3_fbl1a")
+shadow_kid = true
 
 [node name="Timer" type="Timer" parent="killzone"]
 wait_time = 0.9
@@ -122,6 +123,7 @@ collision_mask = 592
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(10, 3.6875)
 shape = SubResource("RectangleShape2D_kil80")
+one_way_collision = true
 debug_color = Color(0.980528, 0, 0.378903, 0.42)
 
 [node name="killzone3" parent="." instance=ExtResource("7_4m2au")]

@@ -16,7 +16,7 @@ var fri_blast = false
 
 var death = false
 
-
+var you_just_killed_a_shadow_kid = false
 
 ##var player_2_in = false
 
@@ -73,3 +73,4 @@ var in_water_4 = false
 var level_three_done = false
 
 var level_four_done = false
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://4em1ypq01l8o"]
+[gd_scene load_steps=24 format=3 uid="uid://4em1ypq01l8o"]
 
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_3e8ef"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_l8wjx"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="12_ex31k"]
 [ext_resource type="PackedScene" uid="uid://bk3xc1x3m8i8w" path="res://scenes/spikes/spikes(left).tscn" id="14_y2n5g"]
 [ext_resource type="PackedScene" uid="uid://5h8roi0wq4h1" path="res://scenes/spikes/spikes(right).tscn" id="15_kd30r"]
+[ext_resource type="AudioStream" uid="uid://r6frnr0656vc" path="res://assets/level_4_song.wav" id="17_tcuow"]
 
 [sub_resource type="Animation" id="Animation_x60up"]
 length = 0.001
@@ -350,6 +351,10 @@ collision_mask = 143
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2487.5, -182)
 shape = SubResource("RectangleShape2D_h23id")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_tcuow")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bsu1mcd1utghg"]
 
-[ext_resource type="Script" path="res://scripts/main menu.gd" id="1_gacp7"]
+[ext_resource type="Script" path="res://scenes/scripts/main menu.gd" id="1_gacp7"]
 [ext_resource type="Texture2D" uid="uid://6omake73jn4w" path="res://assets/main_menu_art.png" id="2_tihoy"]
 [ext_resource type="FontFile" uid="uid://c5qhtgatl58i4" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_ak147"]
 [ext_resource type="Script" path="res://scenes/Button.gd" id="4_gykim"]
@@ -9,7 +9,7 @@
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_gacp7")
-version = "v 19.0"
+version = "v 21.0"
 
 [node name="MainMenuArt" type="Sprite2D" parent="."]
 position = Vector2(89, 4)

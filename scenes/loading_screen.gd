@@ -14,3 +14,5 @@ func _process(delta):
 		$AnimatedSprite2D/AnimatedSprite2D.visible = true
 	if State.player_3_in == true:
 		$AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D2.visible = false
+	if State.player_4_in == true:
+		$AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D2/AnimatedSprite2D.visible = true

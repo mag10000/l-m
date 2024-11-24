@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv5umqs5sqju1"
-path="res://.godot/imported/RPGblocks_tilesheet.png-93c9e0bfefd2113a9f5c94228ab91a0d.ctex"
+uid="uid://d36slclhp5prs"
+path="res://.godot/imported/lucas_swim.png-e5251ff16c80194c2e730a0caa2b9421.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/RPGblocks_tilesheet.png"
-dest_files=["res://.godot/imported/RPGblocks_tilesheet.png-93c9e0bfefd2113a9f5c94228ab91a0d.ctex"]
+source_file="res://assets/lucas_swim.png"
+dest_files=["res://.godot/imported/lucas_swim.png-e5251ff16c80194c2e730a0caa2b9421.ctex"]
 
 [params]
 

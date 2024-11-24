@@ -184,7 +184,15 @@ func _on_mind_blast_timer_timeout():
 
 
 
+func _on_button_2_pressed():
+	if $Camera2D.zoom.x <= 6:
+		$Camera2D.zoom.y += 1
+		$Camera2D.zoom.x += 1
 
+
+func _on_button_3_pressed():
+	$Camera2D.zoom.y -= 1
+	$Camera2D.zoom.x -= 1
 
 
 

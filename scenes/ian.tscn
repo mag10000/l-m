@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://5yxgm7yu6vnn"]
 
-[ext_resource type="Script" path="res://scripts/player_2.gd" id="1_x13ph"]
+[ext_resource type="Script" path="res://scenes/scripts/player_2.gd" id="1_8h0kn"]
 [ext_resource type="Texture2D" uid="uid://dn5yuitwsyuqk" path="res://assets/ian.png" id="2_e78wf"]
 [ext_resource type="Texture2D" uid="uid://c5b3esr0sol3q" path="res://assets/Bubules.png" id="3_n7dki"]
 [ext_resource type="Texture2D" uid="uid://cpg4sto8tn2gy" path="res://assets/hat.png" id="4_ndidc"]
@@ -226,7 +226,7 @@ animations = [{
 [node name="ian" type="CharacterBody2D"]
 visible = false
 collision_layer = 8
-script = ExtResource("1_x13ph")
+script = ExtResource("1_8h0kn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eewwv")
@@ -238,8 +238,8 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_xs2ox")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 128
-collision_mask = 128
+collision_layer = 144
+collision_mask = 144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 15)

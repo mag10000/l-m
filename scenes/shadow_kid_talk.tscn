@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxs6wbpoftpvw"]
 
-[ext_resource type="Script" path="res://scripts/shadow_kid_talk.gd" id="1_1bnxk"]
+[ext_resource type="Script" path="res://scenes/scripts/shadow_kid_talk.gd" id="1_1bnxk"]
 [ext_resource type="AudioStream" uid="uid://81npg0iwvvnb" path="res://brackeys_platformer_assets/sounds/shadow_kid_2.wav" id="2_fxj1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cavri"]

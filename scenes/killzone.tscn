@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://co2bga6pew4py"]
 
-[ext_resource type="Script" path="res://scripts/killzone.gd" id="1_p7w7g"]
+[ext_resource type="Script" path="res://scenes/scripts/killzone.gd" id="1_4fta7"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="2_oxgy0"]
 
 [node name="killzone" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_p7w7g")
+script = ExtResource("1_4fta7")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.9
