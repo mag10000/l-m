@@ -1,0 +1,22 @@
+extends Node2D
+
+@export var flip_h = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	$AnimatedSprite2D.flip_h = flip_h
+	if State.powered_by_crystals == true:
+		$killzone2/CollisionShape2D.disabled = true
+		$killzone/CollisionShape2D.disabled = true
+		$killzone3/CollisionShape2D.disabled = true
+		$killzone4/CollisionShape2D.disabled = true
+	else:
+		$killzone2/CollisionShape2D.disabled = false
+		$killzone/CollisionShape2D.disabled = false
+		$killzone3/CollisionShape2D.disabled = false
+		$killzone4/CollisionShape2D.disabled = false

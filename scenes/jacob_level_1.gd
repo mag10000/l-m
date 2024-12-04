@@ -14,7 +14,10 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if State.jacob_level_1_done == false:
 		State.save_menu_scene = ("res://scenes/cutscene_2.tscn")
+		State.co_op_unlocked = true
 		get_tree().change_scene_to_file("res://scenes/cutscene_2.tscn")
 	else:
 		State.save_menu_scene = ("res://scenes/base.tscn")
+		State.co_op_unlocked = true
 		get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
+		

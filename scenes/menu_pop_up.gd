@@ -12,6 +12,29 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _process(delta):
+	#translations
+	if State.translated_to_spanish == true:
+		$Control/quit.text = ("abandonar")
+		$"Control/co-op".text = ("dos jugadores")
+		$Control/back.text = ("atrás")
+		$Control/Button.text = ("nivel de reinicio")
+		$Control/hats.text = ("sombreros")
+		$"Control/co-op_2".text = ("tres jugadores")
+		$"Control/co-op_3".text = ("cuatro jugadores")
+		$Control/map.text = ("mapa")
+		$Control/main_menu.text = ("menú principal")
+	else:
+		$Control/quit.text = ("quit")
+		$"Control/co-op".text = ("2 players")
+		$Control/back.text = ("back")
+		$Control/Button.text = ("re-start level")
+		$Control/hats.text = ("hats")
+		$"Control/co-op_2".text = ("3 players")
+		$"Control/co-op_3".text = ("4 players")
+		$Control/map.text = ("map")
+		$Control/main_menu.text = ("main menu")
+
+
 	if State.co_op_unlocked == true:
 		$"Control/co-op".disabled = false
 		$"Control/co-op_2".disabled = false

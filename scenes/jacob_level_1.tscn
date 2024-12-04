@@ -1,10 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnif2wug2hv0i"]
+[gd_scene load_steps=23 format=3 uid="uid://cnif2wug2hv0i"]
 
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="1_s2adi"]
 [ext_resource type="Script" path="res://scenes/jacob_level_1.gd" id="1_xd8g6"]
 [ext_resource type="PackedScene" uid="uid://0o6fnljfog8d" path="res://scenes/jacob_dragon.tscn" id="2_2bqe2"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="2_3fruo"]
 [ext_resource type="PackedScene" uid="uid://cdcrs0m1nrn83" path="res://scenes/terra_shadow.tscn" id="3_djgfn"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="3_pcr07"]
 [ext_resource type="AudioStream" uid="uid://dqj6ga61qxj72" path="res://assets/jacob_level_song.wav" id="4_ddtr6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ddk3"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(1000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuyi0"]
 texture = ExtResource("1_s2adi")
@@ -246,6 +256,23 @@ size = Vector2(20, 45)
 
 [node name="jacob level 1" type="Node2D"]
 script = ExtResource("1_xd8g6")
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("2_3fruo")
+format = 2
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65548, 65536, 0, 65549, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 18, 65536, 0, 20, 65536, 0, 21, 65536, 0, 22, 65536, 0, 23, 65536, 0, 24, 65536, 0, 25, 65536, 0, 26, 65536, 0, 27, 65536, 0, 28, 65536, 0, 29, 65536, 0, 30, 65536, 0, 31, 65536, 0, 32, 65536, 0, 35, 65536, 0, 36, 65536, 0, 37, 65536, 0, 38, 65536, 0, -327629, 65536, 0, -196554, 65536, 0, -196551, 65536, 0, -131014, 65536, 0, -131013, 65536, 0, -131012, 65536, 0, -131011, 65536, 0, -196553, 65536, 0, -196552, 65536, 0, -196555, 65536, 0, -327633, 65536, 0, -327632, 65536, 0, -327631, 65536, 0, -327630, 65536, 0, -327628, 65536, 0, -65474, 65536, 0, -65473, 65536, 0, -65472, 65536, 0, 65607, 65536, 0, 65608, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65547, 65536, 0, 39, 65536, 0, 40, 65536, 0, 41, 65536, 0, 42, 65536, 0, 43, 65536, 0, 44, 65536, 0, 45, 65536, 0, 46, 65536, 0, 65601, 65536, 0, 65602, 65536, 0, 65603, 65536, 0, 65604, 65536, 0, 65605, 65536, 0, 65606, 65536, 0, 65623, 65536, 0, 65624, 65536, 0, 65625, 65536, 0, 65626, 65536, 0, 65627, 65536, 0, 65628, 65536, 0, 65629, 65536, 0, 99, 65536, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(771, -76)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_5ddk3")
+texture = ExtResource("3_pcr07")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lsqs8")

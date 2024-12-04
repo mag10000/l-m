@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b72b0rkq1823w"]
+[gd_scene load_steps=52 format=3 uid="uid://b72b0rkq1823w"]
 
 [ext_resource type="Script" path="res://scenes/cutscene_3.gd" id="1_2qotd"]
 [ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="2_cwwdm"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="5_nr14o"]
 [ext_resource type="Texture2D" uid="uid://2gwkxnl6n6eu" path="res://assets/watches.png" id="6_uqvmf"]
 [ext_resource type="Texture2D" uid="uid://dn5yuitwsyuqk" path="res://assets/ian.png" id="7_kl0vk"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="8_5ajjw"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="9_cfh6h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sdpur"]
 atlas = ExtResource("2_cwwdm")
@@ -614,10 +616,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_khpb5"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(1000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [node name="cutscene" type="Node2D"]
 script = ExtResource("1_2qotd")
 
 [node name="magnus" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(30, -2)
 sprite_frames = SubResource("SpriteFrames_ubok4")
 animation = &"idle"
@@ -663,6 +674,7 @@ wait_time = 17.0
 autostart = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(-61, -66)
 sprite_frames = SubResource("SpriteFrames_bycx6")
 autoplay = "default"
@@ -675,5 +687,22 @@ offset_top = -215.0
 offset_right = 748.0
 offset_bottom = 309.0
 color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(798, -23)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_khpb5")
+texture = ExtResource("8_5ajjw")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2(-8, -2)
+tile_set = ExtResource("9_cfh6h")
+format = 2
+layer_0/tile_data = PackedInt32Array(65542, 65536, 0, 131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, -131081, 65536, 0, -131080, 65536, 0, -131079, 65536, 0, -131078, 65536, 0, -131077, 65536, 0, -131076, 65536, 0, -131102, 65536, 0, -131101, 65536, 0, -131100, 65536, 0, -131099, 65536, 0, -131098, 65536, 0, -131097, 65536, 0, -131096, 65536, 0, -131095, 65536, 0, -131094, 65536, 0, -131093, 65536, 0, -131092, 65536, 0, -131091, 65536, 0, -131090, 65536, 0, -131089, 65536, 0, -131088, 65536, 0, -131087, 65536, 0, -131086, 65536, 0, -131085, 65536, 0, -131084, 65536, 0, -131083, 65536, 0, -131082, 65536, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

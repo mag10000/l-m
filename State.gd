@@ -20,6 +20,7 @@ var you_just_killed_a_shadow_kid = false
 
 ##var player_2_in = false
 
+var fist_time_played = true
 
 var player_2_in = false
 
@@ -41,6 +42,9 @@ var sound = 15
 
 var money = ("0")
 
+var co_op_deaths = 0
+
+var cameara_player = 1
 #hats
 
 var hat_1_on = false
@@ -74,3 +78,6 @@ var level_three_done = false
 
 var level_four_done = false
 
+var level_five_done = false
+
+var translated_to_spanish = false

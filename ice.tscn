@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wmns0def48kc"]
+
+[ext_resource type="Texture2D" uid="uid://xqc3ocx4dd60" path="res://assets/ice.png" id="1_x4w72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpbgf"]
+size = Vector2(16, 16)
+
+[node name="ice" type="Node2D"]
+
+[node name="Ice" type="Sprite2D" parent="."]
+texture = ExtResource("1_x4w72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bpbgf")

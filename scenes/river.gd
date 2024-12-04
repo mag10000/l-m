@@ -3,12 +3,23 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 var JUMP_VELOCITY = -330.0
+var still_jump = false
+var coyote_time_started = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	
+	#handles coyote time
+	if is_on_floor():
+		still_jump = true
+		coyote_time_started = false
+	if not is_on_floor () && coyote_time_started == false:
+		coyote_time_started = true
+		$jump_timer.start()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -17,9 +28,15 @@ func _physics_process(delta):
 		$CollisionShape2D.disabled = false
 		self.visible = true
 		# Handle jump.
-		if Input.is_action_just_pressed("jump_4") and is_on_floor():
-			$AnimatedSprite2D.play("jump")
+		if Input.is_action_just_pressed("jump_4") && still_jump == true:
+			if State.in_water_2 == false:
+				still_jump = false
+				$AnimatedSprite2D.play("jump")
+				velocity.y = JUMP_VELOCITY
+			
+		if Input.is_action_just_pressed("jump_4") && State.in_water_4 == true:
 			velocity.y = JUMP_VELOCITY
+		
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -30,13 +47,17 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		if direction == 0:
-			$AnimatedSprite2D.play("idle")
+			$AnimatedSprite2D.play("temp")
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
 		if direction == 1:
 			$AnimatedSprite2D.play("walk")
 			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
 		if direction == -1:
 			$AnimatedSprite2D.play("walk")
 			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
 
 		move_and_slide()
 
@@ -63,6 +84,11 @@ func _process(delta):
 		$bubbles_4.play("new_animation")
 
 	if State.death4 == true:
+		State.co_op_deaths += 1
 		queue_free()
 
 
+
+
+func _on_jump_timer_timeout():
+	still_jump = false

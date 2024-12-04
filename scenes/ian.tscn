@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://5yxgm7yu6vnn"]
+[gd_scene load_steps=33 format=3 uid="uid://5yxgm7yu6vnn"]
 
-[ext_resource type="Script" path="res://scenes/scripts/player_2.gd" id="1_8h0kn"]
+[ext_resource type="Script" path="res://scenes/scripts/player_3.gd" id="1_8h0kn"]
 [ext_resource type="Texture2D" uid="uid://dn5yuitwsyuqk" path="res://assets/ian.png" id="2_e78wf"]
 [ext_resource type="Texture2D" uid="uid://c5b3esr0sol3q" path="res://assets/Bubules.png" id="3_n7dki"]
-[ext_resource type="Texture2D" uid="uid://cpg4sto8tn2gy" path="res://assets/hat.png" id="4_ndidc"]
+[ext_resource type="Texture2D" uid="uid://bwsbhxnircra8" path="res://assets/santa_hat.png" id="4_78y3i"]
 [ext_resource type="Texture2D" uid="uid://dymi8pd0g04vn" path="res://assets/power_crystal_radiation.png" id="5_70q7y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw3yp"]
@@ -160,15 +160,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kng0i"]
-atlas = ExtResource("4_ndidc")
-region = Rect2(0, 16, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ijtxg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kng0i")
+"texture": ExtResource("4_78y3i")
 }],
 "loop": true,
 "name": &"default",
@@ -253,7 +249,6 @@ animation = &"new_animation"
 autoplay = "new_animation"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_ijtxg")
 
@@ -261,3 +256,9 @@ sprite_frames = SubResource("SpriteFrames_ijtxg")
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_kbawx")
 autoplay = "new_animation"
+
+[node name="jump_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

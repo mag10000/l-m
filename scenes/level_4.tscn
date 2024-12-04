@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://4em1ypq01l8o"]
+[gd_scene load_steps=27 format=3 uid="uid://4em1ypq01l8o"]
 
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_3e8ef"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_l8wjx"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="2_6lj3l"]
 [ext_resource type="PackedScene" uid="uid://dpltoevskcem8" path="res://scenes/shadow_kid.tscn" id="2_b7wir"]
 [ext_resource type="PackedScene" uid="uid://6vd5kjx1plim" path="res://scenes/spikes/spikes(up).tscn" id="3_0jcuv"]
 [ext_resource type="PackedScene" uid="uid://cdcrs0m1nrn83" path="res://scenes/terra_shadow.tscn" id="4_idfvw"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bk3xc1x3m8i8w" path="res://scenes/spikes/spikes(left).tscn" id="14_y2n5g"]
 [ext_resource type="PackedScene" uid="uid://5h8roi0wq4h1" path="res://scenes/spikes/spikes(right).tscn" id="15_kd30r"]
 [ext_resource type="AudioStream" uid="uid://r6frnr0656vc" path="res://assets/level_4_song.wav" id="17_tcuow"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="19_8gfft"]
 
 [sub_resource type="Animation" id="Animation_x60up"]
 length = 0.001
@@ -84,8 +86,22 @@ distance = -36.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h23id"]
 size = Vector2(79, 138)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pha62"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(10000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [node name="level 4" type="Node2D"]
 script = ExtResource("1_3e8ef")
+
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource("2_6lj3l")
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 7, 65536, 0, 9, 65536, 0, 65547, 65536, 0, 65546, 65536, 0, 65549, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 65552, 65536, 0, 65548, 65536, 0, -65519, 65536, 0, -65518, 65536, 0, -65517, 65536, 0, -65516, 65536, 0, -65515, 65536, 0, -65514, 65536, 0, -65513, 65536, 0, -65512, 65536, 0, -65511, 65536, 0, -65510, 65536, 0, -65509, 65536, 0, -65508, 65536, 0, -65507, 65536, 0, -65491, 65536, 0, -65490, 65536, 0, -65489, 65536, 0, -65488, 65536, 0, -65475, 65536, 0, -65474, 65536, 0, -65473, 65536, 0, -65472, 65536, 0, -65471, 65536, 0, -65470, 65536, 0, -65469, 65536, 0, -65468, 65536, 0, -196539, 65536, 0, -327610, 65536, 0, -458681, 65536, 0, -524216, 65536, 0, -65462, 65536, 0, -65461, 65536, 0, -65460, 65536, 0, -65459, 65536, 0, -65458, 65536, 0, -65457, 65536, 0, -196527, 65536, 0, -196526, 65536, 0, -196525, 65536, 0, -196524, 65536, 0, -196528, 65536, 0, -196520, 65536, 0, -196519, 65536, 0, -196518, 65536, 0, -196517, 65536, 0, -196523, 0, 0, -196522, 0, 0, -196521, 0, 0, -196516, 65536, 0, -196515, 65536, 0, -196514, 65536, 0, -196512, 65536, 0, -196511, 65536, 0, -196510, 65536, 0, -196505, 65536, 0, -196504, 65536, 0, -196499, 65536, 0, -196498, 65536, 0, -196497, 65536, 0, -196496, 65536, 0, -196494, 65536, 0, -196493, 65536, 0, -196492, 65536, 0, -1113982, 65536, 0, -1113981, 65536, 0, -1113980, 65536, 0, -1048449, 65536, 0, -1048448, 65536, 0, -1048447, 65536, 0, -1113987, 65536, 0, -1113986, 65536, 0, -1179525, 65536, 0, -1179524, 65536, 0, -1245063, 65536, 0, -1245062, 65536, 0, -1376136, 65536, 0, -1507210, 65536, 0, -1507209, 65536, 0, -1441677, 65536, 0, -1441676, 65536, 0, -1441675, 65536, 0, -1376144, 65536, 0, -1376143, 65536, 0, -1376142, 65536, 0, -1310610, 65536, 0, -1310609, 65536, 0, -1245076, 65536, 0, -1245075, 65536, 0, -1114013, 65536, 0, -1114012, 65536, 0, -1114011, 65536, 0, -1114010, 65536, 0, -1114009, 65536, 0, -1114008, 65536, 0, -1114007, 65536, 0, -1114006, 65536, 0, -1114005, 65536, 0, -1048478, 65536, 0, -982943, 65536, 0, -917408, 65536, 0, -851873, 65536, 0, -786338, 65536, 0, -720804, 65536, 0, -720803, 65536, 0, -655270, 65536, 0, -655269, 65536, 0, -589735, 65536, 0)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_l8wjx")
@@ -335,7 +351,6 @@ position = Vector2(25, -1)
 shape = SubResource("RectangleShape2D_fdyus")
 
 [node name="tall_boi" parent="." instance=ExtResource("11_7cdeb")]
-visible = true
 position = Vector2(52, -26)
 
 [node name="killzone" parent="." instance=ExtResource("12_ex31k")]
@@ -355,6 +370,18 @@ shape = SubResource("RectangleShape2D_h23id")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_tcuow")
 autoplay = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(761, -191)
+amount = 5000
+process_material = SubResource("ParticleProcessMaterial_pha62")
+texture = ExtResource("19_8gfft")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

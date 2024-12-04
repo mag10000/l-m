@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dimoe5ygx1apr"]
+[gd_scene load_steps=39 format=3 uid="uid://dimoe5ygx1apr"]
 
 [ext_resource type="Script" path="res://scenes/strange_signal.gd" id="1_8i4rg"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="2_rdlt5"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://byjxxjxpk2eab" path="res://lm_cutscene_voiceover/Suspicious_Lucas.wav" id="6_hfqe8"]
 [ext_resource type="AudioStream" uid="uid://q57perkcctpe" path="res://lm_cutscene_voiceover/Fell_Off_Jacob.wav" id="7_01n36"]
 [ext_resource type="AudioStream" uid="uid://d02dnwok4xqm3" path="res://lm_cutscene_voiceover/Suspicious_Magnus.wav" id="8_elmbs"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="9_oqwdd"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="10_quhms"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qykac"]
 atlas = ExtResource("3_n5td5")
@@ -340,6 +342,14 @@ _data = {
 "ian": SubResource("Animation_nvfmu")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c8b2y"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(1000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [node name="strange signal cutscene" type="Node2D"]
 script = ExtResource("1_8i4rg")
 
@@ -415,5 +425,21 @@ offset_top = -349.0
 offset_right = 736.0
 offset_bottom = 496.0
 color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(798, -23)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_c8b2y")
+texture = ExtResource("9_oqwdd")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("10_quhms")
+format = 2
+layer_0/tile_data = PackedInt32Array(131079, 65536, 0, 131080, 65536, 0, 131081, 65536, 0, 131082, 65536, 0, 131083, 65536, 0, 131084, 65536, 0, 131085, 65536, 0, 196606, 65536, 0, 196607, 65536, 0, 131072, 65536, 0, 131073, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, -65522, 65536, 0, -65521, 65536, 0, -65520, 65536, 0, -131055, 65536, 0, -131054, 65536, 0, -131053, 65536, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

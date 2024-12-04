@@ -16,7 +16,6 @@ extends Node2D
 
 
 
-
 func _on_button_3_pressed():
 	State.save_menu_scene = ("res://scenes/world_map.tscn")
 	get_tree().change_scene_to_file("res://scenes/world_map.tscn")
@@ -24,7 +23,9 @@ func _on_button_3_pressed():
 
 
 func _process(delta):
-	if State.boss_fight_1_done == true:
-		$"training center/CollisionShape2D".disabled = true
+	if State.translated_to_spanish == true:
+		$Button3.text = ("mira el mapa")
+	else:
+		$Button3.text = ("look at map")
 	
 

@@ -29,7 +29,7 @@ func _process(delta):
 		$killzone3/CollisionShape2D.disabled = false
 		$killzone4/CollisionShape2D.disabled = false
 	position.x += direction * SPEED * delta
-	print ($killzone2/Timer.time_left)
+	#print ($killzone2/Timer.time_left)
 
 func _on_area_2d_body_entered(body):
 	State.death = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn0ol7cqml321"
-path="res://.godot/imported/2.png-91c5594419533eb000640951b6025c9d.ctex"
+uid="uid://qa68gj3y8h4v"
+path="res://.godot/imported/lazer.png-24fa5dba34aa1f5602954607ecaafd3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/fonts/2.png"
-dest_files=["res://.godot/imported/2.png-91c5594419533eb000640951b6025c9d.ctex"]
+source_file="res://assets/lazer.png"
+dest_files=["res://.godot/imported/lazer.png-24fa5dba34aa1f5602954607ecaafd3e.ctex"]
 
 [params]
 

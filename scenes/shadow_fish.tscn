@@ -1,0 +1,138 @@
+[gd_scene load_steps=17 format=3 uid="uid://cosr2qvfqbcqp"]
+
+[ext_resource type="Texture2D" uid="uid://ba7b4tps2b8xu" path="res://assets/shadow_fish.png" id="1_bd3g7"]
+[ext_resource type="Script" path="res://scenes/shadow_fish.gd" id="1_nb1bf"]
+[ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="2_0c5k2"]
+[ext_resource type="Script" path="res://scenes/killzone2.gd" id="3_rmyf0"]
+[ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="4_uyy5f"]
+[ext_resource type="Script" path="res://scenes/killzone3.gd" id="5_5d5rt"]
+[ext_resource type="Script" path="res://scenes/killzone4.gd" id="6_cxbag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk5y5"]
+atlas = ExtResource("1_bd3g7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkps7"]
+atlas = ExtResource("1_bd3g7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mko28"]
+atlas = ExtResource("1_bd3g7")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdogm"]
+atlas = ExtResource("1_bd3g7")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_30wu4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk5y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkps7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mko28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdogm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7tvc"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6itrf"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dym2e"]
+size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv43d"]
+size = Vector2(28, 8)
+
+[node name="shadow_fish" type="Node2D"]
+script = ExtResource("1_nb1bf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_30wu4")
+autoplay = "default"
+frame_progress = 0.104465
+
+[node name="killzone" parent="." instance=ExtResource("2_0c5k2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_v7tvc")
+
+[node name="killzone2" type="Area2D" parent="."]
+position = Vector2(-18, -7)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_rmyf0")
+
+[node name="Timer" type="Timer" parent="killzone2"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
+stream = ExtResource("4_uyy5f")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+position = Vector2(19, 9)
+shape = SubResource("RectangleShape2D_6itrf")
+
+[node name="killzone3" type="Area2D" parent="."]
+position = Vector2(-23, 2)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("5_5d5rt")
+
+[node name="Timer" type="Timer" parent="killzone3"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
+stream = ExtResource("4_uyy5f")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_dym2e")
+
+[node name="killzone4" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("6_cxbag")
+
+[node name="Timer" type="Timer" parent="killzone4"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
+stream = ExtResource("4_uyy5f")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_sv43d")
+debug_color = Color(0.591883, 0.512922, 0.525306, 0.42)
+
+[connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
+[connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone3" to="killzone3" method="_on_body_entered"]
+[connection signal="timeout" from="killzone3/Timer" to="killzone3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone4" to="killzone4" method="_on_body_entered"]
+[connection signal="timeout" from="killzone4/Timer" to="killzone4" method="_on_timer_timeout"]

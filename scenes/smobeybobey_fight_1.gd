@@ -17,6 +17,30 @@ func _ready():
 
 
 func _process(delta):
+	#translations
+	if State.translated_to_spanish == true:
+		$team_health.text = ("salud de tu equipo:")
+		$Lucas_box/worm_attck.text = ("gusano")
+		$Lucas_box/snake_attck.text = ("serpiente")
+		$Magnus_box/mind_bubble_attck.text = ("burbuja mental")
+		$Magnus_box/mind_blast_attck.text = ("explosión mental")
+		$ian_box/shovel_dig_attack.text = ("cavar con pala")
+		$ian_box/shovel_stab_attack.text = ("puñalada de pala")
+	else:
+		$team_health.text = ("your teams health:")
+		$Lucas_box/worm_attck.text = ("worm")
+		$Lucas_box/snake_attck.text = ("snake")
+		$Magnus_box/mind_bubble_attck.text = ("mind bubble")
+		$Magnus_box/mind_blast_attck.text = ("mind blast")
+		$ian_box/shovel_dig_attack.text = ("shovel dig")
+		$ian_box/shovel_stab_attack.text = ("shovel stab")
+
+
+
+
+
+
+
 	if times_used_worm >= 4:
 		$Lucas_box/worm_attck.disabled = true
 	var player_health_string = str(player_health)

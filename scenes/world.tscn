@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgejl0kget50h"]
+[gd_scene load_steps=30 format=3 uid="uid://cgejl0kget50h"]
 
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_7ev1q"]
 [ext_resource type="AudioStream" uid="uid://4jgr8y1nu5uh" path="res://music/LM_Main_Soundtrack.wav" id="1_wdtrk"]
 [ext_resource type="Script" path="res://scenes/game maneger.gd" id="1_wew0o"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="2_v8am4"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="3_yiadm"]
 [ext_resource type="Texture2D" uid="uid://djbsiese0l3hb" path="res://assets/pixil-frame-0(29).png" id="5_8u7im"]
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="5_imysc"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="15_4kw02"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="15_sbfxs"]
 [ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="16_5fb52"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="18_7pxcb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_onanh"]
 normal = Vector2(0.999893, -0.014597)
@@ -78,7 +81,22 @@ texture = ExtResource("15_4kw02")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f5ruc")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6pui"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(1000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_7ev1q")
+
+[node name="winter_map" type="TileMap" parent="."]
+tile_set = ExtResource("2_v8am4")
+format = 2
+layer_0/z_index = 6
+layer_0/tile_data = PackedInt32Array(2097168, 65536, 0, 2097169, 65536, 0, 2097170, 65536, 0, 2097171, 65536, 0, 2097172, 65536, 0, 2097174, 65536, 0, 2097173, 65536, 0, 2097176, 65536, 0, 2097177, 65536, 0, 2097178, 65536, 0, 2097179, 65536, 0, 2097180, 65536, 0, 2097181, 65536, 0, 2097182, 65536, 0, 2097183, 65536, 0, 2097184, 65536, 0, 2097185, 65536, 0, 2097186, 65536, 0, 2097187, 65536, 0, 2031653, 65536, 0, 2031652, 65536, 0, 1966118, 65536, 0, 1966119, 65536, 0, 1900584, 65536, 0, 1900585, 65536, 0, 1900586, 65536, 0, 1900587, 65536, 0, 1900588, 65536, 0, 1900589, 65536, 0, 1966126, 65536, 0, 2097194, 0, 0, 2293787, 0, 0, 2162707, 0, 0, 1966132, 65536, 0, 1966133, 65536, 0, 1900598, 65536, 0, 2031668, 0, 0, 2097204, 0, 0, 2162740, 0, 0, 1966134, 0, 0, 2031670, 0, 0, 2097198, 0, 0, 2031662, 0, 0, 2228282, 0, 0, 2162746, 0, 0, 2097210, 0, 0, 1966138, 0, 0, 1900602, 0, 0, 1835066, 65536, 0, 1835067, 65536, 0, 1835068, 65536, 0, 1835069, 65536, 0, 1835070, 65536, 0, 1769535, 65536, 0, 1769536, 65536, 0, 1769537, 65536, 0, 1704002, 65536, 0, 1704003, 65536, 0, 1704004, 65536, 0, 1704005, 65536, 0, 1769542, 65536, 0, 1835079, 65536, 0, 1966152, 65536, 0, 1966153, 65536, 0, 1966154, 65536, 0, 1966155, 65536, 0, 1900620, 65536, 0, 1900621, 65536, 0, 1900622, 65536, 0, 1900623, 65536, 0, 1900624, 65536, 0, 1900625, 65536, 0, 1900626, 65536, 0, 1900627, 65536, 0, 1900628, 65536, 0, 1900629, 65536, 0, 1900630, 65536, 0, 1900631, 65536, 0, 1900632, 65536, 0, 1900633, 65536, 0, 1900634, 65536, 0, 1900635, 65536, 0, 1900636, 65536, 0, 1900637, 65536, 0, 1900638, 65536, 0, 1900639, 65536, 0, 1900640, 65536, 0, 1900641, 65536, 0, 1900642, 65536, 0, 1900643, 65536, 0, 1900644, 65536, 0, 1900645, 65536, 0, 1769574, 65536, 0, 1769575, 65536, 0, 1769576, 65536, 0, 1769577, 65536, 0, 1769578, 65536, 0, 1900615, 0, 0, 2097175, 131072, 0, 1835110, 0, 0, 1835114, 0, 0, 1900651, 65536, 0, 1900652, 65536, 0, 1900653, 65536, 0, 1900654, 65536, 0, 1900655, 65536, 0, 1900656, 65536, 0, 1769585, 65536, 0, 1769586, 65536, 0, 1769587, 65536, 0, 1769588, 65536, 0, 1769589, 65536, 0, 1769590, 65536, 0, 1769591, 65536, 0, 1769592, 65536, 0, 1769593, 65536, 0, 1769594, 65536, 0, 1769595, 65536, 0, 1769596, 65536, 0, 1769597, 65536, 0, 1769598, 65536, 0, 1769599, 65536, 0, 1769600, 65536, 0, 1769601, 65536, 0, 1769602, 65536, 0, 1769603, 65536, 0, 1769604, 65536, 0, 1769605, 65536, 0, 1769606, 65536, 0, 1769607, 65536, 0, 1769608, 65536, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_wdtrk")
@@ -199,5 +217,16 @@ position = Vector2(569, 495)
 
 [node name="shadow kid talk" parent="." instance=ExtResource("14_wytub")]
 position = Vector2(1065, 244)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(1204, 375)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_v6pui")
+texture = ExtResource("18_7pxcb")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [editable path="first talk"]

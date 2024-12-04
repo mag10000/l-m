@@ -12,9 +12,12 @@ func _on_body_entered(body):
 	print("you died")
 	Engine.time_scale = 0.5
 	State.death = true
+	
 	timer.start()
 
 func _on_timer_timeout():
+	State.powered_by_crystals = false
 	Engine.time_scale = 1.0
 	State.death = false
+	#if State.player_2_in == false:
 	get_tree().reload_current_scene()

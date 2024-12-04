@@ -1,0 +1,190 @@
+[gd_scene load_steps=19 format=3 uid="uid://r66klxf4xiyt"]
+
+[ext_resource type="Script" path="res://laser.gd" id="1_eyubi"]
+[ext_resource type="Texture2D" uid="uid://qa68gj3y8h4v" path="res://assets/lazer.png" id="2_1svyp"]
+[ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="3_vbyhp"]
+[ext_resource type="Script" path="res://scenes/killzone2.gd" id="4_4ait8"]
+[ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="5_ff43p"]
+[ext_resource type="Script" path="res://scenes/killzone3.gd" id="6_0mrus"]
+[ext_resource type="Script" path="res://scenes/killzone4.gd" id="7_wqexp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n4bh"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ifg"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbra0"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjj6b"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a4m6"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6nrj"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7egjl"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo6f5"]
+atlas = ExtResource("2_1svyp")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pv37x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n4bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ifg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbra0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjj6b")
+}],
+"loop": false,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a4m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6nrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7egjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo6f5")
+}],
+"loop": false,
+"name": &"off",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc0ch"]
+size = Vector2(18, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4mgx"]
+size = Vector2(4, 40)
+
+[node name="laser" type="Node2D"]
+script = ExtResource("1_eyubi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pv37x")
+animation = &"off"
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_mc0ch")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_mc0ch")
+
+[node name="killzone" parent="." instance=ExtResource("3_vbyhp")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("RectangleShape2D_k4mgx")
+debug_color = Color(0.892128, 0.277735, 0.430856, 0.42)
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="killzone2" type="Area2D" parent="."]
+position = Vector2(-18, -7)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("4_4ait8")
+
+[node name="Timer" type="Timer" parent="killzone2"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
+stream = ExtResource("5_ff43p")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+position = Vector2(18, 7)
+shape = SubResource("RectangleShape2D_k4mgx")
+debug_color = Color(0.892128, 0.277735, 0.430856, 0.42)
+
+[node name="killzone3" type="Area2D" parent="."]
+position = Vector2(-23, 2)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("6_0mrus")
+
+[node name="Timer" type="Timer" parent="killzone3"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
+stream = ExtResource("5_ff43p")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+position = Vector2(23, -2)
+shape = SubResource("RectangleShape2D_k4mgx")
+debug_color = Color(0.892128, 0.277735, 0.430856, 0.42)
+
+[node name="killzone4" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("7_wqexp")
+
+[node name="Timer" type="Timer" parent="killzone4"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
+stream = ExtResource("5_ff43p")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4"]
+shape = SubResource("RectangleShape2D_k4mgx")
+debug_color = Color(0.892128, 0.277735, 0.430856, 0.42)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
+[connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone3" to="killzone3" method="_on_body_entered"]
+[connection signal="timeout" from="killzone3/Timer" to="killzone3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone4" to="killzone4" method="_on_body_entered"]
+[connection signal="timeout" from="killzone4/Timer" to="killzone4" method="_on_timer_timeout"]

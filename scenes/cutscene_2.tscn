@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dwqhiacn334nl"]
+[gd_scene load_steps=25 format=3 uid="uid://dwqhiacn334nl"]
 
 [ext_resource type="Script" path="res://scenes/cutscene_2.gd" id="1_53rre"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="1_exlku"]
 [ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="2_vdtyr"]
 [ext_resource type="Texture2D" uid="uid://2gwkxnl6n6eu" path="res://assets/watches.png" id="3_f7o04"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="5_aj881"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="6_ohqej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7it4"]
 texture = ExtResource("1_exlku")
@@ -258,6 +260,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o3nfk"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(1000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [node name="cutscene_2" type="Node2D"]
 script = ExtResource("1_53rre")
 
@@ -306,5 +316,21 @@ offset_top = 139.0
 offset_right = 881.0
 offset_bottom = 663.0
 color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(817, 360)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_o3nfk")
+texture = ExtResource("5_aj881")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("6_ohqej")
+format = 2
+layer_0/tile_data = PackedInt32Array(1572879, 65536, 0, 1572880, 65536, 0, 1572881, 65536, 0, 1572882, 65536, 0, 1572883, 65536, 0, 1572884, 65536, 0, 1572885, 65536, 0, 1572878, 65536, 0, 1572887, 65536, 0, 1572888, 65536, 0, 1572889, 65536, 0, 1572890, 65536, 0, 1572891, 65536, 0, 1507356, 65536, 0, 1441821, 65536, 0, 1376286, 65536, 0, 1310751, 65536, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

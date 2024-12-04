@@ -1,20 +1,35 @@
 extends CharacterBody2D
 
-
+var _1 = false
 @export var SPEED = 250.0
 var JUMP_VELOCITY = -350.0
 var still_jump = false
+var coyote_time_started = false
+var noth = false
+var pos_2 = Vector2(1,1)
+var pos_3 = Vector2(1,1)
+var pos_4 = Vector2(1,1)
+var camera_following = 1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var timer = false
 
 func _physics_process(delta):
+	
+	#handles coyote time
+	
+	print(coyote_time_started)
 	if is_on_floor():
 		still_jump = true
-	if not is_on_floor ():
-		still_jump = true
+		coyote_time_started = false
+	if not is_on_floor () && coyote_time_started == false:
+		coyote_time_started = true
 		$jump_timer.start()
+		
+		
+		
+		
 	# Add the gravity.
 	if not is_on_floor ():
 		if State.death == false:
@@ -25,6 +40,8 @@ func _physics_process(delta):
 	# Handle jump.
 		if Input.is_action_just_pressed("jump") && still_jump == true:
 			if State.death == false && State.in_water == false:
+				still_jump = false
+				$AudioStreamPlayer2D.play()
 				velocity.y = JUMP_VELOCITY
 				
 		if Input.is_action_just_pressed("jump") && State.in_water == true:
@@ -34,22 +51,42 @@ func _physics_process(delta):
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var direction = Input.get_axis("walk_left", "walk_right")
-		if State.death == false:
+		if State.death == false && noth == false:
 			if direction:
 				velocity.x = direction * SPEED
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
-		if direction == 0 && State.in_water == false:
+			
+			
+			
+			
+			
+		if direction == 0 and is_on_floor():
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("idle")
-			$hat_lucas.play("idle")
+			$AnimatedSprite2D.play("temp")
+			$hat_lucas.play("temp")
 			$hat_lucas.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
+		if direction > 0 and is_on_floor():
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = false
+			$hat_lucas.play("walk")
+			$hat_lucas.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
+			
+		if direction < 0 and is_on_floor():
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = true
+			$hat_lucas.play("walk")
+			$hat_lucas.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
 			
 		if direction > 0 && State.in_water == false:
 			$AnimatedSprite2D.play("walk")
 			$AnimatedSprite2D.flip_h = false
 			$hat_lucas.play("walk")
 			$hat_lucas.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
 			
 			
 		if direction < 0 && State.in_water == false:
@@ -57,12 +94,18 @@ func _physics_process(delta):
 			$AnimatedSprite2D.flip_h = true
 			$hat_lucas.play("walk")
 			$hat_lucas.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
+			
+		if direction == 0 && State.in_water == false:
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("temp")
+			$hat_lucas.play("temp")
+			$hat_lucas.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
 			
 		move_and_slide()
 	
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		$AudioStreamPlayer2D.play()
 	if Input.is_action_just_pressed("jump") && State.in_water == true:
 		pass
 		##$AnimatedSprite2D.play("jump")
@@ -86,8 +129,26 @@ func _process(delta):
 		$radation.play("new_animation")
 	if State.death == true:
 		$AnimatedSprite2D.play("death")
+		
+		
+		#if State.player_2_in == true:
+			#$AnimatedSprite2D.play("noth")
+			#noth = true
+			#State.co_op_deaths += 1
+			#if State.death2 == false :
+			#	State.cameara_player = 2
+			#	$Camera2D.position.x = $"../player2".position.x
+			#	$Camera2D.position.y = $"../player2".position.y
+			#if State.death2 == true && State.death3 == false:
+				#State.cameara_player = 3
+				#$Camera2D.position.x = $"../ian".position.x
+				#$Camera2D.position.y = $"../ian".position.y
+			#if State.death3 == true && State.death2 == true:
+				#State.cameara_player = 4
+				#$Camera2D.position.x = $"../tall_boi".position.x
+				#$Camera2D.position.y = $"../tall_boi".position.y
+			#if State.death == true && State.death2 == true && State.death3 == true
 		State.escape = false
-		#Engine.time_scale = 0.5
 		$CollisionShape2D.disabled = true
 	if State.hat_1_on == false:
 		$hat_lucas.visible = false
@@ -97,8 +158,6 @@ func _process(delta):
 		SPEED = 100.0
 		JUMP_VELOCITY = -250
 		$bubles.play("default")
-		if is_on_floor():
-			$AnimatedSprite2D.play("idle")
 		if not is_on_floor ():
 			$AnimatedSprite2D.play("water_jump")
 	else:
@@ -113,7 +172,7 @@ func _process(delta):
 	if State.escape == false && State.death == false && State.death2 == false && State.death3 == false:
 		Engine.time_scale = 1.0
 	State.save_menu_place = self.position
-	print(State.save_menu_place)
+	#print(State.save_menu_place)
 	
 	if State.save_menu_place_change_time == true:
 		$Timer2.start()
