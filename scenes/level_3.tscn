@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://38y2trgmk50r"]
+[gd_scene load_steps=46 format=3 uid="uid://38y2trgmk50r"]
 
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="1_g84qi"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_gf3bw"]
@@ -16,6 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://bu0to7g3hpdcf" path="res://scenes/water.tscn" id="11_v0ef8"]
 [ext_resource type="PackedScene" uid="uid://cbusjg46uy5v4" path="res://scenes/water_2.tscn" id="12_p1uj7"]
 [ext_resource type="PackedScene" uid="uid://cb2361lcf6r3i" path="res://scenes/water_3.tscn" id="13_2uosr"]
+[ext_resource type="Script" path="res://scenes/killzone2.gd" id="17_4vhvl"]
+[ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="18_4lh4t"]
+[ext_resource type="Script" path="res://scenes/killzone3.gd" id="19_fkwkq"]
+[ext_resource type="Script" path="res://scenes/killzone4.gd" id="20_u1nbl"]
+[ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="21_j80vr"]
+[ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="22_15abg"]
+[ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="23_6jjnw"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fly0x"]
 particle_flag_disable_z = true
@@ -264,12 +271,34 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hv5pn"]
 size = Vector2(40, 484)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_346fm"]
+size = Vector2(87, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtl13"]
+atlas = ExtResource("23_6jjnw")
+region = Rect2(96.079, 0, 47, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xh2m"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywmac"]
+atlas = ExtResource("23_6jjnw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkknv"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he738"]
+atlas = ExtResource("23_6jjnw")
+region = Rect2(0, 0, 48, 48)
+
 [node name="level 3" type="Node2D"]
 script = ExtResource("1_g84qi")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -1
 position = Vector2(798, 101)
+emitting = false
 amount = 5000
 process_material = SubResource("ParticleProcessMaterial_fly0x")
 texture = ExtResource("2_k8b8o")
@@ -280,6 +309,7 @@ collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("3_42tvy")
 format = 2
 layer_0/tile_data = PackedInt32Array(852005, 65536, 0, 851990, 65536, 0, 851991, 65536, 0, 851992, 65536, 0, 851993, 65536, 0, 851994, 65536, 0, 851995, 65536, 0, 851996, 65536, 0, 851997, 65536, 0, 851998, 65536, 0, 851999, 65536, 0, 852000, 65536, 0, 852001, 65536, 0, 852002, 65536, 0, 852003, 65536, 0, 852004, 65536, 0, 786470, 65536, 0, 786471, 65536, 0, 786472, 65536, 0, 786473, 65536, 0, 852010, 65536, 0, 852011, 65536, 0, 852012, 65536, 0, 852013, 65536, 0, 852014, 65536, 0, 917552, 65536, 0, 917553, 65536, 0, 917554, 65536, 0, 917555, 65536, 0, 917556, 65536, 0, 917557, 65536, 0, 917558, 65536, 0, 917559, 65536, 0, 917551, 65536, 0, 983096, 65536, 0, 983097, 65536, 0, 983098, 65536, 0, 983099, 65536, 0, 983100, 65536, 0, 983101, 65536, 0, 983102, 65536, 0, 983103, 65536, 0, 983104, 65536, 0, 983105, 65536, 0, 983106, 65536, 0, 983107, 65536, 0, 983108, 65536, 0, 983109, 65536, 0, 983110, 65536, 0, 983111, 65536, 0, 983112, 65536, 0, 917577, 65536, 0, 917578, 65536, 0, 917579, 65536, 0, 917580, 65536, 0, 917581, 65536, 0, 786511, 65536, 0, 786513, 65536, 0, 786514, 65536, 0, 786515, 65536, 0, 786516, 65536, 0, 786517, 65536, 0, 1179728, 65536, 0, 1114193, 65536, 0, 1048658, 65536, 0, 1048660, 65536, 0, 1048661, 65536, 0, 983126, 65536, 0, 917591, 65536, 0, 852056, 65536, 0, 786521, 65536, 0, 786522, 65536, 0, 786523, 65536, 0, 786524, 65536, 0, 786525, 65536, 0, 786526, 65536, 0, 786527, 65536, 0, 786528, 65536, 0, 786529, 65536, 0, 786530, 65536, 0, 852067, 65536, 0, 852068, 65536, 0, 917605, 65536, 0, 1048678, 65536, 0, 1048679, 65536, 0, 1114216, 65536, 0, 1114217, 65536, 0, 1114218, 65536, 0, 1114219, 65536, 0, 1114220, 65536, 0, 1114221, 65536, 0, 1114222, 65536, 0, 1048687, 65536, 0, 1048688, 65536, 0, 917617, 65536, 0, 852082, 65536, 0, 852083, 65536, 0, 786548, 65536, 0, 786554, 65536, 0, 786555, 65536, 0, 786556, 65536, 0, 852093, 65536, 0, 917630, 65536, 0, 917635, 65536, 0, 917636, 65536, 0, 917637, 65536, 0, 852106, 65536, 0, 852107, 65536, 0, 852108, 65536, 0, 917645, 65536, 0, 917646, 65536, 0, 852116, 65536, 0, 852117, 65536, 0, 852118, 65536, 0, 852119, 65536, 0, 852120, 65536, 0, 983193, 65536, 0, 983194, 65536, 0, 917659, 65536, 0, 852124, 65536, 0, 852125, 65536, 0, 917662, 65536, 0, 983199, 65536, 0, 786593, 65536, 0, 852128, 65536, 0, 852130, 65536, 0, 917673, 65536, 0, 786602, 65536, 0, 852139, 65536, 0, 852140, 65536, 0, 852141, 65536, 0, 852142, 65536, 0, 786607, 65536, 0, 983216, 65536, 0, 983217, 65536, 0, 852150, 65536, 0, 786615, 65536, 0, 721080, 65536, 0, 786617, 65536, 0, 852154, 65536, 0, 852155, 65536, 0, 852185, 131072, 1, 917721, 131072, 1, 852175, 131072, 1, 917711, 131072, 1, 852186, 65536, 0, 852187, 65536, 0, 852188, 65536, 0, 852189, 65536, 0, 852190, 65536, 0, 852191, 65536, 0, 852192, 65536, 0, 852193, 65536, 0, 852194, 65536, 0, 852195, 65536, 0, 852196, 65536, 0, 852197, 65536, 0, 852198, 65536, 0, 852199, 65536, 0, 852200, 65536, 0, 852201, 65536, 0, 852176, 65536, 0, 852177, 65536, 0, 852178, 65536, 0)
@@ -310,6 +340,7 @@ limit_bottom = 338
 
 [node name="killzone" parent="." instance=ExtResource("3_egbgt")]
 position = Vector2(530, 399)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_7ks7s")
@@ -338,6 +369,11 @@ position = Vector2(1336, 216)
 [node name="player2" parent="." instance=ExtResource("6_b3xny")]
 position = Vector2(393, 165)
 
+[node name="Camera2D" type="Camera2D" parent="player2"]
+position = Vector2(0, -2)
+zoom = Vector2(5, 5)
+limit_bottom = 338
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_knsac")
 autoplay = true
@@ -345,6 +381,11 @@ max_distance = 900000.0
 
 [node name="ian" parent="." instance=ExtResource("8_d6as2")]
 position = Vector2(366, 164)
+
+[node name="Camera2D" type="Camera2D" parent="ian"]
+position = Vector2(0, -2)
+zoom = Vector2(5, 5)
+limit_bottom = 338
 
 [node name="terra-shadow" parent="." instance=ExtResource("9_0wo36")]
 position = Vector2(1680, 233)
@@ -366,6 +407,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="tall_boi" parent="." instance=ExtResource("10_rtmxo")]
 position = Vector2(450, 167)
+
+[node name="Camera2D" type="Camera2D" parent="tall_boi"]
+position = Vector2(0, -2)
+zoom = Vector2(5, 5)
+limit_bottom = 338
 
 [node name="water" parent="." instance=ExtResource("11_v0ef8")]
 position = Vector2(3073, 258)
@@ -430,6 +476,114 @@ collision_mask = 143
 position = Vector2(3575, -35)
 shape = SubResource("RectangleShape2D_hv5pn")
 
+[node name="killzone2" type="Area2D" parent="."]
+position = Vector2(530, 399)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("17_4vhvl")
+
+[node name="Timer" type="Timer" parent="killzone2"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
+stream = ExtResource("18_4lh4t")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+shape = SubResource("WorldBoundaryShape2D_7ks7s")
+
+[node name="killzone3" type="Area2D" parent="."]
+position = Vector2(530, 399)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("19_fkwkq")
+
+[node name="Timer" type="Timer" parent="killzone3"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
+stream = ExtResource("18_4lh4t")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+shape = SubResource("WorldBoundaryShape2D_7ks7s")
+
+[node name="killzone4" type="Area2D" parent="."]
+position = Vector2(530, 399)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("20_u1nbl")
+
+[node name="Timer" type="Timer" parent="killzone4"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
+stream = ExtResource("18_4lh4t")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4"]
+shape = SubResource("WorldBoundaryShape2D_7ks7s")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("21_j80vr")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control/CanvasLayer"]
+scale = Vector2(4.30556, 3.35417)
+texture_normal = ExtResource("22_15abg")
+shape = SubResource("RectangleShape2D_346fm")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(427, 0)
+scale = Vector2(3.6383, 3.3125)
+texture_normal = SubResource("AtlasTexture_qtl13")
+shape = SubResource("RectangleShape2D_2xh2m")
+action = "escape"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(740, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_ywmac")
+shape = SubResource("RectangleShape2D_wkknv")
+action = "walk_left"
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/TouchScreenButton3"]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 52.0
+offset_bottom = 53.0
+flat = true
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(971, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_he738")
+shape = SubResource("RectangleShape2D_wkknv")
+action = "walk_right"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
+[connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone3" to="killzone3" method="_on_body_entered"]
+[connection signal="timeout" from="killzone3/Timer" to="killzone3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone4" to="killzone4" method="_on_body_entered"]
+[connection signal="timeout" from="killzone4/Timer" to="killzone4" method="_on_timer_timeout"]
 
 [editable path="water_3"]

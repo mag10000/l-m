@@ -1,5 +1,8 @@
 extends Node2D
 
+var date_dict = Time.get_date_dict_from_system()  
+
+var current_month = date_dict["month"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +25,12 @@ func _process(delta):
 		$sus_lucas.volume_db = -80
 	else:
 		$AnimatedSprite2D2.visible = false
-	
+	if current_month == 12:
+		$GPUParticles2D.emitting = false
+		$TileMap2.visible = false
+	var current_day = date_dict["day"]
+	if current_month == 10 && current_day == 31:
+		$ColorRect.visible = true
 
 func _on_timer_timeout():
 	State.cutscene_4 = true

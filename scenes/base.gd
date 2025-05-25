@@ -4,7 +4,8 @@ extends Area2D
 
 
 func _on_body_entered(body):
-		timer.start()
+	State.save_menu_scene = ("res://scenes/base.tscn")
+	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 
 
 func _on_timer_timeout():

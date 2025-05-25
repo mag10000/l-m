@@ -87,3 +87,8 @@ func _on_button_pressed():
 		State.translated_to_spanish = false
 		$Button.text = ("traducir al español")
 		_1_prees = false
+
+
+func _on_timer_timeout():
+	State.save_menu_scene = ("res://scenes/base.tscn")
+	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")

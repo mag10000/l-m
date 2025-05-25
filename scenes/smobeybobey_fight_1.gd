@@ -90,15 +90,15 @@ func _on_fry_blast_timer_timeout():
 	$Magnus_box/mind_bubble_attck.disabled = false
 	$Magnus_box/mind_blast_attck.disabled = false
 	if enemy_moves_times <= 3:
-		player_health -= 54
+		player_health -= randi_range(50,54)
 	if enemy_moves_times >= 2 && enemy_moves_times <= 7:
 		player_health -= 37
 	if enemy_moves_times == 7:
 		player_health -= 43
 	if enemy_moves_times == 8:
-		player_health -= 37
+		player_health -= randi_range(35,40)
 	if enemy_moves_times >= 8:
-		player_health -= 31
+		player_health -= randi_range(30,33)
 	enemy_moves_times += 1
 	print("player_health")
 	print(player_health)
@@ -129,9 +129,9 @@ func _on_snake_timer_timeout():
 	$Lucas_box/worm_attck.disabled = false
 	$Magnus_box/mind_bubble_attck.disabled = false
 	$Magnus_box/mind_blast_attck.disabled = false
-	health -= 50
+	health -= randi_range(50,55)
 	smobeybobeys_turn = true
-
+#randi_range(140,210)
 #Lucas Worm Atack
 func _on_worm_attck_pressed():
 	$lucas.play("worm_attck")
@@ -155,7 +155,7 @@ func _on_worm_timer_timeout():
 	$Magnus_box/mind_bubble_attck.disabled = false
 	$Magnus_box/mind_blast_attck.disabled = false
 	times_used_worm += 1
-	health -= 100
+	health -= randi_range(97,105)
 	smobeybobeys_turn = true
 
 #Magnus's Attacks
@@ -180,7 +180,7 @@ func _on_bubble_timer_timeout():
 	$Lucas_box/worm_attck.disabled = false
 	$Magnus_box/mind_bubble_attck.disabled = false
 	$Magnus_box/mind_blast_attck.disabled = false
-	health -= 50
+	health -= randi_range(47,55)
 	smobeybobeys_turn = true
 
 #Mind blast
@@ -203,7 +203,7 @@ func _on_mind_blast_timer_timeout():
 	$Lucas_box/worm_attck.disabled = false
 	$Magnus_box/mind_bubble_attck.disabled = false
 	$Magnus_box/mind_blast_attck.disabled = false
-	health -= 45
+	health -= randi_range(45,50)
 	smobeybobeys_turn = true
 
 

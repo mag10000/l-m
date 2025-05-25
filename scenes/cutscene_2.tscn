@@ -319,6 +319,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(817, 360)
+emitting = false
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_o3nfk")
 texture = ExtResource("5_aj881")
@@ -329,6 +330,7 @@ collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("6_ohqej")
 format = 2
 layer_0/tile_data = PackedInt32Array(1572879, 65536, 0, 1572880, 65536, 0, 1572881, 65536, 0, 1572882, 65536, 0, 1572883, 65536, 0, 1572884, 65536, 0, 1572885, 65536, 0, 1572878, 65536, 0, 1572887, 65536, 0, 1572888, 65536, 0, 1572889, 65536, 0, 1572890, 65536, 0, 1572891, 65536, 0, 1507356, 65536, 0, 1441821, 65536, 0, 1376286, 65536, 0, 1310751, 65536, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bgof2jdhx8fj3"]
+[gd_scene load_steps=55 format=3 uid="uid://bgof2jdhx8fj3"]
 
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_bqonc"]
 [ext_resource type="Script" path="res://scenes/level_5.gd" id="1_uvnf5"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cb2361lcf6r3i" path="res://scenes/water_3.tscn" id="12_bksfm"]
 [ext_resource type="AudioStream" uid="uid://bq8yqx0akfj3f" path="res://assets/jumpy juju loop.wav" id="14_t5q26"]
 [ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="16_a0c56"]
+[ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="17_h0k3m"]
+[ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="18_m6kir"]
+[ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="19_0v2x6"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2fqhv"]
 particle_flag_disable_z = true
@@ -810,11 +813,33 @@ size = Vector2(1945, 137)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t77c6"]
 size = Vector2(20, 243)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5b8f"]
+size = Vector2(87, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs8gi"]
+atlas = ExtResource("19_0v2x6")
+region = Rect2(96.079, 0, 47, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3voa"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od0ve"]
+atlas = ExtResource("19_0v2x6")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a17e"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyu4p"]
+atlas = ExtResource("19_0v2x6")
+region = Rect2(0, 0, 48, 48)
+
 [node name="level 5" type="Node2D"]
 script = ExtResource("1_uvnf5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(118, -42)
+emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_2fqhv")
 texture = ExtResource("2_ytw3b")
@@ -849,11 +874,23 @@ zoom = Vector2(6, 6)
 [node name="player2" parent="." instance=ExtResource("4_1svff")]
 position = Vector2(38, 24)
 
+[node name="Camera2D" type="Camera2D" parent="player2"]
+position = Vector2(0, -2)
+zoom = Vector2(6, 6)
+
 [node name="ian" parent="." instance=ExtResource("5_oq1hb")]
 position = Vector2(55, 23)
 
+[node name="Camera2D" type="Camera2D" parent="ian"]
+position = Vector2(0, -2)
+zoom = Vector2(6, 6)
+
 [node name="tall_boi" parent="." instance=ExtResource("6_2teuh")]
 position = Vector2(72, 23)
+
+[node name="Camera2D" type="Camera2D" parent="tall_boi"]
+position = Vector2(0, -2)
+zoom = Vector2(6, 6)
 
 [node name="hazards" type="Node" parent="."]
 
@@ -1043,9 +1080,55 @@ stream = ExtResource("14_t5q26")
 autoplay = true
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource("16_a0c56")
 format = 2
 layer_0/tile_data = PackedInt32Array(196608, 65536, 0, 196609, 65536, 0, 196610, 65536, 0, 196611, 65536, 0, 196612, 65536, 0, 196613, 65536, 0, 196614, 65536, 0, 196615, 65536, 0, 196616, 65536, 0, 196617, 65536, 0, 196618, 65536, 0, 196619, 65536, 0, 196620, 65536, 0, -65537, 65536, 0, -327682, 65536, 0, -655364, 65536, 0, -655363, 65536, 0)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("17_h0k3m")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control/CanvasLayer"]
+scale = Vector2(4.30556, 3.35417)
+texture_normal = ExtResource("18_m6kir")
+shape = SubResource("RectangleShape2D_d5b8f")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(427, 0)
+scale = Vector2(3.6383, 3.3125)
+texture_normal = SubResource("AtlasTexture_vs8gi")
+shape = SubResource("RectangleShape2D_i3voa")
+action = "escape"
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/TouchScreenButton2"]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 52.0
+offset_bottom = 53.0
+flat = true
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(740, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_od0ve")
+shape = SubResource("RectangleShape2D_0a17e")
+action = "walk_left"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(971, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_uyu4p")
+shape = SubResource("RectangleShape2D_0a17e")
+action = "walk_right"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 

@@ -14,4 +14,3 @@ func _on_body_entered(body):
 
 func _on_timer_timeout():
 	Engine.time_scale = 1.0
-	State.death4 = false

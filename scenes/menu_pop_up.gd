@@ -12,6 +12,11 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _process(delta):
+	if State.arcade == true:
+		$Control/quit.visible = false
+		
+	
+	
 	#translations
 	if State.translated_to_spanish == true:
 		$Control/quit.text = ("abandonar")
@@ -23,6 +28,9 @@ func _process(delta):
 		$"Control/co-op_3".text = ("cuatro jugadores")
 		$Control/map.text = ("mapa")
 		$Control/main_menu.text = ("menú principal")
+		$Control/VBoxContainer/ColorRect2/Label.text = ("Tu progreso en tunivel no se guardará")
+		$Control/VBoxContainer/Button1.text = ("   dejar   ")
+		$Control/VBoxContainer/Button2.text = ("permanecer")
 	else:
 		$Control/quit.text = ("quit")
 		$"Control/co-op".text = ("2 players")
@@ -33,6 +41,10 @@ func _process(delta):
 		$"Control/co-op_3".text = ("4 players")
 		$Control/map.text = ("map")
 		$Control/main_menu.text = ("main menu")
+		$Control/VBoxContainer/ColorRect2/Label.text = ("your progress on your
+ level will not be saved")
+		$Control/VBoxContainer/Button1.text = ("   leave   ")
+		$Control/VBoxContainer/Button2.text = ("stay")		
 
 
 	if State.co_op_unlocked == true:
@@ -56,10 +68,18 @@ func _on_coop_pressed():
 	State.escape = !State.escape
 	$Control/ColorRect.visible = !$Control/ColorRect.visible
 	self.visible = !self.visible
+	State.death = false
+	State.death2 = false
+	State.death3 = false
+	State.death4 = false
 	get_tree().reload_current_scene()
 
 
 func _on_button_pressed():
+	State.death = false
+	State.death2 = false
+	State.death3 = false
+	State.death4 = false
 	get_tree().reload_current_scene()
 	State.escape = false
 	
@@ -78,6 +98,10 @@ func _on_coop_2_pressed():
 	self.visible = !self.visible
 	State.player_2_in = true
 	State.player_4_in = false
+	State.death = false
+	State.death2 = false
+	State.death3 = false
+	State.death4 = false
 	get_tree().reload_current_scene()
 
 
@@ -88,6 +112,10 @@ func _on_coop_3_pressed():
 	self.visible = !self.visible
 	State.player_2_in = true
 	State.player_3_in = true
+	State.death = false
+	State.death2 = false
+	State.death3 = false
+	State.death4 = false
 	get_tree().reload_current_scene()
 
 

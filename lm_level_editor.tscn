@@ -1,0 +1,2881 @@
+[gd_scene load_steps=13 format=3 uid="uid://bwpvsd2a0khqo"]
+
+[ext_resource type="PackedScene" uid="uid://6sxtdsmdyw07" path="res://lm_editor_block.tscn" id="1_dlta6"]
+[ext_resource type="Script" path="res://lm_level_editor.gd" id="1_l2or7"]
+[ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_swpui"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="2_xb5k2"]
+[ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="3_q5j7n"]
+[ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="3_vnp0k"]
+[ext_resource type="Texture2D" uid="uid://b00x6ro1unml5" path="res://erase.png" id="4_1looh"]
+[ext_resource type="Script" path="res://scenes/killzone_level_editor.gd" id="4_i54k5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3o4j"]
+atlas = ExtResource("3_vnp0k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvtgs"]
+atlas = ExtResource("3_vnp0k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2t7f"]
+atlas = ExtResource("3_vnp0k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1y25m"]
+
+[node name="Lm level editor" type="Node2D"]
+script = ExtResource("1_l2or7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="Button" type="Button" parent="Control/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_right = 264.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_xb5k2")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="grass" type="Button" parent="Control/CanvasLayer"]
+offset_left = 339.0
+offset_right = 363.0
+offset_bottom = 24.0
+scale = Vector2(5.4, 5.12)
+icon = SubResource("AtlasTexture_r3o4j")
+
+[node name="dirt" type="Button" parent="Control/CanvasLayer"]
+offset_left = 219.0
+offset_right = 243.0
+offset_bottom = 24.0
+scale = Vector2(4.8, 5.12)
+icon = SubResource("AtlasTexture_hvtgs")
+
+[node name="stone" type="Button" parent="Control/CanvasLayer"]
+offset_left = 107.0
+offset_right = 131.0
+offset_bottom = 24.0
+scale = Vector2(4.52, 5.16)
+icon = SubResource("AtlasTexture_b2t7f")
+
+[node name="air" type="Button" parent="Control/CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(4.4, 5.12)
+icon = ExtResource("4_1looh")
+
+[node name="block" type="Node2D" parent="."]
+
+[node name="Lm editor block" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, 24)
+block = "grass"
+
+[node name="Lm editor block2" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, 24)
+
+[node name="Lm editor block3" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, 40)
+block = "dirt"
+
+[node name="Lm editor block4" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, 40)
+
+[node name="Lm editor block5" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, 40)
+block = "dirt"
+
+[node name="Lm editor block6" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, 24)
+block = "grass"
+
+[node name="Lm editor block7" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, 8)
+
+[node name="Lm editor block8" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, 8)
+
+[node name="Lm editor block9" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, 8)
+
+[node name="Lm editor block10" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 24)
+
+[node name="Lm editor block11" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 24)
+
+[node name="Lm editor block12" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 40)
+
+[node name="Lm editor block13" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 40)
+
+[node name="Lm editor block14" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 40)
+
+[node name="Lm editor block15" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 24)
+
+[node name="Lm editor block16" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 8)
+
+[node name="Lm editor block17" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 8)
+
+[node name="Lm editor block18" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 8)
+
+[node name="Lm editor block19" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 24)
+
+[node name="Lm editor block20" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 24)
+
+[node name="Lm editor block21" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 40)
+
+[node name="Lm editor block22" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 40)
+
+[node name="Lm editor block23" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 40)
+
+[node name="Lm editor block24" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 24)
+
+[node name="Lm editor block25" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 8)
+
+[node name="Lm editor block26" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 8)
+
+[node name="Lm editor block27" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 8)
+
+[node name="Lm editor block28" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -24)
+
+[node name="Lm editor block29" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -24)
+
+[node name="Lm editor block30" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -8)
+
+[node name="Lm editor block31" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -8)
+
+[node name="Lm editor block32" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -8)
+
+[node name="Lm editor block33" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -24)
+
+[node name="Lm editor block34" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -40)
+
+[node name="Lm editor block35" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -40)
+
+[node name="Lm editor block36" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -40)
+
+[node name="Lm editor block37" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -24)
+
+[node name="Lm editor block38" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -24)
+
+[node name="Lm editor block39" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -8)
+
+[node name="Lm editor block40" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -8)
+
+[node name="Lm editor block41" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -8)
+
+[node name="Lm editor block42" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -24)
+
+[node name="Lm editor block43" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -40)
+
+[node name="Lm editor block44" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -40)
+
+[node name="Lm editor block45" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -40)
+
+[node name="Lm editor block46" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -24)
+
+[node name="Lm editor block47" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -24)
+
+[node name="Lm editor block48" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -8)
+
+[node name="Lm editor block49" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -8)
+
+[node name="Lm editor block50" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -8)
+
+[node name="Lm editor block51" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -24)
+
+[node name="Lm editor block52" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -40)
+
+[node name="Lm editor block53" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -40)
+
+[node name="Lm editor block54" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -40)
+
+[node name="Lm editor block55" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -24)
+
+[node name="Lm editor block56" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -24)
+
+[node name="Lm editor block57" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -8)
+
+[node name="Lm editor block58" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -8)
+
+[node name="Lm editor block59" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -8)
+
+[node name="Lm editor block60" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -24)
+
+[node name="Lm editor block61" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -40)
+
+[node name="Lm editor block62" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -40)
+
+[node name="Lm editor block63" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -40)
+
+[node name="Lm editor block64" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -24)
+
+[node name="Lm editor block65" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -24)
+
+[node name="Lm editor block66" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -8)
+
+[node name="Lm editor block67" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -8)
+
+[node name="Lm editor block68" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -8)
+
+[node name="Lm editor block69" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -24)
+
+[node name="Lm editor block70" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -40)
+
+[node name="Lm editor block71" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -40)
+
+[node name="Lm editor block72" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -40)
+
+[node name="Lm editor block73" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -24)
+
+[node name="Lm editor block74" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -24)
+
+[node name="Lm editor block75" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -8)
+
+[node name="Lm editor block76" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -8)
+
+[node name="Lm editor block77" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -8)
+
+[node name="Lm editor block78" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -24)
+
+[node name="Lm editor block79" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -40)
+
+[node name="Lm editor block80" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -40)
+
+[node name="Lm editor block81" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -40)
+
+[node name="Lm editor block82" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, 24)
+
+[node name="Lm editor block83" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, 24)
+
+[node name="Lm editor block84" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, 40)
+
+[node name="Lm editor block85" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, 40)
+
+[node name="Lm editor block86" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, 40)
+
+[node name="Lm editor block87" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, 24)
+
+[node name="Lm editor block88" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, 8)
+
+[node name="Lm editor block89" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, 8)
+
+[node name="Lm editor block90" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, 8)
+
+[node name="Lm editor block91" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 24)
+
+[node name="Lm editor block92" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 24)
+
+[node name="Lm editor block93" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 40)
+
+[node name="Lm editor block94" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 40)
+
+[node name="Lm editor block95" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 40)
+
+[node name="Lm editor block96" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 24)
+
+[node name="Lm editor block97" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 8)
+
+[node name="Lm editor block98" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 8)
+
+[node name="Lm editor block99" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 8)
+
+[node name="Lm editor block100" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 24)
+
+[node name="Lm editor block101" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 24)
+
+[node name="Lm editor block102" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 40)
+
+[node name="Lm editor block103" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 40)
+
+[node name="Lm editor block104" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 40)
+
+[node name="Lm editor block105" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 24)
+
+[node name="Lm editor block106" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 8)
+
+[node name="Lm editor block107" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 8)
+
+[node name="Lm editor block108" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 8)
+
+[node name="Lm editor block109" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, 24)
+
+[node name="Lm editor block110" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, 24)
+
+[node name="Lm editor block111" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, 40)
+
+[node name="Lm editor block112" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, 40)
+
+[node name="Lm editor block113" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, 40)
+
+[node name="Lm editor block114" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, 24)
+
+[node name="Lm editor block115" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, 8)
+
+[node name="Lm editor block116" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, 8)
+
+[node name="Lm editor block117" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, 8)
+
+[node name="Lm editor block118" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 24)
+
+[node name="Lm editor block119" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 24)
+
+[node name="Lm editor block120" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 40)
+
+[node name="Lm editor block121" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 40)
+
+[node name="Lm editor block122" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 40)
+
+[node name="Lm editor block123" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 24)
+
+[node name="Lm editor block124" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 8)
+
+[node name="Lm editor block125" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 8)
+
+[node name="Lm editor block126" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 8)
+
+[node name="Lm editor block127" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 24)
+
+[node name="Lm editor block128" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 24)
+
+[node name="Lm editor block129" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 40)
+
+[node name="Lm editor block130" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 40)
+
+[node name="Lm editor block131" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 40)
+
+[node name="Lm editor block132" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 24)
+
+[node name="Lm editor block133" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 8)
+
+[node name="Lm editor block134" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 8)
+
+[node name="Lm editor block135" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 8)
+
+[node name="Lm editor block136" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -24)
+
+[node name="Lm editor block137" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -24)
+
+[node name="Lm editor block138" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -8)
+
+[node name="Lm editor block139" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -8)
+
+[node name="Lm editor block140" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -8)
+
+[node name="Lm editor block141" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -24)
+
+[node name="Lm editor block142" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -40)
+
+[node name="Lm editor block143" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -40)
+
+[node name="Lm editor block144" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -40)
+
+[node name="Lm editor block145" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -24)
+
+[node name="Lm editor block146" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -24)
+
+[node name="Lm editor block147" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -8)
+
+[node name="Lm editor block148" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -8)
+
+[node name="Lm editor block149" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -8)
+
+[node name="Lm editor block150" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -24)
+
+[node name="Lm editor block151" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -40)
+
+[node name="Lm editor block152" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -40)
+
+[node name="Lm editor block153" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -40)
+
+[node name="Lm editor block154" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -24)
+
+[node name="Lm editor block155" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -24)
+
+[node name="Lm editor block156" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -8)
+
+[node name="Lm editor block157" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -8)
+
+[node name="Lm editor block158" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -8)
+
+[node name="Lm editor block159" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -24)
+
+[node name="Lm editor block160" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -40)
+
+[node name="Lm editor block161" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -40)
+
+[node name="Lm editor block162" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -40)
+
+[node name="Lm editor block163" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -24)
+
+[node name="Lm editor block164" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -24)
+
+[node name="Lm editor block165" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -8)
+
+[node name="Lm editor block166" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -8)
+
+[node name="Lm editor block167" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -8)
+
+[node name="Lm editor block168" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -24)
+
+[node name="Lm editor block169" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -40)
+
+[node name="Lm editor block170" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -40)
+
+[node name="Lm editor block171" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -40)
+
+[node name="Lm editor block172" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -24)
+
+[node name="Lm editor block173" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -24)
+
+[node name="Lm editor block174" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -8)
+
+[node name="Lm editor block175" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -8)
+
+[node name="Lm editor block176" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -8)
+
+[node name="Lm editor block177" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -24)
+
+[node name="Lm editor block178" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -40)
+
+[node name="Lm editor block179" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -40)
+
+[node name="Lm editor block180" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -40)
+
+[node name="Lm editor block181" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -24)
+
+[node name="Lm editor block182" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -24)
+
+[node name="Lm editor block183" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -8)
+
+[node name="Lm editor block184" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -8)
+
+[node name="Lm editor block185" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -8)
+
+[node name="Lm editor block186" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -24)
+
+[node name="Lm editor block187" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -40)
+
+[node name="Lm editor block188" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -40)
+
+[node name="Lm editor block189" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -40)
+
+[node name="Lm editor block190" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, 24)
+
+[node name="Lm editor block191" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, 24)
+
+[node name="Lm editor block192" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, 40)
+
+[node name="Lm editor block193" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, 40)
+
+[node name="Lm editor block194" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, 40)
+
+[node name="Lm editor block195" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, 24)
+
+[node name="Lm editor block196" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, 8)
+
+[node name="Lm editor block197" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, 8)
+
+[node name="Lm editor block198" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, 8)
+
+[node name="Lm editor block199" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 24)
+
+[node name="Lm editor block200" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 24)
+
+[node name="Lm editor block201" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 40)
+
+[node name="Lm editor block202" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 40)
+
+[node name="Lm editor block203" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 40)
+
+[node name="Lm editor block204" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 24)
+
+[node name="Lm editor block205" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 8)
+
+[node name="Lm editor block206" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 8)
+
+[node name="Lm editor block207" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 8)
+
+[node name="Lm editor block208" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 24)
+
+[node name="Lm editor block209" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 24)
+
+[node name="Lm editor block210" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 40)
+
+[node name="Lm editor block211" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 40)
+
+[node name="Lm editor block212" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 40)
+
+[node name="Lm editor block213" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 24)
+
+[node name="Lm editor block214" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 8)
+
+[node name="Lm editor block215" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 8)
+
+[node name="Lm editor block216" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 8)
+
+[node name="Lm editor block217" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, 24)
+
+[node name="Lm editor block218" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, 24)
+
+[node name="Lm editor block219" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, 40)
+
+[node name="Lm editor block220" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, 40)
+
+[node name="Lm editor block221" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, 40)
+
+[node name="Lm editor block222" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, 24)
+
+[node name="Lm editor block223" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, 8)
+
+[node name="Lm editor block224" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, 8)
+
+[node name="Lm editor block225" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, 8)
+
+[node name="Lm editor block226" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 24)
+
+[node name="Lm editor block227" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 24)
+
+[node name="Lm editor block228" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 40)
+
+[node name="Lm editor block229" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 40)
+
+[node name="Lm editor block230" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 40)
+
+[node name="Lm editor block231" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 24)
+
+[node name="Lm editor block232" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 8)
+
+[node name="Lm editor block233" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 8)
+
+[node name="Lm editor block234" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 8)
+
+[node name="Lm editor block235" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 24)
+
+[node name="Lm editor block236" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 24)
+
+[node name="Lm editor block237" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 40)
+
+[node name="Lm editor block238" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 40)
+
+[node name="Lm editor block239" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 40)
+
+[node name="Lm editor block240" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 24)
+
+[node name="Lm editor block241" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 8)
+
+[node name="Lm editor block242" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 8)
+
+[node name="Lm editor block243" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 8)
+
+[node name="Lm editor block244" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -24)
+
+[node name="Lm editor block245" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -24)
+
+[node name="Lm editor block246" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -8)
+
+[node name="Lm editor block247" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -8)
+
+[node name="Lm editor block248" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -8)
+
+[node name="Lm editor block249" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -24)
+
+[node name="Lm editor block250" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -40)
+
+[node name="Lm editor block251" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -40)
+
+[node name="Lm editor block252" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -40)
+
+[node name="Lm editor block253" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -24)
+
+[node name="Lm editor block254" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -24)
+
+[node name="Lm editor block255" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -8)
+
+[node name="Lm editor block256" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -8)
+
+[node name="Lm editor block257" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -8)
+
+[node name="Lm editor block258" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -24)
+
+[node name="Lm editor block259" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -40)
+
+[node name="Lm editor block260" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -40)
+
+[node name="Lm editor block261" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -40)
+
+[node name="Lm editor block262" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -24)
+
+[node name="Lm editor block263" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -24)
+
+[node name="Lm editor block264" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -8)
+
+[node name="Lm editor block265" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -8)
+
+[node name="Lm editor block266" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -8)
+
+[node name="Lm editor block267" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -24)
+
+[node name="Lm editor block268" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -40)
+
+[node name="Lm editor block269" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -40)
+
+[node name="Lm editor block270" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -40)
+
+[node name="Lm editor block271" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -24)
+
+[node name="Lm editor block272" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -24)
+
+[node name="Lm editor block273" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -8)
+
+[node name="Lm editor block274" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -8)
+
+[node name="Lm editor block275" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -8)
+
+[node name="Lm editor block276" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -24)
+
+[node name="Lm editor block277" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -40)
+
+[node name="Lm editor block278" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -40)
+
+[node name="Lm editor block279" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -40)
+
+[node name="Lm editor block280" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -24)
+
+[node name="Lm editor block281" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -24)
+
+[node name="Lm editor block282" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -8)
+
+[node name="Lm editor block283" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -8)
+
+[node name="Lm editor block284" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -8)
+
+[node name="Lm editor block285" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -24)
+
+[node name="Lm editor block286" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -40)
+
+[node name="Lm editor block287" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -40)
+
+[node name="Lm editor block288" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -40)
+
+[node name="Lm editor block289" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -24)
+
+[node name="Lm editor block290" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -24)
+
+[node name="Lm editor block291" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -8)
+
+[node name="Lm editor block292" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -8)
+
+[node name="Lm editor block293" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -8)
+
+[node name="Lm editor block294" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -24)
+
+[node name="Lm editor block295" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -40)
+
+[node name="Lm editor block296" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -40)
+
+[node name="Lm editor block297" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -40)
+
+[node name="Lm editor block298" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, 24)
+
+[node name="Lm editor block299" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, 24)
+
+[node name="Lm editor block300" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, 40)
+
+[node name="Lm editor block301" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, 40)
+
+[node name="Lm editor block302" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, 40)
+
+[node name="Lm editor block303" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, 24)
+
+[node name="Lm editor block304" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, 8)
+
+[node name="Lm editor block305" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, 8)
+
+[node name="Lm editor block306" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, 8)
+
+[node name="Lm editor block307" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 24)
+
+[node name="Lm editor block308" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 24)
+
+[node name="Lm editor block309" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 40)
+
+[node name="Lm editor block310" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 40)
+
+[node name="Lm editor block311" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 40)
+
+[node name="Lm editor block312" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 24)
+
+[node name="Lm editor block313" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 8)
+
+[node name="Lm editor block314" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 8)
+
+[node name="Lm editor block315" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 8)
+
+[node name="Lm editor block316" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 24)
+
+[node name="Lm editor block317" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 24)
+
+[node name="Lm editor block318" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 40)
+
+[node name="Lm editor block319" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 40)
+
+[node name="Lm editor block320" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 40)
+
+[node name="Lm editor block321" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 24)
+
+[node name="Lm editor block322" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 8)
+
+[node name="Lm editor block323" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 8)
+
+[node name="Lm editor block324" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 8)
+
+[node name="Lm editor block325" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -72)
+
+[node name="Lm editor block326" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -72)
+
+[node name="Lm editor block327" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -56)
+
+[node name="Lm editor block328" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -56)
+
+[node name="Lm editor block329" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -56)
+
+[node name="Lm editor block330" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -72)
+
+[node name="Lm editor block331" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -88)
+
+[node name="Lm editor block332" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -88)
+
+[node name="Lm editor block333" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -88)
+
+[node name="Lm editor block334" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -72)
+
+[node name="Lm editor block335" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -72)
+
+[node name="Lm editor block336" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -56)
+
+[node name="Lm editor block337" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -56)
+
+[node name="Lm editor block338" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -56)
+
+[node name="Lm editor block339" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -72)
+
+[node name="Lm editor block340" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -88)
+
+[node name="Lm editor block341" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -88)
+
+[node name="Lm editor block342" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -88)
+
+[node name="Lm editor block343" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -72)
+
+[node name="Lm editor block344" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -72)
+
+[node name="Lm editor block345" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -56)
+
+[node name="Lm editor block346" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -56)
+
+[node name="Lm editor block347" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -56)
+
+[node name="Lm editor block348" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -72)
+
+[node name="Lm editor block349" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -88)
+
+[node name="Lm editor block350" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -88)
+
+[node name="Lm editor block351" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -88)
+
+[node name="Lm editor block352" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -120)
+
+[node name="Lm editor block353" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -120)
+
+[node name="Lm editor block354" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -104)
+
+[node name="Lm editor block355" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -104)
+
+[node name="Lm editor block356" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -104)
+
+[node name="Lm editor block357" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -120)
+
+[node name="Lm editor block358" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, -136)
+
+[node name="Lm editor block359" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, -136)
+
+[node name="Lm editor block360" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, -136)
+
+[node name="Lm editor block361" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -120)
+
+[node name="Lm editor block362" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -120)
+
+[node name="Lm editor block363" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -104)
+
+[node name="Lm editor block364" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -104)
+
+[node name="Lm editor block365" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -104)
+
+[node name="Lm editor block366" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -120)
+
+[node name="Lm editor block367" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -136)
+
+[node name="Lm editor block368" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -136)
+
+[node name="Lm editor block369" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -136)
+
+[node name="Lm editor block370" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -120)
+
+[node name="Lm editor block371" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -120)
+
+[node name="Lm editor block372" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -104)
+
+[node name="Lm editor block373" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -104)
+
+[node name="Lm editor block374" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -104)
+
+[node name="Lm editor block375" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -120)
+
+[node name="Lm editor block376" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, -136)
+
+[node name="Lm editor block377" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, -136)
+
+[node name="Lm editor block378" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, -136)
+
+[node name="Lm editor block379" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -120)
+
+[node name="Lm editor block380" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -120)
+
+[node name="Lm editor block381" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -104)
+
+[node name="Lm editor block382" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -104)
+
+[node name="Lm editor block383" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -104)
+
+[node name="Lm editor block384" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -120)
+
+[node name="Lm editor block385" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -136)
+
+[node name="Lm editor block386" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -136)
+
+[node name="Lm editor block387" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -136)
+
+[node name="Lm editor block388" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -120)
+
+[node name="Lm editor block389" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -120)
+
+[node name="Lm editor block390" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -104)
+
+[node name="Lm editor block391" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -104)
+
+[node name="Lm editor block392" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -104)
+
+[node name="Lm editor block393" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -120)
+
+[node name="Lm editor block394" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -136)
+
+[node name="Lm editor block395" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -136)
+
+[node name="Lm editor block396" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -136)
+
+[node name="Lm editor block397" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -120)
+
+[node name="Lm editor block398" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -120)
+
+[node name="Lm editor block399" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -104)
+
+[node name="Lm editor block400" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -104)
+
+[node name="Lm editor block401" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -104)
+
+[node name="Lm editor block402" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -120)
+
+[node name="Lm editor block403" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -136)
+
+[node name="Lm editor block404" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -136)
+
+[node name="Lm editor block405" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -136)
+
+[node name="Lm editor block406" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -72)
+
+[node name="Lm editor block407" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -72)
+
+[node name="Lm editor block408" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -56)
+
+[node name="Lm editor block409" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -56)
+
+[node name="Lm editor block410" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -56)
+
+[node name="Lm editor block411" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -72)
+
+[node name="Lm editor block412" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, -88)
+
+[node name="Lm editor block413" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, -88)
+
+[node name="Lm editor block414" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, -88)
+
+[node name="Lm editor block415" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -72)
+
+[node name="Lm editor block416" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -72)
+
+[node name="Lm editor block417" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -56)
+
+[node name="Lm editor block418" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -56)
+
+[node name="Lm editor block419" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -56)
+
+[node name="Lm editor block420" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -72)
+
+[node name="Lm editor block421" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -88)
+
+[node name="Lm editor block422" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -88)
+
+[node name="Lm editor block423" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -88)
+
+[node name="Lm editor block424" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -72)
+
+[node name="Lm editor block425" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -72)
+
+[node name="Lm editor block426" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -56)
+
+[node name="Lm editor block427" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -56)
+
+[node name="Lm editor block428" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -56)
+
+[node name="Lm editor block429" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -72)
+
+[node name="Lm editor block430" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, -88)
+
+[node name="Lm editor block431" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, -88)
+
+[node name="Lm editor block432" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, -88)
+
+[node name="Lm editor block433" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -72)
+
+[node name="Lm editor block434" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -72)
+
+[node name="Lm editor block435" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -56)
+
+[node name="Lm editor block436" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -56)
+
+[node name="Lm editor block437" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -56)
+
+[node name="Lm editor block438" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -72)
+
+[node name="Lm editor block439" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -88)
+
+[node name="Lm editor block440" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -88)
+
+[node name="Lm editor block441" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -88)
+
+[node name="Lm editor block442" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -72)
+
+[node name="Lm editor block443" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -72)
+
+[node name="Lm editor block444" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -56)
+
+[node name="Lm editor block445" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -56)
+
+[node name="Lm editor block446" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -56)
+
+[node name="Lm editor block447" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -72)
+
+[node name="Lm editor block448" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -88)
+
+[node name="Lm editor block449" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -88)
+
+[node name="Lm editor block450" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -88)
+
+[node name="Lm editor block451" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -72)
+
+[node name="Lm editor block452" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -72)
+
+[node name="Lm editor block453" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -56)
+
+[node name="Lm editor block454" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -56)
+
+[node name="Lm editor block455" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -56)
+
+[node name="Lm editor block456" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -72)
+
+[node name="Lm editor block457" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -88)
+
+[node name="Lm editor block458" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -88)
+
+[node name="Lm editor block459" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -88)
+
+[node name="Lm editor block460" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -120)
+
+[node name="Lm editor block461" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -120)
+
+[node name="Lm editor block462" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -104)
+
+[node name="Lm editor block463" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -104)
+
+[node name="Lm editor block464" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -104)
+
+[node name="Lm editor block465" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -120)
+
+[node name="Lm editor block466" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, -136)
+
+[node name="Lm editor block467" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, -136)
+
+[node name="Lm editor block468" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, -136)
+
+[node name="Lm editor block469" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -120)
+
+[node name="Lm editor block470" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -120)
+
+[node name="Lm editor block471" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -104)
+
+[node name="Lm editor block472" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -104)
+
+[node name="Lm editor block473" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -104)
+
+[node name="Lm editor block474" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -120)
+
+[node name="Lm editor block475" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -136)
+
+[node name="Lm editor block476" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -136)
+
+[node name="Lm editor block477" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -136)
+
+[node name="Lm editor block478" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -120)
+
+[node name="Lm editor block479" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -120)
+
+[node name="Lm editor block480" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -104)
+
+[node name="Lm editor block481" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -104)
+
+[node name="Lm editor block482" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -104)
+
+[node name="Lm editor block483" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -120)
+
+[node name="Lm editor block484" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, -136)
+
+[node name="Lm editor block485" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, -136)
+
+[node name="Lm editor block486" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, -136)
+
+[node name="Lm editor block487" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -120)
+
+[node name="Lm editor block488" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -120)
+
+[node name="Lm editor block489" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -104)
+
+[node name="Lm editor block490" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -104)
+
+[node name="Lm editor block491" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -104)
+
+[node name="Lm editor block492" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -120)
+
+[node name="Lm editor block493" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -136)
+
+[node name="Lm editor block494" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -136)
+
+[node name="Lm editor block495" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -136)
+
+[node name="Lm editor block496" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -120)
+
+[node name="Lm editor block497" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -120)
+
+[node name="Lm editor block498" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -104)
+
+[node name="Lm editor block499" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -104)
+
+[node name="Lm editor block500" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -104)
+
+[node name="Lm editor block501" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -120)
+
+[node name="Lm editor block502" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -136)
+
+[node name="Lm editor block503" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -136)
+
+[node name="Lm editor block504" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -136)
+
+[node name="Lm editor block505" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -120)
+
+[node name="Lm editor block506" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -120)
+
+[node name="Lm editor block507" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -104)
+
+[node name="Lm editor block508" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -104)
+
+[node name="Lm editor block509" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -104)
+
+[node name="Lm editor block510" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -120)
+
+[node name="Lm editor block511" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -136)
+
+[node name="Lm editor block512" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -136)
+
+[node name="Lm editor block513" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -136)
+
+[node name="Lm editor block514" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -72)
+
+[node name="Lm editor block515" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -72)
+
+[node name="Lm editor block516" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -56)
+
+[node name="Lm editor block517" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -56)
+
+[node name="Lm editor block518" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -56)
+
+[node name="Lm editor block519" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -72)
+
+[node name="Lm editor block520" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, -88)
+
+[node name="Lm editor block521" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, -88)
+
+[node name="Lm editor block522" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, -88)
+
+[node name="Lm editor block523" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -72)
+
+[node name="Lm editor block524" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -72)
+
+[node name="Lm editor block525" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -56)
+
+[node name="Lm editor block526" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -56)
+
+[node name="Lm editor block527" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -56)
+
+[node name="Lm editor block528" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -72)
+
+[node name="Lm editor block529" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -88)
+
+[node name="Lm editor block530" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -88)
+
+[node name="Lm editor block531" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -88)
+
+[node name="Lm editor block532" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -72)
+
+[node name="Lm editor block533" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -72)
+
+[node name="Lm editor block534" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -56)
+
+[node name="Lm editor block535" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -56)
+
+[node name="Lm editor block536" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -56)
+
+[node name="Lm editor block537" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -72)
+
+[node name="Lm editor block538" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, -88)
+
+[node name="Lm editor block539" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, -88)
+
+[node name="Lm editor block540" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, -88)
+
+[node name="Lm editor block541" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -72)
+
+[node name="Lm editor block542" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -72)
+
+[node name="Lm editor block543" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -56)
+
+[node name="Lm editor block544" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -56)
+
+[node name="Lm editor block545" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -56)
+
+[node name="Lm editor block546" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -72)
+
+[node name="Lm editor block547" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -88)
+
+[node name="Lm editor block548" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -88)
+
+[node name="Lm editor block549" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -88)
+
+[node name="Lm editor block550" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -72)
+
+[node name="Lm editor block551" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -72)
+
+[node name="Lm editor block552" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -56)
+
+[node name="Lm editor block553" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -56)
+
+[node name="Lm editor block554" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -56)
+
+[node name="Lm editor block555" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -72)
+
+[node name="Lm editor block556" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -88)
+
+[node name="Lm editor block557" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -88)
+
+[node name="Lm editor block558" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -88)
+
+[node name="Lm editor block559" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -72)
+
+[node name="Lm editor block560" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -72)
+
+[node name="Lm editor block561" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -56)
+
+[node name="Lm editor block562" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -56)
+
+[node name="Lm editor block563" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -56)
+
+[node name="Lm editor block564" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -72)
+
+[node name="Lm editor block565" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -88)
+
+[node name="Lm editor block566" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -88)
+
+[node name="Lm editor block567" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -88)
+
+[node name="Lm editor block568" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -120)
+
+[node name="Lm editor block569" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -120)
+
+[node name="Lm editor block570" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -104)
+
+[node name="Lm editor block571" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -104)
+
+[node name="Lm editor block572" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -104)
+
+[node name="Lm editor block573" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -120)
+
+[node name="Lm editor block574" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, -136)
+
+[node name="Lm editor block575" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, -136)
+
+[node name="Lm editor block576" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, -136)
+
+[node name="Lm editor block577" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -120)
+
+[node name="Lm editor block578" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -120)
+
+[node name="Lm editor block579" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -104)
+
+[node name="Lm editor block580" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -104)
+
+[node name="Lm editor block581" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -104)
+
+[node name="Lm editor block582" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -120)
+
+[node name="Lm editor block583" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -136)
+
+[node name="Lm editor block584" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -136)
+
+[node name="Lm editor block585" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -136)
+
+[node name="Lm editor block586" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -120)
+
+[node name="Lm editor block587" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -120)
+
+[node name="Lm editor block588" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -104)
+
+[node name="Lm editor block589" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -104)
+
+[node name="Lm editor block590" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -104)
+
+[node name="Lm editor block591" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -120)
+
+[node name="Lm editor block592" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, -136)
+
+[node name="Lm editor block593" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, -136)
+
+[node name="Lm editor block594" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, -136)
+
+[node name="Lm editor block595" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -120)
+
+[node name="Lm editor block596" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -120)
+
+[node name="Lm editor block597" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -104)
+
+[node name="Lm editor block598" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -104)
+
+[node name="Lm editor block599" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -104)
+
+[node name="Lm editor block600" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -120)
+
+[node name="Lm editor block601" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -136)
+
+[node name="Lm editor block602" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -136)
+
+[node name="Lm editor block603" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -136)
+
+[node name="Lm editor block604" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -120)
+
+[node name="Lm editor block605" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -120)
+
+[node name="Lm editor block606" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -104)
+
+[node name="Lm editor block607" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -104)
+
+[node name="Lm editor block608" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -104)
+
+[node name="Lm editor block609" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -120)
+
+[node name="Lm editor block610" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -136)
+
+[node name="Lm editor block611" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -136)
+
+[node name="Lm editor block612" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -136)
+
+[node name="Lm editor block613" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -120)
+
+[node name="Lm editor block614" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -120)
+
+[node name="Lm editor block615" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -104)
+
+[node name="Lm editor block616" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -104)
+
+[node name="Lm editor block617" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -104)
+
+[node name="Lm editor block618" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -120)
+
+[node name="Lm editor block619" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -136)
+
+[node name="Lm editor block620" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -136)
+
+[node name="Lm editor block621" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -136)
+
+[node name="Lm editor block622" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -72)
+
+[node name="Lm editor block623" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -72)
+
+[node name="Lm editor block624" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -56)
+
+[node name="Lm editor block625" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -56)
+
+[node name="Lm editor block626" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -56)
+
+[node name="Lm editor block627" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -72)
+
+[node name="Lm editor block628" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, -88)
+
+[node name="Lm editor block629" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, -88)
+
+[node name="Lm editor block630" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, -88)
+
+[node name="Lm editor block631" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -72)
+
+[node name="Lm editor block632" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -72)
+
+[node name="Lm editor block633" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -56)
+
+[node name="Lm editor block634" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -56)
+
+[node name="Lm editor block635" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -56)
+
+[node name="Lm editor block636" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -72)
+
+[node name="Lm editor block637" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -88)
+
+[node name="Lm editor block638" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -88)
+
+[node name="Lm editor block639" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -88)
+
+[node name="Lm editor block640" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -72)
+
+[node name="Lm editor block641" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -72)
+
+[node name="Lm editor block642" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -56)
+
+[node name="Lm editor block643" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -56)
+
+[node name="Lm editor block644" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -56)
+
+[node name="Lm editor block645" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -72)
+
+[node name="Lm editor block646" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, -88)
+
+[node name="Lm editor block647" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, -88)
+
+[node name="Lm editor block648" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, -88)
+
+[node name="Lm editor block649" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 24)
+
+[node name="Lm editor block650" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 24)
+
+[node name="Lm editor block651" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 40)
+
+[node name="Lm editor block652" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 40)
+
+[node name="Lm editor block653" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 40)
+
+[node name="Lm editor block654" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 24)
+
+[node name="Lm editor block655" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 8)
+
+[node name="Lm editor block656" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 8)
+
+[node name="Lm editor block657" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 8)
+
+[node name="Lm editor block658" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 24)
+
+[node name="Lm editor block659" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 24)
+
+[node name="Lm editor block660" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 40)
+
+[node name="Lm editor block661" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 40)
+
+[node name="Lm editor block662" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 40)
+
+[node name="Lm editor block663" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 24)
+
+[node name="Lm editor block664" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 8)
+
+[node name="Lm editor block665" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 8)
+
+[node name="Lm editor block666" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 8)
+
+[node name="Lm editor block667" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -24)
+
+[node name="Lm editor block668" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -24)
+
+[node name="Lm editor block669" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -8)
+
+[node name="Lm editor block670" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -8)
+
+[node name="Lm editor block671" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -8)
+
+[node name="Lm editor block672" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -24)
+
+[node name="Lm editor block673" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -40)
+
+[node name="Lm editor block674" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -40)
+
+[node name="Lm editor block675" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -40)
+
+[node name="Lm editor block676" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -24)
+
+[node name="Lm editor block677" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -24)
+
+[node name="Lm editor block678" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -8)
+
+[node name="Lm editor block679" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -8)
+
+[node name="Lm editor block680" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -8)
+
+[node name="Lm editor block681" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -24)
+
+[node name="Lm editor block682" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -40)
+
+[node name="Lm editor block683" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -40)
+
+[node name="Lm editor block684" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -40)
+
+[node name="Lm editor block685" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -24)
+
+[node name="Lm editor block686" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -24)
+
+[node name="Lm editor block687" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -8)
+
+[node name="Lm editor block688" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -8)
+
+[node name="Lm editor block689" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -8)
+
+[node name="Lm editor block690" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -24)
+
+[node name="Lm editor block691" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -40)
+
+[node name="Lm editor block692" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -40)
+
+[node name="Lm editor block693" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -40)
+
+[node name="Lm editor block694" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -24)
+
+[node name="Lm editor block695" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -24)
+
+[node name="Lm editor block696" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -8)
+
+[node name="Lm editor block697" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -8)
+
+[node name="Lm editor block698" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -8)
+
+[node name="Lm editor block699" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -24)
+
+[node name="Lm editor block700" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -40)
+
+[node name="Lm editor block701" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -40)
+
+[node name="Lm editor block702" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -40)
+
+[node name="Lm editor block703" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -24)
+
+[node name="Lm editor block704" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -24)
+
+[node name="Lm editor block705" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -8)
+
+[node name="Lm editor block706" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -8)
+
+[node name="Lm editor block707" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -8)
+
+[node name="Lm editor block708" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -24)
+
+[node name="Lm editor block709" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -40)
+
+[node name="Lm editor block710" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -40)
+
+[node name="Lm editor block711" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -40)
+
+[node name="Lm editor block712" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, 24)
+
+[node name="Lm editor block713" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, 24)
+
+[node name="Lm editor block714" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, 40)
+
+[node name="Lm editor block715" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, 40)
+
+[node name="Lm editor block716" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, 40)
+
+[node name="Lm editor block717" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, 24)
+
+[node name="Lm editor block718" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, 8)
+
+[node name="Lm editor block719" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, 8)
+
+[node name="Lm editor block720" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, 8)
+
+[node name="Lm editor block721" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 24)
+
+[node name="Lm editor block722" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 24)
+
+[node name="Lm editor block723" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 40)
+
+[node name="Lm editor block724" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 40)
+
+[node name="Lm editor block725" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 40)
+
+[node name="Lm editor block726" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 24)
+
+[node name="Lm editor block727" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 8)
+
+[node name="Lm editor block728" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 8)
+
+[node name="Lm editor block729" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 8)
+
+[node name="Lm editor block730" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 24)
+
+[node name="Lm editor block731" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 24)
+
+[node name="Lm editor block732" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 40)
+
+[node name="Lm editor block733" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 40)
+
+[node name="Lm editor block734" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 40)
+
+[node name="Lm editor block829" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, 56)
+block = "dirt"
+
+[node name="Lm editor block830" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, 56)
+
+[node name="Lm editor block831" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, 56)
+block = "dirt"
+
+[node name="Lm editor block832" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 56)
+
+[node name="Lm editor block833" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 56)
+
+[node name="Lm editor block834" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 56)
+
+[node name="Lm editor block835" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, 56)
+
+[node name="Lm editor block836" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, 56)
+
+[node name="Lm editor block837" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, 56)
+
+[node name="Lm editor block838" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 56)
+
+[node name="Lm editor block839" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 56)
+
+[node name="Lm editor block840" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 56)
+
+[node name="Lm editor block841" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, 56)
+
+[node name="Lm editor block842" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, 56)
+
+[node name="Lm editor block843" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, 56)
+
+[node name="Lm editor block844" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 56)
+
+[node name="Lm editor block845" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 56)
+
+[node name="Lm editor block846" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 56)
+
+[node name="Lm editor block847" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, 56)
+
+[node name="Lm editor block848" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, 56)
+
+[node name="Lm editor block849" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, 56)
+
+[node name="Lm editor block850" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 56)
+
+[node name="Lm editor block851" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 56)
+
+[node name="Lm editor block852" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 56)
+
+[node name="Lm editor block853" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, 56)
+
+[node name="Lm editor block854" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, 56)
+
+[node name="Lm editor block855" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, 56)
+
+[node name="Lm editor block856" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 56)
+
+[node name="Lm editor block857" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 56)
+
+[node name="Lm editor block858" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 56)
+
+[node name="Lm editor block859" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, 56)
+
+[node name="Lm editor block860" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, 56)
+
+[node name="Lm editor block861" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, 56)
+
+[node name="Lm editor block862" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 56)
+
+[node name="Lm editor block863" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 56)
+
+[node name="Lm editor block864" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 56)
+
+[node name="Lm editor block865" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 56)
+
+[node name="Lm editor block866" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 56)
+
+[node name="Lm editor block867" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 56)
+
+[node name="Lm editor block868" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, 56)
+
+[node name="Lm editor block869" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, 56)
+
+[node name="Lm editor block870" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, 56)
+
+[node name="Lm editor block871" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 56)
+
+[node name="Lm editor block872" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 56)
+
+[node name="Lm editor block873" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 56)
+
+[node name="Lm editor block874" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(24, 72)
+block = "dirt"
+
+[node name="Lm editor block875" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(40, 72)
+
+[node name="Lm editor block876" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(8, 72)
+block = "dirt"
+
+[node name="Lm editor block877" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(72, 72)
+
+[node name="Lm editor block878" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(88, 72)
+
+[node name="Lm editor block879" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(56, 72)
+
+[node name="Lm editor block880" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(120, 72)
+
+[node name="Lm editor block881" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(136, 72)
+
+[node name="Lm editor block882" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(104, 72)
+
+[node name="Lm editor block883" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(168, 72)
+
+[node name="Lm editor block884" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(184, 72)
+
+[node name="Lm editor block885" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(152, 72)
+
+[node name="Lm editor block886" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(216, 72)
+
+[node name="Lm editor block887" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(232, 72)
+
+[node name="Lm editor block888" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(200, 72)
+
+[node name="Lm editor block889" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(263, 72)
+
+[node name="Lm editor block890" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(279, 72)
+
+[node name="Lm editor block891" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(247, 72)
+
+[node name="Lm editor block892" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(311, 72)
+
+[node name="Lm editor block893" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(327, 72)
+
+[node name="Lm editor block894" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(295, 72)
+
+[node name="Lm editor block895" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(358, 72)
+
+[node name="Lm editor block896" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(374, 72)
+
+[node name="Lm editor block897" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(342, 72)
+
+[node name="Lm editor block898" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(405, 72)
+
+[node name="Lm editor block899" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(421, 72)
+
+[node name="Lm editor block900" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(389, 72)
+
+[node name="Lm editor block901" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(452, 72)
+
+[node name="Lm editor block902" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(468, 72)
+
+[node name="Lm editor block903" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(436, 72)
+
+[node name="Lm editor block904" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(500, 72)
+
+[node name="Lm editor block905" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(516, 72)
+
+[node name="Lm editor block906" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(484, 72)
+
+[node name="Lm editor block907" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(547, 72)
+
+[node name="Lm editor block908" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(563, 72)
+
+[node name="Lm editor block909" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(531, 72)
+
+[node name="Lm editor block910" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, 72)
+
+[node name="Lm editor block911" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, 72)
+
+[node name="Lm editor block912" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, 72)
+
+[node name="Lm editor block913" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, 72)
+
+[node name="Lm editor block914" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, 72)
+
+[node name="Lm editor block915" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, 72)
+
+[node name="Lm editor block916" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 72)
+
+[node name="Lm editor block917" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 72)
+
+[node name="Lm editor block918" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 72)
+
+[node name="Lm editor block735" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 24)
+
+[node name="Lm editor block736" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, 8)
+
+[node name="Lm editor block737" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, 8)
+
+[node name="Lm editor block738" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, 8)
+
+[node name="Lm editor block739" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -72)
+
+[node name="Lm editor block740" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -72)
+
+[node name="Lm editor block741" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -56)
+
+[node name="Lm editor block742" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -56)
+
+[node name="Lm editor block743" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -56)
+
+[node name="Lm editor block744" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -72)
+
+[node name="Lm editor block745" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -88)
+
+[node name="Lm editor block746" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -88)
+
+[node name="Lm editor block747" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -88)
+
+[node name="Lm editor block748" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -72)
+
+[node name="Lm editor block749" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -72)
+
+[node name="Lm editor block750" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -56)
+
+[node name="Lm editor block751" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -56)
+
+[node name="Lm editor block752" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -56)
+
+[node name="Lm editor block753" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -72)
+
+[node name="Lm editor block754" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -88)
+
+[node name="Lm editor block755" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -88)
+
+[node name="Lm editor block756" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -88)
+
+[node name="Lm editor block757" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -120)
+
+[node name="Lm editor block758" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -120)
+
+[node name="Lm editor block759" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -104)
+
+[node name="Lm editor block760" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -104)
+
+[node name="Lm editor block761" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -104)
+
+[node name="Lm editor block762" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -120)
+
+[node name="Lm editor block763" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -136)
+
+[node name="Lm editor block764" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -136)
+
+[node name="Lm editor block765" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -136)
+
+[node name="Lm editor block766" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -120)
+
+[node name="Lm editor block767" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -120)
+
+[node name="Lm editor block768" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -104)
+
+[node name="Lm editor block769" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -104)
+
+[node name="Lm editor block770" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -104)
+
+[node name="Lm editor block771" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -120)
+
+[node name="Lm editor block772" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(595, -136)
+
+[node name="Lm editor block773" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(579, -136)
+
+[node name="Lm editor block774" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(611, -136)
+
+[node name="Lm editor block775" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -120)
+
+[node name="Lm editor block776" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -120)
+
+[node name="Lm editor block777" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -104)
+
+[node name="Lm editor block778" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -104)
+
+[node name="Lm editor block779" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -104)
+
+[node name="Lm editor block780" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -120)
+
+[node name="Lm editor block781" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -136)
+
+[node name="Lm editor block782" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -136)
+
+[node name="Lm editor block783" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -136)
+
+[node name="Lm editor block784" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -120)
+
+[node name="Lm editor block785" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -120)
+
+[node name="Lm editor block786" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -104)
+
+[node name="Lm editor block787" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -104)
+
+[node name="Lm editor block788" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -104)
+
+[node name="Lm editor block789" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -120)
+
+[node name="Lm editor block790" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -136)
+
+[node name="Lm editor block791" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -136)
+
+[node name="Lm editor block792" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -136)
+
+[node name="Lm editor block793" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -120)
+
+[node name="Lm editor block794" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -120)
+
+[node name="Lm editor block795" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -104)
+
+[node name="Lm editor block796" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -104)
+
+[node name="Lm editor block797" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -104)
+
+[node name="Lm editor block798" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -120)
+
+[node name="Lm editor block799" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -136)
+
+[node name="Lm editor block800" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -136)
+
+[node name="Lm editor block801" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -136)
+
+[node name="Lm editor block802" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -72)
+
+[node name="Lm editor block803" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -72)
+
+[node name="Lm editor block804" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -56)
+
+[node name="Lm editor block805" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -56)
+
+[node name="Lm editor block806" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -56)
+
+[node name="Lm editor block807" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -72)
+
+[node name="Lm editor block808" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(643, -88)
+
+[node name="Lm editor block809" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(627, -88)
+
+[node name="Lm editor block810" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(659, -88)
+
+[node name="Lm editor block811" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -72)
+
+[node name="Lm editor block812" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -72)
+
+[node name="Lm editor block813" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -56)
+
+[node name="Lm editor block814" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -56)
+
+[node name="Lm editor block815" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -56)
+
+[node name="Lm editor block816" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -72)
+
+[node name="Lm editor block817" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -88)
+
+[node name="Lm editor block818" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -88)
+
+[node name="Lm editor block819" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -88)
+
+[node name="Lm editor block820" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -72)
+
+[node name="Lm editor block821" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -72)
+
+[node name="Lm editor block822" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -56)
+
+[node name="Lm editor block823" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -56)
+
+[node name="Lm editor block824" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -56)
+
+[node name="Lm editor block825" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -72)
+
+[node name="Lm editor block826" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(690, -88)
+
+[node name="Lm editor block827" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(674, -88)
+
+[node name="Lm editor block828" parent="block" instance=ExtResource("1_dlta6")]
+position = Vector2(706, -88)
+
+[node name="main dude" parent="." instance=ExtResource("2_swpui")]
+position = Vector2(40, -68)
+
+[node name="co-op" parent="main dude/menu_pop_up/Control" index="3"]
+visible = false
+
+[node name="Button" parent="main dude/menu_pop_up/Control" index="5"]
+text = "re-make level"
+
+[node name="hats" parent="main dude/menu_pop_up/Control" index="6"]
+visible = false
+
+[node name="co-op_2" parent="main dude/menu_pop_up/Control" index="7"]
+visible = false
+
+[node name="co-op_3" parent="main dude/menu_pop_up/Control" index="8"]
+visible = false
+
+[node name="map" parent="main dude/menu_pop_up/Control" index="9"]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="main dude"]
+zoom = Vector2(7, 7)
+limit_left = 0
+limit_top = -88
+limit_bottom = 48
+
+[node name="killzone" parent="." instance=ExtResource("3_q5j7n")]
+script = ExtResource("4_i54k5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(100, 107)
+shape = SubResource("WorldBoundaryShape2D_1y25m")
+
+[connection signal="pressed" from="Control/CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/grass" to="." method="_on_grass_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/dirt" to="." method="_on_dirt_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/stone" to="." method="_on_stone_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/air" to="." method="_on_air_pressed"]
+
+[editable path="main dude"]
+[editable path="main dude/menu_pop_up"]

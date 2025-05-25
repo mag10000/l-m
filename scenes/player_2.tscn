@@ -1,109 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://btwcqs056xhvg"]
+[gd_scene load_steps=23 format=3 uid="uid://btwcqs056xhvg"]
 
 [ext_resource type="Script" path="res://scenes/player_2.gd" id="1_8ymj2"]
-[ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="2_2xdt7"]
+[ext_resource type="SpriteFrames" uid="uid://dblcngppag1mq" path="res://scenes/p2animation.tres" id="2_8usyo"]
 [ext_resource type="AudioStream" uid="uid://bjjmm8l7fpqss" path="res://assets/JUMP_MAGNUS.wav" id="3_1arvw"]
 [ext_resource type="Texture2D" uid="uid://c5b3esr0sol3q" path="res://assets/Bubules.png" id="4_bdbmj"]
 [ext_resource type="Texture2D" uid="uid://bwsbhxnircra8" path="res://assets/santa_hat.png" id="5_rxbhg"]
 [ext_resource type="Texture2D" uid="uid://dymi8pd0g04vn" path="res://assets/power_crystal_radiation.png" id="6_sjpiv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gaf5m"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3dlvl"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3brry"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7hu8x"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l7naq"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apnl8"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6o4ph"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4gm1v"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rii3x"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h85hq"]
-atlas = ExtResource("2_2xdt7")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hai3b"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"death",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gaf5m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3dlvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3brry")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7hu8x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l7naq")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apnl8")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6o4ph")
-}],
-"loop": true,
-"name": &"temp",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4gm1v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rii3x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h85hq")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 10.0
-}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlqj0"]
 radius = 5.0
@@ -232,7 +134,7 @@ collision_layer = 4
 script = ExtResource("1_8ymj2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_hai3b")
+sprite_frames = ExtResource("2_8usyo")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -241,6 +143,7 @@ shape = SubResource("CapsuleShape2D_rlqj0")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_1arvw")
+bus = &"sfx"
 
 [node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
 
@@ -260,6 +163,7 @@ autoplay = "new_animation"
 frame_progress = 0.0409803
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_1v5wu")
 frame_progress = 0.400405
@@ -271,5 +175,32 @@ autoplay = "new_animation"
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+offset_left = -5.0
+offset_top = 4.0
+offset_right = 5.0
+offset_bottom = 15.0
+color = Color(1, 0.475847, 0.997064, 0.67451)
+
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5"]
+z_index = 1
+layout_mode = 0
+offset_left = -2.0
+offset_top = -11.0
+offset_right = 12.0
+offset_bottom = -1.0
+color = Color(1, 0.475847, 0.997064, 0.67451)
+
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6"]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 13.0
+offset_bottom = 11.0
+color = Color(1, 0.475847, 0.997064, 0.67451)
 
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

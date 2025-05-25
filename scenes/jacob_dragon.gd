@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @export var speed: int = 70
-
+var cuttently_dashing = false
+var candash = true
 
 func handleInput():
 	if State.death == false && State.escape == false:
@@ -37,11 +38,30 @@ func _physics_process(delta):
 		$AudioStreamPlayer2D.stop()
 		velocity.x = 0
 		velocity.y = 0
-	State.co_op_unlocked = false
+	if cuttently_dashing == true:
+		speed = 175
+		$AnimatedSprite2D.play("dash")
 func _unhandled_input(event):
+	if Input.is_action_just_pressed("dash"):
+		if candash == true && velocity.x != 0:
+			cuttently_dashing = true
+			$"dash time".start()
+		
 	if Input.is_action_just_pressed("escape"):
 		$ColorRect.visible = !$ColorRect.visible
 		State.escape = !State.escape
 		$menu_pop_up.visible = !$menu_pop_up.visible
 
 
+
+
+func _on_dash_time_timeout():
+	$AnimatedSprite2D.play("default")
+	speed = 70
+	candash = false
+	cuttently_dashing = false
+	$"dash cooldown".start()
+
+
+func _on_dash_cooldown_timeout():
+	candash = true

@@ -1,0 +1,95 @@
+[gd_scene load_steps=14 format=3 uid="uid://6sxtdsmdyw07"]
+
+[ext_resource type="Script" path="res://Lm editor block.gd" id="1_574e4"]
+[ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="2_ssw4k"]
+[ext_resource type="Texture2D" uid="uid://d3jvnelqjw83v" path="res://lm_shop_coin.png" id="3_ka51u"]
+[ext_resource type="Texture2D" uid="uid://bvovwdbvcv8tm" path="res://lm_editor_block.tres" id="3_od5pv"]
+[ext_resource type="Texture2D" uid="uid://b8j0xjqo42rhb" path="res://button texture.png" id="4_1t5e6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hod3c"]
+atlas = ExtResource("2_ssw4k")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hw4l"]
+atlas = ExtResource("2_ssw4k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4xs7"]
+atlas = ExtResource("2_ssw4k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5lwl"]
+atlas = ExtResource("2_ssw4k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_so4ih"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hod3c")
+}],
+"loop": true,
+"name": &"air",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hw4l")
+}],
+"loop": true,
+"name": &"dirt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4xs7")
+}],
+"loop": true,
+"name": &"grass",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5lwl")
+}],
+"loop": true,
+"name": &"stone",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxlo0"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks6e3"]
+atlas = ExtResource("3_ka51u")
+region = Rect2(0, 15, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01h55"]
+atlas = ExtResource("3_ka51u")
+region = Rect2(0, 15, 1, 1)
+
+[node name="Lm editor block" type="Node2D"]
+script = ExtResource("1_574e4")
+
+[node name="Texture" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_so4ih")
+animation = &"air"
+autoplay = "air"
+
+[node name="colider" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="colider"]
+shape = SubResource("RectangleShape2D_vxlo0")
+
+[node name="Button" type="TextureButton" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = ExtResource("3_od5pv")
+texture_pressed = ExtResource("4_1t5e6")
+texture_hover = ExtResource("4_1t5e6")
+texture_disabled = SubResource("AtlasTexture_ks6e3")
+texture_focused = SubResource("AtlasTexture_01h55")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

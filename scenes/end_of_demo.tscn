@@ -1,9 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://fvjhy2xmkh4h"]
+[gd_scene load_steps=4 format=3 uid="uid://fvjhy2xmkh4h"]
 
 [ext_resource type="Script" path="res://end of demo.gd" id="1_kyinx"]
+[ext_resource type="Texture2D" uid="uid://bgvcg8cj5vuif" path="res://assets/world map pixele.png" id="2_qbj2s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4274"]
 
 [node name="end of demo" type="Node2D"]
 script = ExtResource("1_kyinx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p4274")
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
+position = Vector2(510, 320)
+scale = Vector2(1.558, 1.54)
+zoom = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="AnimatedSprite2D/Camera2D"]
+offset_left = -1136.07
+offset_top = -877.922
+offset_right = 1197.93
+offset_bottom = 832.078
+color = Color(0.262745, 0.364706, 0.45098, 1)
+
+[node name="PhysicalWorldMap_svg" type="Sprite2D" parent="AnimatedSprite2D/Camera2D"]
+position = Vector2(-4.57196, 0.0778198)
+scale = Vector2(1.558, 1.54)
+texture = ExtResource("2_qbj2s")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 251.0

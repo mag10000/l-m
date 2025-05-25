@@ -1,12 +1,27 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlcabq1qwer5d"]
+[gd_scene load_steps=32 format=3 uid="uid://dlcabq1qwer5d"]
 
 [ext_resource type="Script" path="res://feiry_level_2.gd" id="1_64ya4"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_wl7hi"]
 [ext_resource type="PackedScene" uid="uid://0o6fnljfog8d" path="res://scenes/jacob_dragon.tscn" id="2_loquq"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="2_wd1sl"]
 [ext_resource type="PackedScene" uid="uid://cdcrs0m1nrn83" path="res://scenes/terra_shadow.tscn" id="3_aqj0k"]
 [ext_resource type="PackedScene" uid="uid://dpltoevskcem8" path="res://scenes/shadow_kid.tscn" id="4_kgbki"]
 [ext_resource type="PackedScene" uid="uid://r66klxf4xiyt" path="res://laser.tscn" id="5_4whbp"]
 [ext_resource type="Texture2D" uid="uid://c7xi3t4veyrjf" path="res://assets/note.png" id="6_d4p0f"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="9_8kcxc"]
+[ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="10_dcyad"]
+[ext_resource type="Texture2D" uid="uid://bif7poivwi4g5" path="res://assets/dash-export.png" id="11_lnfku"]
+[ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="12_uvjmo"]
+[ext_resource type="Texture2D" uid="uid://dfhnbrmglryw2" path="res://assets/arrows_updown-export.png" id="13_dwn06"]
+[ext_resource type="AudioStream" uid="uid://c6s2ib577q1ao" path="res://assets/feiry level 2 song.wav" id="14_n3jj2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dswgx"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(10000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
 
 [sub_resource type="Animation" id="Animation_fht67"]
 length = 0.001
@@ -124,33 +139,9 @@ _data = {
 "new_animation": SubResource("Animation_mnivl")
 }
 
-[sub_resource type="Animation" id="Animation_02o7p"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1062, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(61, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
 [sub_resource type="Animation" id="Animation_bbio7"]
 resource_name = "new_animation"
+length = 2.0
 loop_mode = 2
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -161,7 +152,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1061, -0.25, 0, 0.25, 0, 1061, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 2)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -172,20 +163,57 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0, 61, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
+"times": PackedFloat32Array(0, 2)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xuv8m"]
 _data = {
-"RESET": SubResource("Animation_02o7p"),
 "new_animation": SubResource("Animation_bbio7")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_octlr"]
 size = Vector2(20, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xrwu"]
+size = Vector2(87, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jks1"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehqv6"]
+atlas = ExtResource("12_uvjmo")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyhv2"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvho1"]
+atlas = ExtResource("12_uvjmo")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve0xg"]
+atlas = ExtResource("13_dwn06")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_virib"]
+atlas = ExtResource("13_dwn06")
+region = Rect2(48, 0, 48, 48)
+
 [node name="feiry level 2" type="Node2D"]
 script = ExtResource("1_64ya4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(761, -35)
+emitting = false
+amount = 5000
+process_material = SubResource("ParticleProcessMaterial_dswgx")
+texture = ExtResource("2_wd1sl")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_wl7hi")
@@ -253,7 +281,7 @@ position = Vector2(1016, 24)
 mode = false
 
 [node name="terra-shadow6" parent="." instance=ExtResource("3_aqj0k")]
-position = Vector2(1062, 61)
+position = Vector2(1061, -10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="terra-shadow6"]
 libraries = {
@@ -279,5 +307,65 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1353, 40)
 shape = SubResource("RectangleShape2D_octlr")
+
+[node name="TileMap2" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource("9_8kcxc")
+format = 2
+layer_0/tile_data = PackedInt32Array(131108, 65536, 0, 589830, 65536, 0, 589829, 65536, 0, 589828, 65536, 0, 589827, 65536, 0, 131074, 65536, 0, 131073, 65536, 0, 131071, 65536, 0, 131070, 65536, 0, 131069, 65536, 0, 131068, 65536, 0, 131067, 65536, 0, 196602, 65536, 0, 262137, 65536, 0, 589839, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 589842, 65536, 0, 589848, 65536, 0, 131102, 65536, 0, 196635, 65536, 0, 327706, 65536, 0, 393244, 65536, 0, 458781, 65536, 0, 131105, 65536, 0, 131104, 65536, 0, 196661, 65536, 0, 196663, 65536, 0, 196664, 65536, 0, 393225, 65536, 0, 458760, 65536, 0, 458765, 65536, 0, 524302, 65536, 0, 65536, 65536, 0, 262136, 65536, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control/CanvasLayer"]
+scale = Vector2(4.30556, 3.35417)
+texture_normal = ExtResource("10_dcyad")
+shape = SubResource("RectangleShape2D_4xrwu")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(427, 0)
+scale = Vector2(3.6383, 3.3125)
+texture_normal = ExtResource("11_lnfku")
+shape = SubResource("RectangleShape2D_6jks1")
+action = "dash"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(740, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_ehqv6")
+shape = SubResource("RectangleShape2D_lyhv2")
+action = "walk_left"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(971, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_qvho1")
+shape = SubResource("RectangleShape2D_lyhv2")
+action = "walk_right"
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(740, 235)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_ve0xg")
+shape = SubResource("RectangleShape2D_lyhv2")
+action = "walk_up"
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(971, 235)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_virib")
+shape = SubResource("RectangleShape2D_lyhv2")
+action = "walk_down"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_n3jj2")
+volume_db = 5.832
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

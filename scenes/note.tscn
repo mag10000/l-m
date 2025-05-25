@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcy2grrie8nv0"]
+[gd_scene load_steps=5 format=3 uid="uid://dcy2grrie8nv0"]
 
 [ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="1_3fn63"]
 [ext_resource type="Script" path="res://scenes/note.gd" id="1_nnijf"]
+[ext_resource type="AudioStream" uid="uid://c76puskqnp7q6" path="res://lm_cutscene_voiceover/to_minions_from_shadow_l.wav" id="3_nha3c"]
+[ext_resource type="Texture2D" uid="uid://b1aoxx7ybouv6" path="res://scenes/grass_top.png" id="4_iafvk"]
 
 [node name="note" type="Node2D"]
 script = ExtResource("1_nnijf")
@@ -11,6 +13,7 @@ offset_left = -538.0
 offset_top = -757.0
 offset_right = 534.0
 offset_bottom = 469.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -139)
@@ -56,6 +59,7 @@ one just yet
 
 
 from your boss shadow L"
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
 offset_left = 552.0
@@ -65,5 +69,166 @@ offset_bottom = -799.0
 theme_override_fonts/font = ExtResource("1_3fn63")
 theme_override_font_sizes/font_size = 34
 text = "traducir al español"
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nha3c")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="GrassTop" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3, 71)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3, -1156)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop3" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1229.5, 71.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop4" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1229.5, -1155.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop5" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2448, 70.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop6" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2448, -1156.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop7" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1221.5, 71)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop8" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1221.5, -1156)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop9" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3, 2525)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop10" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3, 1298)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop11" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1229.5, 2525.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop12" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1229.5, 1298.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop13" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2448, 2524.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop14" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2448, 1297.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop15" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1221.5, 2525)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop16" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1221.5, 1298)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop17" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2465, 70.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop18" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2465, -1156.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop19" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3691.5, 71)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop20" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3691.5, -1156)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop25" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3, -2383)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop26" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1229.5, -2382.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop27" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2448, -2383.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop28" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1221.5, -2383)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop29" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2465, -2383.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop30" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3691.5, -2383)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop21" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2465, 2524.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop22" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-2465, 1297.5)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop23" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3691.5, 2525)
+texture = ExtResource("4_iafvk")
+
+[node name="GrassTop24" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-3691.5, 1298)
+texture = ExtResource("4_iafvk")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

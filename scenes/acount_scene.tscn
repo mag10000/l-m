@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://cari6ycov0u4w"]
+
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="1_5jc1g"]
+[ext_resource type="Script" path="res://scenes/acount_scene.gd" id="1_u75fc"]
+
+[node name="acount_scene" type="Node2D"]
+script = ExtResource("1_u75fc")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "1"
+
+[node name="Button2" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "2"
+
+[node name="Button3" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "3"
+
+[node name="Button4" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "4"
+
+[node name="Button5" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "5"
+
+[node name="Button6" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "6"
+
+[node name="Button7" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "7"
+
+[node name="Button8" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "8"
+
+[node name="Button9" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "9"
+
+[node name="Button10" type="Button" parent="BoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = 35.0
+offset_top = -62.0
+offset_right = 239.0
+offset_bottom = -14.0
+
+[node name="digit1" type="Label" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="digit2" type="Label" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="digit3" type="Label" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="digit4" type="Label" parent="HBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(138, 0)
+zoom = Vector2(3, 3)
+
+[node name="Button11" type="Button" parent="."]
+offset_top = 49.0
+offset_right = 24.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "restart"
+
+[node name="Button12" type="Button" parent="."]
+offset_left = 157.0
+offset_top = 49.0
+offset_right = 277.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "enter"
+
+[node name="Button13" type="Button" parent="."]
+offset_left = 100.0
+offset_top = -115.0
+offset_right = 172.0
+offset_bottom = -75.0
+theme_override_fonts/font = ExtResource("1_5jc1g")
+text = "back"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_top = -63.0
+offset_right = 276.0
+offset_bottom = -20.0
+theme_override_fonts/font = ExtResource("1_5jc1g")
+placeholder_text = "code"
+
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="BoxContainer/HBoxContainer/Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="Button11" to="." method="_on_button_11_pressed"]
+[connection signal="pressed" from="Button12" to="." method="_on_button_12_pressed"]
+[connection signal="pressed" from="Button13" to="." method="_on_button_11_pressed"]
+[connection signal="pressed" from="Button13" to="." method="_on_button_13_pressed"]

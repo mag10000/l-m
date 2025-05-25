@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsnmfr01yvye1"]
+
+[ext_resource type="Script" path="res://dlc_1.gd" id="1_v8eq8"]
+
+[node name="dlc1" type="Node2D"]
+script = ExtResource("1_v8eq8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = -105.0
+offset_top = -38.0
+offset_right = 102.0
+offset_bottom = 37.0
+text = "your dlc has been installed
+
+now closing..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

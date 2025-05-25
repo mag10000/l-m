@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+var date_dict = Time.get_date_dict_from_system()  
+
+var current_month = date_dict["month"]
+
+var current_idle = ("idle")
+
 var _1 = false
 @export var SPEED = 250.0
 var JUMP_VELOCITY = -350.0
@@ -63,8 +69,8 @@ func _physics_process(delta):
 			
 		if direction == 0 and is_on_floor():
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("temp")
-			$hat_lucas.play("temp")
+			$AnimatedSprite2D.play(current_idle)
+			$hat_lucas.play(current_idle)
 			$hat_lucas.flip_h = false
 			$AnimatedSprite2D2.flip_h = false
 		if direction > 0 and is_on_floor():
@@ -98,11 +104,56 @@ func _physics_process(delta):
 			
 		if direction == 0 && State.in_water == false:
 			$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.play("temp")
-			$hat_lucas.play("temp")
+			$AnimatedSprite2D.play(current_idle)
+			$hat_lucas.play(current_idle)
+			$hat_lucas.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
+
+
+#seporater
+
+
+		if direction == 0 and is_on_floor() && State.mod == ("animal skins"):
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play(current_idle)
+			$hat_lucas.play(current_idle)
+			$hat_lucas.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
+		if direction > 0 and is_on_floor() && State.mod == ("animal skins"):
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = true
+			$hat_lucas.play("walk")
+			$hat_lucas.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
+			
+		if direction < 0 and is_on_floor() && State.mod == ("animal skins"):
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = false
+			$hat_lucas.play("walk")
 			$hat_lucas.flip_h = false
 			$AnimatedSprite2D2.flip_h = false
 			
+		if direction > 0 && State.in_water == false && State.mod == ("animal skins"):
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = true
+			$hat_lucas.play("walk")
+			$hat_lucas.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
+			
+			
+		if direction < 0 && State.in_water == false && State.mod == ("animal skins"):
+			$AnimatedSprite2D.play("walk")
+			$AnimatedSprite2D.flip_h = false
+			$hat_lucas.play("walk")
+			$hat_lucas.flip_h = false
+			$AnimatedSprite2D2.flip_h = false
+			
+		if direction == 0 && State.in_water == false && State.mod == ("animal skins"):
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play(current_idle)
+			$hat_lucas.play(current_idle)
+			$hat_lucas.flip_h = true
+			$AnimatedSprite2D2.flip_h = true
 		move_and_slide()
 	
 func _unhandled_input(event):
@@ -119,6 +170,41 @@ func _unhandled_input(event):
 		State.escape = !State.escape
 		$menu_pop_up.visible = !$menu_pop_up.visible
 func _process(delta):
+	
+	if State.run_mode == true:
+		Input.action_press("walk_right")
+
+	if State.invis == true:
+		$AnimatedSprite2D.visible = false
+	
+	if State.mod == ("purple skins"):
+		$AnimatedSprite2D.sprite_frames = load("res://mods/purple skins/p1animation_mod.tres")
+	if State.mod == ("animal skins"):
+		$AnimatedSprite2D.sprite_frames = load("res://mods/animal skins/p1animation_mod.tres")
+	if State.mod == ("default"):
+		$AnimatedSprite2D.sprite_frames = load("res://scenes/p1animation.tres")
+	
+	if current_month == 12:
+		current_idle = ("temp")
+		$AnimatedSprite2D2.play("default")
+	var current_day = date_dict["day"]
+	if current_month == 10 && current_day == 31:
+		current_idle = ("temp")
+		$AnimatedSprite2D2.play("hallo")
+	if State.loginperson == ("erica"):
+		$ColorRect5.visible = true
+	
+	if State.death2 == true:
+		print("not here")
+	
+	if State.player_2_in == false:
+		State.total_number_of_players = 1
+	if State.player_2_in == true && State.player_3_in == false:
+		State.total_number_of_players = 2
+	if State.player_3_in == true && State.player_4_in == false:
+		State.total_number_of_players = 3
+	if State.player_4_in == true:
+		State.total_number_of_players = 4
 	if State.you_just_killed_a_shadow_kid == true:
 		#$shadow_kid_kill_vo/Timer3.start()
 		State.you_just_killed_a_shadow_kid = false
@@ -129,38 +215,73 @@ func _process(delta):
 		$radation.play("new_animation")
 	if State.death == true:
 		$AnimatedSprite2D.play("death")
-		
-		
-		#if State.player_2_in == true:
-			#$AnimatedSprite2D.play("noth")
-			#noth = true
-			#State.co_op_deaths += 1
-			#if State.death2 == false :
-			#	State.cameara_player = 2
-			#	$Camera2D.position.x = $"../player2".position.x
-			#	$Camera2D.position.y = $"../player2".position.y
-			#if State.death2 == true && State.death3 == false:
-				#State.cameara_player = 3
-				#$Camera2D.position.x = $"../ian".position.x
-				#$Camera2D.position.y = $"../ian".position.y
-			#if State.death3 == true && State.death2 == true:
-				#State.cameara_player = 4
-				#$Camera2D.position.x = $"../tall_boi".position.x
-				#$Camera2D.position.y = $"../tall_boi".position.y
-			#if State.death == true && State.death2 == true && State.death3 == true
-		State.escape = false
+
+
+
+
+
+		if State.player_2_in == true:
+			$AnimatedSprite2D2.visible = false
+			$AnimatedSprite2D.play("noth")
+			noth = true
+			if State.death2 == false :
+				State.cameara_player = 2
+				$"../player2/Camera2D".make_current()
+			if State.death == true && State.death2 == true && State.death3 == false:
+				State.cameara_player = 3
+				$"../ian/Camera2D".make_current()
+			if State.death == true && State.death3 == true && State.death2 == true && State.death4 == false:
+				State.cameara_player = 4
+				$"../tall_boi/Camera2D".make_current()
+			if State.total_number_of_players == 2 && State.death2 == true:
+				$Camera2D.make_current()
+				State.death = false
+				State.death2 = false
+				State.death3 = false
+				State.death4 = false
+				get_tree().reload_current_scene()
+			if State.total_number_of_players == 3 && State.death2 == true && State.death3 == true:
+				$Camera2D.make_current()
+				State.death = false
+				State.death2 = false
+				State.death3 = false
+				State.death4 = false
+				get_tree().reload_current_scene()
+			if State.total_number_of_players == 4 && State.death2 == true && State.death3 == true && State.death4 == true:
+				$Camera2D.make_current()
+				State.death = false
+				State.death2 = false
+				State.death3 = false
+				State.death4 = false
+				get_tree().reload_current_scene()
+			if State.death == true && State.death2 == true && State.death3 == true && State.death4 == true:
+				$Camera2D.make_current()
+				State.death = false
+				State.death2 = false
+				State.death3 = false
+				State.death4 = false
+				get_tree().reload_current_scene()
+		if State.player_2_in == false:
+			State.escape = false
 		$CollisionShape2D.disabled = true
+
+
+
+
+
 	if State.hat_1_on == false:
 		$hat_lucas.visible = false
 	else:
 		$hat_lucas.visible = true
 	if State.in_water == true:
+		gravity = 490
 		SPEED = 100.0
-		JUMP_VELOCITY = -250
+		JUMP_VELOCITY = -200
 		$bubles.play("default")
 		if not is_on_floor ():
 			$AnimatedSprite2D.play("water_jump")
 	else:
+		gravity = 980
 		SPEED = 250.0
 		JUMP_VELOCITY = -350
 		$bubles.play("new_animation")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck1kwitf8qbbs"]
+[gd_scene load_steps=17 format=3 uid="uid://ck1kwitf8qbbs"]
 
 [ext_resource type="Script" path="res://scenes/cutscene_5.gd" id="1_xbike"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="2_k67c6"]
 [ext_resource type="Texture2D" uid="uid://c7xi3t4veyrjf" path="res://assets/note.png" id="3_mouus"]
 [ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="4_u8wia"]
+[ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="5_kbnel"]
+[ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="6_f3qye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wgvrv"]
 atlas = ExtResource("4_u8wia")
@@ -177,6 +179,14 @@ _data = {
 "new_animation": SubResource("Animation_yu6pd")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xdeqt"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape_scale = Vector3(1000, 2, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
 [node name="cutscene_5" type="Node2D"]
 script = ExtResource("1_xbike")
 
@@ -225,5 +235,23 @@ texture = ExtResource("3_mouus")
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(798, 79)
+emitting = false
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_xdeqt")
+texture = ExtResource("5_kbnel")
+lifetime = 2.5
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 0.0
+visibility_rect = Rect2(-10000, -100, 30000, 30000)
+
+[node name="TileMap2" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource("6_f3qye")
+format = 2
+layer_0/tile_data = PackedInt32Array(131069, 65536, 0, 131070, 65536, 0, 131071, 65536, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 131048, 65536, 0, 131049, 65536, 0, 131050, 65536, 0, 131051, 65536, 0, 131052, 65536, 0, 131053, 65536, 0, 131054, 65536, 0, 131055, 65536, 0, 131056, 65536, 0, 131057, 65536, 0, 131058, 65536, 0, 131059, 65536, 0, 131060, 65536, 0, 131061, 65536, 0, 131062, 65536, 0, -5, 131072, 0, -65543, 131072, 0, -196614, 131072, 0, 196600, 131072, 0, -131062, 131072, 0, -262133, 131072, 0, -262135, 131072, 0, -65529, 131072, 0, 196609, 0, 0, 262143, 0, 0, 262132, 0, 0, 262128, 0, 0, 196598, 0, 0, 196605, 0, 0, 327763, 131072, 0, 393300, 131072, 0, 393301, 131072, 0, 458838, 131072, 0, 458839, 131072, 0, 524376, 131072, 0, 524382, 131072, 0, 393311, 131072, 0, 196704, 131072, 0, -65442, 131072, 0, -130983, 131072, 0, -130985, 131072, 0, -65452, 131072, 0, 720988, 131072, 0, 720982, 131072, 0, 589909, 131072, 0, 393313, 131072, 0, 262242, 131072, 0, -130975, 131072, 0, -327589, 131072, 0)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

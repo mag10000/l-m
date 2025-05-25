@@ -1,9 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://0o6fnljfog8d"]
+[gd_scene load_steps=18 format=3 uid="uid://0o6fnljfog8d"]
 
 [ext_resource type="Script" path="res://scenes/jacob_dragon.gd" id="1_4dkai"]
 [ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="1_qgquq"]
+[ext_resource type="Texture2D" uid="uid://ch0mmxhsei36n" path="res://assets/Jacob_dragon_dash.png" id="2_vu7w6"]
 [ext_resource type="PackedScene" uid="uid://bmd505rvvtd88" path="res://scenes/menu_pop_up.tscn" id="3_2tehr"]
 [ext_resource type="AudioStream" uid="uid://coshb0s8p3hi0" path="res://assets/wing-flap-1-6434.mp3" id="4_g8lxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlwnb"]
+atlas = ExtResource("2_vu7w6")
+region = Rect2(0, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk5o3"]
+atlas = ExtResource("2_vu7w6")
+region = Rect2(35, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ohli"]
+atlas = ExtResource("2_vu7w6")
+region = Rect2(70, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncr5l"]
+atlas = ExtResource("2_vu7w6")
+region = Rect2(105, 0, 35, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lynx2"]
 atlas = ExtResource("1_qgquq")
@@ -31,6 +48,23 @@ region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4gs7i"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlwnb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk5o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ohli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncr5l")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lynx2")
@@ -69,40 +103,15 @@ script = ExtResource("1_4dkai")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4gs7i")
-animation = &"death"
+animation = &"dash"
 autoplay = "default"
-frame_progress = 0.422047
+frame_progress = 0.905523
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_70eb4")
 
 [node name="menu_pop_up" parent="." instance=ExtResource("3_2tehr")]
-visible = false
-
-[node name="quit" parent="menu_pop_up" index="1"]
-offset_left = 1094.0
-offset_top = 593.0
-offset_right = 1268.0
-offset_bottom = 695.0
-
-[node name="co-op" parent="menu_pop_up" index="2"]
-offset_left = 839.0
-offset_top = 593.0
-offset_right = 1013.0
-offset_bottom = 697.0
-
-[node name="back" parent="menu_pop_up" index="3"]
-offset_left = 615.0
-offset_top = 589.0
-offset_right = 787.0
-offset_bottom = 697.0
-
-[node name="Button" parent="menu_pop_up" index="4"]
-offset_left = 854.0
-offset_top = 510.0
-offset_right = 992.0
-offset_bottom = 564.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_g8lxi")
@@ -127,6 +136,15 @@ text = "no co-op"
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="dash time" type="Timer" parent="."]
+one_shot = true
+
+[node name="dash cooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dash time" to="." method="_on_dash_time_timeout"]
+[connection signal="timeout" from="dash cooldown" to="." method="_on_dash_cooldown_timeout"]
 
 [editable path="menu_pop_up"]

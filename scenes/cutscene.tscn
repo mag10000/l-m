@@ -517,6 +517,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(798, -23)
+emitting = false
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_l02w5")
 texture = ExtResource("11_0dhgg")
@@ -527,6 +528,7 @@ collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 position = Vector2(-8, -2)
 tile_set = ExtResource("12_a2dir")
 format = 2

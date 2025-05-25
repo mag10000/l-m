@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://brh8uap6jnnhu"]
+
+[ext_resource type="Script" path="res://charactor_creator.gd" id="1_wpmgk"]
+
+[node name="charactor_creator" type="Node2D"]
+script = ExtResource("1_wpmgk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

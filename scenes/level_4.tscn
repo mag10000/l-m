@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://4em1ypq01l8o"]
+[gd_scene load_steps=40 format=3 uid="uid://4em1ypq01l8o"]
 
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="1_3e8ef"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_l8wjx"]
@@ -19,6 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://5h8roi0wq4h1" path="res://scenes/spikes/spikes(right).tscn" id="15_kd30r"]
 [ext_resource type="AudioStream" uid="uid://r6frnr0656vc" path="res://assets/level_4_song.wav" id="17_tcuow"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="19_8gfft"]
+[ext_resource type="Script" path="res://scenes/killzone2.gd" id="20_42ybf"]
+[ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="21_73l1g"]
+[ext_resource type="Script" path="res://scenes/killzone3.gd" id="22_nm1se"]
+[ext_resource type="Script" path="res://scenes/killzone4.gd" id="23_02vwn"]
+[ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="24_a1ap5"]
+[ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="25_8nnec"]
+[ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="26_qui4m"]
 
 [sub_resource type="Animation" id="Animation_x60up"]
 length = 0.001
@@ -94,10 +101,32 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 98, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krhlp"]
+size = Vector2(87, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crrgv"]
+atlas = ExtResource("26_qui4m")
+region = Rect2(96.079, 0, 47, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56n2r"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bddgy"]
+atlas = ExtResource("26_qui4m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsdtt"]
+size = Vector2(57, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rvgq"]
+atlas = ExtResource("26_qui4m")
+region = Rect2(0, 0, 48, 48)
+
 [node name="level 4" type="Node2D"]
 script = ExtResource("1_3e8ef")
 
 [node name="TileMap2" type="TileMap" parent="."]
+visible = false
 z_index = 1
 tile_set = ExtResource("2_6lj3l")
 format = 2
@@ -137,15 +166,25 @@ limit_bottom = 112
 [node name="player2" parent="." instance=ExtResource("6_c8q6t")]
 position = Vector2(9, -26)
 
+[node name="Camera2D" type="Camera2D" parent="player2"]
+position = Vector2(0, -1)
+zoom = Vector2(5, 5)
+limit_bottom = 112
+
 [node name="ian" parent="." instance=ExtResource("7_y2f5w")]
 position = Vector2(29, -27)
 
+[node name="Camera2D" type="Camera2D" parent="ian"]
+position = Vector2(0, -1)
+zoom = Vector2(5, 5)
+limit_bottom = 112
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-z_index = -5
+z_index = -1
 offset_left = -319.0
-offset_top = -215.0
-offset_right = 826.0
+offset_top = -767.0
+offset_right = 2900.0
 offset_bottom = 309.0
 color = Color(0, 0, 0, 1)
 
@@ -353,8 +392,14 @@ shape = SubResource("RectangleShape2D_fdyus")
 [node name="tall_boi" parent="." instance=ExtResource("11_7cdeb")]
 position = Vector2(52, -26)
 
+[node name="Camera2D" type="Camera2D" parent="tall_boi"]
+position = Vector2(0, -1)
+zoom = Vector2(5, 5)
+limit_bottom = 112
+
 [node name="killzone" parent="." instance=ExtResource("12_ex31k")]
 position = Vector2(-238, 125)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_taec2")
@@ -374,6 +419,7 @@ autoplay = true
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -1
 position = Vector2(761, -191)
+emitting = false
 amount = 5000
 process_material = SubResource("ParticleProcessMaterial_pha62")
 texture = ExtResource("19_8gfft")
@@ -383,6 +429,114 @@ randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
 
+[node name="killzone2" type="Area2D" parent="."]
+position = Vector2(-238, 125)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("20_42ybf")
+
+[node name="Timer" type="Timer" parent="killzone2"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
+stream = ExtResource("21_73l1g")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+shape = SubResource("WorldBoundaryShape2D_taec2")
+
+[node name="killzone3" type="Area2D" parent="."]
+position = Vector2(-238, 125)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("22_nm1se")
+
+[node name="Timer" type="Timer" parent="killzone3"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
+stream = ExtResource("21_73l1g")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+shape = SubResource("WorldBoundaryShape2D_taec2")
+
+[node name="killzone4" type="Area2D" parent="."]
+position = Vector2(-238, 125)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("23_02vwn")
+
+[node name="Timer" type="Timer" parent="killzone4"]
+wait_time = 0.9
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
+stream = ExtResource("21_73l1g")
+max_distance = 2e+07
+
+[node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4"]
+shape = SubResource("WorldBoundaryShape2D_taec2")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("24_a1ap5")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+visible = false
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control/CanvasLayer"]
+scale = Vector2(4.30556, 3.35417)
+texture_normal = ExtResource("25_8nnec")
+shape = SubResource("RectangleShape2D_krhlp")
+action = "jump"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(427, 0)
+scale = Vector2(3.6383, 3.3125)
+texture_normal = SubResource("AtlasTexture_crrgv")
+shape = SubResource("RectangleShape2D_56n2r")
+action = "escape"
+
+[node name="Button" type="Button" parent="Control/CanvasLayer/TouchScreenButton2"]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 52.0
+offset_bottom = 53.0
+flat = true
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(740, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_bddgy")
+shape = SubResource("RectangleShape2D_tsdtt")
+action = "walk_left"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Control/CanvasLayer"]
+position = Vector2(971, -2.02656e-06)
+scale = Vector2(4.04167, 4.125)
+texture_normal = SubResource("AtlasTexture_1rvgq")
+shape = SubResource("RectangleShape2D_tsdtt")
+action = "walk_right"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
+[connection signal="timeout" from="killzone2/Timer" to="killzone2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone3" to="killzone3" method="_on_body_entered"]
+[connection signal="timeout" from="killzone3/Timer" to="killzone3" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone4" to="killzone4" method="_on_body_entered"]
+[connection signal="timeout" from="killzone4/Timer" to="killzone4" method="_on_timer_timeout"]
 
 [editable path="water_3"]

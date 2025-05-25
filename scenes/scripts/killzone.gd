@@ -18,6 +18,6 @@ func _on_body_entered(body):
 func _on_timer_timeout():
 	State.powered_by_crystals = false
 	Engine.time_scale = 1.0
-	State.death = false
-	#if State.player_2_in == false:
-	get_tree().reload_current_scene()
+	if State.player_2_in == false:
+		State.death = false
+		get_tree().reload_current_scene()

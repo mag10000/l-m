@@ -15,6 +15,14 @@ offset_right = 1715.0
 offset_bottom = 1152.0
 color = Color(0.262745, 0.364706, 0.45098, 1)
 
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 4938.0
+offset_top = 1850.0
+offset_right = 7272.0
+offset_bottom = 3560.0
+color = Color(0, 0, 0, 1)
+
 [node name="PhysicalWorldMap_svg" type="Sprite2D" parent="."]
 position = Vector2(512.5, 320)
 scale = Vector2(1.558, 1.54)
@@ -134,6 +142,7 @@ flat = true
 position = Vector2(510, 320)
 scale = Vector2(1.558, 1.54)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
 [node name="level_4" type="Button" parent="."]
 visible = false
@@ -178,12 +187,66 @@ offset_top = 210.0
 offset_right = 827.0
 offset_bottom = 226.0
 focus_neighbor_left = NodePath("../level_5")
+focus_neighbor_top = NodePath("../level_6")
+focus_neighbor_right = NodePath("../level_6")
 focus_neighbor_bottom = NodePath("../level_5")
+focus_next = NodePath("../level_6")
 focus_previous = NodePath("../level_5")
 theme_override_fonts/font = ExtResource("3_x1kp6")
 theme_override_font_sizes/font_size = 8
 disabled = true
 text = "firey the dragon level 2"
+flat = true
+
+[node name="level_6" type="Button" parent="."]
+visible = false
+offset_left = 766.0
+offset_top = 124.0
+offset_right = 824.0
+offset_bottom = 155.0
+focus_neighbor_left = NodePath("../firey the dragon level 2")
+focus_neighbor_top = NodePath("../level_7")
+focus_neighbor_right = NodePath("../level_7")
+focus_neighbor_bottom = NodePath("../firey the dragon level 2")
+focus_next = NodePath("../level_7")
+focus_previous = NodePath("../firey the dragon level 2")
+theme_override_fonts/font = ExtResource("3_x1kp6")
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "level 6"
+flat = true
+
+[node name="level_7" type="Button" parent="."]
+visible = false
+offset_left = 800.0
+offset_top = 376.0
+offset_right = 858.0
+offset_bottom = 395.0
+focus_neighbor_left = NodePath("../level_6")
+focus_neighbor_top = NodePath("../level_6")
+focus_neighbor_right = NodePath("../level_8")
+focus_neighbor_bottom = NodePath("../level_8")
+focus_next = NodePath("../level_8")
+focus_previous = NodePath("../level_6")
+theme_override_fonts/font = ExtResource("3_x1kp6")
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "level 7"
+flat = true
+
+[node name="level_8" type="Button" parent="."]
+visible = false
+offset_left = 291.0
+offset_top = 456.0
+offset_right = 355.0
+offset_bottom = 475.0
+focus_neighbor_left = NodePath("../level_7")
+focus_neighbor_top = NodePath("../level_7")
+focus_previous = NodePath("../level_7")
+theme_override_fonts/font = ExtResource("3_x1kp6")
+theme_override_font_sizes/font_size = 8
+disabled = true
+text = "level 8"
 flat = true
 
 [node name="Control" type="Control" parent="."]
@@ -226,5 +289,9 @@ flat = true
 [connection signal="pressed" from="level 3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="level_4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="level_5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="firey the dragon level 2" to="." method="_on_firey_the_dragon_level_2_pressed"]
+[connection signal="pressed" from="level_6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="level_7" to="." method="_on_level_7_pressed"]
+[connection signal="pressed" from="level_8" to="." method="_on_level_8_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

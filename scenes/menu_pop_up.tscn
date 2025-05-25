@@ -11,114 +11,142 @@ script = ExtResource("1_u1p0p")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 z_index = -2
 layout_mode = 0
-offset_left = -251.0
-offset_top = -280.0
-offset_right = 2173.0
-offset_bottom = 1467.0
+offset_left = -1139.0
+offset_top = -863.0
+offset_right = 1285.0
+offset_bottom = 884.0
+size_flags_horizontal = 4
 color = Color(0.784314, 0.784314, 0.784314, 0.447059)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = -377.0
-offset_top = -309.0
-offset_right = -337.0
-offset_bottom = -269.0
+offset_left = -1265.0
+offset_top = -892.0
+offset_right = -1225.0
+offset_bottom = -852.0
+size_flags_horizontal = 4
 
 [node name="quit" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 489.0
-offset_right = 1251.0
-offset_bottom = 591.0
+offset_left = 189.0
+offset_top = -94.0
+offset_right = 363.0
+offset_bottom = 8.0
+size_flags_horizontal = 4
 text = "quit"
 
 [node name="co-op" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 603.0
-offset_top = 618.0
-offset_right = 777.0
-offset_bottom = 722.0
+offset_left = -285.0
+offset_top = 35.0
+offset_right = -111.0
+offset_bottom = 139.0
+size_flags_horizontal = 4
 disabled = true
 text = "2 players"
 
 [node name="back" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 598.0
-offset_top = 485.0
-offset_right = 770.0
-offset_bottom = 593.0
+offset_left = -290.0
+offset_top = -98.0
+offset_right = -118.0
+offset_bottom = 10.0
+size_flags_horizontal = 4
 text = "back"
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 841.0
-offset_top = 408.0
-offset_right = 979.0
-offset_bottom = 462.0
+offset_left = -47.0
+offset_top = -175.0
+offset_right = 91.0
+offset_bottom = -121.0
 scale = Vector2(0.955121, 1.03333)
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.839216, 0, 0, 1)
 text = "re-start level"
 script = ExtResource("2_ihtkw")
 
 [node name="hats" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 804.0
-offset_top = 485.0
-offset_right = 1013.0
-offset_bottom = 592.0
+offset_left = -84.0
+offset_top = -98.0
+offset_right = 125.0
+offset_bottom = 9.0
+size_flags_horizontal = 4
 disabled = true
 text = "hats"
 icon = ExtResource("3_krgvu")
 
 [node name="co-op_2" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 838.0
-offset_top = 615.0
-offset_right = 1014.0
-offset_bottom = 722.0
+offset_left = -50.0
+offset_top = 32.0
+offset_right = 126.0
+offset_bottom = 139.0
+size_flags_horizontal = 4
 disabled = true
 text = "3 players"
 
 [node name="co-op_3" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 1082.0
-offset_top = 620.0
-offset_right = 1256.0
-offset_bottom = 723.0
+offset_left = 194.0
+offset_top = 37.0
+offset_right = 368.0
+offset_bottom = 140.0
+size_flags_horizontal = 4
 disabled = true
 text = "4 players"
 
 [node name="map" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 868.0
-offset_top = 355.0
-offset_right = 937.0
-offset_bottom = 395.0
+offset_left = -20.0
+offset_top = -228.0
+offset_right = 49.0
+offset_bottom = -188.0
+size_flags_horizontal = 4
 text = "map"
 
 [node name="main_menu" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 598.0
-offset_top = 435.0
-offset_right = 770.0
-offset_bottom = 468.0
+offset_left = -290.0
+offset_top = -148.0
+offset_right = -118.0
+offset_bottom = -115.0
+size_flags_horizontal = 4
 text = "main menu"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 visible = false
 custom_minimum_size = Vector2(10, 10)
-layout_mode = 0
-offset_left = 850.0
-offset_top = 493.0
-offset_right = 982.0
-offset_bottom = 589.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -48.0
+offset_right = 66.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 
 [node name="ColorRect2" type="ColorRect" parent="Control/VBoxContainer"]
 custom_minimum_size = Vector2(10, 40)

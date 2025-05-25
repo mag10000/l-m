@@ -25,6 +25,7 @@ func _on_firey_the_dragons_house_pressed ():
 
 
 func _process(delta):
+	
 	#translations
 	if State.translated_to_spanish == true:
 		$tutorial.text = ("nivel de instrucción")
@@ -39,6 +40,8 @@ func _process(delta):
 		$level_4.text = ("nivel cuatro")
 		$level_5.text = ("nivel cinco")
 		$"firey the dragon level 2".text = ("firey el dragón nivel dos")
+		$level_6.text = ("nivel 6")
+		$level_7.text = ("nivel 7")
 	else:
 		$tutorial.text = ("tutorial")
 		$Button.text = ("smobeybobey's lair")
@@ -52,6 +55,7 @@ func _process(delta):
 		$level_4.text = ("level 4")
 		$level_5.text = ("level 5")
 		$"firey the dragon level 2".text = ("firey the dragon level 2")
+		$level_6.text = ("level 6")
 
 #unlocking levels
 	if State.level_one_done == true:
@@ -68,6 +72,11 @@ func _process(delta):
 		if State.translated_to_spanish == false:
 			pass
 	if State.strange_signal_level_done == true:
+		if State.arcade == true:
+			State.save_menu_scene = ("res://scenes/world")
+			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+#		State.save_menu_scene = ("res://scenes/end_of_demo.tscn")
+#		get_tree().change_scene_to_file("res://scenes/end_of_demo.tscn")
 		$"level 3".disabled = false
 		$level_4.visible = true
 	if State.level_three_done == true:
@@ -76,7 +85,17 @@ func _process(delta):
 	if State.level_four_done == true:
 		$level_5.disabled = false
 		$"firey the dragon level 2".visible = true
-
+	if State.level_five_done == true:
+		$"firey the dragon level 2".disabled = false
+		$level_6.visible = true
+	if State.fire_2 == true:
+		$level_6.disabled = false
+		$level_7.visible = true
+	if State.level_6_done == true:
+		$level_7.disabled = false
+		$level_8.visible = true
+	if State.level_7_done == true:
+		$level_8.disabled = false
 
 func _on_level_2_pressed():
 	State.save_menu_scene = ("res://scenes/level_2.tscn")
@@ -118,3 +137,27 @@ func _on_button_3_pressed():
 func _on_level_5_pressed():
 	State.save_menu_scene = ("res://scenes/level_5.tscn")
 	get_tree().change_scene_to_file("res://scenes/level_5.tscn")
+
+
+func _on_firey_the_dragon_level_2_pressed():
+	if State.fire_2 == false:
+		State.save_menu_scene = ("res://scenes/cutscene_4.tscn")
+		get_tree().change_scene_to_file("res://scenes/cutscene_4.tscn")
+	else:
+		State.save_menu_scene = ("res://feiry_level_2.tscn")
+		get_tree().change_scene_to_file("res://feiry_level_2.tscn")
+
+
+func _on_level_6_pressed():
+	State.save_menu_scene = ("res://scenes/level_6.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_6.tscn")
+
+
+func _on_level_7_pressed():
+	State.save_menu_scene = ("res://scenes/level_7.tscn")
+	get_tree().change_scene_to_file("res://scenes/level_7.tscn")
+
+
+func _on_level_8_pressed():
+	State.save_menu_scene = ("res://level_8.tscn")
+	get_tree().change_scene_to_file("res://level_8.tscn")

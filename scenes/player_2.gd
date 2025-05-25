@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+var date_dict = Time.get_date_dict_from_system()  
+
+var current_month = date_dict["month"]
+
 var test1234
 @export var SPEED = 300.0
 var JUMP_VELOCITY = -330.0
@@ -63,7 +67,6 @@ func _physics_process(delta):
 			$AnimatedSprite2D2.flip_h = false
 		move_and_slide()
 	if State.death2 == true:
-		State.co_op_deaths += 1
 		queue_free()
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("walk_right"):
@@ -73,11 +76,19 @@ func _unhandled_input(event):
 			$AnimatedSprite2D.play("walk")
 			$AnimatedSprite2D.flip_h = true
 func _process(delta):
+	
+	
+	if State.loginperson == ("erica"):
+		$ColorRect5.visible = true
+	
+	
 	if State.in_water_2 == true:
+		gravity = 490
 		SPEED = 100.0
-		JUMP_VELOCITY = -250
+		JUMP_VELOCITY = -200
 		$bubbles_2.play("default")
 	if State.in_water_2 == false:
+		gravity = 980
 		SPEED = 300.0
 		JUMP_VELOCITY = -330.0
 		$bubbles_2.play("new_animation")

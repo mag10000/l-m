@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://4iv6wmy7v2v0"]
+
+[ext_resource type="SpriteFrames" uid="uid://dsvahchh434st" path="res://mods/animal skins/p2animation_mod.tres" id="1_fcf0t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_fcf0t")
+animation = &"walk"
+frame_progress = 0.949518

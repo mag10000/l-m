@@ -5,6 +5,10 @@ extends Node2D
 
 
 func _on_timer_timeout():
+	State.death = false
+	State.death2 = false
+	State.death3 = false
+	State.death4 = false
 	State.save_menu_scene = ("res://scenes/base.tscn")
 	get_tree().change_scene_to_file("res://scenes/base.tscn")
 

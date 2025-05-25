@@ -1,7 +1,7 @@
 [gd_scene load_steps=58 format=3 uid="uid://cuibvhleg0wb4"]
 
 [ext_resource type="Script" path="res://scenes/smobeybobey_cutscene_1.gd" id="1_0ud3i"]
-[ext_resource type="Texture2D" uid="uid://dinrt4a1mh41i" path="res://assets/tilemap_lm_house.png" id="1_nhh4n"]
+[ext_resource type="Texture2D" uid="uid://fc42oijbvanq" path="res://assets/tilemap_lm_house.png" id="1_nhh4n"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="2_3tug5"]
 [ext_resource type="Texture2D" uid="uid://m0a0pach7mnx" path="res://lm boss fight/classic_snake_attck.png" id="2_w7fge"]
 [ext_resource type="Texture2D" uid="uid://cml5jeq28xael" path="res://assets/Lucas_lm(2).png" id="4_b4x52"]

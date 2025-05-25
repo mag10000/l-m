@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnejk3q7aulfw"]
+
+[ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_4ryj7"]
+[ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_x7wfj"]
+[ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="3_w02e3"]
+[ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="4_mf2my"]
+[ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="5_wjhm2"]
+[ext_resource type="PackedScene" uid="uid://dkg13hiv04plb" path="res://fire.tscn" id="6_0w5m6"]
+[ext_resource type="PackedScene" uid="uid://7cl2btxbb7bk" path="res://scenes/power_crystal.tscn" id="7_4xhvm"]
+
+[node name="fire test" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_4ryj7")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 65537, 0, 65534, 65537, 0, 65535, 65537, 0, 0, 65537, 0, 1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 65537, 0, 5, 65537, 0, 6, 65537, 0, 7, 65537, 0, 8, 65537, 0, 131069, 1, 0, 196605, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 131080, 1, 0, 65544, 1, 0, 65543, 1, 0, 65542, 1, 0, 65541, 1, 0, 65540, 1, 0, 65539, 1, 0, 65538, 1, 0, 65537, 1, 0, 65536, 1, 0, 131071, 1, 0, 131070, 1, 0, 196606, 1, 0, 196607, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 12, 65537, 0, 13, 65537, 0, 14, 65537, 0, 15, 65537, 0, 65551, 65537, 0, 131087, 65537, 0, 196623, 65537, 0, 196622, 65537, 0, 196621, 65537, 0, 196620, 65537, 0, 131084, 65537, 0, 65548, 65537, 0, 65549, 65537, 0, 65550, 65537, 0, 131086, 65537, 0, 131085, 65537, 0)
+
+[node name="main dude" parent="." instance=ExtResource("2_x7wfj")]
+position = Vector2(-15, -52)
+
+[node name="Camera2D" type="Camera2D" parent="main dude"]
+zoom = Vector2(6, 6)
+
+[node name="player2" parent="." instance=ExtResource("3_w02e3")]
+position = Vector2(-3, -24)
+
+[node name="Camera2D" type="Camera2D" parent="player2"]
+zoom = Vector2(6, 6)
+
+[node name="ian" parent="." instance=ExtResource("4_mf2my")]
+position = Vector2(41, -22)
+
+[node name="Camera2D" type="Camera2D" parent="ian"]
+zoom = Vector2(6, 6)
+
+[node name="tall_boi" parent="." instance=ExtResource("5_wjhm2")]
+position = Vector2(96, -35)
+
+[node name="Camera2D" type="Camera2D" parent="tall_boi"]
+zoom = Vector2(6, 6)
+
+[node name="fire" parent="." instance=ExtResource("6_0w5m6")]
+position = Vector2(235, -16)
+
+[node name="power_crystal" parent="." instance=ExtResource("7_4xhvm")]
+position = Vector2(208, -9)

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+var date_dict = Time.get_date_dict_from_system()  
+
+var current_month = date_dict["month"]
 
 @export var SPEED = 300.0
 var JUMP_VELOCITY = -330.0
@@ -64,6 +67,10 @@ func _physics_process(delta):
 
 
 func _process(delta):
+	
+	if State.loginperson == ("erica"):
+		$ColorRect5.visible = true
+	
 	if State.powered_by_crystals == true:
 		$radation.play("default")
 	if State.powered_by_crystals == false:
@@ -75,10 +82,12 @@ func _process(delta):
 		$CollisionShape2D.disabled = true
 		self.visible = false
 	if State.in_water_4 == true:
+		gravity = 490
 		SPEED = 100.0
-		JUMP_VELOCITY = -250
+		JUMP_VELOCITY = -200
 		$bubbles_4.play("default")
 	if State.in_water_4 == false:
+		gravity = 980
 		SPEED = 300.0
 		JUMP_VELOCITY = -400.0
 		$bubbles_4.play("new_animation")
