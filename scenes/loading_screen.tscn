@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cf4piky1vjute"]
+[gd_scene load_steps=23 format=3 uid="uid://cf4piky1vjute"]
 
 [ext_resource type="Script" path="res://scenes/loading_screen.gd" id="1_sljtc"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="2_ufbm7"]
@@ -122,6 +122,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_lggaq"]
+
 [node name="loading screen" type="Node2D"]
 script = ExtResource("1_sljtc")
 
@@ -130,15 +132,15 @@ wait_time = 6.0
 one_shot = true
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(582, 207)
-scale = Vector2(1.29, 1.14)
-zoom = Vector2(11, 11)
-
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1749.0
 offset_bottom = 1129.0
 color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(582, 216)
+scale = Vector2(1.29, 1.14)
+zoom = Vector2(9, 9)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(628, 234)
@@ -167,5 +169,8 @@ position = Vector2(-21.6073, 0)
 sprite_frames = SubResource("SpriteFrames_cf0f3")
 autoplay = "default"
 frame_progress = 0.85129
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lggaq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

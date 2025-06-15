@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cnif2wug2hv0i"]
+[gd_scene load_steps=36 format=3 uid="uid://cnif2wug2hv0i"]
 
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="1_s2adi"]
 [ext_resource type="Script" path="res://scenes/jacob_level_1.gd" id="1_xd8g6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="10_1blvm"]
 [ext_resource type="Texture2D" uid="uid://bif7poivwi4g5" path="res://assets/dash-export.png" id="10_bo7he"]
 [ext_resource type="Texture2D" uid="uid://dfhnbrmglryw2" path="res://assets/arrows_updown-export.png" id="12_hoa6k"]
+[ext_resource type="AudioStream" uid="uid://bwsk8oi40jylh" path="res://assets/Firey_Dash_Instruction.wav" id="13_11nsb"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ddk3"]
 particle_flag_disable_z = true
@@ -436,5 +437,9 @@ scale = Vector2(4.04167, 4.125)
 texture_normal = SubResource("AtlasTexture_ullns")
 shape = SubResource("RectangleShape2D_sh1ee")
 action = "walk_down"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_11nsb")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

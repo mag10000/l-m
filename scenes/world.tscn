@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cgejl0kget50h"]
+[gd_scene load_steps=42 format=3 uid="uid://cgejl0kget50h"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_7ev1q"]
 [ext_resource type="AudioStream" uid="uid://4jgr8y1nu5uh" path="res://music/LM_Main_Soundtrack.wav" id="1_wdtrk"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cmj7ox1dsq05l" path="res://assets/pixil-frame-0(28).png" id="7_ewyu5"]
 [ext_resource type="PackedScene" uid="uid://8uadvsrsjdob" path="res://scenes/dirt.tscn" id="8_6xxgi"]
 [ext_resource type="PackedScene" uid="uid://bojfih775kc12" path="res://scenes/end_bus_stop.tscn" id="11_7sqfx"]
-[ext_resource type="Texture2D" uid="uid://3wmix3nngyq2" path="res://brackeys_platformer_assets/sprites/bridge.png" id="11_iqgsf"]
 [ext_resource type="PackedScene" uid="uid://dmkljk02g8e14" path="res://scenes/first talk.tscn" id="14_lnyh3"]
 [ext_resource type="PackedScene" uid="uid://bxs6wbpoftpvw" path="res://scenes/shadow_kid_talk.tscn" id="14_wytub"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="14_xwhyq"]
@@ -245,12 +244,6 @@ speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
-
-[node name="Bridge" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(778, 470)
-scale = Vector2(0.63125, 0.433526)
-texture = ExtResource("11_iqgsf")
 
 [node name="bridge" type="StaticBody2D" parent="."]
 position = Vector2(920, 608)
