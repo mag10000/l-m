@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7rll86t7icsu"]
+
+[ext_resource type="Texture2D" uid="uid://d241bcvl6gywc" path="res://assets/card no. 1.png" id="1_cdhtb"]
+
+[node name="card_selector" type="Node2D"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 100
+columns = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_cdhtb")
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(100, 54.5)
+layout_mode = 2
+texture = ExtResource("1_cdhtb")
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect2"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(100, 54.5)
+layout_mode = 2
+texture = ExtResource("1_cdhtb")
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect3"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="TextureRect4" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(100, 54.5)
+layout_mode = 2
+texture = ExtResource("1_cdhtb")
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect4"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="TextureRect5" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(100, 54.5)
+layout_mode = 2
+texture = ExtResource("1_cdhtb")
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect5"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="TextureRect6" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(100, 54.5)
+layout_mode = 2
+texture = ExtResource("1_cdhtb")
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect6"]
+layout_mode = 0
+offset_right = 545.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -296.0
+offset_top = 363.0
+offset_right = 2012.0
+offset_bottom = 1655.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Control"]
+position = Vector2(1152, 648)
+zoom = Vector2(0.3, 0.3)

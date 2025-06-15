@@ -208,7 +208,7 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1503, 61)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="Note" type="Sprite2D" parent="."]
 visible = false

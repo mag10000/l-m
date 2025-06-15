@@ -27,11 +27,13 @@ general/text_to_speech=true
 
 State="*res://State.gd"
 save_manager="*res://scenes/scripts/save_manager.gd"
+Cards="*res://scenes/scripts/Cards.gd"
 
 [display]
 
 window/size/mode=4
 window/size/initial_position_type=0
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/cersor_lm.png"
 mouse_cursor/tooltip_position_offset=Vector2(100, 0)
 

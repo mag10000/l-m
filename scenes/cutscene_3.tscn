@@ -641,7 +641,7 @@ autoplay = "idle"
 
 [node name="Camera2D" type="Camera2D" parent="lucas"]
 position = Vector2(-1, 2)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(24, -2)

@@ -361,14 +361,14 @@ position = Vector2(-21, -41)
 
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-18, 25)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="player2" parent="." instance=ExtResource("4_8xqs0")]
 position = Vector2(-20, -16)
 
 [node name="Camera2D" type="Camera2D" parent="player2"]
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="ian" parent="." instance=ExtResource("5_uoc0q")]
@@ -376,14 +376,14 @@ position = Vector2(-1, -17)
 
 [node name="Camera2D" type="Camera2D" parent="ian"]
 position = Vector2(0, 1)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="tall_boi" parent="." instance=ExtResource("6_c4pk2")]
 position = Vector2(18, -16)
 
 [node name="Camera2D" type="Camera2D" parent="tall_boi"]
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="killzone" type="Area2D" parent="."]

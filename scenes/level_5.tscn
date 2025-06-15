@@ -876,21 +876,21 @@ position = Vector2(38, 24)
 
 [node name="Camera2D" type="Camera2D" parent="player2"]
 position = Vector2(0, -2)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="ian" parent="." instance=ExtResource("5_oq1hb")]
 position = Vector2(55, 23)
 
 [node name="Camera2D" type="Camera2D" parent="ian"]
 position = Vector2(0, -2)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="tall_boi" parent="." instance=ExtResource("6_2teuh")]
 position = Vector2(72, 23)
 
 [node name="Camera2D" type="Camera2D" parent="tall_boi"]
 position = Vector2(0, -2)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="hazards" type="Node" parent="."]
 

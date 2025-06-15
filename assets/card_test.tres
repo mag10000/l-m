@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://del6afy5hj1j1"]
+
+[ext_resource type="Texture2D" uid="uid://c0mda740pkbbk" path="res://assets/Untitled_design10-removebg-preview.png" id="1_y0sh4"]
+
+[resource]
+albedo_texture = ExtResource("1_y0sh4")

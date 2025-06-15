@@ -681,7 +681,7 @@ frame_progress = 0.17054
 stream = ExtResource("3_g0cg2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4.7, 4.7)
+zoom = Vector2(3, 3)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

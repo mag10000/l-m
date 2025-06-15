@@ -12,7 +12,6 @@ var current_month = date_dict["month"]
 var current_day = date_dict["day"]
 
 func _on_button_pressed():
-	print("not a button not pressing problem")
 	#State.save_menu_place_change_time = true
 	##$Popup.visible = true
 	State.player_2_in = false
@@ -24,6 +23,8 @@ func _on_button_2_pressed():
 
 
 func _process(delta):
+	
+	
 	if State.arcade == true:
 		$Button2.visible = false
 		$Button3.visible = false
@@ -93,11 +94,27 @@ func _on_button_4_pressed():
 		_1_prees = false
 
 func _ready():
+	
+	#if OS.get_name() == "Windows":
+		#if FileAccess.file_exists("C:\\Users\\" + OS.get_environment("USERNAME") + "\\Documents\\LMdlc\\MoreLevels\\New Text Document.txt"):
+			#OS.shell_open("C:\\Users\\" + OS.get_environment("USERNAME") + "\\Documents\\LMdlc\\MoreLevels\\New Text Document.txt")
+	
 	if State.fist_time_played == true:
 		$AcceptDialog.popup()
 	if OS.get_name() == "Windows":
 		var user = OS.get_environment("USERNAME")
+		var folder_path = "C:\\Users\\"+user+"\\Documents\\LMdlc"
+		if FileAccess.file_exists(folder_path):
+			get_tree().quit()
+		else:
+			DirAccess.make_dir_absolute(folder_path)
+		DirAccess.make_dir_absolute("C:\\Users\\"+user+"\\Documents\\LMJumpSound")
+		
 		$AcceptDialog.dialog_text = "Hello " + user +" and welcome to lm superheroes!"
+
+		if FileAccess.file_exists(folder_path + "MoreLevels"):
+			get_tree().quit()
+
 	save_manager.path = "user://lm_data.json"
 
 func _on_load_save_pressed():
@@ -217,7 +234,6 @@ func load_data(load_dict):
 
 func _on_mobile_pressed():
 	State.mobile = !State.mobile
-	print(State.mobile)
 
 
 func _on_button_3_pressed():

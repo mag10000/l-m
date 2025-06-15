@@ -215,7 +215,7 @@ position = Vector2(198, 568)
 
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-20, -17)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3rvrw")
@@ -233,14 +233,14 @@ position = Vector2(166, 592)
 
 [node name="Camera2D" type="Camera2D" parent="ian"]
 position = Vector2(1, 7)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="tall_boi" parent="." instance=ExtResource("9_hi1g0")]
 position = Vector2(200, 592)
 
 [node name="Camera2D" type="Camera2D" parent="tall_boi"]
 position = Vector2(1, 7)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="TileMap2" type="TileMap" parent="."]
 visible = false
@@ -258,7 +258,7 @@ position = Vector2(-90, 35)
 
 [node name="Camera2D" type="Camera2D" parent="player2"]
 position = Vector2(1, 7)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("15_ah08q")]
 

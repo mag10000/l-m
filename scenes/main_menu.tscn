@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsu1mcd1utghg"]
+[gd_scene load_steps=21 format=3 uid="uid://bsu1mcd1utghg"]
 
 [ext_resource type="Script" path="res://scenes/scripts/main menu.gd" id="1_gacp7"]
 [ext_resource type="Texture2D" uid="uid://6omake73jn4w" path="res://assets/main_menu_art.png" id="2_tihoy"]
@@ -72,6 +72,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7qp4"]
+bg_color = Color(0.382563, 0.367186, 0.672418, 1)
+border_color = Color(0.0399781, 0.00367557, 0.103069, 1)
+
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_gacp7")
 version = "v 3.1.1"
@@ -105,7 +109,7 @@ color = Color(0, 0, 0, 1)
 z_index = -1
 offset_left = -455.0
 offset_top = -472.0
-offset_right = 224.0
+offset_right = -2.0
 offset_bottom = 378.0
 color = Color(0.223529, 0.45098, 0.678431, 1)
 
@@ -196,7 +200,7 @@ text = "settings"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(94, 34)
-zoom = Vector2(4, 4)
+zoom = Vector2(2, 2)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_dnm2d")
@@ -336,6 +340,7 @@ flat = true
 title = "Hello"
 initial_position = 1
 size = Vector2i(370, 152)
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7qp4")
 dialog_text = "Hello and welcome to lm superheroes!"
 
 [node name="TextureRect" type="TextureRect" parent="."]

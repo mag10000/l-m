@@ -102,7 +102,7 @@ position = Vector2(124, 307)
 
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-17, 21)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 370
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -142,7 +142,7 @@ position = Vector2(78, 331)
 
 [node name="Camera2D" type="Camera2D" parent="player2"]
 position = Vector2(0, 4)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 370
 
 [node name="ian" parent="." instance=ExtResource("11_0ft48")]
@@ -150,7 +150,7 @@ position = Vector2(58, 331)
 
 [node name="Camera2D" type="Camera2D" parent="ian"]
 position = Vector2(0, 4)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 370
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -172,7 +172,7 @@ position = Vector2(90, 332)
 
 [node name="Camera2D" type="Camera2D" parent="tall_boi"]
 position = Vector2(0, 4)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 370
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

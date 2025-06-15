@@ -1,5 +1,7 @@
 extends Node
 
+var card = "lucas"
+
 var run_mode = false
 
 var invis = false

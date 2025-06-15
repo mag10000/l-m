@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://co2n2m2csfhmx"]
+[gd_resource type="SpriteFrames" load_steps=30 format=3 uid="uid://co2n2m2csfhmx"]
 
 [ext_resource type="Texture2D" uid="uid://c5sr0lpo1un63" path="res://assets/Lucas_lm-1.png.png" id="1_25iol"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="2_ba8xs"]
 [ext_resource type="Texture2D" uid="uid://bl36lfdhiohda" path="res://assets/lucas_hat.png" id="3_ksue7"]
+[ext_resource type="Texture2D" uid="uid://c66qdkpwmfpil" path="res://assets/lucas_left.png" id="3_o5nbr"]
 [ext_resource type="Texture2D" uid="uid://d36slclhp5prs" path="res://assets/lucas_swim.png" id="4_q373j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdciy"]
@@ -56,6 +57,18 @@ region = Rect2(64, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4epyp"]
 atlas = ExtResource("2_ba8xs")
 region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri4nv"]
+atlas = ExtResource("3_o5nbr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfqa2"]
+atlas = ExtResource("3_o5nbr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fdl6"]
+atlas = ExtResource("3_o5nbr")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2214e"]
 atlas = ExtResource("3_ksue7")
@@ -151,6 +164,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri4nv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfqa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fdl6")
+}],
+"loop": true,
+"name": &"left",
 "speed": 5.0
 }, {
 "frames": [{

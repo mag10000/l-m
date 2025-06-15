@@ -21,6 +21,15 @@ var camera_following = 1
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var timer = false
 
+func _ready():
+	if OS.get_name() == "Windows":
+		var user = OS.get_environment("USERNAME")
+		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav"):
+			$AudioStreamPlayer2D.stream = load("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav")
+
+
+
+
 func _physics_process(delta):
 	
 	#handles coyote time
@@ -81,11 +90,10 @@ func _physics_process(delta):
 			$AnimatedSprite2D2.flip_h = false
 			
 		if direction < 0 and is_on_floor():
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("left")
+			#$AnimatedSprite2D.flip_h = true
 			$hat_lucas.play("walk")
 			$hat_lucas.flip_h = true
-			$AnimatedSprite2D2.flip_h = true
 			
 		if direction > 0 && State.in_water == false:
 			$AnimatedSprite2D.play("walk")
@@ -96,11 +104,9 @@ func _physics_process(delta):
 			
 			
 		if direction < 0 && State.in_water == false:
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("left")
 			$hat_lucas.play("walk")
 			$hat_lucas.flip_h = true
-			$AnimatedSprite2D2.flip_h = true
 			
 		if direction == 0 && State.in_water == false:
 			$AnimatedSprite2D.flip_h = false
@@ -110,50 +116,6 @@ func _physics_process(delta):
 			$AnimatedSprite2D2.flip_h = false
 
 
-#seporater
-
-
-		if direction == 0 and is_on_floor() && State.mod == ("animal skins"):
-			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play(current_idle)
-			$hat_lucas.play(current_idle)
-			$hat_lucas.flip_h = true
-			$AnimatedSprite2D2.flip_h = true
-		if direction > 0 and is_on_floor() && State.mod == ("animal skins"):
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
-			$hat_lucas.play("walk")
-			$hat_lucas.flip_h = true
-			$AnimatedSprite2D2.flip_h = true
-			
-		if direction < 0 and is_on_floor() && State.mod == ("animal skins"):
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = false
-			$hat_lucas.play("walk")
-			$hat_lucas.flip_h = false
-			$AnimatedSprite2D2.flip_h = false
-			
-		if direction > 0 && State.in_water == false && State.mod == ("animal skins"):
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
-			$hat_lucas.play("walk")
-			$hat_lucas.flip_h = true
-			$AnimatedSprite2D2.flip_h = true
-			
-			
-		if direction < 0 && State.in_water == false && State.mod == ("animal skins"):
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = false
-			$hat_lucas.play("walk")
-			$hat_lucas.flip_h = false
-			$AnimatedSprite2D2.flip_h = false
-			
-		if direction == 0 && State.in_water == false && State.mod == ("animal skins"):
-			$AnimatedSprite2D.flip_h = true
-			$AnimatedSprite2D.play(current_idle)
-			$hat_lucas.play(current_idle)
-			$hat_lucas.flip_h = true
-			$AnimatedSprite2D2.flip_h = true
 		move_and_slide()
 	
 func _unhandled_input(event):
@@ -170,6 +132,10 @@ func _unhandled_input(event):
 		State.escape = !State.escape
 		$menu_pop_up.visible = !$menu_pop_up.visible
 func _process(delta):
+	
+	
+	
+	
 	
 	if State.run_mode == true:
 		Input.action_press("walk_right")

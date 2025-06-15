@@ -146,7 +146,7 @@ offset_bottom = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-19, 26)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 limit_bottom = 145
 
 [node name="killzone" parent="." instance=ExtResource("3_fiopr")]
@@ -168,7 +168,7 @@ position = Vector2(-21, -2)
 
 [node name="Camera2D" type="Camera2D" parent="player2"]
 position = Vector2(0, 2)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 limit_bottom = 145
 
 [node name="SmobeybobeysHouse" type="Sprite2D" parent="."]
@@ -218,7 +218,7 @@ position = Vector2(-40, -3)
 
 [node name="Camera2D" type="Camera2D" parent="ian"]
 position = Vector2(0, 2)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 limit_bottom = 145
 
 [node name="water_2" parent="." instance=ExtResource("11_tqmt0")]
@@ -253,7 +253,7 @@ position = Vector2(21, -2)
 
 [node name="Camera2D" type="Camera2D" parent="tall_boi"]
 position = Vector2(0, 2)
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 limit_bottom = 145
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

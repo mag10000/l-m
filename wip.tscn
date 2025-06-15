@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://5s01uhdot2j"]
+
+[ext_resource type="Script" path="res://wip.gd" id="1_ugsw2"]
+
+[node name="wip" type="Node2D"]
+position = Vector2(78, 0)
+script = ExtResource("1_ugsw2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -81.0
+offset_right = 2661.0
+offset_bottom = 1386.0
+color = Color(0.216809, 0.249577, 0.214985, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 443.0
+offset_top = 294.0
+offset_right = 443.0
+offset_bottom = 294.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -513.0
+offset_top = -265.5
+offset_right = 631.0
+offset_bottom = 265.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "This is the temporary end of lm superheroes"
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+offset_left = 230.0
+offset_top = -196.0
+offset_right = 404.0
+offset_bottom = -100.0
+theme_override_font_sizes/font_size = 64
+text = "Close"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

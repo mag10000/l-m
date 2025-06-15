@@ -181,7 +181,7 @@ position = Vector2(564, 471)
 
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-16, 24)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 530
 
 [node name="first talk" parent="." instance=ExtResource("14_lnyh3")]
@@ -203,7 +203,7 @@ position = Vector2(509, 494)
 
 [node name="Camera2D" type="Camera2D" parent="player2"]
 position = Vector2(0, -1)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 530
 
 [node name="ian" parent="." instance=ExtResource("15_sbfxs")]
@@ -211,7 +211,7 @@ position = Vector2(528, 493)
 
 [node name="Camera2D" type="Camera2D" parent="ian"]
 position = Vector2(-1, 4)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 530
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -228,7 +228,7 @@ position = Vector2(569, 495)
 
 [node name="Camera2D" type="Camera2D" parent="tall_boi"]
 position = Vector2(0, 7)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 530
 
 [node name="shadow kid talk" parent="." instance=ExtResource("14_wytub")]

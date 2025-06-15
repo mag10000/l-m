@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b7n6wbhwf2i40"]
+
+[node name="test_outside_dlc" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 492.0
+offset_top = 242.0
+offset_right = 642.0
+offset_bottom = 330.0
+theme_override_font_sizes/font_size = 64
+text = "label"

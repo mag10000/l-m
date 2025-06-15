@@ -457,7 +457,7 @@ autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="lucas"]
 position = Vector2(-0.149806, 3.70039)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

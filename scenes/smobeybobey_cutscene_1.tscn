@@ -518,7 +518,7 @@ animation = &"idle"
 autoplay = "walk"
 
 [node name="Camera2D" type="Camera2D" parent="lucas"]
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

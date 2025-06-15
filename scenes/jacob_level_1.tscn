@@ -321,7 +321,7 @@ layer_2/tile_data = PackedInt32Array(-262148, 0, 2, -196612, 0, 2, -262147, 0, 2
 [node name="Jacob_dragon" parent="." instance=ExtResource("2_2bqe2")]
 
 [node name="Camera2D" type="Camera2D" parent="Jacob_dragon"]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_left = -176
 limit_top = -160
 limit_right = 1664

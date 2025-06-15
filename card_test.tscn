@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=3 uid="uid://brw64est04pf2"]
+
+[ext_resource type="Script" path="res://card_test.gd" id="1_5pa38"]
+[ext_resource type="Texture2D" uid="uid://ceu3rm3kvocxm" path="res://assets/pretoria_gardens_4k.hdr" id="2_lnuxm"]
+[ext_resource type="Texture2D" uid="uid://d241bcvl6gywc" path="res://assets/card no. 1.png" id="3_vwgs4"]
+[ext_resource type="Material" uid="uid://del6afy5hj1j1" path="res://assets/card_test.tres" id="4_01bca"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ddgac"]
+panorama = ExtResource("2_lnuxm")
+
+[sub_resource type="Sky" id="Sky_7qr4r"]
+sky_material = SubResource("PanoramaSkyMaterial_ddgac")
+
+[sub_resource type="Environment" id="Environment_gnlly"]
+background_mode = 2
+sky = SubResource("Sky_7qr4r")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k8un7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_os1jh"]
+albedo_texture = ExtResource("3_vwgs4")
+
+[sub_resource type="Animation" id="Animation_dxkof"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("layla:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.5708, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("layla:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.8326, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("layla:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_mh4sc"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("layla:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("layla:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("layla:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("layla:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.2027, -0.25, 0, 0.25, 0, 1.309, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("layla:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2.33886, -0.25, 0, 0.25, 0, -1.90939e-07, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("layla:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.06453, -0.25, 0, 0.25, 0, -1.8326, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbdm1"]
+_data = {
+"RESET": SubResource("Animation_dxkof"),
+"new_animation": SubResource("Animation_mh4sc")
+}
+
+[node name="card test" type="Node3D"]
+script = ExtResource("1_5pa38")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.88458, -0.114408, 0.452137, -0.12071, 0.992575, 0.0149981, -0.450496, -0.0413105, -0.891822, 0, 0, 0)
+light_color = Color(0.521263, 0.542991, 0.49244, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gnlly")
+
+[node name="lucas" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.155294, 0.965924, -4.22219e-08, -2.07261e-16, -4.37114e-08, -0.999999, -0.579554, -0.258824, 1.13135e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_k8un7")
+surface_material_override/0 = SubResource("StandardMaterial3D_os1jh")
+
+[node name="layla" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.155294, 0.965924, -3.49663e-06, 0, -3.61999e-06, -0.999999, -0.579554, -0.258823, 9.36936e-07, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_k8un7")
+surface_material_override/0 = ExtResource("4_01bca")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lbdm1")
+}
+autoplay = "new_animation"

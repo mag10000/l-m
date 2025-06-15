@@ -139,9 +139,8 @@ text = "level 3"
 flat = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(510, 320)
+position = Vector2(576, 324)
 scale = Vector2(1.558, 1.54)
-zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="level_4" type="Button" parent="."]

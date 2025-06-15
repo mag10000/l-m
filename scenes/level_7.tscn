@@ -82,14 +82,14 @@ position = Vector2(27, -41)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/main dude"]
 position = Vector2(-18, 25)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="player2" parent="TileMap" instance=ExtResource("3_tqxa5")]
 position = Vector2(28, -16)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/player2"]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="ian" parent="TileMap" instance=ExtResource("4_f70q6")]
@@ -97,14 +97,14 @@ position = Vector2(47, -17)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/ian"]
 position = Vector2(0, 1)
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="tall_boi" parent="TileMap" instance=ExtResource("5_ohtnd")]
 position = Vector2(66, -16)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/tall_boi"]
-zoom = Vector2(5, 5)
+zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="killzone" type="Area2D" parent="."]
