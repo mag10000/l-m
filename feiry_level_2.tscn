@@ -235,7 +235,7 @@ layer_3/tile_data = PackedInt32Array()
 position = Vector2(-24, -1)
 
 [node name="Camera2D" type="Camera2D" parent="Jacob_dragon"]
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 limit_left = -160
 limit_top = -160
 limit_bottom = 160

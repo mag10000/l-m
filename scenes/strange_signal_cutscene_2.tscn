@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://21rt7xne1d5v"]
+[gd_scene load_steps=67 format=3 uid="uid://21rt7xne1d5v"]
 
 [ext_resource type="Script" path="res://scenes/strange_signal_cutscene_2.gd" id="1_7q8gu"]
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_heoqr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cswpwgciq87k2" path="res://assets/lm_shadow_m_game.png" id="8_fq3pg"]
 [ext_resource type="AudioStream" uid="uid://dae31vy38kwom" path="res://lm_cutscene_voiceover/Run_Away_Magnus.wav" id="9_f82at"]
 [ext_resource type="Texture2D" uid="uid://dn5yuitwsyuqk" path="res://assets/ian.png" id="11_lsfr8"]
+[ext_resource type="AudioStream" uid="uid://dflcoxowd3adu" path="res://assets/shadow_us_showed_up.wav" id="12_8cfa2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjm20"]
 atlas = ExtResource("2_l1g8d")
@@ -264,19 +265,19 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_2r5uv"]
+[sub_resource type="Animation" id="Animation_ei158"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("magnus:animation")
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle"]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1b67h"]
@@ -353,7 +354,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("lucas/Camera2D:position_smoothing_enabled")
+tracks/6/path = NodePath("Camera2D:position_smoothing_enabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -377,23 +378,23 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("lucas/Camera2D:zoom:x")
+tracks/8/path = NodePath("Camera2D:zoom:x")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(6, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 11.1, 11.2, 12)
 }
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("lucas/Camera2D:zoom:y")
+tracks/9/path = NodePath("Camera2D:zoom:y")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(6, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 11.1, 11.2, 12)
 }
 tracks/10/type = "value"
@@ -476,22 +477,44 @@ tracks/16/keys = {
 "points": PackedFloat32Array(64, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0, -32, -0.25, 0, 0.25, 0, -32, -0.25, 0, 0.25, 0, -33, -0.25, 0, 0.25, 0, -33, -0.25, 0, 0.25, 0, 309, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.9, 2, 12.2, 13.4, 13.9, 14.3, 14.9, 15)
 }
-tracks/17/type = "value"
+tracks/17/type = "bezier"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/17/path = NodePath("Camera2D:position:x")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(12.3, 15),
-"transitions": PackedFloat32Array(1, 1),
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 266, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 11.1, 11.8)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Camera2D:position:y")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 11.1, 11.8)
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AudioStreamPlayer:playing")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dl0na"]
 _data = {
-"RESET": SubResource("Animation_2r5uv"),
+"RESET": SubResource("Animation_ei158"),
 "new_animation": SubResource("Animation_1b67h")
 }
 
@@ -669,24 +692,24 @@ layer_0/tile_data = PackedInt32Array(393213, 131073, 0, 393214, 131073, 0, 39321
 [node name="portal" type="AnimatedSprite2D" parent="."]
 position = Vector2(437, -32)
 sprite_frames = SubResource("SpriteFrames_q85l1")
-animation = &"unlit"
+animation = &"lit"
 autoplay = "lit"
 
-[node name="lucas" type="AnimatedSprite2D" parent="."]
-position = Vector2(296, 64)
-sprite_frames = SubResource("SpriteFrames_a37sr")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="Camera2D" type="Camera2D" parent="lucas"]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 limit_left = -180
 limit_bottom = 212
 
-[node name="shadow_lucas" type="AnimatedSprite2D" parent="."]
-position = Vector2(-195, 312)
-sprite_frames = SubResource("SpriteFrames_mnh0q")
+[node name="lucas" type="AnimatedSprite2D" parent="."]
+position = Vector2(-92, 64)
+sprite_frames = SubResource("SpriteFrames_a37sr")
 animation = &"idle"
+autoplay = "idle"
+
+[node name="shadow_lucas" type="AnimatedSprite2D" parent="."]
+position = Vector2(-66, 64)
+sprite_frames = SubResource("SpriteFrames_mnh0q")
+animation = &"walk"
 autoplay = "walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -699,15 +722,15 @@ autoplay = "new_animation"
 stream = ExtResource("6_1c0ra")
 
 [node name="magnus" type="AnimatedSprite2D" parent="."]
-position = Vector2(275, 64)
+position = Vector2(-113, 64)
 sprite_frames = SubResource("SpriteFrames_wpv3c")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="shadow_magnus" type="AnimatedSprite2D" parent="."]
-position = Vector2(-223, 309)
+position = Vector2(-47, 64)
 sprite_frames = SubResource("SpriteFrames_hqmo0")
-animation = &"idle"
+animation = &"walk"
 autoplay = "walk"
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
@@ -723,5 +746,8 @@ position = Vector2(312, 64)
 sprite_frames = SubResource("SpriteFrames_fs2po")
 autoplay = "default"
 frame_progress = 0.687256
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8cfa2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

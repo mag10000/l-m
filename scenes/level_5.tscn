@@ -869,7 +869,7 @@ position = Vector2(37, -1)
 
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-18, 23)
-zoom = Vector2(6, 6)
+zoom = Vector2(3, 3)
 
 [node name="player2" parent="." instance=ExtResource("4_1svff")]
 position = Vector2(38, 24)

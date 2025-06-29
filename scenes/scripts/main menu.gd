@@ -94,6 +94,9 @@ func _on_button_4_pressed():
 		_1_prees = false
 
 func _ready():
+
+	#if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		#State.mobile = true
 	
 	#if OS.get_name() == "Windows":
 		#if FileAccess.file_exists("C:\\Users\\" + OS.get_environment("USERNAME") + "\\Documents\\LMdlc\\MoreLevels\\New Text Document.txt"):
