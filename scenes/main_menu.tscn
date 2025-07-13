@@ -168,7 +168,9 @@ offset_right = 61.0
 offset_bottom = 52.0
 tooltip_text = "start the game"
 focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath("../mobile")
 focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button3")
 theme_override_fonts/font = ExtResource("3_p5weo")
 button_mask = 3
 text = "start"
@@ -181,7 +183,9 @@ offset_right = 184.0
 offset_bottom = 52.0
 tooltip_text = "quit the game"
 focus_neighbor_left = NodePath("../Button")
+focus_neighbor_top = NodePath("../Button4")
 focus_neighbor_right = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button3")
 theme_override_fonts/font = ExtResource("3_p5weo")
 button_mask = 3
 text = "quit"
@@ -192,8 +196,10 @@ offset_top = 61.0
 offset_right = 155.0
 offset_bottom = 93.0
 tooltip_text = "quit the game"
-focus_neighbor_left = NodePath("../Button")
-focus_neighbor_right = NodePath("../Button")
+focus_neighbor_left = NodePath("../save")
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_right = NodePath("../load")
+focus_neighbor_bottom = NodePath("../save")
 theme_override_fonts/font = ExtResource("3_p5weo")
 button_mask = 3
 text = "settings"
@@ -276,6 +282,9 @@ offset_left = 110.0
 offset_top = -80.0
 offset_right = 327.0
 offset_bottom = -49.0
+focus_neighbor_left = NodePath("../arcade")
+focus_neighbor_right = NodePath("../arcade")
+focus_neighbor_bottom = NodePath("../Button2")
 theme_override_fonts/font = ExtResource("3_p5weo")
 theme_override_font_sizes/font_size = 8
 text = "traducir al español"
@@ -286,6 +295,10 @@ offset_left = -8.0
 offset_top = -9.0
 offset_right = 8.0
 offset_bottom = 9.0
+focus_neighbor_left = NodePath("../mobile")
+focus_neighbor_top = NodePath("../arcade")
+focus_neighbor_right = NodePath("../Button6")
+focus_neighbor_bottom = NodePath("../Button")
 flat = true
 
 [node name="Button6" type="LinkButton" parent="."]
@@ -293,6 +306,10 @@ offset_left = 11.0
 offset_top = -8.0
 offset_right = 27.0
 offset_bottom = 8.0
+focus_neighbor_left = NodePath("../Button5")
+focus_neighbor_top = NodePath("../arcade")
+focus_neighbor_right = NodePath("../Button7")
+focus_neighbor_bottom = NodePath("../Button")
 
 [node name="Button7" type="Button" parent="."]
 custom_minimum_size = Vector2(16, 16)
@@ -300,6 +317,10 @@ offset_left = 26.0
 offset_top = -11.0
 offset_right = 50.0
 offset_bottom = 13.0
+focus_neighbor_left = NodePath("../Button6")
+focus_neighbor_top = NodePath("../arcade")
+focus_neighbor_right = NodePath("../mobile")
+focus_neighbor_bottom = NodePath("../Button")
 disabled = true
 icon = ExtResource("13_3dw6n")
 flat = true
@@ -309,6 +330,10 @@ offset_left = -62.0
 offset_top = 95.0
 offset_right = 10.0
 offset_bottom = 126.0
+focus_neighbor_left = NodePath("../load")
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_right = NodePath("../load")
+focus_neighbor_bottom = NodePath("../Button")
 theme_override_fonts/font = ExtResource("3_p5weo")
 text = "save"
 
@@ -317,6 +342,10 @@ offset_left = 157.0
 offset_top = 96.0
 offset_right = 200.0
 offset_bottom = 127.0
+focus_neighbor_left = NodePath("../save")
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_right = NodePath("../save")
+focus_neighbor_bottom = NodePath("../Button")
 theme_override_fonts/font = ExtResource("3_p5weo")
 text = "load"
 
@@ -325,6 +354,10 @@ offset_left = -37.0
 offset_top = -15.0
 offset_right = -13.0
 offset_bottom = 16.0
+focus_neighbor_left = NodePath("../Button7")
+focus_neighbor_top = NodePath("../arcade")
+focus_neighbor_right = NodePath("../Button5")
+focus_neighbor_bottom = NodePath("../Button")
 theme_override_fonts/font = ExtResource("3_p5weo")
 text = "m"
 
@@ -333,6 +366,9 @@ offset_left = -50.0
 offset_top = -47.0
 offset_right = 11.0
 offset_bottom = -16.0
+focus_neighbor_top = NodePath("../Button4")
+focus_neighbor_right = NodePath("../Button4")
+focus_neighbor_bottom = NodePath("../mobile")
 text = "arcade"
 flat = true
 
@@ -340,6 +376,7 @@ flat = true
 title = "Hello"
 initial_position = 1
 size = Vector2i(370, 152)
+visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_p7qp4")
 dialog_text = "Hello and welcome to lm superheroes!"
 
@@ -350,6 +387,8 @@ offset_top = -2.0
 offset_right = 108.0
 offset_bottom = 38.0
 expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
@@ -364,3 +403,4 @@ expand_mode = 1
 [connection signal="pressed" from="load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="mobile" to="." method="_on_mobile_pressed"]
 [connection signal="pressed" from="arcade" to="." method="_on_arcade_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

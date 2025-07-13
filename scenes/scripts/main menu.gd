@@ -19,10 +19,17 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file(State.save_menu_scene) 
 
 func _on_button_2_pressed():
-	get_tree().quit()
+	save_manager.write_save(save())
+	
+	
+	
+	$Timer.start()
 
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):
+		$AcceptDialog.hide()
+	
 	
 	
 	if State.arcade == true:
@@ -94,7 +101,13 @@ func _on_button_4_pressed():
 		_1_prees = false
 
 func _ready():
-
+	#load("res://test_mod.gd")
+	
+	var testMod = preload("res://test_mod.gd")
+	var testModInstance = testMod.new()
+	testModInstance.test_func()
+	#testMod.test_func()
+	
 	#if OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		#State.mobile = true
 	
@@ -105,6 +118,19 @@ func _ready():
 	if State.fist_time_played == true:
 		$AcceptDialog.popup()
 	if OS.get_name() == "Windows":
+		var user = OS.get_environment("USERNAME")
+		var folder_path = "C:\\Users\\"+user+"\\Documents\\LMdlc"
+		if FileAccess.file_exists(folder_path):
+			get_tree().quit()
+		else:
+			DirAccess.make_dir_absolute(folder_path)
+		DirAccess.make_dir_absolute("C:\\Users\\"+user+"\\Documents\\LMJumpSound")
+		
+		$AcceptDialog.dialog_text = "Hello " + user +" and welcome to lm superheroes!"
+
+		if FileAccess.file_exists(folder_path + "MoreLevels"):
+			get_tree().quit()
+	if State.window_saftey == false:
 		var user = OS.get_environment("USERNAME")
 		var folder_path = "C:\\Users\\"+user+"\\Documents\\LMdlc"
 		if FileAccess.file_exists(folder_path):
@@ -173,7 +199,8 @@ func save():
 	"level_five_done" : State.level_five_done, 
 	"level_6_done" : State.level_6_done ,
 	"level_7_done" : State.level_7_done,
-	"level_8_done" : State.level_8_done
+	"level_8_done" : State.level_8_done,
+	"portal_done" : State.portal_done
 }
 	print (save_dict)
 	return save_dict
@@ -230,6 +257,8 @@ func load_data(load_dict):
 			State.level_7_done  = load_dict["level_7_done"]
 		if load_dict.has("level_8_done"):
 			State.level_8_done  = load_dict["level_8_done"]
+		if load_dict.has("portal_done"):
+			State.level_8_done  = load_dict["portal_done"]
 	else: 
 		pass
 	#for key in load_dict:
@@ -257,3 +286,7 @@ func _on_arcade_pressed():
 	$mobile.visible = false
 	$arcade.visible = false
 	State.arcade = true
+
+
+func _on_timer_timeout():
+	get_tree().quit()

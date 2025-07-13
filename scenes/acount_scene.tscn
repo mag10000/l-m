@@ -144,5 +144,5 @@ placeholder_text = "code"
 [connection signal="pressed" from="BoxContainer/HBoxContainer/Button10" to="." method="_on_button_10_pressed"]
 [connection signal="pressed" from="Button11" to="." method="_on_button_11_pressed"]
 [connection signal="pressed" from="Button12" to="." method="_on_button_12_pressed"]
-[connection signal="pressed" from="Button13" to="." method="_on_button_11_pressed"]
 [connection signal="pressed" from="Button13" to="." method="_on_button_13_pressed"]
+[connection signal="pressed" from="Button13" to="." method="_on_button_11_pressed"]

@@ -42,6 +42,8 @@ func _process(delta):
 		$"firey the dragon level 2".text = ("firey el dragón nivel dos")
 		$level_6.text = ("nivel 6")
 		$level_7.text = ("nivel 7")
+		$level_8.text = ("nivel 8")
+		$portal.text = ("portal")
 	else:
 		$tutorial.text = ("tutorial")
 		$Button.text = ("smobeybobey's lair")
@@ -96,6 +98,9 @@ func _process(delta):
 		$level_8.visible = true
 	if State.level_7_done == true:
 		$level_8.disabled = false
+		$portal.visible = true
+	if State.level_8_done == true:
+		$portal.disabled = false
 
 func _on_level_2_pressed():
 	State.save_menu_scene = ("res://scenes/level_2.tscn")
@@ -161,3 +166,7 @@ func _on_level_7_pressed():
 func _on_level_8_pressed():
 	State.save_menu_scene = ("res://level_8.tscn")
 	get_tree().change_scene_to_file("res://level_8.tscn")
+
+
+func _on_portal_pressed():
+	pass # Replace with function body.

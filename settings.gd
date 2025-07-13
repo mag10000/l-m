@@ -36,3 +36,7 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	$Button2/Label.text = OS.get_executable_path()
+
+
+func _on_button_3_pressed():
+	State.window_saftey = !State.window_saftey

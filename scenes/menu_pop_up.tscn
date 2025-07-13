@@ -184,6 +184,9 @@ focus_previous = NodePath("../Button1")
 theme_override_fonts/font = ExtResource("4_iejtt")
 text = "stay"
 
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="Control/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Control/co-op" to="." method="_on_coop_pressed"]
 [connection signal="pressed" from="Control/back" to="." method="_on_back_pressed"]
@@ -194,3 +197,4 @@ text = "stay"
 [connection signal="pressed" from="Control/main_menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

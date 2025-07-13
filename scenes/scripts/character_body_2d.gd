@@ -16,7 +16,6 @@ var pos_2 = Vector2(1,1)
 var pos_3 = Vector2(1,1)
 var pos_4 = Vector2(1,1)
 var camera_following = 1
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var timer = false
@@ -26,7 +25,18 @@ func _ready():
 		var user = OS.get_environment("USERNAME")
 		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav"):
 			$AudioStreamPlayer2D.stream = load("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav")
-
+		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\on.txt"):
+			State.mod = "override"
+			$AnimatedSprite2D.sprite_frames = load("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\p1animation_GARDEN.tres")
+	
+	
+	if State.window_saftey == false:
+		var user = OS.get_environment("USERNAME")
+		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav"):
+			$AudioStreamPlayer2D.stream = load("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav")
+		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\on.txt"):
+			State.mod = "override"
+			$AnimatedSprite2D.sprite_frames = load("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\p1animation_GARDEN.tres")
 
 
 

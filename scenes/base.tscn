@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bsewof6ujrxtb"]
+[gd_scene load_steps=44 format=3 uid="uid://bsewof6ujrxtb"]
 
 [ext_resource type="Script" path="res://scenes/base1.gd" id="1_erkrv"]
 [ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_1cf1m"]
@@ -17,6 +17,44 @@
 [ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="15_ah08q"]
 [ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="16_0n7af"]
 [ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="17_03pp3"]
+[ext_resource type="Texture2D" uid="uid://kr6w81vwjw0e" path="res://assets/lm_shadow_portal.png" id="18_dprj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38aub"]
+atlas = ExtResource("18_dprj0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqxrs"]
+atlas = ExtResource("18_dprj0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q0qf"]
+atlas = ExtResource("18_dprj0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hmwv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38aub")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqxrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqxrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q0qf")
+}],
+"loop": false,
+"name": &"enter",
+"speed": 1.0
+}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bf0ls"]
 particle_flag_disable_z = true
@@ -71,6 +109,63 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2657"]
 size = Vector2(362.951, 520.481)
+
+[sub_resource type="Animation" id="Animation_oldri"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(315, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(551, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_5sud3"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(315, -0.25, 0, 0.25, 0, 315, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(526, -0.25, 0, 0.25, 0, 551, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6hfm"]
+_data = {
+"RESET": SubResource("Animation_oldri"),
+"new_animation": SubResource("Animation_5sud3")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74x0n"]
 texture = ExtResource("7_hqtv1")
@@ -127,8 +222,18 @@ size = Vector2(57, 57)
 atlas = ExtResource("17_03pp3")
 region = Rect2(0, 0, 48, 48)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vfxt"]
+radius = 15.0
+
 [node name="base" type="Node2D"]
 script = ExtResource("1_erkrv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(521, 592)
+sprite_frames = SubResource("SpriteFrames_hmwv1")
+autoplay = "default"
+frame_progress = 0.162032
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(-158, 434)
@@ -164,11 +269,11 @@ offset_left = 456.0
 offset_top = 551.0
 offset_right = 480.0
 offset_bottom = 575.0
-focus_neighbor_left = NodePath("../Button3")
-focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_left = NodePath("../label")
+focus_neighbor_top = NodePath("../label")
 focus_neighbor_right = NodePath("../Button2")
-focus_neighbor_bottom = NodePath("../Button3")
-focus_previous = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../label")
+focus_previous = NodePath("../label")
 theme_override_fonts/font = ExtResource("2_1cf1m")
 text = "x"
 script = ExtResource("4_youh5")
@@ -180,20 +285,20 @@ offset_top = 554.0
 offset_right = 310.0
 offset_bottom = 570.0
 focus_neighbor_left = NodePath("../Button")
-focus_neighbor_top = NodePath("../Button3")
-focus_neighbor_right = NodePath("../Button3")
-focus_neighbor_bottom = NodePath("../Button3")
-focus_next = NodePath("../Button3")
+focus_neighbor_top = NodePath("../label")
+focus_neighbor_right = NodePath("../label")
+focus_neighbor_bottom = NodePath("../label")
+focus_next = NodePath("../label")
 theme_override_fonts/font = ExtResource("2_1cf1m")
 theme_override_font_sizes/font_size = 8
 text = "talk"
 script = ExtResource("4_youh5")
 
-[node name="Button3" type="Button" parent="."]
-offset_left = 350.0
-offset_top = 539.0
-offset_right = 446.0
-offset_bottom = 563.0
+[node name="label" type="Label" parent="."]
+offset_left = 315.0
+offset_top = 551.0
+offset_right = 459.0
+offset_bottom = 575.0
 tooltip_text = "map"
 focus_neighbor_left = NodePath("../Button2")
 focus_neighbor_top = NodePath(".")
@@ -203,7 +308,15 @@ focus_next = NodePath("../Button")
 focus_previous = NodePath("../Button2")
 theme_override_fonts/font = ExtResource("5_mltf1")
 theme_override_font_sizes/font_size = 8
-text = "look at map"
+text = "Look at Map
+with A,B or ENTER"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="label"]
+libraries = {
+"": SubResource("AnimationLibrary_x6hfm")
+}
+autoplay = "new_animation"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kan1l")
@@ -298,7 +411,28 @@ texture_normal = SubResource("AtlasTexture_0csrf")
 shape = SubResource("RectangleShape2D_ht0rt")
 action = "walk_right"
 
-[connection signal="body_entered" from="AnimatedSprite2D2/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Button3" type="Button" parent="."]
+visible = false
+offset_left = 335.0
+offset_top = 548.0
+offset_right = 447.0
+offset_bottom = 572.0
+theme_override_fonts/font = ExtResource("5_mltf1")
+theme_override_font_sizes/font_size = 8
+text = "Click here to 
+look at map"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(521, 592)
+shape = SubResource("CircleShape2D_7vfxt")
+disabled = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -12,6 +12,7 @@ var death_time = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Lucas_box/snake_attck.grab_focus()
 	$lucas.position = Vector2(71,2240)
 
 
@@ -51,6 +52,8 @@ func _process(delta):
 		enemy_moves_times = 1
 	if State.player_2_in == false && State.player_3_in == false:
 		$smobeybobey.position = Vector2(94,2240)
+		$Magnus_box/mind_bubble_attck
+		$Magnus_box/mind_blast_attck.disabled = false
 	if State.player_2_in == true:
 		$Magnus_box.visible = true
 		$smobeybobey.position = Vector2(183,2240)
@@ -74,6 +77,7 @@ func _process(delta):
 		get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 	if smobeybobeys_turn == true && smobeybobeys_turn_started == false:
 		smobeybobeys_turn_started = true
+		$blast.play()
 		$smobeybobey/AnimatedSprite2D.play("blast")
 		$fry_blast_timer.start()
 		$Lucas_box/snake_attck.disabled = true
@@ -109,6 +113,7 @@ func _on_fry_blast_timer_timeout():
 
 #Lucas Snake Attack
 func _on_snake_attck_pressed():
+	$snake.play()
 	$lucas.play("snake_attck")
 	$snake_timer.start()
 	$Lucas_box/snake_attck.disabled = true
@@ -134,6 +139,7 @@ func _on_snake_timer_timeout():
 #randi_range(140,210)
 #Lucas Worm Atack
 func _on_worm_attck_pressed():
+	$worm.play()
 	$lucas.play("worm_attck")
 	$worm_timer.start()
 	$Lucas_box/snake_attck.disabled = true
@@ -162,6 +168,7 @@ func _on_worm_timer_timeout():
 
 #Mind Bubble
 func _on_mind_bubble_attck_pressed():
+	$bubble.play()
 	$magnus_attacks.play("mind_bubble")
 	$bubble_timer.start()
 	$Lucas_box/snake_attck.disabled = true
@@ -185,6 +192,7 @@ func _on_bubble_timer_timeout():
 
 #Mind blast
 func _on_mind_blast_attck_pressed():
+	$blast.play()
 	$magnus_attacks.play("mind_blast")
 	$mind_blast_timer.start()
 	$Lucas_box/snake_attck.disabled = true

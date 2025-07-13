@@ -57,8 +57,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("temp")
 			$AnimatedSprite2D2.flip_h = false
 		if direction < 0:
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("left")
 			$AnimatedSprite2D2.flip_h = true
 			
 		if direction > 0:
@@ -73,8 +72,7 @@ func _unhandled_input(event):
 			$AnimatedSprite2D.play("walk")
 			$AnimatedSprite2D.flip_h = false
 	if Input.is_action_just_pressed("walk_left"):
-			$AnimatedSprite2D.play("walk")
-			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("left")
 func _process(delta):
 	
 	

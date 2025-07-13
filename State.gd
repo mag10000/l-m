@@ -1,5 +1,9 @@
 extends Node
 
+var window_saftey = true
+
+var portal_done = false
+
 var card = "lucas"
 
 var run_mode = false

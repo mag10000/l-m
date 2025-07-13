@@ -9,7 +9,40 @@ func _on_back_pressed():
 	self.visible = false
 
 func _on_quit_pressed():
+	save_manager.write_save(save())
 	get_tree().quit()
+
+func save():
+	var save_dict = {
+	"animal_pack_bought" : State.animal_pack_bought, 
+	"save_menu_scene" : State.save_menu_scene, 
+	"purple_pack_bought" : State.purple_pack_bought, 
+	"mod" : State.mod, 
+	"lmcoins" : State.lmcoins, 
+	"shop_color" : State.shop_color,
+	"fist_time_played" : State.fist_time_played,
+	"co_op_unlocked" : State.co_op_unlocked, 
+	"money" : State.money, 
+	"on_a_jacoblevel" : State.on_a_jacoblevel, 
+	"level_one_done" : State.level_one_done, 
+	"cutscene1_done" : State.cutscene1_done, 
+	"tuturiol_level_done" : State.tuturiol_level_done, 
+	"jacob_level_1_done" : State.jacob_level_1_done, 
+	"boss_fight_1_done" : State.boss_fight_1_done, 
+	"level_two_done" : State.level_two_done, 
+	"cutscene_4" : State.cutscene_4, 
+	"cutscene_5_done" : State.cutscene_5_done, 
+	"strange_signal_level_done" : State.strange_signal_level_done, 
+	"level_three_done" : State.level_three_done, 
+	"level_four_done" : State.level_four_done, 
+	"level_five_done" : State.level_five_done, 
+	"level_6_done" : State.level_6_done ,
+	"level_7_done" : State.level_7_done,
+	"level_8_done" : State.level_8_done,
+	"portal_done" : State.portal_done
+}
+	print (save_dict)
+	return save_dict
 
 func _process(delta):
 	if State.arcade == true:
@@ -132,6 +165,7 @@ func _on_map_pressed():
 
 
 func _on_main_menu_pressed():
+	$Control/VBoxContainer/Button1.grab_focus()
 	main_menu_pressed = true
 	$Control/VBoxContainer.visible = true
 	State.co_op_unlocked = false
@@ -150,6 +184,7 @@ func _on_main_menu_pressed():
 func _on_button_2_pressed():
 	main_menu_pressed = false
 	$Control/VBoxContainer.visible = false
+	$Control/main_menu.grab_focus()
 	State.co_op_unlocked = true
 	$Control/quit.disabled = false
 	$"Control/co-op".disabled = false
@@ -179,3 +214,9 @@ func _on_button_1_pressed():
 	State.co_op_unlocked = co_op_snch
 	State.escape = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_visibility_changed():
+	$Control/back.grab_focus()
+
+
