@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbwb1jkmyk22d"]
+
+[ext_resource type="Script" uid="uid://dk0kb7gjfe1bd" path="res://scenes/world_map_2.gd" id="1_ljy76"]
+[ext_resource type="Texture2D" uid="uid://dugi6yptjyt87" path="res://assets/world 2 map.png" id="2_pqqp3"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_38vqv"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="4_q62vn"]
+
+[node name="world map" type="Node2D"]
+script = ExtResource("1_ljy76")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -619.0
+offset_top = -558.0
+offset_right = 1715.0
+offset_bottom = 1152.0
+color = Color(0.262745, 0.364706, 0.45098, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 4938.0
+offset_top = 1850.0
+offset_right = 7272.0
+offset_bottom = 3560.0
+color = Color(0, 0, 0, 1)
+
+[node name="PhysicalWorldMap_svg" type="Sprite2D" parent="."]
+position = Vector2(512.5, 320)
+scale = Vector2(1.558, 1.54)
+texture = ExtResource("2_pqqp3")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(274, 212)
+points = PackedVector2Array(31, 1, 168, 149, 441, 86, 551, 240, 8, 258, -75, -13, 226, -56, 422, -43, 521, -9, 271, -17, 250, 5, 312, 51, 487, 42, 609, 102)
+width = 1.0
+default_color = Color(0.69515, 0.217263, 0.282194, 1)
+
+[node name="level 1" type="Button" parent="."]
+offset_left = 274.0
+offset_top = 212.0
+offset_right = 340.0
+offset_bottom = 232.0
+theme_override_fonts/font = ExtResource("3_38vqv")
+theme_override_font_sizes/font_size = 8
+text = "Level 1"
+flat = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="ColorRect" type="ColorRect" parent="Control/CanvasLayer"]
+z_index = -1
+offset_right = 54.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button2" type="Button" parent="Control/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_38vqv")
+theme_override_font_sizes/font_size = 16
+text = "+"
+flat = true
+
+[node name="Button3" type="Button" parent="Control/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_38vqv")
+theme_override_font_sizes/font_size = 16
+text = "-"
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+script = ExtResource("4_q62vn")
+
+[connection signal="pressed" from="level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

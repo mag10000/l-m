@@ -1,16 +1,17 @@
-[gd_scene load_steps=44 format=3 uid="uid://bsewof6ujrxtb"]
+[gd_scene load_steps=42 format=3 uid="uid://bsewof6ujrxtb"]
 
-[ext_resource type="Script" path="res://scenes/base1.gd" id="1_erkrv"]
-[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_1cf1m"]
+[ext_resource type="Script" uid="uid://c0qkg6cowso4w" path="res://scenes/base1.gd" id="1_erkrv"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_1cf1m"]
 [ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="2_2hhby"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_kv7ye"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="2_xty7r"]
-[ext_resource type="Script" path="res://scenes/Button.gd" id="4_youh5"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="5_mltf1"]
+[ext_resource type="Script" uid="uid://dkr2hbhfbmdin" path="res://scenes/button.gd" id="4_youh5"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="5_mltf1"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="7_hqtv1"]
-[ext_resource type="AudioStream" uid="uid://cnwftvi8osshj" path="res://brackeys_platformer_assets/fonts/map1.wav" id="7_kan1l"]
+[ext_resource type="AudioStream" uid="uid://cnwftvi8osshj" path="res://assets/fonts/map1.wav" id="7_kan1l"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="8_d18yp"]
 [ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="9_hi1g0"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="10_isyof"]
 [ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="11_6cn08"]
 [ext_resource type="Texture2D" uid="uid://bpavdiknjgdkw" path="res://assets/chistmas_tree_lm.png" id="12_hk5mn"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="14_0mdc6"]
@@ -110,89 +111,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2657"]
 size = Vector2(362.951, 520.481)
 
-[sub_resource type="Animation" id="Animation_oldri"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(315, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(551, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_5sud3"]
-resource_name = "new_animation"
-loop_mode = 2
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(315, -0.25, 0, 0.25, 0, 315, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(526, -0.25, 0, 0.25, 0, 551, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x6hfm"]
-_data = {
-"RESET": SubResource("Animation_oldri"),
-"new_animation": SubResource("Animation_5sud3")
-}
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74x0n"]
 texture = ExtResource("7_hqtv1")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_3rvrw"]
 physics_layer_0/collision_layer = 1
@@ -239,13 +169,13 @@ frame_progress = 0.162032
 position = Vector2(-158, 434)
 emitting = false
 amount = 43
-process_material = SubResource("ParticleProcessMaterial_bf0ls")
 texture = ExtResource("2_xty7r")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_bf0ls")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(291, 592)
@@ -269,11 +199,7 @@ offset_left = 456.0
 offset_top = 551.0
 offset_right = 480.0
 offset_bottom = 575.0
-focus_neighbor_left = NodePath("../label")
-focus_neighbor_top = NodePath("../label")
 focus_neighbor_right = NodePath("../Button2")
-focus_neighbor_bottom = NodePath("../label")
-focus_previous = NodePath("../label")
 theme_override_fonts/font = ExtResource("2_1cf1m")
 text = "x"
 script = ExtResource("4_youh5")
@@ -285,38 +211,22 @@ offset_top = 554.0
 offset_right = 310.0
 offset_bottom = 570.0
 focus_neighbor_left = NodePath("../Button")
-focus_neighbor_top = NodePath("../label")
-focus_neighbor_right = NodePath("../label")
-focus_neighbor_bottom = NodePath("../label")
-focus_next = NodePath("../label")
 theme_override_fonts/font = ExtResource("2_1cf1m")
 theme_override_font_sizes/font_size = 8
 text = "talk"
 script = ExtResource("4_youh5")
 
-[node name="label" type="Label" parent="."]
-offset_left = 315.0
-offset_top = 551.0
-offset_right = 459.0
-offset_bottom = 575.0
-tooltip_text = "map"
-focus_neighbor_left = NodePath("../Button2")
-focus_neighbor_top = NodePath(".")
-focus_neighbor_right = NodePath("../Button")
-focus_neighbor_bottom = NodePath(".")
-focus_next = NodePath("../Button")
-focus_previous = NodePath("../Button2")
-theme_override_fonts/font = ExtResource("5_mltf1")
-theme_override_font_sizes/font_size = 8
-text = "Look at Map
+[node name="What to press" type="RichTextLabel" parent="."]
+offset_left = 308.0
+offset_top = 515.0
+offset_right = 478.0
+offset_bottom = 563.0
+theme_override_fonts/normal_font = ExtResource("5_mltf1")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[wave]Look at Map
 with A,B or ENTER"
 horizontal_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="label"]
-libraries = {
-"": SubResource("AnimationLibrary_x6hfm")
-}
-autoplay = "new_animation"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_kan1l")
@@ -329,6 +239,7 @@ position = Vector2(198, 568)
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-20, -17)
 zoom = Vector2(3, 3)
+script = ExtResource("10_isyof")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3rvrw")
@@ -432,7 +343,34 @@ position = Vector2(521, 592)
 shape = SubResource("CircleShape2D_7vfxt")
 disabled = true
 
+[node name="Leaderboard suggjust" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 466.0
+offset_top = 541.0
+offset_right = 650.0
+offset_bottom = 604.0
+theme_override_fonts/normal_font = ExtResource("5_mltf1")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[wave]
+You Should
+ Submit your score 
+to the 
+leaderboard!"
+horizontal_alignment = 1
+
+[node name="Submit" type="Button" parent="Leaderboard suggjust"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 44.0
+offset_right = 114.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("5_mltf1")
+theme_override_font_sizes/font_size = 8
+text = "Submit"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Leaderboard suggjust/Submit" to="." method="_on_submit_pressed"]

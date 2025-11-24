@@ -1,9 +1,10 @@
-[gd_scene load_steps=98 format=3 uid="uid://g7jtryib1fe1"]
+[gd_scene load_steps=99 format=3 uid="uid://g7jtryib1fe1"]
 
 [ext_resource type="Texture2D" uid="uid://fc42oijbvanq" path="res://assets/tilemap_lm_house.png" id="1_acjl3"]
-[ext_resource type="Script" path="res://scenes/smobeybobey_fight_1.gd" id="1_cm1ex"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="3_sg713"]
-[ext_resource type="FontFile" uid="uid://c5qhtgatl58i4" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_txbit"]
+[ext_resource type="Script" uid="uid://bkwid2skq36qi" path="res://scenes/smobeybobey_fight_1.gd" id="1_cm1ex"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_sg713"]
+[ext_resource type="FontFile" uid="uid://c5qhtgatl58i4" path="res://assets/fonts/PixelOperator8.ttf" id="3_txbit"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="3_xupj7"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="4_lc1tl"]
 [ext_resource type="Texture2D" uid="uid://cghtdxc7lh5p0" path="res://lm boss fight/lm_smobeybobey.png" id="5_5bcp1"]
 [ext_resource type="Texture2D" uid="uid://m0a0pach7mnx" path="res://lm boss fight/classic_snake_attck.png" id="5_dtjve"]
@@ -14,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b710d2b6525bj" path="res://lm boss fight/mind_bubble_attck.png" id="9_x3w1b"]
 [ext_resource type="Texture2D" uid="uid://daai7wj1bjtyg" path="res://lm boss fight/mind_blast_attck.png" id="10_y3fc0"]
 [ext_resource type="AudioStream" uid="uid://1ihsgg03t76d" path="res://lm boss fight/boss_fight_lm.wav" id="11_ipi6l"]
-[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="14_c5lhi"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_c5lhi"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="15_y1xa8"]
 [ext_resource type="AudioStream" uid="uid://cvblt82556p1e" path="res://assets/LM_SFX_Attacks/Monster5_Roar1.wav" id="18_1y06c"]
 [ext_resource type="PackedScene" uid="uid://bmd505rvvtd88" path="res://scenes/menu_pop_up.tscn" id="18_57g6q"]
@@ -25,23 +26,11 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qycvk"]
 texture = ExtResource("1_acjl3")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_g4yhd"]
@@ -608,6 +597,7 @@ layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(248, 2139)
 zoom = Vector2(2, 2)
+script = ExtResource("3_xupj7")
 
 [node name="Magnus_box" type="ColorRect" parent="."]
 visible = false
@@ -813,7 +803,7 @@ wait_time = 2.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ipi6l")
 autoplay = true
-max_distance = 1e+06
+max_distance = 1000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
 position = Vector2(145, 2179)
@@ -847,7 +837,7 @@ one_shot = true
 
 [node name="death_player" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_y1xa8")
-max_distance = 2e+08
+max_distance = 200000000.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

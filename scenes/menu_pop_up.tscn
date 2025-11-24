@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmd505rvvtd88"]
+[gd_scene load_steps=6 format=3 uid="uid://bmd505rvvtd88"]
 
-[ext_resource type="Script" path="res://scenes/menu_pop_up.gd" id="1_u1p0p"]
-[ext_resource type="Script" path="res://scenes/Button.gd" id="2_ihtkw"]
+[ext_resource type="Script" uid="uid://cyxrwhg2twjni" path="res://scenes/menu_pop_up.gd" id="1_u1p0p"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_h35s2"]
+[ext_resource type="Script" uid="uid://dkr2hbhfbmdin" path="res://scenes/button.gd" id="2_ihtkw"]
 [ext_resource type="Texture2D" uid="uid://bl36lfdhiohda" path="res://assets/lucas_hat.png" id="3_krgvu"]
-[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="4_iejtt"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_kv4ll"]
 
 [node name="menu_pop_up" type="CanvasLayer"]
 visible = false
@@ -49,6 +50,7 @@ offset_top = -94.0
 offset_right = 363.0
 offset_bottom = 8.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 text = "quit"
 
 [node name="co-op" type="Button" parent="Control"]
@@ -58,6 +60,7 @@ offset_top = 35.0
 offset_right = -111.0
 offset_bottom = 139.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 disabled = true
 text = "2 players"
 
@@ -68,17 +71,19 @@ offset_top = -98.0
 offset_right = -118.0
 offset_bottom = 10.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 text = "back"
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = -47.0
+offset_left = -91.0
 offset_top = -175.0
-offset_right = 91.0
+offset_right = 141.0
 offset_bottom = -121.0
 scale = Vector2(0.955121, 1.03333)
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.839216, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_h35s2")
 text = "re-start level"
 script = ExtResource("2_ihtkw")
 
@@ -89,6 +94,7 @@ offset_top = -98.0
 offset_right = 125.0
 offset_bottom = 9.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 disabled = true
 text = "hats"
 icon = ExtResource("3_krgvu")
@@ -100,6 +106,7 @@ offset_top = 32.0
 offset_right = 126.0
 offset_bottom = 139.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 disabled = true
 text = "3 players"
 
@@ -110,6 +117,7 @@ offset_top = 37.0
 offset_right = 368.0
 offset_bottom = 140.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 disabled = true
 text = "4 players"
 
@@ -120,6 +128,7 @@ offset_top = -228.0
 offset_right = 49.0
 offset_bottom = -188.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 text = "map"
 
 [node name="main_menu" type="Button" parent="Control"]
@@ -129,6 +138,7 @@ offset_top = -148.0
 offset_right = -118.0
 offset_bottom = -115.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_h35s2")
 text = "main menu"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
@@ -170,7 +180,7 @@ focus_neighbor_right = NodePath("../Button2")
 focus_neighbor_bottom = NodePath("../Button2")
 focus_next = NodePath("../Button2")
 focus_previous = NodePath("../Button2")
-theme_override_fonts/font = ExtResource("4_iejtt")
+theme_override_fonts/font = ExtResource("4_kv4ll")
 text = "   leave   "
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer"]
@@ -181,7 +191,7 @@ focus_neighbor_right = NodePath("../Button1")
 focus_neighbor_bottom = NodePath("../Button1")
 focus_next = NodePath("../Button1")
 focus_previous = NodePath("../Button1")
-theme_override_fonts/font = ExtResource("4_iejtt")
+theme_override_fonts/font = ExtResource("4_kv4ll")
 text = "stay"
 
 [node name="Timer" type="Timer" parent="."]

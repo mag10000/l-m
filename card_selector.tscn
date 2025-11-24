@@ -1,91 +1,199 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7rll86t7icsu"]
+[gd_scene load_steps=10 format=3 uid="uid://c7rll86t7icsu"]
 
-[ext_resource type="Texture2D" uid="uid://d241bcvl6gywc" path="res://assets/card no. 1.png" id="1_cdhtb"]
+[ext_resource type="Texture2D" uid="uid://dxk27d0ujxhd5" path="res://assets/cards/card no. 1-Photoroom.png" id="1_cdhtb"]
+[ext_resource type="Script" uid="uid://gdmay6biqell" path="res://card_selector.gd" id="1_i40g0"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="2_m7du1"]
+[ext_resource type="Texture2D" uid="uid://banp0gymidpny" path="res://assets/cards/card no. 2-Photoroom.png" id="2_yuxvk"]
+[ext_resource type="Texture2D" uid="uid://bp2mihia15k06" path="res://assets/cards/card no. 3-Photoroom.png" id="3_i40g0"]
+[ext_resource type="Texture2D" uid="uid://dl4nnvseoifkb" path="res://assets/cards/card no. 4-Photoroom.png" id="4_ljhqr"]
+[ext_resource type="Texture2D" uid="uid://cph6p34f0vpv4" path="res://assets/cards/card no. 5-Photoroom.png" id="5_ax7ep"]
+[ext_resource type="Texture2D" uid="uid://s2xile0vfqwr" path="res://assets/cards/card no. 6-Photoroom.png" id="6_fp7uu"]
+[ext_resource type="Texture2D" uid="uid://cwe2xejn3lrpx" path="res://assets/cards/card no. 7-Photoroom.png" id="7_fq000"]
 
-[node name="card_selector" type="Node2D"]
+[node name="card_selector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2340.0
+offset_bottom = 1487.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i40g0")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
 theme_override_constants/h_separation = 50
 theme_override_constants/v_separation = 100
-columns = 3
+columns = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("1_cdhtb")
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect"]
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect"]
+visible = false
 layout_mode = 0
-offset_right = 545.0
-offset_bottom = 1000.0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
 color = Color(0, 0, 0, 0.839216)
 
-[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+[node name="LucasButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 54.5)
 layout_mode = 2
-texture = ExtResource("1_cdhtb")
+texture = ExtResource("2_yuxvk")
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect2"]
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect2"]
+visible = false
 layout_mode = 0
-offset_right = 545.0
-offset_bottom = 1000.0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
 color = Color(0, 0, 0, 0.839216)
 
-[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+[node name="MagnusButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect2"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
+
+[node name="TextureRect3" type="TextureRect" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 54.5)
 layout_mode = 2
-texture = ExtResource("1_cdhtb")
+texture = ExtResource("3_i40g0")
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect3"]
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect3"]
+visible = false
 layout_mode = 0
-offset_right = 545.0
-offset_bottom = 1000.0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
 color = Color(0, 0, 0, 0.839216)
 
-[node name="TextureRect4" type="TextureRect" parent="GridContainer"]
+[node name="ShadowLButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect3"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
+
+[node name="TextureRect4" type="TextureRect" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 54.5)
 layout_mode = 2
-texture = ExtResource("1_cdhtb")
+texture = ExtResource("4_ljhqr")
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect4"]
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect4"]
+visible = false
 layout_mode = 0
-offset_right = 545.0
-offset_bottom = 1000.0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
 color = Color(0, 0, 0, 0.839216)
 
-[node name="TextureRect5" type="TextureRect" parent="GridContainer"]
+[node name="ShadowMButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect4"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
+
+[node name="TextureRect5" type="TextureRect" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 54.5)
 layout_mode = 2
-texture = ExtResource("1_cdhtb")
+texture = ExtResource("5_ax7ep")
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect5"]
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect5"]
+visible = false
 layout_mode = 0
-offset_right = 545.0
-offset_bottom = 1000.0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
 color = Color(0, 0, 0, 0.839216)
 
-[node name="TextureRect6" type="TextureRect" parent="GridContainer"]
+[node name="ShadowkidButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect5"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
+
+[node name="TextureRect6" type="TextureRect" parent="ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(100, 54.5)
 layout_mode = 2
-texture = ExtResource("1_cdhtb")
+texture = ExtResource("6_fp7uu")
 
-[node name="ColorRect" type="ColorRect" parent="GridContainer/TextureRect6"]
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect6"]
+visible = false
 layout_mode = 0
-offset_right = 545.0
-offset_bottom = 1000.0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
 color = Color(0, 0, 0, 0.839216)
+
+[node name="SmobeyButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect6"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
+
+[node name="TextureRect7" type="TextureRect" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 54.5)
+layout_mode = 2
+texture = ExtResource("7_fq000")
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/GridContainer/TextureRect7"]
+visible = false
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 993.0
+color = Color(0, 0, 0, 0.839216)
+
+[node name="JacobButton" type="Button" parent="ScrollContainer/GridContainer/TextureRect7"]
+layout_mode = 0
+offset_left = 226.0
+offset_right = 774.0
+offset_bottom = 992.0
+flat = true
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
 anchors_preset = 0
-offset_left = -296.0
+offset_left = -297.0
 offset_top = 363.0
-offset_right = 2012.0
+offset_right = 2011.0
 offset_bottom = 1655.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Control"]
-position = Vector2(1152, 648)
+position = Vector2(1877, 700)
 zoom = Vector2(0.3, 0.3)
+script = ExtResource("2_m7du1")
+
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect/LucasButton" to="." method="_on_lucas_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect2/MagnusButton" to="." method="_on_magnus_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect3/ShadowLButton" to="." method="_on_shadow_l_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect4/ShadowMButton" to="." method="_on_shadow_m_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect5/ShadowkidButton" to="." method="_on_shadowkid_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect6/SmobeyButton" to="." method="_on_smobey_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/TextureRect7/JacobButton" to="." method="_on_jacob_button_pressed"]

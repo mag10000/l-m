@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxd2aqcop0q6"]
+
+[ext_resource type="Script" uid="uid://ci7b7e3cf5dh6" path="res://leaderboard_timer.gd" id="1_pw4g1"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_nodtq"]
+
+[node name="LeaderboardTimer" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_pw4g1")
+
+[node name="Control" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_nodtq")
+theme_override_font_sizes/font_size = 32
+text = "00:00:00"
+
+[node name="Timer" type="Timer" parent="Control"]
+wait_time = 0.00999999999999999
+autostart = true
+
+[connection signal="timeout" from="Control/Timer" to="." method="_on_timer_timeout"]

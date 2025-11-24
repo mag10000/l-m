@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://ojcokv7h5n8o"]
+[gd_scene load_steps=32 format=3 uid="uid://ojcokv7h5n8o"]
 
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="1_2jrld"]
-[ext_resource type="Script" path="res://scenes/level_2_2.gd" id="1_syac7"]
+[ext_resource type="Script" uid="uid://6vmcq04xqxk6" path="res://scenes/level_2_2.gd" id="1_syac7"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="3_m1q00"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="4_ykb6c"]
 [ext_resource type="AudioStream" uid="uid://bc5tsukgxhwf4" path="res://music/lm song 2.wav" id="6_qscel"]
 [ext_resource type="PackedScene" uid="uid://ckrnbl76w2b6u" path="res://scenes/third_talk.tscn" id="8_1ldvx"]
 [ext_resource type="PackedScene" uid="uid://byci1sdwg64pr" path="res://scenes/base_enter.tscn" id="9_an7sg"]
@@ -13,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="11_0ft48"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="11_xmjlv"]
 [ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="12_qnafo"]
-[ext_resource type="Script" path="res://scenes/killzone4.gd" id="13_i6ox2"]
+[ext_resource type="Script" uid="uid://blrwcde8gcf3v" path="res://scenes/killzone4.gd" id="13_i6ox2"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="14_y1hc4"]
-[ext_resource type="Script" path="res://scenes/killzone3.gd" id="15_o0lfq"]
-[ext_resource type="Script" path="res://scenes/killzone2.gd" id="16_o6wa8"]
+[ext_resource type="Script" uid="uid://dql25y2xc0fda" path="res://scenes/killzone3.gd" id="15_o0lfq"]
+[ext_resource type="Script" uid="uid://dt0hg3iadnvb7" path="res://scenes/killzone2.gd" id="16_o6wa8"]
 [ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="18_pnfon"]
 [ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="19_134mg"]
 
@@ -26,29 +27,15 @@ distance = -64.0
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eocps"]
 texture = ExtResource("10_7m75a")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_8m4be"]
 physics_layer_0/collision_layer = 1
@@ -104,6 +91,7 @@ position = Vector2(124, 307)
 position = Vector2(-17, 21)
 zoom = Vector2(3, 3)
 limit_bottom = 370
+script = ExtResource("4_ykb6c")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(37, 38)
@@ -179,13 +167,13 @@ limit_bottom = 370
 position = Vector2(544, 272)
 emitting = false
 amount = 500
-process_material = SubResource("ParticleProcessMaterial_fysfy")
 texture = ExtResource("11_xmjlv")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_fysfy")
 
 [node name="TileMap2" type="TileMap" parent="."]
 visible = false
@@ -206,7 +194,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
 stream = ExtResource("14_y1hc4")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
 
@@ -226,7 +214,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
 stream = ExtResource("14_y1hc4")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
 
@@ -246,7 +234,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
 stream = ExtResource("14_y1hc4")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
 

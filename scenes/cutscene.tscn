@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://bwocugum5dpru"]
+[gd_scene load_steps=49 format=3 uid="uid://bwocugum5dpru"]
 
-[ext_resource type="Script" path="res://cutscene.gd" id="1_llxvm"]
+[ext_resource type="Script" uid="uid://cqy5ws7tb84je" path="res://cutscene.gd" id="1_llxvm"]
 [ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="2_cwwdm"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="3_r8xg7"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="4_d461y"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="4_ury3t"]
 [ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="5_nr14o"]
 [ext_resource type="AudioStream" uid="uid://coshb0s8p3hi0" path="res://assets/wing-flap-1-6434.mp3" id="6_7w8if"]
 [ext_resource type="Texture2D" uid="uid://dn5yuitwsyuqk" path="res://assets/ian.png" id="7_tlpy5"]
@@ -336,7 +337,7 @@ tracks/14/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gk6cd"]
 _data = {
-"cutscene": SubResource("Animation_go31p")
+&"cutscene": SubResource("Animation_go31p")
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2nydn"]
@@ -458,10 +459,11 @@ autoplay = "default"
 [node name="Camera2D" type="Camera2D" parent="lucas"]
 position = Vector2(-0.149806, 3.70039)
 zoom = Vector2(3, 3)
+script = ExtResource("4_ury3t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gk6cd")
+&"": SubResource("AnimationLibrary_gk6cd")
 }
 autoplay = "cutscene"
 
@@ -519,13 +521,13 @@ color = Color(0, 0, 0, 1)
 position = Vector2(798, -23)
 emitting = false
 amount = 500
-process_material = SubResource("ParticleProcessMaterial_l02w5")
 texture = ExtResource("11_0dhgg")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_l02w5")
 
 [node name="TileMap2" type="TileMap" parent="."]
 visible = false

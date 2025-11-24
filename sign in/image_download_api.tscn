@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7grmhgdit4lr"]
+
+[ext_resource type="Script" uid="uid://dlq0neo3827jq" path="res://sign in/image_download_api.gd" id="1_onkhn"]
+
+[node name="Image Download API" type="HTTPRequest"]
+script = ExtResource("1_onkhn")

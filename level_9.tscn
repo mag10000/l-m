@@ -1,11 +1,11 @@
 [gd_scene load_steps=21 format=3 uid="uid://dxbo2ous1utux"]
 
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_6c2yj"]
-[ext_resource type="Script" path="res://level_9.gd" id="1_b1ueb"]
+[ext_resource type="Script" uid="uid://dj2boo5f7ha3r" path="res://level_9.gd" id="1_b1ueb"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_1akr3"]
 [ext_resource type="Texture2D" uid="uid://ip3hhjtl1kfa" path="res://assets/Jacob_dragon.png" id="3_l3hyg"]
 [ext_resource type="Texture2D" uid="uid://kr6w81vwjw0e" path="res://assets/lm_shadow_portal.png" id="5_tscne"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="6_8jrkr"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="6_8jrkr"]
 
 [sub_resource type="Animation" id="Animation_lvtkb"]
 length = 0.001
@@ -152,8 +152,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2rbs0"]
 _data = {
-"RESET": SubResource("Animation_lvtkb"),
-"new_animation": SubResource("Animation_hhfxt")
+&"RESET": SubResource("Animation_lvtkb"),
+&"new_animation": SubResource("Animation_hhfxt")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynoc4"]
@@ -253,7 +253,7 @@ layer_1/tile_data = PackedInt32Array(-327678, 65537, 1, -262142, 65537, 1, -1966
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2rbs0")
+&"": SubResource("AnimationLibrary_2rbs0")
 }
 autoplay = "new_animation"
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbigk10gbwoc3"]
+
+[ext_resource type="Texture2D" uid="uid://ccea340i1gqx2" path="res://assets/shadow_kid_lm.png" id="1_5bwne"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="2_mf1i3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf1i3"]
+atlas = ExtResource("1_5bwne")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pelrk"]
+atlas = ExtResource("1_5bwne")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll4rq"]
+atlas = ExtResource("1_5bwne")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ih0ao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf1i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pelrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll4rq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="journal" type="Node2D"]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 1261.0
+
+[node name="shadow kid" type="PanelContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="GridContainer/shadow kid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GridContainer/shadow kid/Panel"]
+position = Vector2(23, 22)
+sprite_frames = SubResource("SpriteFrames_ih0ao")
+frame_progress = 0.10364705
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_mf1i3")
+
+[node name="VScrollBar" type="VScrollBar" parent="."]
+offset_left = 568.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdp7cr4rpdot1"]
+[gd_scene load_steps=29 format=3 uid="uid://cdp7cr4rpdot1"]
 
-[ext_resource type="Script" path="res://scenes/loading_screen_dog.gd" id="1_sqkbd"]
+[ext_resource type="Script" uid="uid://67qsopw10xxq" path="res://scenes/loading_screen_dog.gd" id="1_sqkbd"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="2_4kitd"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="2_477gn"]
 [ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="3_4llmy"]
 [ext_resource type="Texture2D" uid="uid://dn5yuitwsyuqk" path="res://assets/ian.png" id="4_kxr11"]
@@ -176,6 +177,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(582, 216)
 scale = Vector2(1.29, 1.14)
 zoom = Vector2(9, 9)
+script = ExtResource("2_4kitd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(628, 234)

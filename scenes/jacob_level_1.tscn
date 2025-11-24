@@ -1,12 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://cnif2wug2hv0i"]
+[gd_scene load_steps=37 format=3 uid="uid://cnif2wug2hv0i"]
 
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="1_s2adi"]
-[ext_resource type="Script" path="res://scenes/jacob_level_1.gd" id="1_xd8g6"]
+[ext_resource type="Script" uid="uid://bv1k8ewqfykvk" path="res://scenes/jacob_level_1.gd" id="1_xd8g6"]
 [ext_resource type="PackedScene" uid="uid://0o6fnljfog8d" path="res://scenes/jacob_dragon.tscn" id="2_2bqe2"]
 [ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="2_3fruo"]
 [ext_resource type="PackedScene" uid="uid://cdcrs0m1nrn83" path="res://scenes/terra_shadow.tscn" id="3_djgfn"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="3_pcr07"]
 [ext_resource type="AudioStream" uid="uid://dqj6ga61qxj72" path="res://assets/jacob_level_song.wav" id="4_ddtr6"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="6_7jqhf"]
 [ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="8_pv8yj"]
 [ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="9_kda75"]
 [ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="10_1blvm"]
@@ -25,29 +26,15 @@ gravity = Vector3(0, 98, 0)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuyi0"]
 texture = ExtResource("1_s2adi")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_lsqs8"]
 physics_layer_0/collision_layer = 1
@@ -107,8 +94,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k87ew"]
 _data = {
-"RESET": SubResource("Animation_vypl8"),
-"fly": SubResource("Animation_x8w00")
+&"RESET": SubResource("Animation_vypl8"),
+&"fly": SubResource("Animation_x8w00")
 }
 
 [sub_resource type="Animation" id="Animation_oubp1"]
@@ -164,8 +151,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mqmu5"]
 _data = {
-"RESET": SubResource("Animation_oubp1"),
-"fly": SubResource("Animation_i1e8o")
+&"RESET": SubResource("Animation_oubp1"),
+&"fly": SubResource("Animation_i1e8o")
 }
 
 [sub_resource type="Animation" id="Animation_nydef"]
@@ -221,8 +208,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cqfff"]
 _data = {
-"RESET": SubResource("Animation_nydef"),
-"fly": SubResource("Animation_cu5vv")
+&"RESET": SubResource("Animation_nydef"),
+&"fly": SubResource("Animation_cu5vv")
 }
 
 [sub_resource type="Animation" id="Animation_ee2y7"]
@@ -254,7 +241,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_secxv"]
 _data = {
-"fly": SubResource("Animation_ee2y7")
+&"fly": SubResource("Animation_ee2y7")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_654qv"]
@@ -299,13 +286,13 @@ layer_0/tile_data = PackedInt32Array(131070, 65536, 0, 131071, 65536, 0, 65536, 
 position = Vector2(771, -76)
 emitting = false
 amount = 500
-process_material = SubResource("ParticleProcessMaterial_5ddk3")
 texture = ExtResource("3_pcr07")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_5ddk3")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lsqs8")
@@ -327,13 +314,14 @@ limit_left = -176
 limit_top = -160
 limit_right = 1664
 limit_bottom = 80
+script = ExtResource("6_7jqhf")
 
 [node name="terra-shadow" parent="." instance=ExtResource("3_djgfn")]
 position = Vector2(252, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="terra-shadow"]
 libraries = {
-"": SubResource("AnimationLibrary_k87ew")
+&"": SubResource("AnimationLibrary_k87ew")
 }
 autoplay = "fly"
 
@@ -349,7 +337,7 @@ position = Vector2(381, -19)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="terra-shadow2"]
 libraries = {
-"": SubResource("AnimationLibrary_mqmu5")
+&"": SubResource("AnimationLibrary_mqmu5")
 }
 autoplay = "fly"
 
@@ -358,7 +346,7 @@ position = Vector2(552, -45)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="terra-shadow3"]
 libraries = {
-"": SubResource("AnimationLibrary_cqfff")
+&"": SubResource("AnimationLibrary_cqfff")
 }
 autoplay = "fly"
 
@@ -367,7 +355,7 @@ position = Vector2(1008.06, -27.4176)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="terra-shadow4"]
 libraries = {
-"": SubResource("AnimationLibrary_secxv")
+&"": SubResource("AnimationLibrary_secxv")
 }
 autoplay = "fly"
 

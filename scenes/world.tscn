@@ -1,8 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://cgejl0kget50h"]
+[gd_scene load_steps=43 format=3 uid="uid://cgejl0kget50h"]
 
-[ext_resource type="Script" path="res://scenes/world.gd" id="1_7ev1q"]
+[ext_resource type="Script" uid="uid://bv8f3hkksvxmy" path="res://scenes/world.gd" id="1_7ev1q"]
 [ext_resource type="AudioStream" uid="uid://4jgr8y1nu5uh" path="res://music/LM_Main_Soundtrack.wav" id="1_wdtrk"]
-[ext_resource type="Script" path="res://scenes/game maneger.gd" id="1_wew0o"]
+[ext_resource type="Script" uid="uid://brwmmlsijfq18" path="res://scenes/game maneger.gd" id="1_wew0o"]
 [ext_resource type="TileSet" uid="uid://ci1wci3kjanna" path="res://winter_tileset.tres" id="2_v8am4"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="3_yiadm"]
 [ext_resource type="Texture2D" uid="uid://djbsiese0l3hb" path="res://assets/pixil-frame-0(29).png" id="5_8u7im"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dpltoevskcem8" path="res://scenes/shadow_kid.tscn" id="6_yyife"]
 [ext_resource type="Texture2D" uid="uid://cmj7ox1dsq05l" path="res://assets/pixil-frame-0(28).png" id="7_ewyu5"]
 [ext_resource type="PackedScene" uid="uid://8uadvsrsjdob" path="res://scenes/dirt.tscn" id="8_6xxgi"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="9_munwf"]
 [ext_resource type="PackedScene" uid="uid://bojfih775kc12" path="res://scenes/end_bus_stop.tscn" id="11_7sqfx"]
 [ext_resource type="PackedScene" uid="uid://dmkljk02g8e14" path="res://scenes/first talk.tscn" id="14_lnyh3"]
 [ext_resource type="PackedScene" uid="uid://bxs6wbpoftpvw" path="res://scenes/shadow_kid_talk.tscn" id="14_wytub"]
@@ -18,9 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="15_sbfxs"]
 [ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="16_5fb52"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="18_7pxcb"]
-[ext_resource type="Script" path="res://scenes/killzone2.gd" id="20_dth2y"]
-[ext_resource type="Script" path="res://scenes/killzone4.gd" id="20_up8nc"]
-[ext_resource type="Script" path="res://scenes/killzone3.gd" id="21_mnatm"]
+[ext_resource type="Script" uid="uid://dt0hg3iadnvb7" path="res://scenes/killzone2.gd" id="20_dth2y"]
+[ext_resource type="Script" uid="uid://blrwcde8gcf3v" path="res://scenes/killzone4.gd" id="20_up8nc"]
+[ext_resource type="Script" uid="uid://dql25y2xc0fda" path="res://scenes/killzone3.gd" id="21_mnatm"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="21_p4ybr"]
 [ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="24_x16cy"]
 [ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="25_bbowa"]
@@ -39,29 +40,15 @@ size = Vector2(16, 15.5)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5ruc"]
 texture = ExtResource("15_4kw02")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_gdj84"]
 physics_layer_0/collision_layer = 1
@@ -182,6 +169,7 @@ position = Vector2(564, 471)
 position = Vector2(-16, 24)
 zoom = Vector2(3, 3)
 limit_bottom = 530
+script = ExtResource("9_munwf")
 
 [node name="first talk" parent="." instance=ExtResource("14_lnyh3")]
 position = Vector2(541, 402)
@@ -237,13 +225,13 @@ position = Vector2(1065, 244)
 position = Vector2(1204, 375)
 emitting = false
 amount = 500
-process_material = SubResource("ParticleProcessMaterial_v6pui")
 texture = ExtResource("18_7pxcb")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_v6pui")
 
 [node name="bridge" type="StaticBody2D" parent="."]
 position = Vector2(920, 608)
@@ -280,7 +268,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
 stream = ExtResource("21_p4ybr")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
 
@@ -300,7 +288,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
 stream = ExtResource("21_p4ybr")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
 
@@ -320,7 +308,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
 stream = ExtResource("21_p4ybr")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
 

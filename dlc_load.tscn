@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b34yc6feiyi0l"]
 
 [ext_resource type="Script" path="res://dlc_load.gd" id="1_fbj2e"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="2_cj5u1"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_cj5u1"]
 
 [node name="dlc_load" type="Node2D"]
 script = ExtResource("1_fbj2e")

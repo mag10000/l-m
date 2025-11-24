@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8fiwbbluylx"]
+
+[ext_resource type="Script" path="res://premium/minigame_select.gd" id="1_02tsl"]
+[ext_resource type="Texture2D" uid="uid://d01jdgok426ay" path="res://premium/tag logo.png" id="2_pmb34"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_t3hp5"]
+
+[node name="minigame select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_02tsl")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 31.0
+offset_right = 1124.0
+offset_bottom = 618.0
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("2_pmb34")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GridContainer/TextureRect"]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 173.0
+theme_override_fonts/font = ExtResource("3_t3hp5")
+text = "Tag"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GridContainer/TextureRect"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 169.0
+flat = true

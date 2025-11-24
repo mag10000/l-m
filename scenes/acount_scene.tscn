@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cari6ycov0u4w"]
+[gd_scene load_steps=11 format=3 uid="uid://cari6ycov0u4w"]
 
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="1_5jc1g"]
-[ext_resource type="Script" path="res://scenes/acount_scene.gd" id="1_u75fc"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_5jc1g"]
+[ext_resource type="Script" uid="uid://dtf4yyv3c30do" path="res://scenes/acount_scene.gd" id="1_u75fc"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="3_amlre"]
+[ext_resource type="Texture2D" uid="uid://doka4nx3yu6y6" path="res://assets/web_dark_rd_SI@4x.png" id="4_mbv7w"]
+[ext_resource type="Texture2D" uid="uid://tsxysym02qv" path="res://assets/web_dark_rd_SU@4x.png" id="5_8150r"]
+[ext_resource type="Script" uid="uid://c7gpms5gn3o73" path="res://sign in/SupabaseAuth.gd" id="6_13tyi"]
+[ext_resource type="Texture2D" uid="uid://dgnf3jtxka71g" path="res://assets/web_neutral_rd_SI@4x.png" id="6_8150r"]
+[ext_resource type="Texture2D" uid="uid://dtt7giyqujwm0" path="res://assets/web_light_rd_SI@4x.png" id="6_c5s1o"]
+[ext_resource type="Texture2D" uid="uid://j7v58c8sqio3" path="res://assets/web_light_rd_SU@4x.png" id="8_13tyi"]
+[ext_resource type="Texture2D" uid="uid://b4w4m7mkqivtl" path="res://assets/web_neutral_rd_SU@4x.png" id="9_qevo2"]
 
 [node name="acount_scene" type="Node2D"]
 script = ExtResource("1_u75fc")
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -64,6 +73,7 @@ theme_override_fonts/font = ExtResource("1_5jc1g")
 text = "0"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
+visible = false
 offset_left = 35.0
 offset_top = -62.0
 offset_right = 239.0
@@ -99,10 +109,12 @@ text = "0
 "
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(138, 0)
+position = Vector2(-211, -73)
 zoom = Vector2(3, 3)
+script = ExtResource("3_amlre")
 
 [node name="Button11" type="Button" parent="."]
+visible = false
 offset_top = 49.0
 offset_right = 24.0
 offset_bottom = 89.0
@@ -110,6 +122,7 @@ theme_override_fonts/font = ExtResource("1_5jc1g")
 text = "restart"
 
 [node name="Button12" type="Button" parent="."]
+visible = false
 offset_left = 157.0
 offset_top = 49.0
 offset_right = 277.0
@@ -118,6 +131,7 @@ theme_override_fonts/font = ExtResource("1_5jc1g")
 text = "enter"
 
 [node name="Button13" type="Button" parent="."]
+visible = false
 offset_left = 100.0
 offset_top = -115.0
 offset_right = 172.0
@@ -126,11 +140,75 @@ theme_override_fonts/font = ExtResource("1_5jc1g")
 text = "back"
 
 [node name="TextEdit" type="TextEdit" parent="."]
+visible = false
 offset_top = -63.0
 offset_right = 276.0
 offset_bottom = -20.0
 theme_override_fonts/font = ExtResource("1_5jc1g")
 placeholder_text = "code"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 3.0
+offset_top = -20.0
+offset_right = 279.0
+theme_override_fonts/font = ExtResource("1_5jc1g")
+
+[node name="WebDarkRdSi_4x" type="Sprite2D" parent="."]
+position = Vector2(-881, -187)
+texture = ExtResource("4_mbv7w")
+
+[node name="WebDarkRdSu_4x" type="Sprite2D" parent="."]
+position = Vector2(-904, 5)
+texture = ExtResource("5_8150r")
+
+[node name="Login_signup(supabase)" type="Panel" parent="."]
+offset_left = -403.0
+offset_top = -181.0
+offset_right = -19.0
+offset_bottom = 35.0
+script = ExtResource("6_13tyi")
+
+[node name="Options" type="VBoxContainer" parent="Login_signup(supabase)"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 17.0
+offset_right = 265.0
+offset_bottom = 199.0
+
+[node name="Label" type="Label" parent="Login_signup(supabase)/Options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+theme_override_font_sizes/font_size = 8
+text = "Sign In"
+horizontal_alignment = 1
+
+[node name="Login" type="TextureButton" parent="Login_signup(supabase)/Options"]
+texture_filter = 1
+custom_minimum_size = Vector2(1, 35)
+layout_mode = 2
+texture_normal = ExtResource("4_mbv7w")
+texture_pressed = ExtResource("6_c5s1o")
+texture_hover = ExtResource("6_8150r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="Login_signup(supabase)/Options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5jc1g")
+theme_override_font_sizes/font_size = 8
+text = "Sign Up"
+horizontal_alignment = 1
+
+[node name="SignUp" type="TextureButton" parent="Login_signup(supabase)/Options"]
+texture_filter = 1
+custom_minimum_size = Vector2(1, 35)
+layout_mode = 2
+texture_normal = ExtResource("5_8150r")
+texture_pressed = ExtResource("8_13tyi")
+texture_hover = ExtResource("9_qevo2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="BoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BoxContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

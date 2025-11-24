@@ -16,6 +16,13 @@ func _ready():
 	State.player_4_in = false
 	State.player_4_in = false
 	State.on_a_jacoblevel = true
+	
+	if State.show_leaderboard_timer == true:
+		State.instanciate_LeaderboardTimer()
+		State.score_level = "dragon Level 1"
+	else:
+		State.kill_LeaderboardTimer()
+		State.score_level = "dragon Level 1"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

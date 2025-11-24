@@ -1,18 +1,19 @@
-[gd_scene load_steps=27 format=3 uid="uid://dht7eanei4l87"]
+[gd_scene load_steps=28 format=3 uid="uid://dht7eanei4l87"]
 
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_0bwo7"]
-[ext_resource type="Script" path="res://scenes/strange_signal_level.gd" id="1_bi4kv"]
+[ext_resource type="Script" uid="uid://pgemuyo4dhqr" path="res://scenes/strange_signal_level.gd" id="1_bi4kv"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_n6ldp"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="3_8aai8"]
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="3_qihkk"]
 [ext_resource type="PackedScene" uid="uid://dpltoevskcem8" path="res://scenes/shadow_kid.tscn" id="4_tnbuy"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="6_l7epy"]
 [ext_resource type="AudioStream" uid="uid://djucw81mribkm" path="res://assets/lm somobey house.wav" id="7_af8ud"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="8_etldc"]
 [ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="9_5focb"]
-[ext_resource type="Script" path="res://scenes/killzone2.gd" id="10_8rl88"]
+[ext_resource type="Script" uid="uid://dt0hg3iadnvb7" path="res://scenes/killzone2.gd" id="10_8rl88"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="11_l1kys"]
-[ext_resource type="Script" path="res://scenes/killzone3.gd" id="12_3xty4"]
-[ext_resource type="Script" path="res://scenes/killzone4.gd" id="13_6vm47"]
+[ext_resource type="Script" uid="uid://dql25y2xc0fda" path="res://scenes/killzone3.gd" id="12_3xty4"]
+[ext_resource type="Script" uid="uid://blrwcde8gcf3v" path="res://scenes/killzone4.gd" id="13_6vm47"]
 [ext_resource type="PackedScene" uid="uid://0jik4vy25ayj" path="res://new_yeartaskbar.tscn" id="14_j6hxa"]
 [ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="15_6irna"]
 [ext_resource type="Texture2D" uid="uid://drvtqormat6bs" path="res://assets/small_buttons-export.png" id="16_koiir"]
@@ -61,6 +62,7 @@ zoom = Vector2(3, 3)
 limit_left = -65
 limit_top = -90
 limit_bottom = 113
+script = ExtResource("3_8aai8")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_0bwo7")
@@ -159,7 +161,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
 stream = ExtResource("11_l1kys")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
 
@@ -178,7 +180,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
 stream = ExtResource("11_l1kys")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
 
@@ -197,7 +199,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
 stream = ExtResource("11_l1kys")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
 

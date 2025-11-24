@@ -1,16 +1,21 @@
-[gd_scene load_steps=32 format=3 uid="uid://bygwvfoyxosv2"]
+[gd_scene load_steps=45 format=3 uid="uid://bygwvfoyxosv2"]
 
 [ext_resource type="TileSet" uid="uid://ba35ys6bejln0" path="res://strange_signal_cutscene.tres" id="1_5t4qt"]
-[ext_resource type="Script" path="res://scenes/level_7.gd" id="1_w4kel"]
+[ext_resource type="Script" uid="uid://damdlc12gydn8" path="res://scenes/level_7.gd" id="1_w4kel"]
+[ext_resource type="Shader" uid="uid://d2xufhwr167d1" path="res://scenes/water.gdshader" id="2_1lha2"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_rwwko"]
+[ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="3_mouq0"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="3_tqxa5"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="4_8c7da"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="4_f70q6"]
+[ext_resource type="Texture2D" uid="uid://bs066r1l0m3lg" path="res://assets/water_lm.png" id="4_hq5o0"]
 [ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="5_ohtnd"]
-[ext_resource type="Script" path="res://scenes/scripts/killzone.gd" id="6_1b7h6"]
+[ext_resource type="Texture2D" uid="uid://dpeea2k1pvwyq" path="res://assets/water_single_tile.png" id="5_uthiy"]
+[ext_resource type="Script" uid="uid://bbsi0geyb6beo" path="res://scenes/scripts/killzone.gd" id="6_1b7h6"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="7_lh1b7"]
-[ext_resource type="Script" path="res://scenes/killzone2.gd" id="8_rd6fu"]
-[ext_resource type="Script" path="res://scenes/killzone3.gd" id="9_i5jqg"]
-[ext_resource type="Script" path="res://scenes/killzone4.gd" id="10_h37f5"]
+[ext_resource type="Script" uid="uid://dt0hg3iadnvb7" path="res://scenes/killzone2.gd" id="8_rd6fu"]
+[ext_resource type="Script" uid="uid://dql25y2xc0fda" path="res://scenes/killzone3.gd" id="9_i5jqg"]
+[ext_resource type="Script" uid="uid://blrwcde8gcf3v" path="res://scenes/killzone4.gd" id="10_h37f5"]
 [ext_resource type="PackedScene" uid="uid://dpltoevskcem8" path="res://scenes/shadow_kid.tscn" id="11_nm86h"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="13_bipkn"]
 [ext_resource type="Texture2D" uid="uid://cwvbkp821k2h1" path="res://assets/jump-export.png" id="14_phjn4"]
@@ -20,7 +25,57 @@
 [ext_resource type="PackedScene" uid="uid://c0aevi8icpca1" path="res://scenes/false_block.tscn" id="17_fgnx3"]
 [ext_resource type="PackedScene" uid="uid://bu0to7g3hpdcf" path="res://scenes/water.tscn" id="18_fogqh"]
 [ext_resource type="PackedScene" uid="uid://cbusjg46uy5v4" path="res://scenes/water_2.tscn" id="19_tqexl"]
-[ext_resource type="Script" path="res://scenes/water_3.gd" id="20_ekjhw"]
+[ext_resource type="Script" uid="uid://cemak4os3gvdc" path="res://scenes/water_3.gd" id="20_ekjhw"]
+[ext_resource type="AudioStream" uid="uid://dpf6qmdwjm8sn" path="res://assets/level_7.wav" id="22_vc8jp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ykoec"]
+frequency = 0.001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wf7sx"]
+noise = SubResource("FastNoiseLite_ykoec")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pum2"]
+shader = ExtResource("2_1lha2")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_wf7sx")
+shader_parameter/speed = Vector2(0.5, 0.2)
+shader_parameter/wave_strength = 0.1
+shader_parameter/distortion = 0.01
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dn5to"]
+texture = ExtResource("3_mouq0")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btgtd"]
+texture = ExtResource("4_hq5o0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kicyj"]
+texture = ExtResource("5_uthiy")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u362a"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_dn5to")
+sources/1 = SubResource("TileSetAtlasSource_btgtd")
+sources/2 = SubResource("TileSetAtlasSource_kicyj")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_l0yol"]
 
@@ -62,6 +117,15 @@ size = Vector2(20, 320)
 [node name="level 7" type="Node2D"]
 script = ExtResource("1_w4kel")
 
+[node name="Tilewater" type="TileMap" parent="."]
+z_index = 9
+material = SubResource("ShaderMaterial_6pum2")
+tile_set = SubResource("TileSet_u362a")
+format = 2
+layer_0/name = "water"
+layer_0/z_index = -10
+layer_0/tile_data = PackedInt32Array(196773, 2, 0, 196774, 2, 0, 196775, 2, 0, 196776, 2, 0, 196777, 2, 0, 196778, 2, 0, 196779, 2, 0, 196780, 2, 0, 262316, 2, 0, 327852, 2, 0, 327851, 2, 0, 327850, 2, 0, 327849, 2, 0, 327848, 2, 0, 262311, 2, 0, 262310, 2, 0, 262309, 2, 0, 327845, 2, 0, 327846, 2, 0, 327847, 2, 0, 262312, 2, 0, 262313, 2, 0, 262314, 2, 0, 262315, 2, 0)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_5t4qt")
 format = 2
@@ -75,17 +139,19 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-1113950, 1, 2, -1048414, 1, 2, -982878, 1, 2, -917342, 1, 2, -851806, 1, 2, -786270, 1, 2, -720734, 1, 2, -655198, 1, 2, -589662, 1, 2, -524126, 1, 2, -458590, 1, 2, -524125, 1, 2, -589660, 1, 2, -655195, 1, 2, -524127, 1, 2, -589664, 1, 2, -655201, 1, 2, -720737, 1, 2, -720731, 1, 2)
 layer_3/name = "water"
 layer_3/z_index = -10
-layer_3/tile_data = PackedInt32Array(196773, 131073, 1, 262309, 131073, 1, 327845, 131073, 1, 196774, 131073, 1, 262310, 131073, 1, 327846, 131073, 1, 196775, 131073, 1, 262311, 131073, 1, 327847, 131073, 1, 196776, 131073, 1, 262312, 131073, 1, 327848, 131073, 1, 196777, 131073, 1, 262313, 131073, 1, 327849, 131073, 1, 196778, 131073, 1, 262314, 131073, 1, 327850, 131073, 1, 196779, 131073, 1, 262315, 131073, 1, 327851, 131073, 1, 196780, 131073, 1, 262316, 131073, 1, 327852, 131073, 1)
 
 [node name="main dude" parent="TileMap" instance=ExtResource("2_rwwko")]
+z_index = -2
 position = Vector2(27, -41)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/main dude"]
 position = Vector2(-18, 25)
 zoom = Vector2(3, 3)
 limit_bottom = 152
+script = ExtResource("4_8c7da")
 
 [node name="player2" parent="TileMap" instance=ExtResource("3_tqxa5")]
+z_index = -2
 position = Vector2(28, -16)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/player2"]
@@ -93,6 +159,7 @@ zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="ian" parent="TileMap" instance=ExtResource("4_f70q6")]
+z_index = -2
 position = Vector2(47, -17)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/ian"]
@@ -101,6 +168,7 @@ zoom = Vector2(3, 3)
 limit_bottom = 152
 
 [node name="tall_boi" parent="TileMap" instance=ExtResource("5_ohtnd")]
+z_index = -2
 position = Vector2(66, -16)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap/tall_boi"]
@@ -119,7 +187,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone"]
 stream = ExtResource("7_lh1b7")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone/AudioStreamPlayer2D"]
 
@@ -138,7 +206,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone2"]
 stream = ExtResource("7_lh1b7")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone2/AudioStreamPlayer2D"]
 
@@ -157,7 +225,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone3"]
 stream = ExtResource("7_lh1b7")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone3/AudioStreamPlayer2D"]
 
@@ -176,7 +244,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="killzone4"]
 stream = ExtResource("7_lh1b7")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="killzone4/AudioStreamPlayer2D"]
 
@@ -197,13 +265,13 @@ z_index = -1
 position = Vector2(778, -2)
 emitting = false
 amount = 5000
-process_material = SubResource("ParticleProcessMaterial_eftj0")
 texture = ExtResource("13_bipkn")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_eftj0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -291,6 +359,7 @@ position = Vector2(2632, -56)
 position = Vector2(2686, 70)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
+visible = false
 position = Vector2(18, 2)
 shape = SubResource("RectangleShape2D_41xs7")
 
@@ -298,6 +367,7 @@ shape = SubResource("RectangleShape2D_41xs7")
 position = Vector2(2678, 77)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="water_2"]
+visible = false
 position = Vector2(26, -5)
 shape = SubResource("RectangleShape2D_41xs7")
 
@@ -312,10 +382,12 @@ collision_layer = 128
 collision_mask = 128
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="water_3/Area2D"]
+visible = false
 position = Vector2(-12, -7)
 shape = SubResource("RectangleShape2D_41xs7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="water_3"]
+visible = false
 position = Vector2(-12, -7)
 shape = SubResource("RectangleShape2D_41xs7")
 
@@ -332,6 +404,10 @@ collision_mask = 143
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(3286, -130)
 shape = SubResource("RectangleShape2D_g4xjm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_vc8jp")
+autoplay = true
 
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
 [connection signal="timeout" from="killzone/Timer" to="killzone" method="_on_timer_timeout"]

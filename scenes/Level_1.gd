@@ -9,6 +9,13 @@ func _ready():
 		$Control/CanvasLayer.visible = true
 	if State.mobile == false:
 		$Control/CanvasLayer.visible = false
+	
+	if State.show_leaderboard_timer == true:
+		State.instanciate_LeaderboardTimer()
+		State.score_level = "Level 1"
+	else:
+		State.kill_LeaderboardTimer()
+		State.score_level = "Level 1"
 
 
 

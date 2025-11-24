@@ -7,7 +7,17 @@ var current_month = date_dict["month"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if State.mobile == true:
+		$Control/CanvasLayer.visible = true
+	if State.mobile == false:
+		$Control/CanvasLayer.visible = false
+	
+	if State.show_leaderboard_timer == true:
+		State.instanciate_LeaderboardTimer()
+		State.score_level = "Level 8"
+	else:
+		State.kill_LeaderboardTimer()
+		State.score_level = "Level 8"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,10 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://4iv6wmy7v2v0"]
+[gd_scene load_steps=4 format=3 uid="uid://4iv6wmy7v2v0"]
 
 [ext_resource type="SpriteFrames" uid="uid://co2n2m2csfhmx" path="res://scenes/p1animation.tres" id="1_ji374"]
+[ext_resource type="SpriteFrames" uid="uid://beoe2825bf5yp" path="res://mods/back to school/p1animation.tres" id="2_qq1vw"]
+[ext_resource type="SpriteFrames" uid="uid://cljynqn0osrge" path="res://mods/purple skins/p1animation_mod_purple.tres" id="2_r2xe0"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -3)
 sprite_frames = ExtResource("1_ji374")
+animation = &"idle"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(72, -3)
+sprite_frames = ExtResource("2_qq1vw")
+animation = &"water_jump"
+frame_progress = 0.593626
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 1)
+sprite_frames = ExtResource("2_r2xe0")
 animation = &"idle"

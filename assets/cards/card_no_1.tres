@@ -1,0 +1,10 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://br0ey40kivrfw"]
+
+[ext_resource type="Texture2D" uid="uid://dxk27d0ujxhd5" path="res://assets/cards/card no. 1-Photoroom.png" id="1_kwqm8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1jwn"]
+transparency = 1
+albedo_texture = ExtResource("1_kwqm8")
+
+[resource]
+material = SubResource("StandardMaterial3D_p1jwn")

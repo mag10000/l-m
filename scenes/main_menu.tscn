@@ -1,18 +1,23 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsu1mcd1utghg"]
+[gd_scene load_steps=42 format=3 uid="uid://bsu1mcd1utghg"]
 
-[ext_resource type="Script" path="res://scenes/scripts/main menu.gd" id="1_gacp7"]
+[ext_resource type="Script" uid="uid://ben6iqby580gc" path="res://scenes/scripts/main menu.gd" id="1_gacp7"]
 [ext_resource type="Texture2D" uid="uid://6omake73jn4w" path="res://assets/main_menu_art.png" id="2_tihoy"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="3_p5weo"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_p5weo"]
 [ext_resource type="Texture2D" uid="uid://bkvg1yglu5ily" path="res://assets/main_menu_art_spooky.png" id="3_pf3t1"]
-[ext_resource type="Script" path="res://scenes/Button.gd" id="4_gykim"]
+[ext_resource type="Script" uid="uid://dkr2hbhfbmdin" path="res://scenes/button.gd" id="4_gykim"]
 [ext_resource type="AudioStream" uid="uid://couiho3aka6wn" path="res://music/lm scary.wav" id="5_dnm2d"]
-[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="6_xoitd"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="6_j7ex8"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_xoitd"]
 [ext_resource type="Texture2D" uid="uid://dx30oa5brkwih" path="res://assets/save.png" id="7_3cqw4"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="8_c6tgm"]
 [ext_resource type="Texture2D" uid="uid://3m7lvxj03wed" path="res://assets/tyuio.png" id="9_n654j"]
 [ext_resource type="Texture2D" uid="uid://bx6m7jwf2dmkt" path="res://assets/settings.png" id="10_l0asj"]
 [ext_resource type="Texture2D" uid="uid://b80bhi6bwm2o5" path="res://assets/lm_brady.png" id="11_k6u6j"]
 [ext_resource type="Texture2D" uid="uid://cgbk70ja616lx" path="res://assets/shop_logo.png" id="13_3dw6n"]
+[ext_resource type="Texture2D" uid="uid://bv1dc7frwqrg" path="res://assets/premium.png" id="14_lx57g"]
+[ext_resource type="Texture2D" uid="uid://c57db1qhf4w57" path="res://premium/premium_animation.png" id="15_663dl"]
+[ext_resource type="Texture2D" uid="uid://cbvsr6lg6pl5e" path="res://assets/clock.png" id="15_a8gd2"]
+[ext_resource type="PackedScene" uid="uid://bdi0nfq77u0ht" path="res://beta.tscn" id="16_p85w8"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwnmb"]
 particle_flag_disable_z = true
@@ -73,12 +78,125 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7qp4"]
-bg_color = Color(0.382563, 0.367186, 0.672418, 1)
+bg_color = Color(0.41304016, 0.398801, 0.7054318, 1)
 border_color = Color(0.0399781, 0.00367557, 0.103069, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kawg"]
+atlas = ExtResource("15_663dl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gck73"]
+atlas = ExtResource("15_663dl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kee3e"]
+atlas = ExtResource("15_663dl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imhac"]
+atlas = ExtResource("15_663dl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d5up"]
+atlas = ExtResource("15_663dl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vju0k"]
+atlas = ExtResource("15_663dl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0445"]
+atlas = ExtResource("15_663dl")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qsjn"]
+atlas = ExtResource("15_663dl")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns34o"]
+atlas = ExtResource("15_663dl")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24yx4"]
+atlas = ExtResource("15_663dl")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv7kw"]
+atlas = ExtResource("15_663dl")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb05w"]
+atlas = ExtResource("15_663dl")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ia1x"]
+atlas = ExtResource("15_663dl")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r67g"]
+atlas = ExtResource("15_663dl")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjapr"]
+atlas = ExtResource("15_663dl")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jrujw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kawg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gck73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kee3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imhac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d5up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vju0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0445")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qsjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns34o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24yx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv7kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb05w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ia1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r67g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjapr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_gacp7")
-version = "v 3.1.1"
+version = "v 3.5.4"
 
 [node name="MainMenuArt" type="Sprite2D" parent="."]
 position = Vector2(89, 4)
@@ -107,10 +225,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="MainMenuArt"]
 z_index = -1
-offset_left = -455.0
-offset_top = -472.0
-offset_right = -2.0
-offset_bottom = 378.0
+offset_left = -454.0
+offset_top = -548.0
+offset_right = -1.0
+offset_bottom = 302.0
 color = Color(0.223529, 0.45098, 0.678431, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="MainMenuArt"]
@@ -177,13 +295,14 @@ text = "start"
 script = ExtResource("4_gykim")
 
 [node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(88, 31)
 offset_left = 112.0
 offset_top = 20.0
 offset_right = 184.0
 offset_bottom = 52.0
 tooltip_text = "quit the game"
 focus_neighbor_left = NodePath("../Button")
-focus_neighbor_top = NodePath("../Button4")
+focus_neighbor_top = NodePath("../Translate")
 focus_neighbor_right = NodePath("../Button")
 focus_neighbor_bottom = NodePath("../Button3")
 theme_override_fonts/font = ExtResource("3_p5weo")
@@ -191,9 +310,9 @@ button_mask = 3
 text = "quit"
 
 [node name="Button3" type="Button" parent="."]
-offset_left = 19.0
+offset_left = 20.0
 offset_top = 61.0
-offset_right = 155.0
+offset_right = 156.0
 offset_bottom = 93.0
 tooltip_text = "quit the game"
 focus_neighbor_left = NodePath("../save")
@@ -204,9 +323,25 @@ theme_override_fonts/font = ExtResource("3_p5weo")
 button_mask = 3
 text = "settings"
 
+[node name="Button8" type="Button" parent="."]
+visible = false
+offset_left = 51.0
+offset_top = 96.0
+offset_right = 123.0
+offset_bottom = 128.0
+tooltip_text = "quit the game"
+focus_neighbor_left = NodePath("../save")
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_right = NodePath("../load")
+focus_neighbor_bottom = NodePath("../save")
+theme_override_fonts/font = ExtResource("3_p5weo")
+button_mask = 3
+text = "lock"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(94, 34)
 zoom = Vector2(2, 2)
+script = ExtResource("6_j7ex8")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_dnm2d")
@@ -262,13 +397,13 @@ text = " new save"
 position = Vector2(143, -25)
 emitting = false
 amount = 500
-process_material = SubResource("ParticleProcessMaterial_uwnmb")
 texture = ExtResource("8_c6tgm")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_uwnmb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wwjg7")
@@ -277,18 +412,32 @@ sprite_frames = SubResource("SpriteFrames_wwjg7")
 position = Vector2(19, 0)
 sprite_frames = SubResource("SpriteFrames_usmae")
 
-[node name="Button4" type="Button" parent="."]
-offset_left = 110.0
-offset_top = -80.0
-offset_right = 327.0
-offset_bottom = -49.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 98.0
+offset_top = -79.0
+offset_right = 347.0
+offset_bottom = -61.0
+theme_override_fonts/normal_font = ExtResource("3_p5weo")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "
+[wave]translate"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Translate" type="Button" parent="."]
+offset_left = 141.0
+offset_top = -79.0
+offset_right = 301.0
+offset_bottom = -57.0
 focus_neighbor_left = NodePath("../arcade")
 focus_neighbor_right = NodePath("../arcade")
 focus_neighbor_bottom = NodePath("../Button2")
 theme_override_fonts/font = ExtResource("3_p5weo")
 theme_override_font_sizes/font_size = 8
-text = "traducir al español"
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Button5" type="Button" parent="."]
 offset_left = -8.0
@@ -301,7 +450,7 @@ focus_neighbor_right = NodePath("../Button6")
 focus_neighbor_bottom = NodePath("../Button")
 flat = true
 
-[node name="Button6" type="LinkButton" parent="."]
+[node name="Button6" type="Button" parent="."]
 offset_left = 11.0
 offset_top = -8.0
 offset_right = 27.0
@@ -310,6 +459,7 @@ focus_neighbor_left = NodePath("../Button5")
 focus_neighbor_top = NodePath("../arcade")
 focus_neighbor_right = NodePath("../Button7")
 focus_neighbor_bottom = NodePath("../Button")
+flat = true
 
 [node name="Button7" type="Button" parent="."]
 custom_minimum_size = Vector2(16, 16)
@@ -325,29 +475,45 @@ disabled = true
 icon = ExtResource("13_3dw6n")
 flat = true
 
+[node name="Leaderboard" type="Button" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 47.0
+offset_top = -9.0
+offset_right = 87.0
+offset_bottom = 31.0
+scale = Vector2(0.5, 0.5)
+focus_neighbor_left = NodePath("../Button6")
+focus_neighbor_top = NodePath("../arcade")
+focus_neighbor_right = NodePath("../mobile")
+focus_neighbor_bottom = NodePath("../Button")
+icon = ExtResource("15_a8gd2")
+flat = true
+
 [node name="save" type="Button" parent="."]
-offset_left = -62.0
-offset_top = 95.0
-offset_right = 10.0
-offset_bottom = 126.0
+offset_left = -57.0
+offset_top = 99.0
+offset_right = 15.0
+offset_bottom = 130.0
 focus_neighbor_left = NodePath("../load")
 focus_neighbor_top = NodePath("../Button3")
 focus_neighbor_right = NodePath("../load")
 focus_neighbor_bottom = NodePath("../Button")
 theme_override_fonts/font = ExtResource("3_p5weo")
 text = "save"
+metadata/_edit_use_anchors_ = true
 
 [node name="load" type="Button" parent="."]
-offset_left = 157.0
-offset_top = 96.0
-offset_right = 200.0
-offset_bottom = 127.0
+offset_left = 159.0
+offset_top = 99.0
+offset_right = 231.0
+offset_bottom = 130.0
 focus_neighbor_left = NodePath("../save")
 focus_neighbor_top = NodePath("../Button3")
 focus_neighbor_right = NodePath("../save")
 focus_neighbor_bottom = NodePath("../Button")
 theme_override_fonts/font = ExtResource("3_p5weo")
 text = "load"
+metadata/_edit_use_anchors_ = true
 
 [node name="mobile" type="Button" parent="."]
 offset_left = -37.0
@@ -360,19 +526,24 @@ focus_neighbor_right = NodePath("../Button5")
 focus_neighbor_bottom = NodePath("../Button")
 theme_override_fonts/font = ExtResource("3_p5weo")
 text = "m"
+metadata/_edit_use_anchors_ = true
 
 [node name="arcade" type="Button" parent="."]
-offset_left = -50.0
-offset_top = -47.0
-offset_right = 11.0
-offset_bottom = -16.0
-focus_neighbor_top = NodePath("../Button4")
-focus_neighbor_right = NodePath("../Button4")
+offset_left = 40.0
+offset_top = 106.0
+offset_right = 136.0
+offset_bottom = 122.0
+focus_neighbor_top = NodePath("../Translate")
+focus_neighbor_right = NodePath("../Translate")
 focus_neighbor_bottom = NodePath("../mobile")
-text = "arcade"
+theme_override_fonts/font = ExtResource("3_p5weo")
+theme_override_font_sizes/font_size = 8
+text = "arcade mode"
 flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
+oversampling_override = 1.0
 title = "Hello"
 initial_position = 1
 size = Vector2i(370, 152)
@@ -390,17 +561,135 @@ expand_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Premium" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(176, -31)
+texture = ExtResource("14_lx57g")
+
+[node name="Premium animation" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(94, 34)
+scale = Vector2(10.5, 10.125)
+sprite_frames = SubResource("SpriteFrames_jrujw")
+autoplay = "default"
+frame = 14
+frame_progress = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="Premium animation"]
+z_index = -1
+offset_left = -28.0
+offset_top = -16.0
+offset_right = 28.0
+offset_bottom = 16.0
+color = Color(0.607843, 0.678431, 0.717647, 1)
+
+[node name="beta" parent="." instance=ExtResource("16_p85w8")]
+visible = false
+z_index = 41
+position = Vector2(-193, -128)
+scale = Vector2(0.5, 0.5)
+
+[node name="ver" type="Label" parent="."]
+offset_left = 158.0
+offset_top = 183.0
+offset_right = 377.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("3_p5weo")
+theme_override_font_sizes/font_size = 8
+text = "ver"
+horizontal_alignment = 2
+
+[node name="update guide" type="Panel" parent="."]
+visible = false
+offset_left = -194.0
+offset_top = -129.0
+offset_right = 382.0
+offset_bottom = 196.0
+
+[node name="header" type="RichTextLabel" parent="update guide"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 14.0
+offset_right = 420.0
+offset_bottom = 54.0
+theme_override_fonts/normal_font = ExtResource("3_p5weo")
+bbcode_enabled = true
+text = "[wave] Welcome to Lm 
+v 3.5.4"
+horizontal_alignment = 1
+
+[node name="body" type="RichTextLabel" parent="update guide"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 60.0
+offset_right = 506.0
+offset_bottom = 306.0
+theme_override_fonts/normal_font = ExtResource("3_p5weo")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[wave] Welcome to Lm 
+v 3.5.4[/wave]
+in this update the following changed
+
+Changelog:
+
+ -Account System(does not work on web)
+
+ -Screenshots
+
+ -new settings option: Show timer
+ 
+-windows 10 and 11 download options
+ 
+-leaderboard system
+
+to add a score to the leaderboard first go to [img]res://assets/settings.png[/img] settings and click on the Show Timer button.
+Then start a level you should see a timer in the corner of your screen. When you get back to the base walk over to the button that says \"SUBMIT\", click it. if you are not signed in, sign in(you can't submit scores on web because the accounts dont work there).Then once you sign in you should see your time click submit. You submitted your score!
+
+To see other peoples scores on web go to the [img=16x16]res://assets/clock.png[/img] leaderboard then select \"Skip And Just See Scores​\"
+
+To make a screenshot press control + p (this might crash your game on web)
+
+Online Changelog Link:
+[url=https://magooster1000.itch.io/l-m-superheroes-v21/devlog/1123293/lm-update-354]CLICK ME[/url]
+
+
+this post was written on 11/24/25 at 7:15
+
+
+
+
+"
+horizontal_alignment = 1
+
+[node name="close" type="Button" parent="update guide"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = 307.0
+offset_right = 315.0
+offset_bottom = 325.0
+theme_override_fonts/font = ExtResource("3_p5weo")
+theme_override_font_sizes/font_size = 8
+text = "close"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button8" to="." method="_on_button_8_pressed"]
 [connection signal="popup_hide" from="Popup" to="." method="_on_popup_popup_hide"]
 [connection signal="pressed" from="Popup/HBoxContainer/load_save" to="." method="_on_load_save_pressed"]
 [connection signal="pressed" from="Popup/HBoxContainer/new_save" to="." method="_on_new_save_pressed"]
-[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Translate" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="mobile" to="." method="_on_mobile_pressed"]
 [connection signal="pressed" from="arcade" to="." method="_on_arcade_pressed"]
+[connection signal="canceled" from="AcceptDialog" to="." method="_on_accept_dialog_canceled"]
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_accept_dialog_confirmed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="meta_clicked" from="update guide/body" to="." method="_on_body_meta_clicked"]
+[connection signal="pressed" from="update guide/close" to="." method="_on_close_pressed"]

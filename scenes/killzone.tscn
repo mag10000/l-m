@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://co2bga6pew4py"]
 
-[ext_resource type="Script" path="res://scenes/scripts/killzone.gd" id="1_4fta7"]
+[ext_resource type="Script" uid="uid://bbsi0geyb6beo" path="res://scenes/scripts/killzone.gd" id="1_4fta7"]
 [ext_resource type="AudioStream" uid="uid://gak7de6ii338" path="res://assets/You_Died(1).wav" id="2_oxgy0"]
 
 [node name="killzone" type="Area2D"]
@@ -13,7 +13,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_oxgy0")
-max_distance = 2e+07
+max_distance = 20000000.0
 
 [node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
 

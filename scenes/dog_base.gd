@@ -40,8 +40,8 @@ func _process(delta):
 	
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		State.save_menu_scene = ("res://scenes/world_map.tscn")
-		get_tree().change_scene_to_file("res://scenes/world_map.tscn")
+		State.save_menu_scene = ("res://scenes/world_map_2.tscn")
+		get_tree().change_scene_to_file("res://scenes/world_map_2.tscn")
 	
 	print(mouse_position)
 	

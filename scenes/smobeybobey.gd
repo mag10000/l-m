@@ -45,4 +45,3 @@ func _on_timer_3_timeout():
 	$Timer3.stop()
 	$Area2D/CollisionShape2D.disabled = false
 	$AnimatedSprite2D.play("default")
-

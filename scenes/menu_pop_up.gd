@@ -3,6 +3,21 @@ extends CanvasLayer
 var main_menu_pressed = false
 var co_op_snch = true
 
+func _ready():
+	if TranslationServer.get_locale().contains("cmn"):
+		$Control/back.add_theme_font_size_override("font_size",24)
+		$Control/quit.add_theme_font_size_override("font_size",24)
+		$"Control/co-op".add_theme_font_size_override("font_size",24)
+		$Control/Button.add_theme_font_size_override("font_size",24)
+		$Control/hats.add_theme_font_size_override("font_size",24)
+		$"Control/co-op_2".add_theme_font_size_override("font_size",24)
+		$"Control/co-op_3".add_theme_font_size_override("font_size",24)
+		$Control/map.add_theme_font_size_override("font_size",24)
+		$Control/main_menu.add_theme_font_size_override("font_size",24)
+		$Control/VBoxContainer/Button1.add_theme_font_size_override("font_size",24)
+		$Control/VBoxContainer/Button2.add_theme_font_size_override("font_size",24)
+
+
 func _on_back_pressed():
 	State.escape = false
 	$Control/ColorRect.visible = false
@@ -14,6 +29,10 @@ func _on_quit_pressed():
 
 func save():
 	var save_dict = {
+	"mobile" : State.mobile,
+	"run_mode" : State.run_mode,
+	"invis" : State.invis,
+	"auto_load" : State.auto_load,
 	"animal_pack_bought" : State.animal_pack_bought, 
 	"save_menu_scene" : State.save_menu_scene, 
 	"purple_pack_bought" : State.purple_pack_bought, 
@@ -39,45 +58,22 @@ func save():
 	"level_6_done" : State.level_6_done ,
 	"level_7_done" : State.level_7_done,
 	"level_8_done" : State.level_8_done,
-	"portal_done" : State.portal_done
+	"portal_done" : State.portal_done,
+	"world_2_level_1_done" : State.world_2_level_1_done,
+	"version" : State.version,
+	"card_data" : Cards.card_data,
+	"show_leaderboard_timer" : State.show_leaderboard_timer
 }
 	print (save_dict)
 	return save_dict
 
-func _process(delta):
+func _process(_delta):
 	if State.arcade == true:
 		$Control/quit.visible = false
 		
 	
 	
 	#translations
-	if State.translated_to_spanish == true:
-		$Control/quit.text = ("abandonar")
-		$"Control/co-op".text = ("dos jugadores")
-		$Control/back.text = ("atrás")
-		$Control/Button.text = ("nivel de reinicio")
-		$Control/hats.text = ("sombreros")
-		$"Control/co-op_2".text = ("tres jugadores")
-		$"Control/co-op_3".text = ("cuatro jugadores")
-		$Control/map.text = ("mapa")
-		$Control/main_menu.text = ("menú principal")
-		$Control/VBoxContainer/ColorRect2/Label.text = ("Tu progreso en tunivel no se guardará")
-		$Control/VBoxContainer/Button1.text = ("   dejar   ")
-		$Control/VBoxContainer/Button2.text = ("permanecer")
-	else:
-		$Control/quit.text = ("quit")
-		$"Control/co-op".text = ("2 players")
-		$Control/back.text = ("back")
-		$Control/Button.text = ("re-start level")
-		$Control/hats.text = ("hats")
-		$"Control/co-op_2".text = ("3 players")
-		$"Control/co-op_3".text = ("4 players")
-		$Control/map.text = ("map")
-		$Control/main_menu.text = ("main menu")
-		$Control/VBoxContainer/ColorRect2/Label.text = ("your progress on your
- level will not be saved")
-		$Control/VBoxContainer/Button1.text = ("   leave   ")
-		$Control/VBoxContainer/Button2.text = ("stay")		
 
 
 	if State.co_op_unlocked == true:
@@ -218,5 +214,3 @@ func _on_button_1_pressed():
 
 func _on_visibility_changed():
 	$Control/back.grab_focus()
-
-

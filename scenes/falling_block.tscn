@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://ula6jj1e5ytu"]
+
+[ext_resource type="Script" path="res://scenes/falling_block.gd" id="1_e5jue"]
+[ext_resource type="Texture2D" uid="uid://bduxh1ochsest" path="res://assets/dog_world_tileset.png" id="1_ghyj7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4le2"]
+atlas = ExtResource("1_ghyj7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi0hm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4le2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wigkb"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufour"]
+size = Vector2(16, 1)
+
+[node name="Falling Block" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_e5jue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fi0hm")
+frame_progress = 0.512977
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 0.188235)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wigkb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 143
+collision_mask = 143
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_ufour")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

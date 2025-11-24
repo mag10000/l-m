@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkecfj0ciwmjd"]
 
-[ext_resource type="Texture2D" uid="uid://crn40pwlq5s7s" path="res://brackeys_platformer_assets/fonts/Screenshot 2024-06-21 102936.png" id="1_a5jmn"]
+[ext_resource type="Texture2D" uid="uid://crn40pwlq5s7s" path="res://assets/fonts/Screenshot 2024-06-21 102936.png" id="1_a5jmn"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="2_cl3oy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mru3o"]

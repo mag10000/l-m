@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d12bshe2a3xfk"]
+
+[ext_resource type="Shader" uid="uid://dplp58pbfqyfu" path="res://scenes/dissolve.tres" id="1_fxbda"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_73m23"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_45kkt"]
+noise = SubResource("FastNoiseLite_73m23")
+
+[resource]
+shader = ExtResource("1_fxbda")
+shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+shader_parameter/Noise2 = SubResource("NoiseTexture2D_45kkt")
+shader_parameter/DissolveValue2 = 0.2810000133475

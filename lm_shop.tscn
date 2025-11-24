@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://y17ve3asedcr"]
+[gd_scene load_steps=3 format=3 uid="uid://y17ve3asedcr"]
 
 [ext_resource type="Script" path="res://lm_shop.gd" id="1_jx50w"]
-[ext_resource type="Texture2D" uid="uid://dkd26x08uqk0w" path="res://mods/lm_shop_coin.png" id="3_iw8vm"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="3_lplui"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_lplui"]
 
 [node name="LM shop" type="Node2D"]
 script = ExtResource("1_jx50w")
@@ -13,159 +12,31 @@ offset_left = -558.0
 offset_top = -298.0
 offset_right = 594.0
 offset_bottom = 350.0
+color = Color(0.143931, 1.54139e-05, 0.14439, 1)
+
+[node name="LinkButton" type="LinkButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -21.0
+offset_right = 358.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_lplui")
+theme_override_font_sizes/font_size = 64
+text = "Go To Store"
+underline = 1
+uri = "https://magnusknisely.wixsite.com/lm-shop"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
+position = Vector2(18, 26)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -110.0
-offset_top = -20.0
-offset_right = -70.0
-offset_bottom = 20.0
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 38.0
-offset_bottom = 38.0
-
-[node name="purple skins" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/purple skins"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/VBoxContainer/purple skins"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-
-[node name="Button" type="Button" parent="Control/VBoxContainer/purple skins"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-text = "buy"
-icon = ExtResource("3_iw8vm")
-
-[node name="equip" type="Button" parent="Control/VBoxContainer/purple skins"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-text = "equip"
-
-[node name="Label2" type="Label" parent="Control/VBoxContainer/purple skins"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-text = "off"
-
-[node name="animals mod" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/animals mod"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="Label2" type="Label" parent="Control/VBoxContainer/animals mod"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-
-[node name="equip2" type="Button" parent="Control/VBoxContainer/animals mod"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-text = "equip"
-
-[node name="Button2" type="Button" parent="Control/VBoxContainer/animals mod"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-text = "buy"
-icon = ExtResource("3_iw8vm")
-
-[node name="Label3" type="Label" parent="Control/VBoxContainer/animals mod"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 8
-text = "off"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorPicker" type="ColorPicker" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 299.0
-offset_bottom = 507.0
-presets_visible = false
-
-[node name="back" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 305.0
-offset_top = 6.0
-offset_right = 387.0
-offset_bottom = 73.0
-theme_override_fonts/font = ExtResource("3_lplui")
-text = "back"
-
-[node name="un-equip" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 414.0
-offset_top = 6.0
-offset_right = 496.0
-offset_bottom = 73.0
-theme_override_fonts/font = ExtResource("3_lplui")
-text = "un-equip"
-
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 560.0
-offset_top = 32.0
-offset_right = 696.0
-offset_bottom = 99.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_lplui")
-text = "coins:"
-
-[node name="Label2" type="Label" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 655.0
-offset_top = 31.0
-offset_right = 791.0
-offset_bottom = 98.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_lplui")
-
-[connection signal="pressed" from="Control/VBoxContainer/purple skins/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/purple skins/equip" to="." method="_on_equip_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/animals mod/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/un-equip" to="." method="_on_unequip_pressed"]
+[connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
+var in_air = false
 var date_dict = Time.get_date_dict_from_system()  
 
 var current_month = date_dict["month"]
 
 var current_idle = ("idle")
 
+var current_conroller = 0
 var _1 = false
 @export var SPEED = 250.0
 var JUMP_VELOCITY = -350.0
@@ -25,10 +27,25 @@ func _ready():
 		var user = OS.get_environment("USERNAME")
 		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav"):
 			$AudioStreamPlayer2D.stream = load("C:\\Users\\"+user+"\\Documents\\LMJumpSound\\Jump.wav")
-		if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\on.txt"):
-			State.mod = "override"
-			$AnimatedSprite2D.sprite_frames = load("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\p1animation_GARDEN.tres")
-	
+
+
+		#if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\on.txt"):
+			#if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\p1animation_GARDEN.tres"):
+				#State.mod = "override"
+				#$AnimatedSprite2D.sprite_frames = load("C:\\Users\\"+user+"\\Documents\\LMdlc\\farmer\\p1animation_GARDEN.tres")
+
+
+		#if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\purple skins\\on.txt"):
+			#if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\purple skins\\p1animation_mod.tres"):
+				#State.mod = "override"
+				#$AnimatedSprite2D.sprite_frames = load("res://mods/purple skins/p1animation_mod_purple.tres")
+
+
+		#if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\back to school\\on.txt"):
+			#if FileAccess.file_exists("C:\\Users\\"+user+"\\Documents\\LMdlc\\back to school\\p1animation.tres"):
+				#State.mod = "override"
+				#$AnimatedSprite2D.sprite_frames = load("res://mods/back to school/p1animation.tres")
+
 	
 	if State.window_saftey == false:
 		var user = OS.get_environment("USERNAME")
@@ -42,6 +59,7 @@ func _ready():
 
 func _physics_process(delta):
 	
+	
 	#handles coyote time
 	
 	print(coyote_time_started)
@@ -52,7 +70,10 @@ func _physics_process(delta):
 		coyote_time_started = true
 		$jump_timer.start()
 		
-		
+		if is_on_floor():
+			if in_air == true:
+				in_air = false
+				Input.start_joy_vibration(0,0.7,0,0.1)
 		
 		
 	# Add the gravity.
@@ -62,6 +83,10 @@ func _physics_process(delta):
 	#if is_on_floor ():
 		#$AnimatedSprite2D.play("temp")
 	if State.escape == false && State.death == false:
+		
+		if Input.is_action_just_pressed("jump") && in_air == false:
+			if State.death == false && State.in_water == false:
+				in_air == true
 	# Handle jump.
 		if Input.is_action_just_pressed("jump") && still_jump == true:
 			if State.death == false && State.in_water == false:
@@ -126,8 +151,14 @@ func _physics_process(delta):
 			$AnimatedSprite2D2.flip_h = false
 
 
+
 		move_and_slide()
 	
+
+func _input(event : InputEvent) -> void:
+	if event is InputEventJoypadMotion or event is InputEventJoypadButton:
+		current_conroller = event.device
+
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("jump") && State.in_water == true:
 		pass
@@ -294,3 +325,9 @@ func _on_timer_3_timeout():
 
 func _on_jump_timer_timeout():
 	still_jump = false
+
+
+
+
+func _on_rumble_body_entered(body):
+	Input.start_joy_vibration(0,0.7,0,0.0654321)

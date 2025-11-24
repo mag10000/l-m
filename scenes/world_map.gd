@@ -1,6 +1,24 @@
 extends Node2D
 
-
+func _ready():
+	pass
+	if TranslationServer.get_locale().contains("cmn"):
+		$Button.add_theme_font_size_override("font_size",12)
+		$tutorial.add_theme_font_size_override("font_size",12)
+		$"firey the dragons house".add_theme_font_size_override("font_size",12)
+		$"level 2".add_theme_font_size_override("font_size",12)
+		$"source of strange signal".add_theme_font_size_override("font_size",12)
+		$"level 3".add_theme_font_size_override("font_size",12)
+		$level_4.add_theme_font_size_override("font_size",12)
+		$level_5.add_theme_font_size_override("font_size",12)
+		$"firey the dragon level 2".add_theme_font_size_override("font_size",12)
+		$level_6.add_theme_font_size_override("font_size",12)
+		$level_7.add_theme_font_size_override("font_size",12)
+		$level_8.add_theme_font_size_override("font_size",12)
+		$portal.add_theme_font_size_override("font_size",12)
+	
+	State.kill_LeaderboardTimer()
+	State.score = 0
 
 
 func _on_tutorial_pressed():
@@ -24,40 +42,10 @@ func _on_firey_the_dragons_house_pressed ():
 
 
 
-func _process(delta):
+func _process(_delta):
 	
 	#translations
-	if State.translated_to_spanish == true:
-		$tutorial.text = ("nivel de instrucción")
-		$Button.text = ("La guarida de smobeybobey")
-		$"firey the dragons house".text = ("Firey la casa de los dragones")
-		$"level 2".text = ("nivel dos")
-		if State.level_two_done == false:
-			$"source of strange signal".text = ("nivel tres")
-		if State.level_two_done == true:
-			$"source of strange signal".text = ("fuente de señal extraña")
-		$"level 3".text = ("nivel tres")
-		$level_4.text = ("nivel cuatro")
-		$level_5.text = ("nivel cinco")
-		$"firey the dragon level 2".text = ("firey el dragón nivel dos")
-		$level_6.text = ("nivel 6")
-		$level_7.text = ("nivel 7")
-		$level_8.text = ("nivel 8")
-		$portal.text = ("portal")
-	else:
-		$tutorial.text = ("tutorial")
-		$Button.text = ("smobeybobey's lair")
-		$"firey the dragons house".text = ("firey the dragons house")
-		$"level 2".text = ("level 2")
-		if State.level_two_done == false:
-			$"source of strange signal".text = ("level 3")
-		if State.level_two_done == true:
-			$"source of strange signal".text = ("source of strange signal")
-		$"level 3".text = ("level 3")
-		$level_4.text = ("level 4")
-		$level_5.text = ("level 5")
-		$"firey the dragon level 2".text = ("firey the dragon level 2")
-		$level_6.text = ("level 6")
+	pass
 
 #unlocking levels
 	if State.level_one_done == true:
@@ -70,7 +58,7 @@ func _process(delta):
 		$"level 3".visible = true
 		$"source of strange signal".disabled = false
 		if State.translated_to_spanish == false:
-			$"source of strange signal".text = ("source of strange signal")
+			$"source of strange signal".text = tr("source of strange signal")
 		if State.translated_to_spanish == false:
 			pass
 	if State.strange_signal_level_done == true:
@@ -169,4 +157,5 @@ func _on_level_8_pressed():
 
 
 func _on_portal_pressed():
-	pass # Replace with function body.
+	State.save_menu_scene = ("res://level_9.tscn")
+	get_tree().change_scene_to_file("res://level_9.tscn")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcy2grrie8nv0"]
+[gd_scene load_steps=6 format=3 uid="uid://dcy2grrie8nv0"]
 
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="1_3fn63"]
-[ext_resource type="Script" path="res://scenes/note.gd" id="1_nnijf"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_3fn63"]
+[ext_resource type="Script" uid="uid://c2xyb1m53bei" path="res://scenes/note.gd" id="1_nnijf"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="2_8ibmt"]
 [ext_resource type="AudioStream" uid="uid://c76puskqnp7q6" path="res://lm_cutscene_voiceover/to_minions_from_shadow_l.wav" id="3_nha3c"]
 [ext_resource type="Texture2D" uid="uid://b1aoxx7ybouv6" path="res://scenes/grass_top.png" id="4_iafvk"]
 
@@ -18,6 +19,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -139)
 zoom = Vector2(0.5, 0.5)
+script = ExtResource("2_8ibmt")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -521.0
@@ -43,12 +45,6 @@ to terrorise the cats
 after that we are heading to 
 another world not sure witch
 one just yet
-
-
-
-
-
-
 
 
 

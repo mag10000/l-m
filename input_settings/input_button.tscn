@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://xpnxstp2qmrg"]
+
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_bycsd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8snm"]
+bg_color = Color(0, 0, 0, 0.54901963)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytv8u"]
+bg_color = Color(0, 0, 0, 0.54509807)
+
+[node name="InputButton" type="Button"]
+custom_minimum_size = Vector2(0, 25)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("1_bycsd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_j8snm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 26.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_bycsd")
+text = "Action Name"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("1_bycsd")
+text = "Input Key"
+horizontal_alignment = 2
+vertical_alignment = 1

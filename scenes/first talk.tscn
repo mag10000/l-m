@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmkljk02g8e14"]
 
 [ext_resource type="Script" path="res://elevator.gd" id="1_rp6iu"]
-[ext_resource type="AudioStream" uid="uid://bychdpfm8d4ip" path="res://brackeys_platformer_assets/sounds/move_and_jump1.wav" id="2_ki5t1"]
+[ext_resource type="AudioStream" uid="uid://bychdpfm8d4ip" path="res://assets/sounds/move_and_jump1.wav" id="2_ki5t1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u20d"]
 size = Vector2(58, 88)

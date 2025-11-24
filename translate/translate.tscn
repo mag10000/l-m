@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://d15hkyoxqcww0"]
+
+[ext_resource type="Script" uid="uid://swmnxr05lbl5" path="res://translate/translate.gd" id="1_umvi0"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_126f3"]
+
+[node name="translate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umvi0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1163.0
+offset_bottom = 651.0
+color = Color(0.18000486, 0.18000486, 0.18000486, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.20833333
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 48
+text = "(Translate) (traducir) (翻译)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39930555
+anchor_top = 0.3919753
+anchor_right = 0.6006944
+anchor_bottom = 0.6080247
+offset_left = 96.0
+offset_top = 50.0
+offset_right = -96.0
+offset_bottom = -50.00003
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="english" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 32
+text = "english"
+
+[node name="spanish" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 32
+text = "espanol"
+
+[node name="simp chiness" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 36
+text = "简体中文"
+
+[node name="korian" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 36
+text = "한국어"
+
+[node name="japaness" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 36
+text = "日本語"
+
+[node name="french" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 32
+text = "français"
+
+[node name="polish" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 32
+text = "polski"
+
+[node name="brazil" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 16
+text = "Português Brasileiro"
+
+[node name="close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -40.0
+offset_right = 84.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 24
+text = "close"
+
+[connection signal="pressed" from="VBoxContainer/english" to="." method="_on_english_pressed"]
+[connection signal="pressed" from="VBoxContainer/spanish" to="." method="_on_spanish_pressed"]
+[connection signal="pressed" from="VBoxContainer/simp chiness" to="." method="_on_simp_chiness_pressed"]
+[connection signal="pressed" from="VBoxContainer/korian" to="." method="_on_korian_pressed"]
+[connection signal="pressed" from="VBoxContainer/japaness" to="." method="_on_japaness_pressed"]
+[connection signal="pressed" from="VBoxContainer/french" to="." method="_on_french_pressed"]
+[connection signal="pressed" from="VBoxContainer/polish" to="." method="_on_polish_pressed"]
+[connection signal="pressed" from="VBoxContainer/brazil" to="." method="_on_brazil_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

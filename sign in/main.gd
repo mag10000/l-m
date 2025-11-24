@@ -1,0 +1,216 @@
+extends Control
+
+@onready var email_label: RichTextLabel = $SignedInPanel/VBoxContainer/email
+@onready var user_id_label: RichTextLabel = $SignedInPanel/VBoxContainer/userid
+@onready var sign_in_button: Button = $LoginPanel/SignInButton
+@onready var sign_out_button: Button = $SignedInPanel/VBoxContainer/SignoutButtonContainer/SignOutButton
+@onready var LoginPanel: PanelContainer = $LoginPanel
+@onready var SignedInPanel: PanelContainer = $SignedInPanel
+@onready var displayname = $SignedInPanel/VBoxContainer/displayname
+@onready var login_state_label = $Login_Status
+
+
+
+func _ready() -> void:
+	SupabaseAuth.auth_success.connect(_on_auth_success)
+	SupabaseAuth.auth_error.connect(_on_auth_error)
+	
+	_check_existing_session()
+	
+	SilentWolf.Auth.sw_session_check_complete.connect(_on_login_complete)
+	SilentWolf.Auth.sw_login_complete.connect(_on_login_complete)
+	SilentWolf.Auth.sw_logout_complete.connect(_on_logout_complete)
+	
+	SilentWolf.Auth.auto_login_player()
+
+
+func _on_auth_success(session: Dictionary):
+	_show_authenticated_ui(session)
+
+func _on_auth_error(_error: String):
+	_show_login_ui()
+
+
+func _check_existing_session():
+	var session = SupabaseAuth.load_session()
+	if session.has("access_token") and session.access_token != "":
+		if _is_token_expired(session):
+			print("Session expired, need to login again")
+			if session.has("refresh_token") and session.refresh_token != "":
+				SupabaseAuth.refresh_token(session.refresh_token)
+			else:
+				_show_login_ui()
+		else:
+			_show_authenticated_ui(session)
+	else:
+		_show_login_ui()
+
+func _is_token_expired(session: Dictionary) -> bool:
+	if not session.has("expires_in"):
+		return false 
+	
+	var file_path = "user://auth_session.dat"
+	if FileAccess.file_exists(file_path):
+		var file_time = FileAccess.get_modified_time(file_path)
+		var current_time = Time.get_unix_time_from_system()
+		var age = current_time - file_time
+		
+		return age > (session.expires_in - 300)
+	
+	return false
+
+
+func _show_login_ui():
+	$LoginEmail.show()
+	$"Image Web".color = "ffffff"
+	# Show login button
+	LoginPanel.visible = true
+	$LoginTwitch/SignInButton4.visible = true
+	$Logindiscord/SignInButton2.visible = true
+	$LoginPanel/SignInButton.visible = true
+	$LoginGithub/SignInButton3.visible = true
+	sign_in_button.disabled = false
+	$LoginGithub/SignInButton3.disabled = false
+	$Logindiscord/SignInButton2.disabled = false
+	$LoginTwitch/SignInButton4.disabled = false
+	$LoginTwitch/SignInButton4.text = "Sign in with Twitch"
+	$Logindiscord/SignInButton2.text = "Sign in with Discord"
+	$LoginGithub/SignInButton3.text = "Sign in with Github"
+	sign_in_button.text = "Sign in with Google"
+	
+	# Hide user info panel
+	SignedInPanel.visible = false
+
+func _show_authenticated_ui(session: Dictionary):
+	# Hide login button
+	LoginPanel.visible = false
+	sign_in_button.disabled = true
+	
+	# Show user info panel with sign out button
+	SignedInPanel.visible = true
+	
+	var user = session.get("user", {})
+	#print(user)
+	email_label.text = "Email: " + user.get("email", "Unknown")
+	user_id_label.text = "User ID: " + user.get("id", "Unknown")
+	displayname.text = "Display Name: " + (user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0]
+	print(email_label.get_theme_default_font_size())
+	State.user_info["signed_in"] = true
+	State.user_info["username"] = (user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0]
+	State.user_info["email"] = user.get("email", "Unknown")
+	
+	var identities = user["identities"]
+	var identities0 = identities[0]
+	var identity_data = identities0["identity_data"]
+	if identity_data.has("avatar_url"):
+		var avatar_url = identity_data["avatar_url"]
+	#https://openclipart.org/image/2000px/247320
+		State.user_info["image_url"] = avatar_url
+		$"Image Web".url = avatar_url
+		$"Image Web".download_image()
+		$"Image Web".color = "ffffff00"
+		print($"Image Web".image_tr.texture)
+	else:
+		$"Image Web".url = "https://openclipart.org/image/2000px/247320"
+		$"Image Web".download_image()
+		$"Image Web".color = "ffffff00"
+	
+	if State.user_info["image_url"] != "":
+		print(State.user_info["image_url"])
+		$"Image Web".url = State.user_info["image_url"]
+		$"Image Web".download_image()
+	
+	
+	
+	# Make sure sign out button is visible and connected
+	sign_out_button.visible = true
+	sign_out_button.disabled = false
+
+
+func _on_sign_in_button_pressed() -> void:
+	sign_in_button.disabled = true
+	sign_in_button.text = "Opening browser for authentication..."
+	
+	$LoginGithub/SignInButton3.hide()
+	$Logindiscord/SignInButton2.hide()
+	$LoginTwitch/SignInButton4.hide()
+	$LoginEmail.hide()
+	SupabaseAuth.provider = "google"
+	SupabaseAuth.sign_in_with_google()
+
+
+func _on_sign_out_button_pressed() -> void:
+	SupabaseAuth.sign_out()
+	_show_login_ui()
+
+
+func _on_sign_in_button_2_pressed():
+	$Logindiscord/SignInButton2.disabled = true
+	$Logindiscord/SignInButton2.text = "Opening browser for authentication..."
+	
+	$LoginGithub/SignInButton3.hide()
+	$LoginPanel/SignInButton.hide()
+	$LoginTwitch/SignInButton4.hide()
+	$LoginEmail.hide()
+	SupabaseAuth.provider = "discord"
+	SupabaseAuth.sign_in_with_google()
+
+
+func _on_sign_in_button_3_pressed():
+	$LoginGithub/SignInButton3.disabled = true
+	$LoginGithub/SignInButton3.text = "Opening browser for authentication..."
+	
+	$Logindiscord/SignInButton2.hide()
+	$LoginPanel/SignInButton.hide()
+	$LoginTwitch/SignInButton4.hide()
+	$LoginEmail.hide()
+	SupabaseAuth.provider = "github"
+	SupabaseAuth.sign_in_with_google()
+
+
+func _process(_delta):
+	$"Image Web".visible = $SignedInPanel.visible
+
+
+func _on_sign_in_button_4_pressed():
+	$LoginTwitch/SignInButton4.disabled = true
+	$LoginTwitch/SignInButton4.text = "Opening browser for authentication..."
+	
+	$LoginGithub/SignInButton3.hide()
+	$Logindiscord/SignInButton2.hide()
+	$LoginPanel/SignInButton.hide()
+	$LoginEmail.hide()
+	SupabaseAuth.provider = "twitch"
+	SupabaseAuth.sign_in_with_google()
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_sign_in_button_6_pressed():
+	get_tree().change_scene_to_file("res://addons/silent_wolf/Auth/Login.tscn")
+
+
+func _on_sign_up_button_5_pressed():
+	get_tree().change_scene_to_file("res://addons/silent_wolf/Auth/Register.tscn")
+
+
+func _on_button_pressed():
+	SilentWolf.Auth.logout_player()
+
+func _on_login_complete(sw_result):
+	update_login_state_label()
+
+func _on_logout_complete(a, b):
+	update_login_state_label()
+
+func update_login_state_label():
+	if SilentWolf.Auth.logged_in_player:
+		login_state_label.text = "Logged in with email"
+	else:
+		login_state_label.text = "Not logged in with email"
+
+func _physics_process(delta):
+	if $SignedInPanel.visible:
+		$LoginEmail.hide()

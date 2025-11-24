@@ -1,0 +1,71 @@
+key,en,es,cmn,ja,ko,br,fr,pl
+start,start,comenzar,开始,始める,시작,começar,commencer,start
+quit,quit,cerrar,退出,終了する,종료,Sair,Quitter,Wyjdź
+settings,settings,ajustes,选项,設定,옵션,configurações,paramètres,ustawienia
+[wave]translate,[wave]translate,[wave]traducir,[wave]翻译,[wave]翻訳する,[wave]번역하다,[wave]traduzir,[wave]traduire,tłumaczyć
+save,save,guardar,保存,セーブ,저장,Salvar,Sauvegarder,Zapisz
+load,load,charger,载入,ロード,불러오기,Carregar,Charger,Wczytaj
+arcade mode,arcade mode,modo arcade,街机模式,アーケードモード,아케이드 모드,modo arcade,mode arcade,tryb zręcznościowy
+"[wave]Look at Map
+with A,B or ENTER","[wave]Look at Map
+with A,B or ENTER","[wave]Mira el mapa
+con A, B o ENTER","[wave]要查看地图，
+请按 A、B 或 ENTER","[wave]地図を見る
+A、B、またはENTERキーで","[wave]지도 보기
+A, B 또는 ENTER","[wave]Veja o mapa
+com A, B ou ENTER","[wave]Consultez la carte.
+Appuyez sur A, B ou ENTER.","[wave]Spójrz na mapę
+używając A, B lub ENTER"
+tutorial,tutorial,tutorial,教程,チュートリアル,지도 시간,Tutorial,Didacticiel,Wprowadzenie
+"smobeybobey's lair
+",smobeybobey's lair,smobeybobey's casa,smobeybobey 的家,smobeybobey's 隠れ家,smobeybobey's 집,covil maligno de smobeybobey,"Le repaire maléfique
+ de smobeybobey",smobeybobey dom
+firey the dragons house,firey the dragons house,La casa de Firey,龙之家,ファイアリー・ザ・ドラゴンズ・ハウス,애완용 드래곤 레벨,nível de dragão,La Maison des Dragons de Feu,Dom Ognistego Smoka
+level 2,level 2,nivel 2,2级,レベル2,레벨 2,nível 2,niveau 2,poziom 2
+level 3,level 3,nivel 3,3级,レベル3,레벨 3,nível 3,niveau 3,poziom 3
+level 4,level 4,nivel 4,4级,レベル4,레벨 4,nível 4,niveau 4,poziom 4
+level 5,level 5,nivel 5,5级,レベル5,레벨 5,nível 5,niveau 5,poziom 5
+level 6,level 6,nivel 6,6级,レベル6,레벨 6,nível 6,niveau 6,poziom 6
+level 7,level 7,nivel 7,7级,レベル7,레벨 7,nível 7,niveau 7,poziom 7
+level 8,level 8,nivel 8,8级,レベル8,레벨 8,nível 8,niveau 8,poziom 8
+portal,portal,portal,门户网站,ポータル,포털 수준,portal,portail,portal
+firey the dragon level 2,firey the dragon level 2,firey nivel 2,龙2级,ファイアリー・ザ・ドラゴン レベル2,애완용 드래곤 레벨 2,dragão nível 2,Firey the dragon level 2,Smok Ognia poziom 2
+source of strange signal,source of strange signal,fuente de señal extraña,奇怪信号的来源,奇怪信号的来源,이상한 신호의 출처,fonte de sinal estranho,source d'un signal étrange,źródło dziwnego sygnału
+close,close,Cerrar,关闭,近い,닫다,voltar,Fermer,Zamknij
+Run mode (Off),Run mode (Off),"Modo de
+ejecución (apagado)",运行模式（关闭),运行模式（关闭）,실행 모드(끄기),Modo de movimento (desativado),Mode de déplacement automatique (Éteint),Tryb automatycznego ruchu (wyłączony)
+Run mode (On),Run mode (On),"Modo de 
+ejecución (Activado)",运行模式（开启),运行模式（开启）,실행 모드(켜짐),"
+Modo de movimento (ativado)",Mode de déplacement automatique (Allumé),Tryb automatycznego ruchu (włączony)
+[M] Mobile (Off),[M] Mobile (Off),[M] Teléfono (Apagado),[M] 电话（已启用),[M] 移动模式（关闭）,[M] 전화(꺼짐),[M] Telefone (desativado),[M] téléphone (Éteint),[M] Telefon (wyłączony)
+[M] Mobile (On),[M] Mobile (On),[M] Teléfono (Encendido),[M] 电话（已禁用),[M] 移动模式（开启),[M] 전화(켜짐),[M] Telefone (ativado),[M] téléphone (Allumé),[M] Telefon (włączony)
+Invisible mode (Off),Invisible mode (Off),Modo invisible (Desactivado),隐身模式（关闭）,隐身模式（关闭）,보이지 않는 모드(끄기),Modo invisível (Desativado),Mode invisible (Éteint),Tryb niewidoczny (wyłączony)
+Invisible mode (On),Invisible mode (On),Modo invisible (activado),隐身模式（开启),隐身模式（开启),보이지 않는 모드(켜짐),Modo invisível (ativado),Mode invisible (Allumé),Tryb niewidoczny (włączony)
+sfx  volume,sfx volume,Volumen de los efectos de sonido,音效音量,効果音の音量,음향 효과 볼륨,volume dos efeitos sonoros,volume des effets sonores,głośność efektów dźwiękowych
+Master volume,Master volume,volumen maestro,主音量,マスターボリューム,마스터 볼륨,Volume mestre,Volume principal,Głośność główna
+Get application path,Get application path, Obtener ruta de la aplicación,获取应用程序路径,アプリのパスを取得する,앱 경로 가져오기,Obtenha o caminho do aplicativo,Obtenez le chemin de l'application,zobacz ścieżkę aplikacji
+2 players,2 players,2 personas,2 名玩家,2人のプレーヤー,2명의 선수,2 jogadores,2 joueurs,2 graczy
+Hello,Hello ,Hola ,你好 ,こんにちは ,안녕하세요 ,olá ,Bonjour ,Witam 
+ and welcome to lm superheroes!, and welcome to lm superheroes!, ¡Y bienvenidos a lm superhéroes!, 欢迎来到 LM 超级英雄!, LM スーパーヒーローへようこそ!, lm 슈퍼히어로에 오신 것을 환영합니다!, e bem-vindos ao LM Super-heróis!, Bienvenue dans le monde des super-héros LM !, i witajcie w LM superheroes!
+back,back,Volver ,返回 ,戻る,이전 페이지,Voltar ,Retour ,Wstecz
+re-start level,re-start level,nivel de reintento,重启级别,再起動レベル,재시작 레벨,niveau de redémarrage,,poziom ponownego uruchomienia
+3 players,3 players,3 personas,3 名玩家,3人のプレイヤー,3명의 선수,3 jogadores,3 joueurs,3 graczy
+4 players,4 players,4 personas,4 名玩家,4人のプレイヤー,4명의 선수,4 jogadores,4 joueurs,4 graczy
+map,map,mapa,地图,地図,지도,mapa,carte,mapa
+main menu,main menu,Menú principal,主界面,メインメニュー,메뉴,Menu Principal,Menu principal,Menu Główne
+   leave   ,   leave   ,   dejar   ,   离开   ,    離れる    ,  떠나다  ,    sair    ,partir,Zostawić
+stay,stay,permanecer,停留,滞在する,머무르다,ficar,rester,zostawać
+"your progress on your
+ level will not be saved","your progress on your
+ level will not be saved","Tu progreso en tu 
+nivel no se guardará","你的级别进度
+将不会保存","あなたのレベルの進
+行状況は保存されません","레벨 진행 상황은 
+저장되지 않습니다.","Seu progresso no
+nível não será salvo.","Votre progression dans
+ ce niveau ne sera pas sauvegardée.","Twój postęp na Twoim
+ poziomie nie zostanie zapisany"
+Auto load (On),Auto load (On),Carga automática (activada),自动加载（已启用),自動ロード（オン),자동 로드(켜짐),Carregar na inicialização (ligado),Chargement automatique (Allumé),załaduj przy uruchomieniu (włączony)
+Auto load (Off),Auto load (Off),Carga automática (desactivada),自动加载（已禁用),自動ロード（オフ）,자동로드(끄기),Carregar na inicialização (desativado),Chargement automatique (Éteint),załaduj przy uruchomieniu (wyłączony)
+Back,back,Volver,返回,戻る,이전 페이지,Voltar,Retour,Wstecz
+Loading...,Loading...,Cargando...,正在登录中...,ローディング中…,불러오는 중...,Carregando…,Chargement...,Wczytywanie...

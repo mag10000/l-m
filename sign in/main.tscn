@@ -1,0 +1,433 @@
+[gd_scene load_steps=18 format=3 uid="uid://bna0b80ktslcr"]
+
+[ext_resource type="Script" uid="uid://bpwv5tup0jjo3" path="res://sign in/main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://cbnapqe1vjffv" path="res://sign in/google.svg" id="2_0xm2m"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_fj3h5"]
+[ext_resource type="Texture2D" uid="uid://dimckaee34pej" path="res://sign in/discord.png" id="4_x0fwl"]
+[ext_resource type="Texture2D" uid="uid://t07e3jgce3ky" path="res://sign in/Github-desktop-logo-symbol.svg.png" id="5_be4ok"]
+[ext_resource type="Texture2D" uid="uid://cqy068f6e5pmg" path="res://sign in/twitch-tv-logo-png_seeklogo-259676-removebg-preview.png" id="6_be4ok"]
+[ext_resource type="Texture2D" uid="uid://dwrdxs8yd00k2" path="res://assets/lm logo new.png" id="6_gphdf"]
+[ext_resource type="PackedScene" uid="uid://crchs7y3qs8x" path="res://sign in/image_web.tscn" id="7_gphdf"]
+[ext_resource type="Texture2D" uid="uid://c8rv15hkik8me" path="res://assets/arrows_updown.png" id="9_mrklx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvp3"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_mrklx"]
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xm2m"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.122252, 0.122252, 0.122252, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhjkg"]
+atlas = ExtResource("9_mrklx")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10902826, 0.5247182, 0.63459206, 1)
+
+[node name="LoginPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -77.0
+offset_right = 181.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
+
+[node name="SignInButton" type="Button" parent="LoginPanel"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign in with Google"
+icon = ExtResource("2_0xm2m")
+
+[node name="Logindiscord" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -12.0
+offset_right = 189.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
+
+[node name="SignInButton2" type="Button" parent="Logindiscord"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign in with Discord"
+icon = ExtResource("4_x0fwl")
+
+[node name="LoginGithub" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = 49.0
+offset_right = 181.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
+
+[node name="SignInButton3" type="Button" parent="LoginGithub"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign in with Github"
+icon = ExtResource("5_be4ok")
+
+[node name="LoginTwitch" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = 112.0
+offset_right = 181.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
+
+[node name="SignInButton4" type="Button" parent="LoginTwitch"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign in with Twitch"
+icon = ExtResource("6_be4ok")
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3142361
+anchor_top = 0.7376543
+anchor_right = 0.6866319
+anchor_bottom = 0.7916667
+theme_override_styles/separator = SubResource("StyleBoxLine_mrklx")
+metadata/_edit_use_anchors_ = true
+
+[node name="LoginEmail" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34288195
+anchor_top = 0.7808642
+anchor_right = 0.6571181
+anchor_bottom = 0.91049385
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginEmail"]
+layout_mode = 2
+
+[node name="SignUPButton5" type="Button" parent="LoginEmail/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign up with Email"
+
+[node name="SignInButton6" type="Button" parent="LoginEmail/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign in with Email"
+
+[node name="LmLogoNew" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43229166
+anchor_top = 0.10185185
+anchor_right = 0.5625
+anchor_bottom = 0.33333334
+offset_left = 3.0517578e-05
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_gphdf")
+metadata/_edit_use_anchors_ = true
+
+[node name="SignedInPanel" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -165.0
+offset_right = 215.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SignedInPanel"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Header" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_fj3h5")
+theme_override_fonts/bold_font = ExtResource("2_fj3h5")
+bbcode_enabled = true
+text = "[b][font_size=24]You are signed in![/font_size][/b]"
+fit_content = true
+
+[node name="email" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_fj3h5")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 6
+bbcode_enabled = true
+text = "[font_size=16]Your email: [/font_size]"
+fit_content = true
+
+[node name="userid" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_fj3h5")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 6
+bbcode_enabled = true
+text = "[font_size=16]Your user id: [/font_size]"
+fit_content = true
+
+[node name="displayname" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_fj3h5")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 6
+bbcode_enabled = true
+text = "[font_size=16]Display Name: [/font_size]"
+fit_content = true
+
+[node name="Container" type="Control" parent="SignedInPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Container2" type="Control" parent="SignedInPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Container3" type="Control" parent="SignedInPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="SignoutButtonContainer" type="HBoxContainer" parent="SignedInPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="SignOutButton" type="Button" parent="SignedInPanel/VBoxContainer/SignoutButtonContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7mycd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lquwl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lquwl")
+text = "Sign Out"
+
+[node name="Image Web" parent="." instance=ExtResource("7_gphdf")]
+visible = false
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 558.0
+offset_top = 368.0
+offset_right = 628.0
+offset_bottom = 438.0
+url = "https://openclipart.org/image/2000px/247320"
+
+[node name="Back_Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -47.0
+offset_right = 46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_fj3h5")
+text = "Back"
+icon = SubResource("AtlasTexture_xhjkg")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.006076389
+anchor_top = 0.9212963
+anchor_right = 0.24913195
+anchor_bottom = 0.98919755
+theme_override_fonts/font = ExtResource("2_fj3h5")
+disabled = true
+text = "Logout from email"
+metadata/_edit_use_anchors_ = true
+
+[node name="Login_Status" type="Label" parent="."]
+layout_mode = 0
+anchor_left = 0.0069444445
+anchor_top = 0.88117284
+anchor_right = 0.24913195
+anchor_bottom = 0.9166667
+theme_override_fonts/font = ExtResource("2_fj3h5")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="LoginPanel/SignInButton" to="." method="_on_sign_in_button_pressed"]
+[connection signal="pressed" from="Logindiscord/SignInButton2" to="." method="_on_sign_in_button_2_pressed"]
+[connection signal="pressed" from="LoginGithub/SignInButton3" to="." method="_on_sign_in_button_3_pressed"]
+[connection signal="pressed" from="LoginTwitch/SignInButton4" to="." method="_on_sign_in_button_4_pressed"]
+[connection signal="pressed" from="LoginEmail/VBoxContainer/SignUPButton5" to="." method="_on_sign_up_button_5_pressed"]
+[connection signal="pressed" from="LoginEmail/VBoxContainer/SignInButton6" to="." method="_on_sign_in_button_6_pressed"]
+[connection signal="pressed" from="SignedInPanel/VBoxContainer/SignoutButtonContainer/SignOutButton" to="." method="_on_sign_out_button_pressed"]
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -13,6 +13,13 @@ func _ready():
 	if State.mobile == false:
 		$Control/CanvasLayer.visible = false
 	State.fist_time_played = false
+	
+	if State.show_leaderboard_timer == true:
+		State.instanciate_LeaderboardTimer()
+		State.score_level = "Tutorial"
+	else:
+		State.kill_LeaderboardTimer()
+		State.score_level = "Tutorial"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

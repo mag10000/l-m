@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cndwgahs0uj7n"]
+[gd_scene load_steps=6 format=3 uid="uid://cndwgahs0uj7n"]
 
-[ext_resource type="Script" path="res://scenes/world_map.gd" id="1_yp1io"]
+[ext_resource type="Script" uid="uid://cllhlofk2bsjw" path="res://scenes/world_map.gd" id="1_yp1io"]
 [ext_resource type="Texture2D" uid="uid://bgvcg8cj5vuif" path="res://assets/world map pixele.png" id="2_vai2l"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="3_x1kp6"]
-[ext_resource type="Script" path="res://scenes/Button.gd" id="4_fj18h"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_x1kp6"]
+[ext_resource type="Script" uid="uid://dkr2hbhfbmdin" path="res://scenes/button.gd" id="4_fj18h"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="5_qj3iy"]
 
 [node name="world map" type="Node2D"]
 script = ExtResource("1_yp1io")
@@ -142,6 +143,7 @@ flat = true
 position = Vector2(576, 324)
 scale = Vector2(1.558, 1.54)
 position_smoothing_enabled = true
+script = ExtResource("5_qj3iy")
 
 [node name="level_4" type="Button" parent="."]
 visible = false

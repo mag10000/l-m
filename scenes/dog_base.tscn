@@ -1,15 +1,16 @@
-[gd_scene load_steps=43 format=3 uid="uid://celc6gkkr5wxh"]
+[gd_scene load_steps=44 format=3 uid="uid://celc6gkkr5wxh"]
 
-[ext_resource type="Script" path="res://scenes/dog_base.gd" id="1_nlegt"]
+[ext_resource type="Script" uid="uid://dnm634ht02ry1" path="res://scenes/dog_base.gd" id="1_nlegt"]
 [ext_resource type="Texture2D" uid="uid://kr6w81vwjw0e" path="res://assets/lm_shadow_portal.png" id="2_houy1"]
 [ext_resource type="Texture2D" uid="uid://bx50citbuai7l" path="res://assets/dot.png" id="3_11om6"]
 [ext_resource type="Texture2D" uid="uid://bq1r415es5kav" path="res://assets/Lucas_lm(1).png" id="4_yunky"]
-[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="5_sg8ls"]
-[ext_resource type="Script" path="res://scenes/Button.gd" id="6_0jy47"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="7_jv62p"]
-[ext_resource type="AudioStream" uid="uid://cnwftvi8osshj" path="res://brackeys_platformer_assets/fonts/map1.wav" id="8_usobw"]
+[ext_resource type="FontFile" uid="uid://cw36ijmass4q5" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_sg8ls"]
+[ext_resource type="Script" uid="uid://dkr2hbhfbmdin" path="res://scenes/Button.gd" id="6_0jy47"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="7_jv62p"]
+[ext_resource type="AudioStream" uid="uid://cnwftvi8osshj" path="res://assets/fonts/map1.wav" id="8_usobw"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="9_0l5nf"]
 [ext_resource type="Texture2D" uid="uid://bduxh1ochsest" path="res://assets/dog_world_tileset.png" id="10_etrjw"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="10_qxxfd"]
 [ext_resource type="PackedScene" uid="uid://5yxgm7yu6vnn" path="res://scenes/ian.tscn" id="11_h4pw5"]
 [ext_resource type="PackedScene" uid="uid://dk67oogx3u1rg" path="res://scenes/river.tscn" id="12_wi87h"]
 [ext_resource type="PackedScene" uid="uid://btwcqs056xhvg" path="res://scenes/player_2.tscn" id="15_d33y6"]
@@ -162,36 +163,22 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6hfm"]
 _data = {
-"RESET": SubResource("Animation_oldri"),
-"new_animation": SubResource("Animation_5sud3")
+&"RESET": SubResource("Animation_oldri"),
+&"new_animation": SubResource("Animation_5sud3")
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjbni"]
 texture = ExtResource("10_etrjw")
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_xl3cu"]
 physics_layer_0/collision_layer = 1
@@ -238,13 +225,13 @@ frame_progress = 0.162032
 position = Vector2(-158, 434)
 emitting = false
 amount = 43
-process_material = SubResource("ParticleProcessMaterial_bf0ls")
 texture = ExtResource("3_11om6")
 lifetime = 2.5
 speed_scale = 0.5
 randomness = 1.0
 collision_base_size = 0.0
 visibility_rect = Rect2(-10000, -100, 30000, 30000)
+process_material = SubResource("ParticleProcessMaterial_bf0ls")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(291, 592)
@@ -313,7 +300,7 @@ horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="label"]
 libraries = {
-"": SubResource("AnimationLibrary_x6hfm")
+&"": SubResource("AnimationLibrary_x6hfm")
 }
 autoplay = "new_animation"
 
@@ -328,6 +315,7 @@ position = Vector2(198, 568)
 [node name="Camera2D" type="Camera2D" parent="main dude"]
 position = Vector2(-20, -17)
 zoom = Vector2(3, 3)
+script = ExtResource("10_qxxfd")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xl3cu")

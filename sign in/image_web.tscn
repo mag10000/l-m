@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://crchs7y3qs8x"]
+
+[ext_resource type="Script" uid="uid://bdw5fi5xtiws1" path="res://sign in/image_web.gd" id="1_l0tiw"]
+[ext_resource type="PackedScene" uid="uid://c7grmhgdit4lr" path="res://sign in/image_download_api.tscn" id="2_okry6"]
+
+[node name="Image Web" type="ColorRect" node_paths=PackedStringArray("image_tr", "image_download_api")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l0tiw")
+image_tr = NodePath("Image Tr")
+image_download_api = NodePath("Image Download API")
+
+[node name="Image Tr" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+
+[node name="Image Download API" parent="." instance=ExtResource("2_okry6")]

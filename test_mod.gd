@@ -10,6 +10,6 @@ func _process(delta):
 	pass
 
 func test_func():
-	$MainMenuArt.hide()
+	#$MainMenuArt.hide()
 	print("test mod on!")
 	#get_tree().quit()

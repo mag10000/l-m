@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckrnbl76w2b6u"]
 
 [ext_resource type="Script" path="res://scenes/third_talk.gd" id="1_7sqbv"]
-[ext_resource type="AudioStream" uid="uid://75ay2p0mwfsk" path="res://brackeys_platformer_assets/sounds/come_to_base1.wav" id="2_5nyrp"]
+[ext_resource type="AudioStream" uid="uid://75ay2p0mwfsk" path="res://assets/sounds/come_to_base1.wav" id="2_5nyrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onfsq"]
 size = Vector2(216, 376)

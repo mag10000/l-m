@@ -1,10 +1,11 @@
-[gd_scene load_steps=58 format=3 uid="uid://cuibvhleg0wb4"]
+[gd_scene load_steps=59 format=3 uid="uid://cuibvhleg0wb4"]
 
-[ext_resource type="Script" path="res://scenes/smobeybobey_cutscene_1.gd" id="1_0ud3i"]
+[ext_resource type="Script" uid="uid://0d3hpsg4r5kv" path="res://scenes/smobeybobey_cutscene_1.gd" id="1_0ud3i"]
 [ext_resource type="Texture2D" uid="uid://fc42oijbvanq" path="res://assets/tilemap_lm_house.png" id="1_nhh4n"]
 [ext_resource type="Texture2D" uid="uid://cw0x2kme8ykwg" path="res://assets/Lucas_lm.png" id="2_3tug5"]
 [ext_resource type="Texture2D" uid="uid://m0a0pach7mnx" path="res://lm boss fight/classic_snake_attck.png" id="2_w7fge"]
 [ext_resource type="Texture2D" uid="uid://cml5jeq28xael" path="res://assets/Lucas_lm(2).png" id="4_b4x52"]
+[ext_resource type="Script" uid="uid://2uuell3cecl6" path="res://scenes/camera_2d.gd" id="5_anvcg"]
 [ext_resource type="Texture2D" uid="uid://cghtdxc7lh5p0" path="res://lm boss fight/lm_smobeybobey.png" id="5_oaiss"]
 [ext_resource type="Texture2D" uid="uid://xuw6nsuk3w8" path="res://assets/SmobeyBobey.png" id="6_kuaju"]
 [ext_resource type="AudioStream" uid="uid://bkfl4eoxpyljj" path="res://lm_cutscene_voiceover/Aaaah_Jacob.wav" id="7_kmrtd"]
@@ -334,8 +335,8 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_520p0"]
 _data = {
-"RESET": SubResource("Animation_fbw0r"),
-"new_animation": SubResource("Animation_t4p4j")
+&"RESET": SubResource("Animation_fbw0r"),
+&"new_animation": SubResource("Animation_t4p4j")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0kkfr"]
@@ -519,10 +520,11 @@ autoplay = "walk"
 
 [node name="Camera2D" type="Camera2D" parent="lucas"]
 zoom = Vector2(3, 3)
+script = ExtResource("5_anvcg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_520p0")
+&"": SubResource("AnimationLibrary_520p0")
 }
 autoplay = "new_animation"
 

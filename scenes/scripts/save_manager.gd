@@ -39,4 +39,3 @@ func _ready():
 		# create a new save file
 		# create_new_save_file()
 		pass
-

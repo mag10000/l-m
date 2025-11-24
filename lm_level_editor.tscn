@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6sxtdsmdyw07" path="res://lm_editor_block.tscn" id="1_dlta6"]
 [ext_resource type="Script" path="res://lm_level_editor.gd" id="1_l2or7"]
 [ext_resource type="PackedScene" uid="uid://dylqvfwv2nw85" path="res://scenes/player_1.tscn" id="2_swpui"]
-[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://brackeys_platformer_assets/fonts/PressStart2P-Regular.ttf" id="2_xb5k2"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_xb5k2"]
 [ext_resource type="PackedScene" uid="uid://co2bga6pew4py" path="res://scenes/killzone.tscn" id="3_q5j7n"]
 [ext_resource type="Texture2D" uid="uid://lf38fxqd2g5w" path="res://assets/tilemap_lm.png" id="3_vnp0k"]
 [ext_resource type="Texture2D" uid="uid://b00x6ro1unml5" path="res://erase.png" id="4_1looh"]

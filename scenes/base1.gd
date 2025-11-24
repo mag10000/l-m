@@ -20,6 +20,14 @@ func _ready():
 		$label.visible = false
 	if State.mobile == false:
 		$Control/CanvasLayer.visible = false
+	if TranslationServer.get_locale().contains("cmn"):
+		$"What to press".add_theme_font_size_override("normal_font_size",12)
+	
+	
+	State.kill_LeaderboardTimer()
+	
+	if State.show_leaderboard_timer == true:
+		$"Leaderboard suggjust".show()
 
 
 
@@ -32,7 +40,7 @@ func _on_button_3_pressed():
 
 
 
-func _process(delta):
+func _process(_delta):
 	if State.portal_done == true:
 		$AnimatedSprite2D.visible = true
 		$Area2D/CollisionShape2D.disabled = false
@@ -48,15 +56,13 @@ func _process(delta):
 	if current_month == 12:
 		$GPUParticles2D.emitting = false
 		$TileMap2.visible = false
-	if State.translated_to_spanish == true:
-		$Button3.text = ("Mira el mapa
-con A, B o ENTER")
-	else:
-		$Button3.text = ("Look at Map
-with A,B or ENTER")
-	
 
 
 
-func _on_area_2d_body_entered(body):
+
+func _on_area_2d_body_entered(_body):
 	get_tree().change_scene_to_file("res://scenes/dog_base.tscn")
+
+
+func _on_submit_pressed():
+	get_tree().change_scene_to_file("res://online_leaderboard.tscn")

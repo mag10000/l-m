@@ -1,0 +1,191 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpi1g2m5hnwvd"]
+
+[ext_resource type="Script" uid="uid://c5uocaem4m6at" path="res://online_leaderboard.gd" id="1_lpmje"]
+[ext_resource type="PackedScene" uid="uid://bna0b80ktslcr" path="res://sign in/main.tscn" id="2_fhteh"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_hthcb"]
+[ext_resource type="Script" uid="uid://tpndlwjqnp1m" path="res://grid_container.gd" id="3_ktvpv"]
+
+[node name="Online Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpmje")
+
+[node name="Submit" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 45.0
+offset_right = 763.0
+offset_bottom = 586.0
+
+[node name="Label" type="RichTextLabel" parent="Submit"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 383.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("2_hthcb")
+bbcode_enabled = true
+text = "
+[wave]Submit Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="score" type="Label" parent="Submit"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 68.0
+offset_right = 266.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("2_hthcb")
+theme_override_font_sizes/font_size = 8
+text = "time: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Submit"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 126.0
+offset_right = 247.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("2_hthcb")
+text = "Submit"
+
+[node name="Leaderboard" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 380.0
+offset_top = 211.0
+offset_right = 763.0
+offset_bottom = 586.0
+
+[node name="BG" type="ColorRect" parent="Leaderboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10980392, 0.5254902, 0.63529414, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Leaderboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Leaderboard/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+script = ExtResource("3_ktvpv")
+
+[node name="Main" parent="." instance=ExtResource("2_fhteh")]
+layout_mode = 1
+offset_left = 379.0
+offset_top = 45.0
+offset_right = -390.0
+offset_bottom = -62.0
+
+[node name="HSeparator" parent="Main" index="5"]
+anchor_left = 0.02610966
+anchor_top = 0.78571343
+anchor_right = 0.9747583
+anchor_bottom = 0.83972585
+
+[node name="LoginEmail" parent="Main" index="6"]
+anchor_left = 0.08485641
+anchor_top = 0.8345884
+anchor_right = 0.9151436
+anchor_bottom = 0.9898564
+
+[node name="LmLogoNew" parent="Main" index="7"]
+anchor_left = 0.30157337
+anchor_top = 0.039005272
+anchor_right = 0.69321835
+anchor_bottom = 0.3162696
+
+[node name="SignOutButton" parent="Main/SignedInPanel/VBoxContainer/SignoutButtonContainer" index="0"]
+text = "    "
+
+[node name="Image Web" parent="Main" index="9"]
+offset_left = 169.0
+offset_top = 321.0
+offset_right = 239.0
+offset_bottom = 391.0
+
+[node name="Back_Button" parent="Main" index="10"]
+visible = false
+
+[node name="Button" parent="Main" index="11"]
+visible = false
+
+[node name="Login_Status" parent="Main" index="12"]
+visible = false
+
+[node name="Button2" type="Button" parent="Main"]
+visible = false
+layout_mode = 0
+offset_left = 136.0
+offset_top = 385.0
+offset_right = 252.0
+offset_bottom = 430.5
+theme_override_fonts/font = ExtResource("2_hthcb")
+text = "Close"
+
+[node name="Button3" type="Button" parent="Main"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 549.0
+offset_right = 388.0
+offset_bottom = 588.0
+theme_override_fonts/font = ExtResource("2_hthcb")
+text = "Skip And Just See Scores"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.16145833
+anchor_bottom = 0.15895061
+theme_override_fonts/font = ExtResource("2_hthcb")
+text = "← Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="Loading" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Loading"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_hthcb")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Connecting[wave]..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Submit/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Main/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Main/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+
+[editable path="Main"]

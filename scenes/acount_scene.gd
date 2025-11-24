@@ -1,14 +1,16 @@
 extends Node2D
 
-var PatrickCode = ("1211")
+#var email = ""
 
-var MagnusCode = ("v1cuppy#")
+var PatrickCode = ("1211").sha256_text()
 
-var JessicaCode = ("3690")
+var MagnusCode = ("2bce32bb8c7fc440563da9e4b577d8eeac5f0daada3ca00792971dda63e511b1")
 
-var Cxd = ("9999")
+var JessicaCode = ("3690").sha256_text()
 
-var EricaCode = ("magipoo")
+var Cxd = ("9999").sha256_text()
+
+var EricaCode = ("magipoo").sha256_text()
 
 var number1 = ("0")
 
@@ -22,13 +24,11 @@ var on_number = 1
 
 var fullCode = ("0000")
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	get_tree().change_scene_to_file("res://sign in/main.tscn")
 
 
 func _on_button_pressed():
@@ -68,22 +68,51 @@ func _on_button_11_pressed():
 
 func _on_button_12_pressed():
 	fullCode = number1 + number2 + number3 + number4
-	if $TextEdit.text == PatrickCode:
+	if $TextEdit.text.sha256_text() == PatrickCode:
+		#send_email(get_code())
 		State.loginperson = ("patrick")
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	if $TextEdit.text == MagnusCode:
+	elif $TextEdit.text.sha256_text() == MagnusCode:
+		#send_email(get_code())
+		print($TextEdit.text.sha256_text())
 		State.loginperson = ("magnus")
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	if $TextEdit.text == Cxd:
+	elif $TextEdit.text.sha256_text() == Cxd:
+		#send_email(get_code())
 		State.loginperson = ("cxd")
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	if $TextEdit.text == JessicaCode:
+	elif $TextEdit.text.sha256_text() == JessicaCode:
+		#send_email(get_code())
 		State.loginperson = ("jessica")
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	if $TextEdit.text == EricaCode:
+	elif $TextEdit.text.sha256_text() == EricaCode:
+		#send_email(get_code())
 		State.loginperson = ("erica")
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	else:
+		$Label.text = "Login Failed!"
 
 func _on_button_13_pressed():
 	State.loginperson = ("none")
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func get_code():
+	var _code = ""
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += "-"
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += "-"
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	_code += str(randi_range(1,9))
+	return _code
+
+# Called when the node enters the scene tree for the first time.
