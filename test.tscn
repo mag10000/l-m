@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://2wsefbbkqsjr"]
+[gd_scene load_steps=50 format=3 uid="uid://2wsefbbkqsjr"]
 
 [ext_resource type="Script" uid="uid://pw4cx2typij2" path="res://test.gd" id="1_2nfl4"]
 [ext_resource type="Material" uid="uid://m4pm7uy4mvlr" path="res://fire.tres" id="1_66lia"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://ch0mmxhsei36n" path="res://assets/Jacob_dragon_dash.png" id="23_36gtf"]
 [ext_resource type="Texture2D" uid="uid://bmik7eihdvepr" path="res://monitor.png" id="23_dwqlq"]
 [ext_resource type="Script" uid="uid://ctwipadv824jo" path="res://monitor.gd" id="24_15c7i"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="30_rrpoi"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3nkm"]
 particle_flag_disable_z = true
@@ -299,12 +300,11 @@ position = Vector2(-1, -1)
 zoom = Vector2(3, 3)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(118, -57)
+position = Vector2(38.000008, 120)
 scale = Vector2(9, 1)
 sprite_frames = SubResource("SpriteFrames_5pvfe")
-autoplay = "default"
 frame = 1
-frame_progress = 0.0836581
+frame_progress = 0.061808128
 
 [node name="fire" parent="." instance=ExtResource("22_17vji")]
 z_index = -2
@@ -320,6 +320,13 @@ offset_bottom = -93.0
 position = Vector2(-96, -78)
 texture = ExtResource("23_dwqlq")
 script = ExtResource("24_15c7i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 142.0
+offset_bottom = 51.0
+theme_override_fonts/normal_font = ExtResource("30_rrpoi")
+bbcode_enabled = true
+text = "Hi buddy"
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 

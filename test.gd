@@ -17,6 +17,8 @@ func _ready():
 	#else:
 	#	State.kill_LeaderboardTimer()
 	#	State.score_level = "Tutorial"
+		$RichTextLabel.add_theme_font_override("normal_font",load("res://assets/fonts/PressStart2P-Regular.ttf"))
+		$RichTextLabel.add_theme_font_size_override("normal_font_size",8)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

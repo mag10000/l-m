@@ -177,9 +177,6 @@ func _ready():
 	
 	
 	
-	
-	
-	
 	#for cloud save: && State.user_info["signed_in"] == false
 	
 	if FileAccess.file_exists("user://lm_data.json") && State.loaded == false:
@@ -308,7 +305,8 @@ func save():
 	"world_2_level_1_done" : State.world_2_level_1_done,
 	"version" : version,
 	"card_data" : Cards.card_data,
-	"show_leaderboard_timer" : State.show_leaderboard_timer
+	"show_leaderboard_timer" : State.show_leaderboard_timer,
+	"app_sign_ins" : State.app_sign_ins,
 }
 	print (save_dict)
 	return save_dict
@@ -393,11 +391,16 @@ func load_data(load_dict):
 					State.world_2_level_1_done  = load_dict["world_2_level_1_done"]
 				if load_dict.has("card_data"):
 					Cards.card_data  = load_dict["card_data"]
+				if load_dict.has("show_leaderboard_timer"):
+					State.show_leaderboard_timer  = load_dict["show_leaderboard_timer"]
+				if load_dict.has("app_sign_ins"):
+					State.app_sign_ins  = load_dict["app_sign_ins"]
 			else: 
 				pass
 	#for key in load_dict:
 	#	State.key = load_dict[key]
-
+	#"show_leaderboard_timer" : State.show_leaderboard_timer,
+	#"app_sign_ins" : State.app_sign_ins,
 func _on_mobile_pressed():
 	State.mobile = !State.mobile
 
@@ -474,6 +477,7 @@ func _on_body_meta_clicked(meta):
 
 
 func _on_close_pressed():
+	save_manager.write_save(save())
 	$"update guide".hide()
 	$AudioStreamPlayer2D.play()
 

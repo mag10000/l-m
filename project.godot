@@ -34,6 +34,7 @@ lm_http="*res://scenes/scripts/http.gd"
 Achivements="*res://achivements/Achivements.gd"
 SupabaseAuth="*res://sign in/SupabaseAuth.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+LootLockerSDK="*res://addons/LootLockerSDK/LootLockerSDK.gd"
 
 [display]
 
@@ -45,7 +46,7 @@ mouse_cursor/tooltip_position_offset=Vector2(100, 0)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdmail/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/LootLockerSDK/plugin.cfg", "res://addons/gdmail/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 

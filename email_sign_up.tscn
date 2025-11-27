@@ -1,0 +1,213 @@
+[gd_scene load_steps=4 format=3 uid="uid://bynk641hbtaye"]
+
+[ext_resource type="Script" uid="uid://c5ts2a2ubidty" path="res://email_sign_up.gd" id="1_al6pp"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_h075q"]
+[ext_resource type="Texture2D" uid="uid://dwrdxs8yd00k2" path="res://assets/lm logo new.png" id="2_gpucm"]
+
+[node name="Email Sign Up" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_al6pp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1204.0
+offset_bottom = 680.0
+color = Color(0, 0, 0, 0.7490196)
+
+[node name="Create" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -256.5
+offset_right = 522.0
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Create"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -256.0
+offset_right = 411.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Create/VBoxContainer"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_h075q")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]Create Account"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer" type="Control" parent="Create/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="email" type="LineEdit" parent="Create/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+placeholder_text = "email"
+
+[node name="Password" type="LineEdit" parent="Create/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+placeholder_text = "Password"
+secret = true
+
+[node name="re-Password" type="LineEdit" parent="Create/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+placeholder_text = "Re-enter Password"
+secret = true
+
+[node name="spacer2" type="Control" parent="Create/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Create/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85882354, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h075q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="submit create" type="Button" parent="Create/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+text = "Submit"
+
+[node name="LmLogoNew" type="Sprite2D" parent="Create"]
+position = Vector2(519, 433.5)
+texture = ExtResource("2_gpucm")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Create"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -20.0
+offset_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("1_h075q")
+bbcode_enabled = true
+text = "login system through [url=https://lootlocker.com/]LootLocker[/url]"
+
+[node name="login" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -256.5
+offset_right = 522.0
+offset_bottom = 256.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="login"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -256.0
+offset_right = 411.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="login/VBoxContainer"]
+custom_minimum_size = Vector2(50, 60)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_h075q")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]Log into Account"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer" type="Control" parent="login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="email" type="LineEdit" parent="login/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+placeholder_text = "email"
+
+[node name="Password" type="LineEdit" parent="login/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+placeholder_text = "Password"
+secret = true
+
+[node name="spacer2" type="Control" parent="login/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="login/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85882354, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h075q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="submit login" type="Button" parent="login/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h075q")
+text = "Submit"
+
+[node name="LmLogoNew" type="Sprite2D" parent="login"]
+position = Vector2(522, 410.5)
+texture = ExtResource("2_gpucm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="login"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -20.5
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("1_h075q")
+bbcode_enabled = true
+text = "login system through [url=https://lootlocker.com/]LootLocker[/url]"
+
+[connection signal="pressed" from="Create/VBoxContainer/submit create" to="." method="_on_submit_create_pressed"]
+[connection signal="meta_clicked" from="Create/RichTextLabel2" to="." method="_on_rich_text_label_2_meta_clicked"]
+[connection signal="pressed" from="login/VBoxContainer/submit login" to="." method="_on_submit_login_pressed"]
+[connection signal="meta_clicked" from="login/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

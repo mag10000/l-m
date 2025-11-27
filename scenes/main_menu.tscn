@@ -196,7 +196,7 @@ animations = [{
 
 [node name="main menu" type="Node2D"]
 script = ExtResource("1_gacp7")
-version = "v 3.5.4"
+version = "v 3.6.5"
 
 [node name="MainMenuArt" type="Sprite2D" parent="."]
 position = Vector2(89, 4)
@@ -615,7 +615,7 @@ offset_bottom = 54.0
 theme_override_fonts/normal_font = ExtResource("3_p5weo")
 bbcode_enabled = true
 text = "[wave] Welcome to Lm 
-v 3.5.4"
+v 3.5.4/v 3.6.5"
 horizontal_alignment = 1
 
 [node name="body" type="RichTextLabel" parent="update guide"]
@@ -628,7 +628,7 @@ theme_override_fonts/normal_font = ExtResource("3_p5weo")
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[wave] Welcome to Lm 
-v 3.5.4[/wave]
+v 3.5.4/v 3.6.5[/wave]
 in this update the following changed
 
 Changelog:
@@ -642,6 +642,8 @@ Changelog:
 -windows 10 and 11 download options
  
 -leaderboard system
+
+-email added to account system
 
 to add a score to the leaderboard first go to [img]res://assets/settings.png[/img] settings and click on the Show Timer button.
 Then start a level you should see a timer in the corner of your screen. When you get back to the base walk over to the button that says \"SUBMIT\", click it. if you are not signed in, sign in(you can't submit scores on web because the accounts dont work there).Then once you sign in you should see your time click submit. You submitted your score!

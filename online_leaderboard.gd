@@ -2,6 +2,8 @@ extends Control
 
 var open_sign_in = false
 
+var format = "metadata"
+
 var doing = true
 
 var started_gridding_ishthing = false
@@ -47,10 +49,18 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	print(State.player_name)
-	State.player_name += "," + State.score_level
+	if format == "metadata":
+		if State.player_name.contains(","):
+			var new_to_set = State.player_name.split(",")
+			State.player_name = new_to_set[0]
+		State.player_name += "(v3.5.4)"
+	else:
+		State.player_name = State.player_name + "," + State.score_level
+		print("Name Format")
 	
-	var sw_result : Dictionary = await SilentWolf.Scores.save_score(State.player_name, State.score).sw_save_score_complete
+	print(format)
+	
+	var sw_result : Dictionary = await SilentWolf.Scores.save_score(State.player_name, State.score, "main",{"level" : State.score_level,"effect" : $Submit/ColorPickerButton.color}).sw_save_score_complete
 	print("score persisted succsesfully:" + str(sw_result.score_id))
 	$Leaderboard/ScrollContainer/GridContainer._leaderboard_start()
 	$Submit/Button.disabled = true
@@ -87,3 +97,14 @@ func _on_button_3_pressed():
 	$Submit/Button.hide()
 	$Main.hide()
 	$Leaderboard/ScrollContainer/GridContainer._leaderboard_start()
+
+
+func _on_formatbutton_pressed():
+	if format == "metadata":
+		format = "name"
+		$Submit/formatbutton.text = 'Submiting name format'
+		return
+	if format == "name":
+		format = "metadata"
+		$Submit/formatbutton.text = 'Submiting metadata format'
+		return

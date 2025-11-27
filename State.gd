@@ -168,6 +168,10 @@ var score_level = "Empty"
 
 var player_name : String
 
+var app_sign_ins = {}
+
+var lootlock_password = ""
+
 func _ready():
 	SilentWolf.configure({
 		"api_key" : "dVj5hDbhnL7eQuo7VDpR58hryt4hF2d02sW82n8A",

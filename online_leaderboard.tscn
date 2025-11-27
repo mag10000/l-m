@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpi1g2m5hnwvd"]
+[gd_scene load_steps=6 format=3 uid="uid://bpi1g2m5hnwvd"]
 
 [ext_resource type="Script" uid="uid://c5uocaem4m6at" path="res://online_leaderboard.gd" id="1_lpmje"]
 [ext_resource type="PackedScene" uid="uid://bna0b80ktslcr" path="res://sign in/main.tscn" id="2_fhteh"]
 [ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_hthcb"]
 [ext_resource type="Script" uid="uid://tpndlwjqnp1m" path="res://grid_container.gd" id="3_ktvpv"]
+[ext_resource type="Script" uid="uid://chnafxcqd7s3f" path="res://score_id.gd" id="4_jmu6c"]
 
 [node name="Online Leaderboard" type="Control"]
 layout_mode = 3
@@ -48,11 +49,30 @@ vertical_alignment = 1
 [node name="Button" type="Button" parent="Submit"]
 layout_mode = 0
 offset_left = 143.0
-offset_top = 126.0
+offset_top = 132.0
 offset_right = 247.0
-offset_bottom = 154.0
+offset_bottom = 160.0
 theme_override_fonts/font = ExtResource("2_hthcb")
 text = "Submit"
+
+[node name="formatbutton" type="Button" parent="Submit"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 3.0
+offset_right = 300.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("2_hthcb")
+theme_override_font_sizes/font_size = 8
+text = "Submiting metadata format"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Submit"]
+visible = false
+layout_mode = 0
+offset_left = 163.0
+offset_top = 98.0
+offset_right = 223.0
+offset_bottom = 129.0
+text = "color"
 
 [node name="Leaderboard" type="Control" parent="."]
 anchors_preset = 0
@@ -76,6 +96,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 27.0
+offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -83,8 +104,41 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 3
+columns = 4
 script = ExtResource("3_ktvpv")
+
+[node name="LineEdit" type="LineEdit" parent="Leaderboard"]
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 337.0
+offset_right = 375.0
+offset_bottom = 368.0
+theme_override_fonts/font = ExtResource("2_hthcb")
+placeholder_text = "score id...."
+
+[node name="Button" type="Button" parent="Leaderboard/LineEdit"]
+layout_mode = 0
+offset_left = -79.0
+offset_right = -7.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_hthcb")
+text = "view"
+script = ExtResource("4_jmu6c")
+
+[node name="Panel" type="Panel" parent="Leaderboard/LineEdit/Button"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = -9.0
+offset_top = -503.0
+offset_right = 374.0
+offset_bottom = 38.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard/LineEdit/Button/Panel"]
+layout_mode = 0
+offset_right = 383.0
+offset_bottom = 541.0
 
 [node name="Main" parent="." instance=ExtResource("2_fhteh")]
 layout_mode = 1
@@ -128,6 +182,20 @@ visible = false
 
 [node name="Login_Status" parent="Main" index="12"]
 visible = false
+
+[node name="application sign in" parent="Main" index="13"]
+offset_left = -222.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 8
+
+[node name="Header" parent="Main/application sign in Panel" index="1"]
+anchor_left = 0.24804178
+anchor_top = 0.10166359
+anchor_right = 0.7493473
+anchor_bottom = 0.20887245
+
+[node name="VBoxContainer" parent="Main/application sign in Panel" index="2"]
+offset_top = 119.0
 
 [node name="Button2" type="Button" parent="Main"]
 visible = false
@@ -184,6 +252,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Submit/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Submit/formatbutton" to="." method="_on_formatbutton_pressed"]
+[connection signal="pressed" from="Leaderboard/LineEdit/Button" to="Leaderboard/LineEdit/Button" method="_on_pressed"]
 [connection signal="pressed" from="Main/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Main/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
