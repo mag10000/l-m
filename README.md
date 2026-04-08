@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GD-Sync: Advanced Multiplayer Plugin for Godot 4
 
 ## Quick Start
@@ -25,3 +26,8 @@ Born from the challenges of multiplayer game development, GD-Sync is a solution 
 © 2025 GD-Sync. All rights reserved.
 - [Terms of Service](https://www.gd-sync.com/terms)
 - [Privacy Policy](https://www.gd-sync.com/privacy-policy)
+=======
+LM supeheroes!
+===
+### its a cool game ya know
+>>>>>>> 2eb47b139421d8a01d31e6262b3e95ec123defe2
