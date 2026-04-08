@@ -14,6 +14,8 @@ var current_month = date_dict["month"]
 @onready var button3 = $Button3
 
 func _ready():
+	if not State.base_move_cutscene:
+		base_move_cutscene()
 	if State.mobile == true:
 		$Control/CanvasLayer.visible = true
 		$Button3.visible = true
@@ -51,7 +53,6 @@ func _process(_delta):
 		State.save_menu_scene = ("res://scenes/world_map.tscn")
 		get_tree().change_scene_to_file("res://scenes/world_map.tscn")
 	
-	print(mouse_position)
 	
 	if current_month == 12:
 		$GPUParticles2D.emitting = false
@@ -66,3 +67,10 @@ func _on_area_2d_body_entered(_body):
 
 func _on_submit_pressed():
 	get_tree().change_scene_to_file("res://online_leaderboard.tscn")
+
+func base_move_cutscene():
+	$AudioStreamPlayer.volume_db = -80
+	$"take theese moves".play()
+	$"main dude".lock = true
+	await get_tree().create_timer(4.13).timeout
+	State.grant_move(["kick","punch"],$"main dude")

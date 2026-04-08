@@ -1,0 +1,220 @@
+[gd_scene load_steps=6 format=3 uid="uid://br7gcgajp3oq"]
+
+[ext_resource type="Script" uid="uid://thcfj3myajo3" path="res://account_hub.gd" id="1_dt0xg"]
+[ext_resource type="Texture2D" uid="uid://dwrdxs8yd00k2" path="res://assets/lm logo new.png" id="2_wqgc7"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_dvudq"]
+[ext_resource type="Texture2D" uid="uid://b8paqfrlnh7wd" path="res://assets/notification1.png" id="4_qsxqi"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_68pow"]
+thickness = 3
+
+[node name="account hub" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dt0xg")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6638989, 0.26224017, 0.6874832, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.43977866
+anchor_top = 0.030864198
+anchor_right = 0.5602214
+anchor_bottom = 0.27623457
+grow_horizontal = 2
+texture = ExtResource("2_wqgc7")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0390625
+anchor_top = 0.27932099
+anchor_right = 0.9609375
+anchor_bottom = 0.3472222
+offset_bottom = 1.5258789e-05
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="friends" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "friends"
+
+[node name="notifications" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "notifications"
+icon = ExtResource("4_qsxqi")
+
+[node name="account" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "account"
+
+[node name="help" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "help"
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 225.0
+offset_right = 1131.0
+offset_bottom = 269.0
+theme_override_styles/separator = SubResource("StyleBoxLine_68pow")
+
+[node name="notifications" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.046875
+anchor_top = 0.4351852
+anchor_right = 0.9548611
+anchor_bottom = 0.94135803
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="notifications"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13862333
+anchor_right = 0.8613767
+anchor_bottom = 1.0
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="friends" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.046875
+anchor_top = 0.4351852
+anchor_right = 0.9548611
+anchor_bottom = 0.94135803
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="friends"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13862333
+anchor_right = 0.8613767
+anchor_bottom = 1.0
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="send_request" type="Button" parent="friends/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "send friend request"
+
+[node name="request panel" type="Panel" parent="friends"]
+visible = false
+layout_mode = 0
+offset_left = 275.0
+offset_top = -25.0
+offset_right = 774.0
+offset_bottom = 355.0
+
+[node name="ID" type="LineEdit" parent="friends/request panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -62.5
+offset_right = -14.0
+offset_bottom = -31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_dvudq")
+placeholder_text = "friend code"
+
+[node name="send request to ID" type="Button" parent="friends/request panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 169.0
+offset_right = 359.0
+offset_bottom = 201.0
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "Send"
+
+[node name="Label" type="Label" parent="friends/request panel"]
+visible = false
+layout_mode = 0
+offset_left = 61.0
+offset_top = 81.0
+offset_right = 439.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0.7283518, 0, 0.13324112, 1)
+theme_override_fonts/font = ExtResource("3_dvudq")
+text = "Account not found!"
+horizontal_alignment = 1
+
+[node name="account" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchor_left = 0.046875
+anchor_top = 0.4351852
+anchor_right = 0.9548611
+anchor_bottom = 0.94135803
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="account"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13862333
+anchor_right = 0.8613767
+anchor_bottom = 1.0
+offset_right = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="code" type="RichTextLabel" parent="account/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_dvudq")
+bbcode_enabled = true
+text = "Friend Code: 2025-9999-pizza"
+horizontal_alignment = 1
+
+[node name="ID" type="RichTextLabel" parent="account/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_dvudq")
+bbcode_enabled = true
+text = "ID: 1632172191762"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="friends/VBoxContainer/send_request" to="." method="_on_send_request_pressed"]
+[connection signal="pressed" from="friends/request panel/send request to ID" to="." method="_on_send_request_to_id_pressed"]

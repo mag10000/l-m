@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cual4bhdu4vrl"]
+
+[ext_resource type="Script" uid="uid://bcr4fd3b3810h" path="res://friend_reques_notification.gd" id="1_jv1ow"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_ux83v"]
+
+[node name="friend request" type="HBoxContainer"]
+size_flags_horizontal = 8
+script = ExtResource("1_jv1ow")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(640.96, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ux83v")
+bbcode_enabled = true
+text = "(friend request) friend name"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("1_ux83v")
+theme_override_font_sizes/font_size = 16
+disabled = true
+text = "accept"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

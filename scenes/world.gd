@@ -8,6 +8,8 @@ var current_month = date_dict["month"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GDSync.lobby_join(Online.lobby)
+	GDSync
 	if State.mobile == true:
 		$Control/CanvasLayer.visible = true
 	if State.mobile == false:

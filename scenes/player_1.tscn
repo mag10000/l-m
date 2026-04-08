@@ -1,6 +1,6 @@
-[gd_scene load_steps=42 format=3 uid="uid://dylqvfwv2nw85"]
+[gd_scene format=3 uid="uid://dylqvfwv2nw85"]
 
-[ext_resource type="Script" path="res://scenes/scripts/character_body_2d.gd" id="1_jxq05"]
+[ext_resource type="Script" uid="uid://mmngc2jy6nke" path="res://scenes/scripts/character_body_2d.gd" id="1_jxq05"]
 [ext_resource type="SpriteFrames" uid="uid://co2n2m2csfhmx" path="res://scenes/p1animation.tres" id="2_64jdu"]
 [ext_resource type="AudioStream" uid="uid://d21fo5r3h4hqj" path="res://assets/Jump.wav" id="3_v4dvi"]
 [ext_resource type="PackedScene" uid="uid://bmd505rvvtd88" path="res://scenes/menu_pop_up.tscn" id="5_a7phq"]
@@ -227,101 +227,101 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7s4"]
 size = Vector2(10, 2.75)
 
-[node name="main dude" type="CharacterBody2D"]
+[node name="main dude" type="CharacterBody2D" unique_id=286858546]
 collision_layer = 2
 script = ExtResource("1_jxq05")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855842112]
 position = Vector2(-18, 24.5)
 scale = Vector2(1.82677, 1.90256)
 shape = SubResource("RectangleShape2D_5msjf")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1402434035]
 position = Vector2(17.3333, -5.45611)
 scale = Vector2(1.82677, 1.89695)
 shape = SubResource("CircleShape2D_tj3he")
 disabled = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1276867497]
 position = Vector2(11.8095, 2.26231)
 scale = Vector2(1.82677, 1.89695)
 shape = SubResource("RectangleShape2D_al85t")
 disabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1276991190]
 position = Vector2(-18, 24)
 sprite_frames = ExtResource("2_64jdu")
 animation = &"idle"
 autoplay = "temp"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1706232732]
 stream = ExtResource("3_v4dvi")
 volume_db = 8.99
 bus = &"sfx"
 
-[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
+[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D" unique_id=625520478]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1741905687]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1609910255]
 collision_layer = 16
 collision_mask = 16
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=451936404]
 position = Vector2(-18, 38.5)
 shape = SubResource("RectangleShape2D_y3tqc")
 one_way_collision = true
 
-[node name="hat_lucas" type="AnimatedSprite2D" parent="."]
+[node name="hat_lucas" type="AnimatedSprite2D" parent="." unique_id=849890995]
 visible = false
 position = Vector2(-18, 22)
 sprite_frames = SubResource("SpriteFrames_ngme3")
 animation = &"idle"
 
-[node name="bubles" type="AnimatedSprite2D" parent="."]
+[node name="bubles" type="AnimatedSprite2D" parent="." unique_id=857801041]
 position = Vector2(-17, -1)
 sprite_frames = SubResource("SpriteFrames_bcawg")
 autoplay = "new_animation"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="bubles"]
+[node name="StaticBody2D" type="StaticBody2D" parent="bubles" unique_id=956560141]
 collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bubles/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bubles/StaticBody2D" unique_id=647644853]
 position = Vector2(-2.5, -11)
 shape = SubResource("RectangleShape2D_b4q7h")
 disabled = true
 
-[node name="Timer2" type="Timer" parent="."]
+[node name="Timer2" type="Timer" parent="." unique_id=1240294553]
 wait_time = 0.002
 one_shot = true
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=956201648]
 position = Vector2(-18, 4)
 sprite_frames = SubResource("SpriteFrames_d0q7x")
 animation = &"hallo"
 autoplay = "noth"
 
-[node name="radation" type="AnimatedSprite2D" parent="."]
+[node name="radation" type="AnimatedSprite2D" parent="." unique_id=1656402265]
 position = Vector2(-18, 24)
 sprite_frames = SubResource("SpriteFrames_aakpg")
 animation = &"new_animation"
 autoplay = "new_animation"
 
-[node name="menu_pop_up" parent="." instance=ExtResource("5_a7phq")]
+[node name="menu_pop_up" parent="." unique_id=1048153679 instance=ExtResource("5_a7phq")]
 
-[node name="shadow_kid_kill_vo" type="AudioStreamPlayer" parent="."]
+[node name="shadow_kid_kill_vo" type="AudioStreamPlayer" parent="." unique_id=803423424]
 stream = ExtResource("11_a1iuk")
 
-[node name="Timer3" type="Timer" parent="shadow_kid_kill_vo"]
+[node name="Timer3" type="Timer" parent="shadow_kid_kill_vo" unique_id=1897864216]
 wait_time = 2.83
 one_shot = true
 
-[node name="jump_timer" type="Timer" parent="."]
+[node name="jump_timer" type="Timer" parent="." unique_id=1365613240]
 wait_time = 0.1
 one_shot = true
 
-[node name="ColorRect5" type="ColorRect" parent="."]
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=827496745]
 visible = false
 z_index = 1
 offset_left = -23.0
@@ -330,7 +330,7 @@ offset_right = -13.0
 offset_bottom = 39.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect5"]
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5" unique_id=666610261]
 z_index = 1
 layout_mode = 0
 offset_left = -2.0
@@ -339,7 +339,7 @@ offset_right = 12.0
 offset_bottom = -1.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6"]
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6" unique_id=1602367789]
 z_index = 1
 layout_mode = 0
 offset_left = 1.0
@@ -348,9 +348,9 @@ offset_right = 13.0
 offset_bottom = 11.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="rumble" type="Area2D" parent="."]
+[node name="rumble" type="Area2D" parent="." unique_id=1554445146]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rumble"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rumble" unique_id=1326468896]
 position = Vector2(-18, 39.625)
 shape = SubResource("RectangleShape2D_tf7s4")
 

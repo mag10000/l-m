@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn6qb5edh4prb"]
+
+[ext_resource type="Script" uid="uid://cmy8x6nxd58of" path="res://create_news.gd" id="1_wvm71"]
+[ext_resource type="PackedScene" uid="uid://crchs7y3qs8x" path="res://sign in/image_web.tscn" id="2_5g35a"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_asn1v"]
+
+[node name="Create News" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wvm71")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Image Web" parent="Panel" instance=ExtResource("2_5g35a")]
+layout_mode = 0
+offset_left = 913.0
+offset_top = 55.0
+offset_right = 1054.0
+offset_bottom = 199.0
+url = "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-no-image-available-icon-flat-vector.jpg"
+
+[node name="Label" type="Label" parent="Panel/Image Web"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 149.0
+offset_right = 146.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("3_asn1v")
+text = "Cover IMG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Image Web"]
+layout_mode = 0
+offset_left = -56.0
+offset_top = 179.0
+offset_right = 218.0
+offset_bottom = 210.0
+theme_override_fonts/font = ExtResource("3_asn1v")
+placeholder_text = "URL"
+
+[node name="update img" type="Button" parent="Panel/Image Web"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 221.0
+offset_right = 133.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("3_asn1v")
+text = "update"
+
+[node name="Title" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 96.0
+offset_right = 551.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("3_asn1v")
+placeholder_text = "Title..."
+max_length = 20
+
+[node name="Preview" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 138.0
+offset_right = 551.0
+offset_bottom = 166.0
+theme_override_fonts/font = ExtResource("3_asn1v")
+placeholder_text = "Preview Text..."
+max_length = 24
+
+[node name="create" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -69.0
+offset_right = 126.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_asn1v")
+theme_override_font_sizes/font_size = 32
+text = "Create"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 435.0
+offset_right = 1093.0
+offset_bottom = 475.0
+theme_override_fonts/font = ExtResource("3_asn1v")
+placeholder_text = "BODY..."
+alignment = 1
+
+[connection signal="pressed" from="Panel/Image Web/update img" to="." method="_on_update_img_pressed"]
+[connection signal="pressed" from="create" to="." method="_on_create_pressed"]

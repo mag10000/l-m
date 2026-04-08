@@ -53,6 +53,7 @@ func _on_button_pressed():
 			"version" : State.version,
 			"mobile" : State.mobile
 		})
+		$Timer.start()
 		if FileAccess.file_exists("user://auth_session.dat"):
 			var save_game_path = "user://auth_session.dat"
 			DirAccess.remove_absolute(save_game_path)
@@ -60,7 +61,10 @@ func _on_button_pressed():
 
 func _on_timer_timeout():
 	if FileAccess.file_exists("user://app_sign_in_data.json"):
+		print("file exists")
 		sign_in()
+	else:
+		print("HUH?????")
 
 func sign_in():
 	$Header.text = "Signed In"

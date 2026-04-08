@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bldsmcx2qlquv"]
+
+[ext_resource type="Script" uid="uid://bdw5fi5xtiws1" path="res://sign in/image_web.gd" id="1_be1ss"]
+[ext_resource type="PackedScene" uid="uid://c7grmhgdit4lr" path="res://sign in/image_download_api.tscn" id="2_tfmd1"]
+
+[node name="Image Web" type="ColorRect" node_paths=PackedStringArray("image_tr", "image_download_api")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_be1ss")
+image_tr = NodePath("")
+image_download_api = NodePath("Image Download API")
+
+[node name="Image Tr" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Image Download API" parent="." instance=ExtResource("2_tfmd1")]
+
+[node name="WebView" type="WebView" parent="."]
+url = "https://github.com/Lecrapouille/gdcef"

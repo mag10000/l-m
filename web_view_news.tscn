@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://djt03hsmm1j1n"]
+
+[ext_resource type="Texture2D" uid="uid://exhancn3v6v7" path="res://assets/web.png" id="1_mtfc2"]
+[ext_resource type="Script" uid="uid://clr5skl2ra6no" path="res://web_view_news.gd" id="1_ymanb"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_ymanb"]
+
+[node name="WebViewNews" type="ColorRect"]
+custom_minimum_size = Vector2(300, 120)
+size_flags_horizontal = 4
+script = ExtResource("1_ymanb")
+
+[node name="WebIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42
+anchor_top = 0.175
+anchor_right = 0.58
+anchor_bottom = 0.575
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mtfc2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -23.0
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ymanb")
+text = "Youtube.com"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 120.0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

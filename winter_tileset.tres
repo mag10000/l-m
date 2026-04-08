@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ci1wci3kjanna"]
+[gd_resource type="TileSet" format=3 uid="uid://ci1wci3kjanna"]
 
 [ext_resource type="Texture2D" uid="uid://dihnoqxti4q5j" path="res://assets/tilemap_lm_winter.png" id="1_6y3vw"]
 

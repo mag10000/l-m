@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://b58ef7p1e3fou"]
+
+[ext_resource type="Script" uid="uid://qmsoq7r6uflu" path="res://events.gd" id="1_ox3jd"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_hc5s2"]
+
+[node name="Events" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox3jd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_hc5s2")
+theme_override_font_sizes/font_size = 32
+text = "load events"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_hc5s2")
+theme_override_font_sizes/font_size = 32
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 327.0
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_top = 69.0
+offset_right = 248.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("2_hc5s2")
+placeholder_text = "Start"
+
+[node name="LineEdit2" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_top = 114.0
+offset_right = 248.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("2_hc5s2")
+placeholder_text = "End"
+
+[node name="LineEdit3" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_top = 191.0
+offset_right = 248.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("2_hc5s2")
+placeholder_text = "Name"
+
+[node name="make event" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 244.0
+offset_right = 203.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("2_hc5s2")
+text = "make"
+
+[node name="Make" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("2_hc5s2")
+theme_override_font_sizes/font_size = 24
+text = "MAKE EVENT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/make event" to="." method="_on_make_event_pressed"]
+[connection signal="pressed" from="Make" to="." method="_on_button_2_pressed"]

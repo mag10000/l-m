@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3 uid="uid://1xi0q502jb4l"]
+
+[ext_resource type="Texture2D" uid="uid://4kyrm7ibbi12" path="res://online/tower_floor.png" id="1_np6r0"]
+[ext_resource type="Texture2D" uid="uid://bmluebnfcjefb" path="res://online/tower_join.png" id="2_qfjw3"]
+[ext_resource type="Script" uid="uid://dlmupx3jk1dk7" path="res://online/lobby_floor.gd" id="3_aps11"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_qfjw3"]
+
+[sub_resource type="Animation" id="Animation_aps11"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("name:theme_override_colors/font_shadow_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("name:theme_override_colors/font_shadow_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.34351054, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("name:theme_override_colors/font_shadow_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.20240146, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("name:theme_override_colors/font_shadow_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qfjw3"]
+resource_name = "new_animation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("name:theme_override_colors/font_shadow_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, 0.092610024, -0.16666667, -0.015435005, 0, 0, 0.0711165, -0.16666667, 0.003582254, 0, 0, 0.12946069, -0.16666667, -0.009724032, 0, 0, 0.32263294, -0.16666667, -0.032195374, 0, 0, 0.46127832, -0.16666667, -0.023107564, 0, 0, 0.47897464, -0.16666667, -0.0029493868, 0, 0, 0.40674677, -0.16666667, 0.012037978, 0, 0, 0.29987383, -0.16666667, 0.017812159, 0, 0, 0, -0.16666667, 0.04997897, 0, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("name:theme_override_colors/font_shadow_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.34351054, -0.25, 0, 0.25, 0, 0.34351054, -0.16666667, 0, 0, 0, 0.32440954, -0.16666667, 0.003183499, 0, 0, 0.30621383, -0.16666667, 0.0030326198, 0, 0, 0.2693572, -0.16666667, 0.0061427704, 0, 0, 0.18537417, -0.16666667, 0.013997173, 0, 0, 0.1172116, -0.16666667, 0.011360428, 0, 0, 0.16243964, -0.16666667, -0.007538007, 0, 0, 0.24319276, -0.16666667, -0.013458854, 0, 0, 0.29962233, -0.16666667, -0.0094049275, 0, 0, 0.34509805, -0.16666667, -0.007579287, 0, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("name:theme_override_colors/font_shadow_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.20240146, -0.25, 0, 0.25, 0, 0.20240146, -0.16666667, 0, 0, 0, 0.3343559, -0.16666667, -0.021992406, 0, 0, 0.4499179, -0.16666667, -0.019260338, 0, 0, 0.5524561, -0.16666667, -0.017089695, 0, 0, 0.5720659, -0.16666667, -0.0032683015, 0, 0, 0.41326112, -0.16666667, 0.026467463, 0, 0, 0.21997759, -0.16666667, 0.032213923, 0, 0, 0.082937695, -0.16666667, 0.022839984, 0, 0, 0.08973809, -0.16666667, -0.0011333998, 0, 0, 0.20392157, -0.16666667, -0.01903058, 0, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("name:theme_override_colors/font_shadow_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0, 1, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8wta"]
+_data = {
+&"RESET": SubResource("Animation_aps11"),
+&"new_animation": SubResource("Animation_qfjw3")
+}
+
+[node name="Lobby_floor" type="TextureButton"]
+texture_normal = ExtResource("1_np6r0")
+texture_hover = ExtResource("2_qfjw3")
+script = ExtResource("3_aps11")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 45.0
+offset_right = 247.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.34351054, 0.20240146, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_qfjw3")
+theme_override_font_sizes/font_size = 8
+text = "LOBY NAME "
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n8wta")
+}
+autoplay = "new_animation"
+
+[node name="player_count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 79.0
+offset_right = 91.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("3_qfjw3")
+theme_override_font_sizes/font_size = 8
+text = "players: 0"
+
+[node name="auth" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 107.0
+
+[node name="submit" type="Button" parent="auth"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 69.0
+offset_right = 173.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("3_qfjw3")
+text = "Enter"
+
+[node name="LineEdit" type="LineEdit" parent="auth"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 29.0
+offset_right = 244.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("3_qfjw3")
+placeholder_text = "password"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="auth/submit" to="." method="_on_submit_pressed"]

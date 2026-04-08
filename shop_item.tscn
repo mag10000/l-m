@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ywmd1sbw8ibd"]
+
+[ext_resource type="Script" uid="uid://c5hm7kmdwt4ya" path="res://shop_item.gd" id="1_d8bsp"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_wxfep"]
+[ext_resource type="Texture2D" uid="uid://cgbk70ja616lx" path="res://assets/shop_logo.png" id="2_d8bsp"]
+
+[node name="Shop item" type="Panel"]
+custom_minimum_size = Vector2(150, 150)
+offset_right = 231.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_d8bsp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 65)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_wxfep")
+theme_override_font_sizes/normal_font_size = 32
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 250)
+layout_mode = 2
+texture = ExtResource("2_d8bsp")
+expand_mode = 4
+
+[node name="body" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 65)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_wxfep")
+theme_override_font_sizes/normal_font_size = 24
+text = "blah..............."
+horizontal_alignment = 1

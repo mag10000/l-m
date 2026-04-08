@@ -7,6 +7,7 @@ var current_month = date_dict["month"]
 
 var current_idle = ("idle")
 
+var lock = false
 var current_conroller = 0
 var _1 = false
 @export var SPEED = 250.0
@@ -58,11 +59,11 @@ func _ready():
 
 
 func _physics_process(delta):
-	
+	if lock:
+		return
 	
 	#handles coyote time
 	
-	print(coyote_time_started)
 	if is_on_floor():
 		still_jump = true
 		coyote_time_started = false

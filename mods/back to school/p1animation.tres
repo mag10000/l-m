@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=24 format=3 uid="uid://beoe2825bf5yp"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://beoe2825bf5yp"]
 
 [ext_resource type="Texture2D" uid="uid://c5sr0lpo1un63" path="res://assets/Lucas_lm-1.png.png" id="1_jpei1"]
 [ext_resource type="Texture2D" uid="uid://ce80f4dvdusfq" path="res://mods/back to school/Lucas_lm_back_to_school.png" id="2_fsuo8"]

@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://b61idy6xy55o8"]
+[gd_scene load_steps=10 format=3 uid="uid://b61idy6xy55o8"]
 
 [ext_resource type="Texture2D" uid="uid://dwrdxs8yd00k2" path="res://assets/lm logo new.png" id="1_f6y0k"]
 [ext_resource type="Script" uid="uid://bfjer4re374e4" path="res://input_settings/input_settings.gd" id="1_j8snm"]
 [ext_resource type="PackedScene" uid="uid://xpnxstp2qmrg" path="res://input_settings/input_button.tscn" id="2_6q3iw"]
+[ext_resource type="Script" uid="uid://dqaakht3ylstg" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="4_gq6f5"]
 [ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="4_ytv8u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8snm"]
+bg_color = Color(0, 0, 0, 0.54901963)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytv8u"]
+bg_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="Texture2D" id="Texture2D_a7rda"]
+resource_local_to_scene = true
+resource_name = ""
+script = ExtResource("4_gq6f5")
+
+[sub_resource type="Texture2D" id="Texture2D_4j3i8"]
+resource_local_to_scene = true
+resource_name = ""
+script = ExtResource("4_gq6f5")
+force_type = 1
 
 [node name="InputSettings" type="Control"]
 layout_mode = 3
@@ -56,8 +74,96 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="LIST" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("4_ytv8u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_ytv8u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_j8snm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_j8snm")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelAction" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_ytv8u")
+theme_override_font_sizes/font_size = 16
+text = "Action Name"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST/MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = SubResource("Texture2D_a7rda")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST/MarginContainer/HBoxContainer/TextureRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+texture = SubResource("Texture2D_4j3i8")
+expand_mode = 1
+
+[node name="LabelInput" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("4_ytv8u")
+theme_override_font_sizes/font_size = 16
+text = "Input Name"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_6q3iw")]
 layout_mode = 2
+action = "walk_left"
+action_display_name = "Walk Left P1"
+
+[node name="InputButton2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_6q3iw")]
+layout_mode = 2
+action = "walk_right"
+action_display_name = "Walk Right P2"
+
+[node name="InputButton3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_6q3iw")]
+layout_mode = 2
+action_display_name = "Jump P1"
 
 [node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -71,5 +177,6 @@ focus_mode = 0
 theme_override_fonts/font = ExtResource("4_ytv8u")
 text = "Back"
 
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST" to="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/LIST" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

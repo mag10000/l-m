@@ -1,12 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://xpnxstp2qmrg"]
+[gd_scene load_steps=8 format=3 uid="uid://xpnxstp2qmrg"]
 
 [ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_bycsd"]
+[ext_resource type="Script" uid="uid://b2g1usuxlki2q" path="res://input_settings/input_button.gd" id="2_unlbt"]
+[ext_resource type="Script" uid="uid://dqaakht3ylstg" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="3_ylb5l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8snm"]
 bg_color = Color(0, 0, 0, 0.54901963)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytv8u"]
 bg_color = Color(0, 0, 0, 0.54509807)
+
+[sub_resource type="Texture2D" id="Texture2D_1u2fi"]
+resource_local_to_scene = true
+resource_name = ""
+script = ExtResource("3_ylb5l")
+
+[sub_resource type="Texture2D" id="Texture2D_ylb5l"]
+resource_local_to_scene = true
+resource_name = ""
+script = ExtResource("3_ylb5l")
+force_type = 1
 
 [node name="InputButton" type="Button"]
 custom_minimum_size = Vector2(0, 25)
@@ -27,11 +40,17 @@ theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_j8snm")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_j8snm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_j8snm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_j8snm")
+script = ExtResource("2_unlbt")
+action = "jump"
+action_display_name = "Jump"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 26.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 4
@@ -42,22 +61,46 @@ layout_mode = 2
 
 [node name="LabelAction" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_bycsd")
+theme_override_font_sizes/font_size = 8
 text = "Action Name"
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = SubResource("Texture2D_1u2fi")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/TextureRect"]
+texture_filter = 1
+custom_minimum_size = Vector2(22, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+texture = SubResource("Texture2D_ylb5l")
+expand_mode = 1
 
 [node name="LabelInput" type="Label" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 8
 mouse_filter = 1
 theme_override_fonts/font = ExtResource("1_bycsd")
-text = "Input Key"
+theme_override_font_sizes/font_size = 8
+text = "Input Name"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

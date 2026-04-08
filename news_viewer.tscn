@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://drpxntw3jj6ta"]
+
+[ext_resource type="Script" uid="uid://cn38aqkf1ts7i" path="res://news_viewer.gd" id="1_22fif"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_ax77j"]
+
+[node name="News Viewer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_22fif")
+
+[node name="STUFF" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="STUFF"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_ax77j")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArticleScroll" type="ScrollContainer" parent="STUFF"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="article" type="VBoxContainer" parent="STUFF/ArticleScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="nothing" type="VBoxContainer" parent="STUFF/ArticleScroll/article"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="STUFF/ArticleScroll/article/nothing"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ax77j")
+theme_override_font_sizes/font_size = 24
+text = "There's nothing here :("
+horizontal_alignment = 1

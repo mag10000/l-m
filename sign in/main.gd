@@ -13,31 +13,33 @@ var is_auto_log = false
 var app_signed_in = false
 var email_signed_in = false
 
+var app_name = "app"
+
+var service = "NONE"
+
 func _ready() -> void:
 	SupabaseAuth.auth_success.connect(_on_auth_success)
 	SupabaseAuth.auth_error.connect(_on_auth_error)
+	ItchAuth.user_logged_in.connect(_user_logged_in)
 	
 	#StartSession
+	if FileAccess.file_exists("user://itch_session.dat"):
+		save_manager.path = "user://itch_session.dat"
+		var itch_dict = save_manager.read_save()
+		save_manager.path = "user://lm_data.json"
+		ItchAuth.auto_login_user(itch_dict["token"])
+	
 	
 	if FileAccess.file_exists("user://auto_sign_in_email.dat"):
 		save_manager.path = "user://auto_sign_in_email.dat"
 		var email_dict = save_manager.read_save()
 		save_manager.path = "user://lm_data.json"
-		
-		var email = email_dict["email"]
-		
-		var response = await LL_WhiteLabel.StartSession.new(email).send()
-		if(!response.success) :
-			var _error = response["error_data"]
-			print(_error["message"])
-		else:
-			print(response)
-			print("YAYAYAYAYAYAYAYAY")
-			email_signed_in = true
-			
-			$SignedInPanel.show()
-			panel_email_display_LOGIN(response)
-			$SignedInPanel.show()
+
+		email_signed_in = true
+
+		$SignedInPanel.show()
+		$SilentWolfAuth.auto_login(email_dict["password"],email_dict["display_name"])
+		$SignedInPanel.show()
 	
 	
 	if FileAccess.file_exists("user://auto_sign_in_app.dat"):
@@ -55,6 +57,15 @@ func _ready() -> void:
 	SilentWolf.Auth.sw_logout_complete.connect(_on_logout_complete)
 	
 	SilentWolf.Auth.auto_login_player()
+	
+	wait()
+	
+
+func wait():
+	$chat.disabled = true
+	await get_tree().create_timer(2).timeout
+	$chat.disabled = false
+
 
 
 func _on_auth_success(session: Dictionary):
@@ -94,6 +105,8 @@ func _is_token_expired(session: Dictionary) -> bool:
 
 
 func _show_login_ui():
+	$LoginItch/SignInButton5.disabled = false
+	$LoginItch/SignInButton5.text = "Sign in with itch.io"
 	$LoginEmail/VBoxContainer/SignUPButton5.disabled = false
 	$LoginEmail/VBoxContainer/SignInButton6.disabled = false
 	$LoginEmail.show()
@@ -128,11 +141,16 @@ func _show_authenticated_ui(session: Dictionary):
 	# Show user info panel with sign out button
 	SignedInPanel.visible = true
 	
+	print("DATA" + str(session) + "/DATA")#provider
+	
 	var user = session.get("user", {})
 	#print(user)
 	email_label.text = "Email: " + user.get("email", "Unknown")
 	user_id_label.text = "User ID: " + user.get("id", "Unknown")
 	displayname.text = "Display Name: " + (user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0]
+	$SilentWolfAuth.other_service_create("3p",(user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0])
+	#print
+	#$SilentWolfAuth.other_service_create(service,(user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0])
 	print(email_label.get_theme_default_font_size())
 	State.user_info["signed_in"] = true
 	State.user_info["username"] = (user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0]
@@ -174,12 +192,14 @@ func _on_sign_in_button_pressed() -> void:
 	$Logindiscord/SignInButton2.hide()
 	$LoginTwitch/SignInButton4.hide()
 	$LoginEmail.hide()
+	$LoginItch/SignInButton5.hide()
 	$"application sign in".hide()
 	SupabaseAuth.provider = "google"
 	SupabaseAuth.sign_in_with_google()
 
 
 func _on_sign_out_button_pressed() -> void:
+	ItchAuth.logout_current_user()
 	$"Image Web".show()
 	$SignedInPanel/VBoxContainer/LineEdit.hide()
 	$SignedInPanel/VBoxContainer/change_name.hide()
@@ -210,8 +230,10 @@ func _on_sign_in_button_2_pressed():
 	$LoginTwitch/SignInButton4.hide()
 	$LoginEmail.hide()
 	$"application sign in".hide()
+	$LoginItch/SignInButton5.hide()
 	SupabaseAuth.provider = "discord"
 	SupabaseAuth.sign_in_with_google()
+	
 
 
 func _on_sign_in_button_3_pressed():
@@ -223,6 +245,7 @@ func _on_sign_in_button_3_pressed():
 	$LoginTwitch/SignInButton4.hide()
 	$LoginEmail.hide()
 	$"application sign in".hide()
+	$LoginItch/SignInButton5.hide()
 	SupabaseAuth.provider = "github"
 	SupabaseAuth.sign_in_with_google()
 
@@ -231,6 +254,7 @@ func _process(_delta):
 	$"Image Web".visible = $SignedInPanel.visible
 	if $SignedInPanel/VBoxContainer/change_name.visible:
 		$"Image Web".hide()
+	$chat.visible = $SignedInPanel.visible
 
 
 func _on_sign_in_button_4_pressed():
@@ -242,6 +266,7 @@ func _on_sign_in_button_4_pressed():
 	$LoginPanel/SignInButton.hide()
 	$LoginEmail.hide()
 	$"application sign in".hide()
+	$LoginItch/SignInButton5.hide()
 	SupabaseAuth.provider = "twitch"
 	SupabaseAuth.sign_in_with_google()
 
@@ -252,12 +277,12 @@ func _on_back_button_pressed():
 
 func _on_sign_in_button_6_pressed():
 #	get_tree().change_scene_to_file("res://addons/silent_wolf/Auth/Login.tscn")
-	$"Email Sign Up"._login_account()
+	$SilentWolfAuth.login_account()
 
 
 func _on_sign_up_button_5_pressed():
 	#get_tree().change_scene_to_file("res://addons/silent_wolf/Auth/Register.tscn")
-	$"Email Sign Up"._create_account()
+	$SilentWolfAuth.create_account()
 
 
 func _on_button_pressed():
@@ -282,6 +307,8 @@ func _physics_process(delta):
 
 
 func panel_app_display(dict: Dictionary):
+	if dict.has("name"):
+		app_name = dict["name"]
 	SignedInPanel.visible = true
 	SignedInPanel.visible = true
 	if not is_auto_log:
@@ -307,13 +334,34 @@ func panel_app_display(dict: Dictionary):
 	SignedInPanel.visible = true
 	
 	#print(user)
-	email_label.text = "Email: " + dict["email"]
-	user_id_label.text = "User ID: " + dict["id"]
-	displayname.text = "Display Name: " + dict["display_name"]
+	if dict.has("email"):
+		email_label.text = "Email: " + dict["email"]
+	else:
+		error_info()
+
+	if dict.has("id"):
+		user_id_label.text = "User ID: " + dict["id"]
+	else:
+		error_info()
+
+	if dict.has("display_name"):
+		displayname.text = "Display Name: " + dict["display_name"]
+	else:
+		error_info()
+
 	print(email_label.get_theme_default_font_size())
+	
 	State.user_info["signed_in"] = true
-	State.user_info["username"] = dict["display_name"]
-	State.user_info["email"] = dict["email"]
+	
+	if dict.has("display_name"):
+		State.user_info["username"] = dict["display_name"]
+	else:
+		error_info()
+	
+	if dict.has("email"):
+		State.user_info["email"] = dict["email"]
+	else:
+		error_info()
 	
 	$"Image Web".color = "ffffff00"
 	if dict.has("avatar_url"):
@@ -524,3 +572,132 @@ func _on_change_name_pressed():
 		pass
 	State.user_info["username"] = $SignedInPanel/VBoxContainer/LineEdit.text
 	displayname.text = "Display Name: " + $SignedInPanel/VBoxContainer/LineEdit.text
+
+func error_info():
+	save_manager.path = "user://app_text_show_data.json"
+	save_manager.write_save({
+		"header" : "Error",
+		"body" : "error needed info not provided!"})
+	save_manager.path = "user://lm_data.json"
+
+
+func _on_silent_wolf_auth_login_done(data):
+	panel_email_display_silentwolf(data)
+
+func panel_email_display_silentwolf(dict):
+	save_manager.path = "user://auto_sign_in_email.dat"
+	save_manager.write_save({"display_name" : dict["display_name"],"email" : dict["email"],"id" : dict["id"],"password" : dict["password"]})
+	save_manager.path = "user://lm_data.json"
+	
+	
+	is_auto_log = false
+	
+	LoginPanel.visible = false
+	sign_in_button.disabled = true
+	
+	# Show user info panel with sign out button
+	SignedInPanel.visible = true
+	
+	#print(user)
+	email_label.text = "Email: " + dict["email"]
+	user_id_label.text = "User ID: " + str(dict["id"])
+	
+	
+	displayname.text = "Display Name: " + dict["display_name"]
+	print(email_label.get_theme_default_font_size())
+	State.user_info["signed_in"] = true
+	State.user_info["username"] = dict["display_name"]
+	State.user_info["email"] = dict["email"]
+	
+	$"Image Web".color = "ffffff00"
+	if dict.has("avatar_url"):
+		var avatar_url = dict["avatar_url"]
+	#https://openclipart.org/image/2000px/247320
+		State.user_info["image_url"] = avatar_url
+		$"Image Web".url = avatar_url
+		$"Image Web".download_image()
+		$"Image Web".color = "ffffff00"
+		print($"Image Web".image_tr.texture)
+	else:
+		$"Image Web".url = "https://openclipart.org/image/2000px/247320"
+		$"Image Web".download_image()
+		$"Image Web".color = "ffffff00"
+	
+	#if State.user_info["image_url"] != "":
+		#print(State.user_info["image_url"])
+		#$"Image Web".url = State.user_info["image_url"]
+		#$"Image Web".download_image()
+	
+	
+	# Make sure sign out button is visible and connected
+	sign_out_button.visible = true
+	sign_out_button.disabled = false
+	SignedInPanel.visible = true
+
+#lm.superheroes.official@gmail.com
+
+
+func _on_chat_pressed():
+	$SilentWolfAuth.start_chat()
+
+
+func _on_button_3_pressed():
+	print("SIGNING IN")
+	ItchAuth.login_user("68415425171b6c7c543b29ca2efd3df1")
+
+func _user_logged_in():
+	print(ItchAuth.current_user.username)
+	print(ItchAuth.current_user.id)
+	_show_authenticated_ui_itchio({"id" : ItchAuth.current_user.id,"username" : ItchAuth.current_user.username,"url" : ItchAuth.current_user.user_url,"avatar" : ItchAuth.current_user.cover_url})
+
+
+
+
+func _show_authenticated_ui_itchio(session: Dictionary):
+	save_manager.path = "user://itch_session.dat"
+	save_manager.write_save({"session" : session,"token" : ItchAuth._token})
+	save_manager.path = "user://lm_data.json"
+	var save_game_path = "user://auto_sign_in_email.dat"
+	DirAccess.remove_absolute(save_game_path)
+	save_game_path = "user://auth_session.dat"
+	DirAccess.remove_absolute(save_game_path)
+	save_game_path = "user://auto_sign_in_app.dat"
+	DirAccess.remove_absolute(save_game_path)
+	
+	# Hide login button
+	LoginPanel.visible = false
+	sign_in_button.disabled = true
+	
+	# Show user info panel with sign out button
+	SignedInPanel.visible = true
+	
+	print("DATA" + str(session) + "/DATA")#provider
+	
+	#print(user)
+	email_label.text = "Url: " + session["url"]
+	user_id_label.text = "User ID: " + str(session["id"])
+	displayname.text = "Display Name: " + session["username"]
+	$SilentWolfAuth.other_service_create("3p",session["username"])
+	#print
+	#$SilentWolfAuth.other_service_create(service,(user.get("user_metadata", "Unknown").get("name", "Unknown")).split("#")[0])
+	print(email_label.get_theme_default_font_size())
+	State.user_info["signed_in"] = true
+	State.user_info["username"] = session["username"]
+	State.user_info["email"] =  session["url"]
+	
+	State.user_info["image_url"] = session["avatar"]
+	$"Image Web".url = session["avatar"]
+	$"Image Web".download_image()
+	$"Image Web".color = "ffffff00"
+	print($"Image Web".image_tr.texture)
+	
+	
+	
+	# Make sure sign out button is visible and connected
+	sign_out_button.visible = true
+	sign_out_button.disabled = false
+
+
+func _on_sign_in_button_5_pressed():
+	print("SIGNING IN")
+	ItchAuth.login_user("68415425171b6c7c543b29ca2efd3df1")

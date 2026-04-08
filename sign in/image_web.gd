@@ -10,6 +10,9 @@ class_name ImageWeb
 
 
 func _ready() -> void:
+	print("IMAGE TR ", image_tr)
+	print("image_download_api ", image_download_api)
+	
 	image_download_api.req_failed.connect(_on_image_download_api_req_failed)
 	image_download_api.res_recived.connect(_on_image_download_api_res_recived)
 	
@@ -23,6 +26,7 @@ func reset_ui() -> void:
 
 
 func download_image() -> void:
+	print("Downloading ", url)
 	image_download_api.download(url)
 
 
@@ -39,6 +43,7 @@ func _on_image_download_api_res_recived(
 	image_load_method: String
 
 ) -> void:
+	
 	
 	print(image_load_method)
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:

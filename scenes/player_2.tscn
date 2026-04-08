@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://btwcqs056xhvg"]
+[gd_scene format=3 uid="uid://btwcqs056xhvg"]
 
-[ext_resource type="Script" path="res://scenes/player_2.gd" id="1_8ymj2"]
+[ext_resource type="Script" uid="uid://bcqvhtr1cxagm" path="res://scenes/player_2.gd" id="1_8ymj2"]
 [ext_resource type="SpriteFrames" uid="uid://dblcngppag1mq" path="res://scenes/p2animation.tres" id="2_8usyo"]
 [ext_resource type="AudioStream" uid="uid://bjjmm8l7fpqss" path="res://assets/JUMP_MAGNUS.wav" id="3_1arvw"]
 [ext_resource type="Texture2D" uid="uid://c5b3esr0sol3q" path="res://assets/Bubules.png" id="4_bdbmj"]
@@ -128,56 +128,56 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player2" type="CharacterBody2D"]
+[node name="player2" type="CharacterBody2D" unique_id=1199221309]
 visible = false
 collision_layer = 4
 script = ExtResource("1_8ymj2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1331604077]
 sprite_frames = ExtResource("2_8usyo")
 animation = &"left"
 frame_progress = 0.941157
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=519182801]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_rlqj0")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=651826500]
 stream = ExtResource("3_1arvw")
 bus = &"sfx"
 
-[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D"]
+[node name="AudioListener2D" type="AudioListener2D" parent="AudioStreamPlayer2D" unique_id=1518531803]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=190415181]
 collision_layer = 64
 collision_mask = 64
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1970858031]
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_3x3f1")
 one_way_collision = true
 
-[node name="bubbles_2" type="AnimatedSprite2D" parent="."]
+[node name="bubbles_2" type="AnimatedSprite2D" parent="." unique_id=1610686867]
 position = Vector2(0, -28)
 sprite_frames = SubResource("SpriteFrames_eel57")
 autoplay = "new_animation"
 frame_progress = 0.0409803
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1747682077]
 visible = false
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_1v5wu")
 frame_progress = 0.400405
 
-[node name="radation" type="AnimatedSprite2D" parent="."]
+[node name="radation" type="AnimatedSprite2D" parent="." unique_id=917499972]
 sprite_frames = SubResource("SpriteFrames_odu51")
 autoplay = "new_animation"
 
-[node name="jump_timer" type="Timer" parent="."]
+[node name="jump_timer" type="Timer" parent="." unique_id=1842347594]
 wait_time = 0.1
 one_shot = true
 
-[node name="ColorRect5" type="ColorRect" parent="."]
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=1237850657]
 visible = false
 z_index = 1
 offset_left = -5.0
@@ -186,7 +186,7 @@ offset_right = 5.0
 offset_bottom = 15.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect5"]
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5" unique_id=2094324510]
 z_index = 1
 layout_mode = 0
 offset_left = -2.0
@@ -195,7 +195,7 @@ offset_right = 12.0
 offset_bottom = -1.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6"]
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6" unique_id=1275763458]
 z_index = 1
 layout_mode = 0
 offset_left = 1.0

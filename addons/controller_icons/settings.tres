@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ControllerSettings" load_steps=2 format=3 uid="uid://w0c66iuxe5aw"]
+
+[ext_resource type="Script" uid="uid://vbc4wk16bpi8" path="res://addons/controller_icons/Settings.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+joypad_fallback = 3

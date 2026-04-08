@@ -93,6 +93,12 @@ theme_override_fonts/font = ExtResource("2_126f3")
 theme_override_font_sizes/font_size = 16
 text = "Português Brasileiro"
 
+[node name="ml" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_126f3")
+theme_override_font_sizes/font_size = 16
+text = "MagnusMagnus Maglaung"
+
 [node name="close" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -109,6 +115,14 @@ theme_override_fonts/font = ExtResource("2_126f3")
 theme_override_font_sizes/font_size = 24
 text = "close"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 857.0
+offset_top = 230.0
+offset_right = 1034.0
+offset_bottom = 278.0
+text = "online!"
+
 [connection signal="pressed" from="VBoxContainer/english" to="." method="_on_english_pressed"]
 [connection signal="pressed" from="VBoxContainer/spanish" to="." method="_on_spanish_pressed"]
 [connection signal="pressed" from="VBoxContainer/simp chiness" to="." method="_on_simp_chiness_pressed"]
@@ -117,4 +131,6 @@ text = "close"
 [connection signal="pressed" from="VBoxContainer/french" to="." method="_on_french_pressed"]
 [connection signal="pressed" from="VBoxContainer/polish" to="." method="_on_polish_pressed"]
 [connection signal="pressed" from="VBoxContainer/brazil" to="." method="_on_brazil_pressed"]
+[connection signal="pressed" from="VBoxContainer/ml" to="." method="_on_ml_pressed"]
 [connection signal="pressed" from="close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

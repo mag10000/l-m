@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://cljynqn0osrge"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cljynqn0osrge"]
 
 [ext_resource type="Texture2D" uid="uid://c5sr0lpo1un63" path="res://assets/Lucas_lm-1.png.png" id="1_yf0ie"]
 [ext_resource type="Texture2D" uid="uid://boq7hlc528hla" path="res://mods/purple skins/mod_p1.png" id="2_pibbw"]

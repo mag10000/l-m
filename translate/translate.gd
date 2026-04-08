@@ -45,3 +45,11 @@ func _on_brazil_pressed():
 
 func _on_polish_pressed():
 	TranslationServer.set_locale("pl")
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://online/lobby_scene.tscn")
+
+
+func _on_ml_pressed():
+	TranslationServer.set_locale("magnuslaung")

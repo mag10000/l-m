@@ -17,4 +17,4 @@ func _process(delta):
 
 
 func _on_timer_2_timeout():
-	get_tree().quit()
+	GDSync.quit()

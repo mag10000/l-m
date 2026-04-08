@@ -23,4 +23,4 @@ func save():
 
 
 func _on_timer_timeout():
-	get_tree().quit()
+	GDSync.quit()

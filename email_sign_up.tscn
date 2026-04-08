@@ -15,13 +15,13 @@ grow_vertical = 2
 script = ExtResource("1_al6pp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1204.0
 offset_bottom = 680.0
 color = Color(0, 0, 0, 0.7490196)
 
 [node name="Create" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

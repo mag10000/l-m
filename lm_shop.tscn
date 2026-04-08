@@ -1,42 +1,50 @@
 [gd_scene load_steps=3 format=3 uid="uid://y17ve3asedcr"]
 
-[ext_resource type="Script" path="res://lm_shop.gd" id="1_jx50w"]
+[ext_resource type="Script" uid="uid://dfjcnchfp16rv" path="res://lm_shop.gd" id="1_jx50w"]
 [ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="3_lplui"]
 
-[node name="LM shop" type="Node2D"]
+[node name="LM shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_jx50w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -100
-offset_left = -558.0
-offset_top = -298.0
-offset_right = 594.0
-offset_bottom = 350.0
-color = Color(0.143931, 1.54139e-05, 0.14439, 1)
-
-[node name="LinkButton" type="LinkButton" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -346.0
-offset_top = -21.0
-offset_right = 358.0
-offset_bottom = 43.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_lplui")
-theme_override_font_sizes/font_size = 64
-text = "Go To Store"
-underline = 1
-uri = "https://magnusknisely.wixsite.com/lm-shop"
+color = Color(0.143931, 1.54139e-05, 0.14439, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(18, 26)
+position = Vector2(576, 324)
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 105.0
+offset_right = 1095.0
+offset_bottom = 606.0
 
-[connection signal="pressed" from="LinkButton" to="." method="_on_link_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="GridContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="title" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_top = -53.0
+offset_right = 1151.0
+offset_bottom = 133.0
+theme_override_fonts/normal_font = ExtResource("3_lplui")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[tornado]Shop"
+horizontal_alignment = 1
+vertical_alignment = 1

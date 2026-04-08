@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://ftvyeg4f7wh2"]
+
+[ext_resource type="Script" uid="uid://cj6i15fxpiupv" path="res://news.gd" id="1_nvhnn"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_vegfd"]
+
+[node name="News" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvhnn")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47397572, 0.47397572, 0.47397572, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 321.0
+offset_right = -322.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(500, 800)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="no found" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_vegfd")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[wave]No News Found..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="loading" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="loading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -212.0
+offset_right = 403.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_vegfd")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[tornado]Loading..."
+horizontal_alignment = 1
+vertical_alignment = 1

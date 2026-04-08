@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwyvke6rwjcos"]
+
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_assfg"]
+[ext_resource type="Script" uid="uid://jat6aady023" path="res://news_button.gd" id="2_h3egh"]
+
+[node name="NewsButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_assfg")
+theme_override_font_sizes/font_size = 24
+text = "Click Me!"
+script = ExtResource("2_h3egh")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

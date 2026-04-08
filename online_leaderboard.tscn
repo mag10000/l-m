@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpi1g2m5hnwvd"]
+[gd_scene format=3 uid="uid://bpi1g2m5hnwvd"]
 
 [ext_resource type="Script" uid="uid://c5uocaem4m6at" path="res://online_leaderboard.gd" id="1_lpmje"]
 [ext_resource type="PackedScene" uid="uid://bna0b80ktslcr" path="res://sign in/main.tscn" id="2_fhteh"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://tpndlwjqnp1m" path="res://grid_container.gd" id="3_ktvpv"]
 [ext_resource type="Script" uid="uid://chnafxcqd7s3f" path="res://score_id.gd" id="4_jmu6c"]
 
-[node name="Online Leaderboard" type="Control"]
+[node name="Online Leaderboard" type="Control" unique_id=307538451]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,14 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lpmje")
 
-[node name="Submit" type="Panel" parent="."]
+[node name="Submit" type="Panel" parent="." unique_id=64450051]
 layout_mode = 0
 offset_left = 380.0
 offset_top = 45.0
 offset_right = 763.0
 offset_bottom = 586.0
 
-[node name="Label" type="RichTextLabel" parent="Submit"]
+[node name="Label" type="RichTextLabel" parent="Submit" unique_id=261143966]
 layout_mode = 0
 offset_top = -1.0
 offset_right = 383.0
@@ -34,7 +34,7 @@ text = "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="score" type="Label" parent="Submit"]
+[node name="score" type="Label" parent="Submit" unique_id=1222206780]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 68.0
@@ -46,7 +46,7 @@ text = "time: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Submit"]
+[node name="Button" type="Button" parent="Submit" unique_id=331883723]
 layout_mode = 0
 offset_left = 143.0
 offset_top = 132.0
@@ -55,7 +55,7 @@ offset_bottom = 160.0
 theme_override_fonts/font = ExtResource("2_hthcb")
 text = "Submit"
 
-[node name="formatbutton" type="Button" parent="Submit"]
+[node name="formatbutton" type="Button" parent="Submit" unique_id=631622324]
 layout_mode = 0
 offset_left = 92.0
 offset_top = 3.0
@@ -65,7 +65,7 @@ theme_override_fonts/font = ExtResource("2_hthcb")
 theme_override_font_sizes/font_size = 8
 text = "Submiting metadata format"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Submit"]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Submit" unique_id=1220480463]
 visible = false
 layout_mode = 0
 offset_left = 163.0
@@ -74,14 +74,14 @@ offset_right = 223.0
 offset_bottom = 129.0
 text = "color"
 
-[node name="Leaderboard" type="Control" parent="."]
+[node name="Leaderboard" type="Control" parent="." unique_id=1914868804]
 anchors_preset = 0
 offset_left = 380.0
 offset_top = 211.0
 offset_right = 763.0
 offset_bottom = 586.0
 
-[node name="BG" type="ColorRect" parent="Leaderboard"]
+[node name="BG" type="ColorRect" parent="Leaderboard" unique_id=372197937]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +90,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.10980392, 0.5254902, 0.63529414, 1)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Leaderboard"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Leaderboard" unique_id=1349088713]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,14 +100,14 @@ offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="Leaderboard/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="Leaderboard/ScrollContainer" unique_id=1043337558]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 4
 script = ExtResource("3_ktvpv")
 
-[node name="LineEdit" type="LineEdit" parent="Leaderboard"]
+[node name="LineEdit" type="LineEdit" parent="Leaderboard" unique_id=89993267]
 visible = false
 layout_mode = 0
 offset_left = 88.0
@@ -117,7 +117,7 @@ offset_bottom = 368.0
 theme_override_fonts/font = ExtResource("2_hthcb")
 placeholder_text = "score id...."
 
-[node name="Button" type="Button" parent="Leaderboard/LineEdit"]
+[node name="Button" type="Button" parent="Leaderboard/LineEdit" unique_id=445056349]
 layout_mode = 0
 offset_left = -79.0
 offset_right = -7.0
@@ -126,7 +126,7 @@ theme_override_fonts/font = ExtResource("2_hthcb")
 text = "view"
 script = ExtResource("4_jmu6c")
 
-[node name="Panel" type="Panel" parent="Leaderboard/LineEdit/Button"]
+[node name="Panel" type="Panel" parent="Leaderboard/LineEdit/Button" unique_id=35956911]
 visible = false
 z_index = 2
 layout_mode = 0
@@ -135,69 +135,60 @@ offset_top = -503.0
 offset_right = 374.0
 offset_bottom = 38.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard/LineEdit/Button/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard/LineEdit/Button/Panel" unique_id=1205030100]
 layout_mode = 0
 offset_right = 383.0
 offset_bottom = 541.0
 
-[node name="Main" parent="." instance=ExtResource("2_fhteh")]
+[node name="Main" parent="." unique_id=508929397 instance=ExtResource("2_fhteh")]
 layout_mode = 1
 offset_left = 379.0
 offset_top = 45.0
 offset_right = -390.0
 offset_bottom = -62.0
 
-[node name="HSeparator" parent="Main" index="5"]
+[node name="HSeparator" parent="Main" index="6" unique_id=1131981006]
 anchor_left = 0.02610966
 anchor_top = 0.78571343
 anchor_right = 0.9747583
 anchor_bottom = 0.83972585
 
-[node name="LoginEmail" parent="Main" index="6"]
+[node name="LoginEmail" parent="Main" index="7" unique_id=585996711]
 anchor_left = 0.08485641
 anchor_top = 0.8345884
 anchor_right = 0.9151436
 anchor_bottom = 0.9898564
 
-[node name="LmLogoNew" parent="Main" index="7"]
+[node name="LmLogoNew" parent="Main" index="8" unique_id=395730619]
 anchor_left = 0.30157337
 anchor_top = 0.039005272
 anchor_right = 0.69321835
 anchor_bottom = 0.3162696
 
-[node name="SignOutButton" parent="Main/SignedInPanel/VBoxContainer/SignoutButtonContainer" index="0"]
+[node name="SignOutButton" parent="Main/SignedInPanel/VBoxContainer/SignoutButtonContainer" parent_id_path=PackedInt32Array(508929397, 1639058448) index="0" unique_id=1620118233]
 text = "    "
 
-[node name="Image Web" parent="Main" index="9"]
+[node name="Image Web" parent="Main" index="10" unique_id=487727655]
 offset_left = 169.0
 offset_top = 321.0
 offset_right = 239.0
 offset_bottom = 391.0
 
-[node name="Back_Button" parent="Main" index="10"]
+[node name="Back_Button" parent="Main" index="11" unique_id=308018134]
 visible = false
 
-[node name="Button" parent="Main" index="11"]
-visible = false
-
-[node name="Login_Status" parent="Main" index="12"]
-visible = false
-
-[node name="application sign in" parent="Main" index="13"]
+[node name="application sign in" parent="Main" index="14" unique_id=580926257]
 offset_left = -222.0
 offset_bottom = 30.0
 theme_override_font_sizes/font_size = 8
 
-[node name="Header" parent="Main/application sign in Panel" index="1"]
+[node name="Header" parent="Main/application sign in Panel" parent_id_path=PackedInt32Array(508929397, 537826941) index="1" unique_id=584052799]
 anchor_left = 0.24804178
 anchor_top = 0.10166359
 anchor_right = 0.7493473
 anchor_bottom = 0.20887245
 
-[node name="VBoxContainer" parent="Main/application sign in Panel" index="2"]
-offset_top = 119.0
-
-[node name="Button2" type="Button" parent="Main"]
+[node name="Button2" type="Button" parent="Main" unique_id=1651022774]
 visible = false
 layout_mode = 0
 offset_left = 136.0
@@ -207,7 +198,7 @@ offset_bottom = 430.5
 theme_override_fonts/font = ExtResource("2_hthcb")
 text = "Close"
 
-[node name="Button3" type="Button" parent="Main"]
+[node name="Button3" type="Button" parent="Main" unique_id=1241915689]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 549.0
@@ -216,7 +207,7 @@ offset_bottom = 588.0
 theme_override_fonts/font = ExtResource("2_hthcb")
 text = "Skip And Just See Scores"
 
-[node name="back" type="Button" parent="."]
+[node name="back" type="Button" parent="." unique_id=1475782673]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.16145833
@@ -225,7 +216,7 @@ theme_override_fonts/font = ExtResource("2_hthcb")
 text = "← Back"
 metadata/_edit_use_anchors_ = true
 
-[node name="Loading" type="Panel" parent="."]
+[node name="Loading" type="Panel" parent="." unique_id=791188962]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -234,7 +225,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="Loading"]
+[node name="Label" type="RichTextLabel" parent="Loading" unique_id=348947928]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5

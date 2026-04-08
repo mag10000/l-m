@@ -187,7 +187,6 @@ offset_top = -38.0
 offset_right = 364.0
 offset_bottom = -7.0
 theme_override_fonts/font = ExtResource("2_xgvhm")
-disabled = true
 text = "re-map inputs"
 
 [node name="console" type="TextEdit" parent="."]

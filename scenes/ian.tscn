@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://5yxgm7yu6vnn"]
+[gd_scene format=3 uid="uid://5yxgm7yu6vnn"]
 
-[ext_resource type="Script" path="res://scenes/scripts/player_3.gd" id="1_8h0kn"]
+[ext_resource type="Script" uid="uid://1ouckt703iah" path="res://scenes/scripts/player_3.gd" id="1_8h0kn"]
 [ext_resource type="SpriteFrames" uid="uid://b4fvkpovbgq72" path="res://scenes/p3animation.tres" id="2_cc6i4"]
 [ext_resource type="Texture2D" uid="uid://c5b3esr0sol3q" path="res://assets/Bubules.png" id="3_n7dki"]
 [ext_resource type="Texture2D" uid="uid://bwsbhxnircra8" path="res://assets/santa_hat.png" id="4_78y3i"]
@@ -126,50 +126,50 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ian" type="CharacterBody2D"]
+[node name="ian" type="CharacterBody2D" unique_id=551200638]
 visible = false
 collision_layer = 8
 script = ExtResource("1_8h0kn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=188418947]
 sprite_frames = ExtResource("2_cc6i4")
 animation = &"temp"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=287969802]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_xs2ox")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2005350530]
 collision_layer = 144
 collision_mask = 144
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=850705553]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_m6dvu")
 one_way_collision = true
 
-[node name="bubbles_3" type="AnimatedSprite2D" parent="."]
+[node name="bubbles_3" type="AnimatedSprite2D" parent="." unique_id=580793232]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_8sakw")
 animation = &"new_animation"
 autoplay = "new_animation"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1856987366]
 visible = false
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_ijtxg")
 
-[node name="radation" type="AnimatedSprite2D" parent="."]
+[node name="radation" type="AnimatedSprite2D" parent="." unique_id=439912551]
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_kbawx")
 autoplay = "new_animation"
 
-[node name="jump_timer" type="Timer" parent="."]
+[node name="jump_timer" type="Timer" parent="." unique_id=498373273]
 wait_time = 0.1
 one_shot = true
 
-[node name="ColorRect5" type="ColorRect" parent="."]
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=920758995]
 visible = false
 z_index = 1
 offset_left = -5.0
@@ -178,7 +178,7 @@ offset_right = 5.0
 offset_bottom = 15.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect5"]
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5" unique_id=1697367331]
 z_index = 1
 layout_mode = 0
 offset_left = -2.0
@@ -187,7 +187,7 @@ offset_right = 12.0
 offset_bottom = -1.0
 color = Color(1, 0.475847, 0.997064, 0.67451)
 
-[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6"]
+[node name="ColorRect6" type="ColorRect" parent="ColorRect5/ColorRect6" unique_id=1035081356]
 z_index = 1
 layout_mode = 0
 offset_left = 1.0

@@ -1,0 +1,479 @@
+[gd_scene load_steps=23 format=3 uid="uid://c8kk26v346qn0"]
+
+[ext_resource type="Script" uid="uid://bohqag1vnmnfo" path="res://online/players/player_loby.gd" id="1_rg8db"]
+[ext_resource type="Texture2D" uid="uid://bdukstmhy1nv1" path="res://online/players/LM_top_down.png" id="2_xd8gx"]
+[ext_resource type="Texture2D" uid="uid://dylrbp25g6k8y" path="res://online/players/final_frame_top_down_LM.png" id="3_qhpil"]
+[ext_resource type="Script" uid="uid://dg2vo4stgkees" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAnimatedSprite2D.gd" id="3_xd8gx"]
+[ext_resource type="Script" uid="uid://bxl20obmi07xx" path="res://addons/GD-Sync/Scripts/Types/PropertySynchronizer.gd" id="4_qhpil"]
+[ext_resource type="FontFile" uid="uid://dwlq7y74sa8ar" path="res://assets/fonts/PressStart2P-Regular.ttf" id="5_7sqgy"]
+[ext_resource type="Script" uid="uid://drdvbytliwf0b" path="res://addons/GD-Sync/Scripts/Types/SynchronizedAudioStreamPlayer2D.gd" id="6_f2dok"]
+[ext_resource type="Texture2D" uid="uid://c2r5gpn20eusr" path="res://online/text_bubbble_LM.png" id="8_7sqgy"]
+[ext_resource type="Script" uid="uid://cjnvcpks5l8cj" path="res://online/players/ui.gd" id="8_xd8gx"]
+[ext_resource type="Script" uid="uid://cnjm756ary2xy" path="res://online/players/chat_options.gd" id="10_f2dok"]
+[ext_resource type="Script" uid="uid://4g0vp2e1yd3m" path="res://online/players/emote_options.gd" id="11_f2dok"]
+[ext_resource type="FontFile" uid="uid://napghwbu8gdk" path="res://assets/fonts/Unifontexmono-lxY45.ttf" id="12_d1ulh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2dok"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ulh"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jf18"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hclma"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy38a"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj7ug"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p033"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1oo4"]
+atlas = ExtResource("2_xd8gx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jxqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2dok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1ulh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qhpil")
+}],
+"loop": true,
+"name": &"backward",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jf18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hclma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy38a")
+}],
+"loop": true,
+"name": &"forward",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj7ug")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p033")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1oo4")
+}],
+"loop": true,
+"name": &"sideways",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw050"]
+radius = 7.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera")]
+collision_mask = 17
+script = ExtResource("1_rg8db")
+camera = NodePath("Camera2D")
+
+[node name="SynchronizedAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1jxqw")
+animation = &"sideways"
+autoplay = "idle"
+frame_progress = 0.97816217
+script = ExtResource("3_xd8gx")
+
+[node name="PropertySynchronizer" type="Node" parent="SynchronizedAnimatedSprite2D"]
+script = ExtResource("4_qhpil")
+broadcast = 2
+node_path = NodePath("..")
+properties = PackedStringArray("animation")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_dw050")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -206.0
+offset_top = -42.0
+offset_right = 210.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 8
+text = "Player Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PropertySynchronizer" type="Node" parent="."]
+script = ExtResource("4_qhpil")
+broadcast = 2
+node_path = NodePath("..")
+properties = PackedStringArray("global_position", "_name")
+interpolated = true
+interpolation_speed = 30.0
+extrapolated = false
+max_extrapolation_time = 30.0
+
+[node name="SynchronizedAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("6_f2dok")
+
+[node name="TextBubbbleLm" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(38, -18)
+texture = ExtResource("8_7sqgy")
+
+[node name="bubble_text" type="Label" parent="TextBubbbleLm"]
+unique_name_in_owner = true
+visible = false
+offset_left = -4.0
+offset_top = -9.0
+offset_right = 60.0
+offset_bottom = 37.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 8
+text = "text text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextSynchronizer" type="Node" parent="TextBubbbleLm/bubble_text"]
+script = ExtResource("4_qhpil")
+broadcast = 2
+node_path = NodePath("..")
+properties = PackedStringArray("text", "theme_override_fonts/font", "theme_override_font_sizes/font_size")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://bxl20obmi07xx"
+
+[node name="bubble_text2" type="Label" parent="TextBubbbleLm"]
+unique_name_in_owner = true
+offset_left = -4.0
+offset_top = -9.0
+offset_right = 60.0
+offset_bottom = 37.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="bubble_emote" type="Label" parent="TextBubbbleLm"]
+unique_name_in_owner = true
+offset_left = -4.0
+offset_top = -9.0
+offset_right = 60.0
+offset_bottom = 37.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="TextSynchronizer" type="Node" parent="TextBubbbleLm/bubble_emote"]
+script = ExtResource("4_qhpil")
+broadcast = 2
+node_path = NodePath("..")
+properties = PackedStringArray("text", "theme_override_fonts/font", "theme_override_font_sizes/font_size")
+interpolated = false
+interpolation_speed = 1.0
+extrapolation = null
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://bxl20obmi07xx"
+
+[node name="BubbleSynchronizer" type="Node" parent="TextBubbbleLm"]
+script = ExtResource("4_qhpil")
+broadcast = 2
+node_path = NodePath("..")
+properties = PackedStringArray("visible")
+interpolated = true
+interpolation_speed = 1.0
+extrapolated = false
+max_extrapolation_time = 0.2
+metadata/_custom_type_script = "uid://bxl20obmi07xx"
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("8_xd8gx")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchor_left = 0.027777778
+anchor_top = 0.7546296
+anchor_right = 0.9722222
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="chat_button" type="Button" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.5
+offset_right = 136.0
+offset_bottom = 40.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "Chat"
+
+[node name="emote_button" type="Button" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -40.5
+offset_bottom = 40.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "Emote😂"
+
+[node name="chat_panel" type="Panel" parent="UI/Control"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 509.0
+offset_bottom = 158.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Control/chat_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="chat options" type="HBoxContainer" parent="UI/Control/chat_panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/separation = 18
+alignment = 1
+script = ExtResource("10_f2dok")
+
+[node name="HI" type="Button" parent="UI/Control/chat_panel/ScrollContainer/chat options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "Hi"
+
+[node name="HELLO" type="Button" parent="UI/Control/chat_panel/ScrollContainer/chat options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "Hello"
+
+[node name="OOPS__" type="Button" parent="UI/Control/chat_panel/ScrollContainer/chat options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "Oops.."
+
+[node name="SORRY" type="Button" parent="UI/Control/chat_panel/ScrollContainer/chat options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "Sorry"
+
+[node name="ANURAG!!" type="Button" parent="UI/Control/chat_panel/ScrollContainer/chat options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_7sqgy")
+theme_override_font_sizes/font_size = 32
+text = "ANURAG!!!"
+
+[node name="emote_panel" type="Panel" parent="UI/Control"]
+layout_mode = 0
+offset_left = 557.0
+offset_top = 21.0
+offset_right = 1090.0
+offset_bottom = 158.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Control/emote_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="emote options" type="HBoxContainer" parent="UI/Control/emote_panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_constants/separation = 18
+alignment = 1
+script = ExtResource("11_f2dok")
+
+[node name="left" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "←"
+
+[node name="right" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "→"
+
+[node name="smile" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "😊"
+
+[node name="explode" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "🤯"
+
+[node name="mad" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "😡"
+
+[node name="cursing" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "🤬"
+
+[node name="poop" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "💩"
+
+[node name="hand peace" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "👌"
+
+[node name="love" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "😍"
+
+[node name="sleep" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "😴"
+
+[node name="star face" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "🤩"
+
+[node name="netral" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "😐"
+
+[node name="hearts" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "💕"
+
+[node name="thumvb up" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "👍"
+
+[node name="thumvb down" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "👎"
+
+[node name="disgust" type="Button" parent="UI/Control/emote_panel/ScrollContainer/emote options"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("12_d1ulh")
+theme_override_font_sizes/font_size = 32
+text = "🤢"
+
+[connection signal="pressed" from="UI/Control/chat_button" to="UI" method="_on_chat_button_pressed"]
+[connection signal="pressed" from="UI/Control/emote_button" to="UI" method="_on_emote_button_pressed"]
+[connection signal="pressed" from="UI/Control/chat_panel/ScrollContainer/chat options/HI" to="UI/Control/chat_panel/ScrollContainer/chat options" method="_on_hi_pressed"]
+[connection signal="pressed" from="UI/Control/chat_panel/ScrollContainer/chat options/HELLO" to="UI/Control/chat_panel/ScrollContainer/chat options" method="_on_hello_pressed"]
+[connection signal="pressed" from="UI/Control/chat_panel/ScrollContainer/chat options/OOPS__" to="UI/Control/chat_panel/ScrollContainer/chat options" method="_on_oops___pressed"]
+[connection signal="pressed" from="UI/Control/chat_panel/ScrollContainer/chat options/SORRY" to="UI/Control/chat_panel/ScrollContainer/chat options" method="_on_sorry_pressed"]
+[connection signal="pressed" from="UI/Control/chat_panel/ScrollContainer/chat options/ANURAG!!" to="UI/Control/chat_panel/ScrollContainer/chat options" method="_on_anurag_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/left" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_left_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/right" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_right_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/smile" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_smile_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/explode" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_explode_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/mad" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_mad_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/cursing" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_cursing_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/poop" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_poop_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/hand peace" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_hand_peace_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/love" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_love_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/sleep" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_sleep_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/star face" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_star_face_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/netral" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_netral_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/hearts" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_hearts_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/thumvb up" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_thumvb_up_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/thumvb down" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_thumvb_down_pressed"]
+[connection signal="pressed" from="UI/Control/emote_panel/ScrollContainer/emote options/disgust" to="UI/Control/emote_panel/ScrollContainer/emote options" method="_on_disgust_pressed"]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyc5ssscwqjij"]
+
+[ext_resource type="PackedScene" uid="uid://crchs7y3qs8x" path="res://sign in/image_web.tscn" id="1_kpb01"]
+
+[node name="Image Web" instance=ExtResource("1_kpb01")]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.75
+offset_top = -153.25
+offset_right = 343.75
+offset_bottom = 153.25
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.6901961, 0.6901961, 0.6901961, 0)
+url = "https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101065/112815953-no-image-available-icon-flat-vector.jpg"
+
+[node name="Image Tr" parent="." index="0"]
+custom_minimum_size = Vector2(150, 150)
+stretch_mode = 4

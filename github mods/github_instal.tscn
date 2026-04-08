@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dnyrp8747pj6k"]
+
+[ext_resource type="Texture2D" uid="uid://dr515lnb43y6o" path="res://github mods/github_logo.png" id="1_6gkqa"]
+[ext_resource type="Script" uid="uid://b2kdktilqiqma" path="res://github mods/github_instal.gd" id="2_gw6ui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20akh"]
+bg_color = Color(0.18314102, 0.18291193, 0.22348306, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="github instal" type="Button" unique_id=204874904]
+offset_right = 187.0
+offset_bottom = 39.0
+theme_override_constants/icon_max_width = 34
+theme_override_icons/icon = ExtResource("1_6gkqa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_20akh")
+text = "Instal mod from github"
+script = ExtResource("2_gw6ui")
+repo = "https://github.com/pknisely/black-and-white-game-jam"
+branch = "main"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1086807980]
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

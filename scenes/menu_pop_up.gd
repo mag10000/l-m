@@ -25,7 +25,7 @@ func _on_back_pressed():
 
 func _on_quit_pressed():
 	save_manager.write_save(save())
-	get_tree().quit()
+	GDSync.quit()
 
 func save():
 	var save_dict = {

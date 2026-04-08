@@ -34,7 +34,7 @@ func _on_button_2_pressed():
 	save_manager.write_save(save())
 	#else:
 		#_cloud_save_data(save())
-	get_tree().quit()
+	GDSync.quit()
 
 
 func load_mod():
@@ -72,6 +72,7 @@ func load_mod():
 
 
 func _process(_delta):
+	$AnimatedSprite2D2.visible = false
 	if Input.is_action_just_pressed("ui_accept"):
 		$AcceptDialog.hide()
 	
@@ -104,7 +105,7 @@ func _process(_delta):
 #magnus
 
 	if State.loginperson == ("none"):
-		$Button7.disabled = true
+		#$Button7.disabled = true
 		$MainMenuArt/ColorRect4.visible = false
 		$AnimatedSprite2D2.play("new_animation")
 		$AnimatedSprite2D.play("default")
@@ -112,20 +113,25 @@ func _process(_delta):
 	else:
 		$AnimatedSprite2D2.play("default")
 		$AnimatedSprite2D.play("new_animation")
-	if State.loginperson == ("erica"):
-		$Button7.disabled = false
-		$MainMenuArt/ColorRect4.visible = true
-		$MainMenuArt/ColorRect5.visible = true
-	if State.loginperson == ("magnus"):
-		$Button7.disabled = false
-
+	if State.user_info["signed_in"]:
+		$shop_button.disabled = false
+	else:
+		$shop_button.disabled = true
 
 func _on_button_4_pressed():
 	get_tree().change_scene_to_file("res://translate/translate.tscn")
 
 func _ready():
+	GamepadCursor.use_gamepad_mouse = true
 	if FileAccess.file_exists("user://auth_session.dat") && State.user_info["signed_in"] == false:
 		get_tree().change_scene_to_file("res://sign in/main.tscn")
+	if FileAccess.file_exists("user://auto_sign_in_email.dat") && State.user_info["signed_in"] == false:
+		get_tree().change_scene_to_file("res://sign in/main.tscn")
+	if FileAccess.file_exists("user://auto_sign_in_app.dat") && State.user_info["signed_in"] == false:
+		get_tree().change_scene_to_file("res://sign in/main.tscn")
+	if FileAccess.file_exists("user://itch_session.dat") && State.user_info["signed_in"] == false:
+		get_tree().change_scene_to_file("res://sign in/main.tscn")
+
 	#if State.user_info["signed_in"] == true:
 		#if State.cloud_load == false:
 			#State.cloud_load = true
@@ -211,20 +217,21 @@ func _ready():
 		var user = OS.get_environment("USERNAME")
 		var folder_path = "C:\\Users\\"+user+"\\Documents\\LMdlc"
 		if FileAccess.file_exists(folder_path):
-			get_tree().quit()
+			#get_tree().quit()
+			pass
 		else:
 			DirAccess.make_dir_absolute(folder_path)
 		DirAccess.make_dir_absolute("C:\\Users\\"+user+"\\Documents\\LMJumpSound")
 		
-		$AcceptDialog.dialog_text = tr("Hello") + user + tr(" and welcome to lm superheroes!")
+		$AcceptDialog.dialog_text = tr("Hello") + " " + user + tr(" and welcome to lm superheroes!")
 
 		if FileAccess.file_exists(folder_path + "MoreLevels"):
-			get_tree().quit()
+			GDSync.quit()
 	if State.window_saftey == false:
 		var user = OS.get_environment("USERNAME")
 		var folder_path = "C:\\Users\\"+user+"\\Documents\\LMdlc"
 		if FileAccess.file_exists(folder_path):
-			get_tree().quit()
+			GDSync.quit()
 		else:
 			DirAccess.make_dir_absolute(folder_path)
 		DirAccess.make_dir_absolute("C:\\Users\\"+user+"\\Documents\\LMJumpSound")
@@ -232,7 +239,7 @@ func _ready():
 		$AcceptDialog.dialog_text = tr("Hello") + user + tr(" and welcome to lm superheroes!")
 
 		if FileAccess.file_exists(folder_path + "MoreLevels"):
-			get_tree().quit()
+			GDSync.quit()
 
 	save_manager.path = "user://lm_data.json"
 
@@ -426,7 +433,7 @@ func _on_arcade_pressed():
 
 
 func _on_timer_timeout():
-	get_tree().quit()
+	GDSync.quit()
 
 
 func _on_button_8_pressed():

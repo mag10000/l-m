@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bna0b80ktslcr"]
+[gd_scene format=3 uid="uid://bna0b80ktslcr"]
 
 [ext_resource type="Script" uid="uid://bpwv5tup0jjo3" path="res://sign in/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cbnapqe1vjffv" path="res://sign in/google.svg" id="2_0xm2m"]
@@ -8,9 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cqy068f6e5pmg" path="res://sign in/twitch-tv-logo-png_seeklogo-259676-removebg-preview.png" id="6_be4ok"]
 [ext_resource type="Texture2D" uid="uid://dwrdxs8yd00k2" path="res://assets/lm logo new.png" id="6_gphdf"]
 [ext_resource type="PackedScene" uid="uid://crchs7y3qs8x" path="res://sign in/image_web.tscn" id="7_gphdf"]
+[ext_resource type="Texture2D" uid="uid://c5je3j66ub1rv" path="res://addons/itch-oauth/itch_logo-removebg-preview.png" id="7_l4hnf"]
 [ext_resource type="Texture2D" uid="uid://c8rv15hkik8me" path="res://assets/arrows_updown.png" id="9_mrklx"]
 [ext_resource type="Script" uid="uid://dw5h2qahnivj3" path="res://sign in/application_sign_in_panel.gd" id="10_xhjkg"]
 [ext_resource type="PackedScene" uid="uid://bynk641hbtaye" path="res://email_sign_up.tscn" id="11_rcddf"]
+[ext_resource type="Script" uid="uid://ctmgjbkmwcfr8" path="res://sign in/message_panel.gd" id="12_jrqms"]
+[ext_resource type="PackedScene" uid="uid://cd3ct7eefx3kj" path="res://silent_wolf_auth.tscn" id="13_66703"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
 
@@ -81,7 +84,7 @@ corner_detail = 5
 atlas = ExtResource("9_mrklx")
 region = Rect2(0, 0, 16, 16)
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" unique_id=1439702740]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +93,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=1244154854]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -101,7 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.10902826, 0.5247182, 0.63459206, 1)
 
-[node name="LoginPanel" type="PanelContainer" parent="."]
+[node name="LoginPanel" type="PanelContainer" parent="." unique_id=114838876]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -109,14 +112,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -181.0
-offset_top = -77.0
+offset_top = -129.0
 offset_right = 181.0
-offset_bottom = -33.0
+offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
 
-[node name="SignInButton" type="Button" parent="LoginPanel"]
+[node name="SignInButton" type="Button" parent="LoginPanel" unique_id=539653532]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 24
@@ -130,7 +133,7 @@ disabled = true
 text = "Sign in with Google"
 icon = ExtResource("2_0xm2m")
 
-[node name="Logindiscord" type="PanelContainer" parent="."]
+[node name="Logindiscord" type="PanelContainer" parent="." unique_id=1746518336]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -138,14 +141,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -189.0
-offset_top = -12.0
+offset_top = -64.0
 offset_right = 189.0
-offset_bottom = 32.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
 
-[node name="SignInButton2" type="Button" parent="Logindiscord"]
+[node name="SignInButton2" type="Button" parent="Logindiscord" unique_id=1511452528]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 24
@@ -159,7 +162,7 @@ disabled = true
 text = "Sign in with Discord"
 icon = ExtResource("4_x0fwl")
 
-[node name="LoginGithub" type="PanelContainer" parent="."]
+[node name="LoginGithub" type="PanelContainer" parent="." unique_id=436838113]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -167,14 +170,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -181.0
-offset_top = 49.0
+offset_top = -3.0
 offset_right = 181.0
-offset_bottom = 93.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
 
-[node name="SignInButton3" type="Button" parent="LoginGithub"]
+[node name="SignInButton3" type="Button" parent="LoginGithub" unique_id=214785138]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 24
@@ -188,7 +191,7 @@ disabled = true
 text = "Sign in with Github"
 icon = ExtResource("5_be4ok")
 
-[node name="LoginTwitch" type="PanelContainer" parent="."]
+[node name="LoginTwitch" type="PanelContainer" parent="." unique_id=1769195852]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -196,14 +199,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -181.0
-offset_top = 112.0
+offset_top = 60.0
 offset_right = 181.0
-offset_bottom = 156.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
 
-[node name="SignInButton4" type="Button" parent="LoginTwitch"]
+[node name="SignInButton4" type="Button" parent="LoginTwitch" unique_id=800807792]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 24
@@ -217,7 +220,36 @@ disabled = true
 text = "Sign in with Twitch"
 icon = ExtResource("6_be4ok")
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="LoginItch" type="PanelContainer" parent="." unique_id=229457151]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = 119.0
+offset_right = 189.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
+
+[node name="SignInButton5" type="Button" parent="LoginItch" unique_id=1725202732]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 24
+theme_override_fonts/font = ExtResource("2_fj3h5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
+disabled = true
+text = "Sign in with itch.io"
+icon = ExtResource("7_l4hnf")
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=1131981006]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3142361
@@ -227,7 +259,7 @@ anchor_bottom = 0.7916667
 theme_override_styles/separator = SubResource("StyleBoxLine_mrklx")
 metadata/_edit_use_anchors_ = true
 
-[node name="LoginEmail" type="PanelContainer" parent="."]
+[node name="LoginEmail" type="PanelContainer" parent="." unique_id=585996711]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.34288195
@@ -239,10 +271,10 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0xm2m")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LoginEmail"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginEmail" unique_id=907627464]
 layout_mode = 2
 
-[node name="SignUPButton5" type="Button" parent="LoginEmail/VBoxContainer"]
+[node name="SignUPButton5" type="Button" parent="LoginEmail/VBoxContainer" unique_id=280812741]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 24
@@ -255,7 +287,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 disabled = true
 text = "Sign up with Email"
 
-[node name="SignInButton6" type="Button" parent="LoginEmail/VBoxContainer"]
+[node name="SignInButton6" type="Button" parent="LoginEmail/VBoxContainer" unique_id=1334607171]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 24
@@ -268,13 +300,13 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 disabled = true
 text = "Sign in with Email"
 
-[node name="LmLogoNew" type="TextureRect" parent="."]
+[node name="LmLogoNew" type="TextureRect" parent="." unique_id=395730619]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.43229166
-anchor_top = 0.10185185
+anchor_left = 0.43229163
+anchor_top = 0.041666668
 anchor_right = 0.5625
-anchor_bottom = 0.33333334
+anchor_bottom = 0.27314815
 offset_left = 3.0517578e-05
 offset_right = -50.0
 offset_bottom = -50.0
@@ -283,7 +315,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_gphdf")
 metadata/_edit_use_anchors_ = true
 
-[node name="SignedInPanel" type="PanelContainer" parent="."]
+[node name="SignedInPanel" type="PanelContainer" parent="." unique_id=2043082017]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -299,13 +331,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0xm2m")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SignedInPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SignedInPanel" unique_id=645736073]
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Header" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+[node name="Header" type="RichTextLabel" parent="SignedInPanel/VBoxContainer" unique_id=435016499]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_fj3h5")
 theme_override_fonts/bold_font = ExtResource("2_fj3h5")
@@ -313,7 +345,7 @@ bbcode_enabled = true
 text = "[b][font_size=24]You are signed in![/font_size][/b]"
 fit_content = true
 
-[node name="email" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+[node name="email" type="RichTextLabel" parent="SignedInPanel/VBoxContainer" unique_id=271942184]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_fj3h5")
 theme_override_font_sizes/normal_font_size = 8
@@ -325,7 +357,7 @@ bbcode_enabled = true
 text = "[font_size=16]Your email: [/font_size]"
 fit_content = true
 
-[node name="userid" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+[node name="userid" type="RichTextLabel" parent="SignedInPanel/VBoxContainer" unique_id=1915206700]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_fj3h5")
 theme_override_font_sizes/normal_font_size = 8
@@ -337,7 +369,7 @@ bbcode_enabled = true
 text = "[font_size=16]Your user id: [/font_size]"
 fit_content = true
 
-[node name="displayname" type="RichTextLabel" parent="SignedInPanel/VBoxContainer"]
+[node name="displayname" type="RichTextLabel" parent="SignedInPanel/VBoxContainer" unique_id=751059886]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_fj3h5")
 theme_override_font_sizes/normal_font_size = 8
@@ -349,36 +381,36 @@ bbcode_enabled = true
 text = "[font_size=16]Display Name: [/font_size]"
 fit_content = true
 
-[node name="Container" type="Control" parent="SignedInPanel/VBoxContainer"]
+[node name="Container" type="Control" parent="SignedInPanel/VBoxContainer" unique_id=665590157]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="SignedInPanel/VBoxContainer"]
+[node name="LineEdit" type="LineEdit" parent="SignedInPanel/VBoxContainer" unique_id=1198047013]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
 placeholder_text = "Change Display Name"
 
-[node name="change_name" type="Button" parent="SignedInPanel/VBoxContainer"]
+[node name="change_name" type="Button" parent="SignedInPanel/VBoxContainer" unique_id=1135344073]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
 text = "change"
 
-[node name="Container2" type="Control" parent="SignedInPanel/VBoxContainer"]
+[node name="Container2" type="Control" parent="SignedInPanel/VBoxContainer" unique_id=2131603172]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Container3" type="Control" parent="SignedInPanel/VBoxContainer"]
+[node name="Container3" type="Control" parent="SignedInPanel/VBoxContainer" unique_id=1028429023]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="SignoutButtonContainer" type="HBoxContainer" parent="SignedInPanel/VBoxContainer"]
+[node name="SignoutButtonContainer" type="HBoxContainer" parent="SignedInPanel/VBoxContainer" unique_id=1639058448]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="SignOutButton" type="Button" parent="SignedInPanel/VBoxContainer/SignoutButtonContainer"]
+[node name="SignOutButton" type="Button" parent="SignedInPanel/VBoxContainer/SignoutButtonContainer" unique_id=1620118233]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
@@ -389,7 +421,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_lquwl")
 theme_override_styles/focus = SubResource("StyleBoxFlat_lquwl")
 text = "Sign Out"
 
-[node name="Image Web" parent="." instance=ExtResource("7_gphdf")]
+[node name="Image Web" parent="." unique_id=487727655 instance=ExtResource("7_gphdf")]
 visible = false
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 0
@@ -399,7 +431,7 @@ offset_right = 628.0
 offset_bottom = 438.0
 url = "https://openclipart.org/image/2000px/247320"
 
-[node name="Back_Button" type="Button" parent="."]
+[node name="Back_Button" type="Button" parent="." unique_id=308018134]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -415,7 +447,8 @@ theme_override_fonts/font = ExtResource("2_fj3h5")
 text = "Back"
 icon = SubResource("AtlasTexture_xhjkg")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1970068373]
+visible = false
 layout_mode = 0
 anchor_left = 0.006076389
 anchor_top = 0.9212963
@@ -426,7 +459,8 @@ disabled = true
 text = "Logout from email"
 metadata/_edit_use_anchors_ = true
 
-[node name="Login_Status" type="Label" parent="."]
+[node name="Login_Status" type="Label" parent="." unique_id=1812611302]
+visible = false
 layout_mode = 0
 anchor_left = 0.0069444445
 anchor_top = 0.88117284
@@ -436,7 +470,7 @@ theme_override_fonts/font = ExtResource("2_fj3h5")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="application sign in" type="Button" parent="."]
+[node name="application sign in" type="Button" parent="." unique_id=580926257]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -454,7 +488,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_1bvp3")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2yge")
 text = "Sign in with Application"
 
-[node name="application sign in Panel" type="Panel" parent="."]
+[node name="application sign in Panel" type="Panel" parent="." unique_id=537826941]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -464,7 +498,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_xhjkg")
 
-[node name="close" type="Button" parent="application sign in Panel"]
+[node name="close" type="Button" parent="application sign in Panel" unique_id=76356817]
 layout_mode = 1
 offset_right = 48.0
 offset_bottom = 31.0
@@ -472,7 +506,7 @@ theme_override_fonts/font = ExtResource("2_fj3h5")
 theme_override_font_sizes/font_size = 32
 text = "← close"
 
-[node name="Header" type="Label" parent="application sign in Panel"]
+[node name="Header" type="Label" parent="application sign in Panel" unique_id=584052799]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.40625
@@ -485,23 +519,23 @@ text = "Apps"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="application sign in Panel"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="application sign in Panel" unique_id=574776374]
 layout_mode = 0
 offset_left = 455.0
 offset_top = 63.0
 offset_right = 696.0
 offset_bottom = 94.0
 
-[node name="Button" type="Button" parent="application sign in Panel/HBoxContainer2"]
+[node name="Button" type="Button" parent="application sign in Panel/HBoxContainer2" unique_id=799305013]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
 text = "open"
 
-[node name="LineEdit" type="LineEdit" parent="application sign in Panel/HBoxContainer2"]
+[node name="LineEdit" type="LineEdit" parent="application sign in Panel/HBoxContainer2" unique_id=487795184]
 custom_minimum_size = Vector2(165, 0)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="application sign in Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="application sign in Panel" unique_id=125221641]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3949653
@@ -512,12 +546,12 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="application sign in Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="application sign in Panel/ScrollContainer" unique_id=1573952772]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="application sign in Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="application sign in Panel" unique_id=1397429937]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -531,7 +565,7 @@ bbcode_enabled = true
 text = "[url=https://docs.google.com/document/d/1O_nrD1U_tuW2NgfqZ2vT8MPn9a1Qavev3xh-6RznAJU/edit?tab=t.0]Make Your own LM login app[/url]"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="application sign in Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="application sign in Panel" unique_id=2064252132]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3246528
@@ -542,35 +576,88 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="add app" type="Button" parent="application sign in Panel/HBoxContainer"]
+[node name="add app" type="Button" parent="application sign in Panel/HBoxContainer" unique_id=1288413373]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
 text = "Add app"
 
-[node name="name" type="LineEdit" parent="application sign in Panel/HBoxContainer"]
+[node name="name" type="LineEdit" parent="application sign in Panel/HBoxContainer" unique_id=1419885452]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
 placeholder_text = "name"
 max_length = 12
 
-[node name="path" type="LineEdit" parent="application sign in Panel/HBoxContainer"]
+[node name="path" type="LineEdit" parent="application sign in Panel/HBoxContainer" unique_id=1645175524]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_fj3h5")
 placeholder_text = "path"
 max_length = 1590
 
-[node name="Timer" type="Timer" parent="application sign in Panel"]
+[node name="Timer" type="Timer" parent="application sign in Panel" unique_id=1747120895]
 wait_time = 0.1
 
-[node name="Email Sign Up" parent="." instance=ExtResource("11_rcddf")]
+[node name="Email Sign Up" parent="." unique_id=643841978 instance=ExtResource("11_rcddf")]
 layout_mode = 1
+
+[node name="MessagePanel" type="Panel" parent="." unique_id=1822901112]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -349.0
+offset_right = 349.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_jrqms")
+
+[node name="header" type="RichTextLabel" parent="MessagePanel" unique_id=1500107419]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_fj3h5")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="msg" type="RichTextLabel" parent="MessagePanel" unique_id=1225210856]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 101.0
+offset_bottom = 648.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_fj3h5")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Title"
+horizontal_alignment = 1
+
+[node name="chat" type="Button" parent="." unique_id=604068095]
+visible = false
+layout_mode = 1
+offset_right = 107.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_fj3h5")
+text = "Chat"
+
+[node name="SilentWolfAuth" parent="." unique_id=511106646 instance=ExtResource("13_66703")]
+visible = false
+layout_mode = 1
+mouse_filter = 2
 
 [connection signal="pressed" from="LoginPanel/SignInButton" to="." method="_on_sign_in_button_pressed"]
 [connection signal="pressed" from="Logindiscord/SignInButton2" to="." method="_on_sign_in_button_2_pressed"]
 [connection signal="pressed" from="LoginGithub/SignInButton3" to="." method="_on_sign_in_button_3_pressed"]
 [connection signal="pressed" from="LoginTwitch/SignInButton4" to="." method="_on_sign_in_button_4_pressed"]
+[connection signal="pressed" from="LoginItch/SignInButton5" to="." method="_on_sign_in_button_5_pressed"]
 [connection signal="pressed" from="LoginEmail/VBoxContainer/SignUPButton5" to="." method="_on_sign_up_button_5_pressed"]
 [connection signal="pressed" from="LoginEmail/VBoxContainer/SignInButton6" to="." method="_on_sign_in_button_6_pressed"]
 [connection signal="pressed" from="SignedInPanel/VBoxContainer/change_name" to="." method="_on_change_name_pressed"]
@@ -585,3 +672,6 @@ layout_mode = 1
 [connection signal="timeout" from="application sign in Panel/Timer" to="application sign in Panel" method="_on_timer_timeout"]
 [connection signal="create_completed" from="Email Sign Up" to="." method="_on_email_sign_up_create_completed"]
 [connection signal="login_completed" from="Email Sign Up" to="." method="_on_email_sign_up_login_completed"]
+[connection signal="meta_clicked" from="MessagePanel/msg" to="MessagePanel" method="_on_msg_meta_clicked"]
+[connection signal="pressed" from="chat" to="." method="_on_chat_pressed"]
+[connection signal="login_done" from="SilentWolfAuth" to="." method="_on_silent_wolf_auth_login_done"]
