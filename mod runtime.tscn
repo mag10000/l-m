@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2wccyq3cm0se"]
+
+[ext_resource type="Script" uid="uid://cqdq22efptqno" path="res://runtime.gd" id="1_7uyrk"]
+
+[node name="ModRuntime" type="Node" unique_id=1694137304]
+script = ExtResource("1_7uyrk")

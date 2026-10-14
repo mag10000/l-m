@@ -21,7 +21,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="L M superheroes"
-config/version="1.1.1"
+config/version="4.0.0"
 run/main_scene="res://scenes/main_menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Lm Superheroes"
@@ -63,7 +63,7 @@ mouse_cursor/tooltip_position_offset=Vector2(100, 0)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ConsoleGD/plugin.cfg", "res://addons/GD-Sync/plugin.cfg", "res://addons/LootLockerSDK/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/gdmail/plugin.cfg", "res://addons/itch-oauth/plugin.cfg", "res://addons/itchio_uploader/plugin.cfg", "res://addons/puzzle_dependencies/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
+enabled=PackedStringArray("res://addons/ConsoleGD/plugin.cfg", "res://addons/GD-Sync/plugin.cfg", "res://addons/LootLockerSDK/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/gdmail/plugin.cfg", "res://addons/itch-oauth/plugin.cfg", "res://addons/itchio_uploader/plugin.cfg", "res://addons/puzzle_dependencies/plugin.cfg", "res://addons/silent_wolf/plugin.cfg", "res://addons/version_bumper/plugin.cfg")
 
 [input]
 
@@ -325,3 +325,7 @@ current_board_id=""
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+
+[version_bumper]
+
+display_mode=0

@@ -12,7 +12,7 @@ var save_path = "user://variable.json"
 
 var mod_on = ""
 
-@export var version = ("8.0")
+var version = "v" + ProjectSettings.get_setting("application/config/version")
 @warning_ignore("unused_private_class_variable")
 var _1_prees = false
 
@@ -42,7 +42,7 @@ func load_mod():
 	var dir = DirAccess.open("C:\\Users\\" + user + "\\Documents\\LMdlc")
 	print(dir.get_files())
 	for file in dir.get_files():
-		if file.contains(".zip") or file.contains(".pck"):
+		if file.contains(".pck"):
 			#if FileAccess.file_exists("C:\\Users\\" + user + "\\Documents\\LMdlc\\" + file + "\\info.txt"):
 			print(file + " mod load succesfull")
 			
@@ -65,7 +65,14 @@ func load_mod():
 				$"update guide/header".text = file + " mod"
 		else:
 			print(file + " mod load unsuccesfull")
-		
+	var runtime = load("res://mod runtime.tscn")
+	var runtime_node = runtime.instantiate()
+	State.add_child(runtime_node)
+	for node in DirAccess.get_files_at("res://autonodes"):
+		if node.get_extension() == "tscn":
+			var autonode_scene = load(node)
+			var autonode_node = autonode_scene.instantiate()
+			State.add_child(autonode_node)
 	#ProjectSettings.load_resource_pack("")
 	#ProjectSettings.load_resource_pack("C:\\Users\\magnu\\Documents\\LMdlc\\farmer.zip",true)
 
@@ -421,10 +428,9 @@ func _on_arcade_pressed():
 	$Button3.visible = false
 	$AnimatedSprite2D2.visible = false
 	$AnimatedSprite2D.visible = false
-	$Button4.visible = false
 	$Button5.visible = false
 	$Button6.visible = false
-	$Button7.visible = false
+	$Button8.visible = false
 	$save.visible = false
 	$load.visible = false
 	$mobile.visible = false
